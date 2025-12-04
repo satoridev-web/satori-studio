@@ -10,6 +10,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 The Professional's Choice for Drag & Drop WordPress Page Building. Fast, Reliable, and Trusted since 2014.
 
+== Documentation ==
+
+Internal roadmap, standards, and repository scaffolding notes live in the new `docs/` folder.
+
 == Description ==
 
 = The Professional's Choice for Drag & Drop WordPress Page Building. Fast, Reliable, and Trusted since 2014 =
