@@ -451,7 +451,7 @@ final class FLBuilderUsage {
 			} else {
 				$data['license'] = array();
 				foreach ( (array) $subscription->subscriptions as $subscription ) {
-					if ( false !== strpos( $subscription->name, 'Beaver Builder' ) ) {
+					if ( false !== strpos( $subscription->name, 'SATORI Studio' ) ) {
 						$data['license']['bb-plugin'] = $subscription->name;
 					}
 					if ( 'Beaver Themer Plugin' == $subscription->name ) {

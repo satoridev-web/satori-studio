@@ -48,10 +48,10 @@
 		printf( '<h3>%s</h3><ol>', _n( 'Your Subscription', 'Your subscriptions', count( $subscription->subscriptions ), 'fl-builder' ) );
 		$name = '';
 		foreach ( $subscription->subscriptions as $sub ) {
-			if ( stristr( $sub->name, 'Beaver Builder' ) ) {
+			if ( stristr( $sub->name, 'SATORI Studio' ) ) {
 				// find bb download
 				foreach( (array) $subscription->downloads as $possible ) {
-					if ( stristr( $possible, 'Beaver Builder Plugin' ) ) {
+					if ( stristr( $possible, 'SATORI Studio Plugin' ) ) {
 						$name = $possible;
 					}
 				}

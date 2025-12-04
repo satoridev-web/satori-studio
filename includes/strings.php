@@ -5,7 +5,7 @@
  * need to be translated.
  */
 
-__( 'The Beaver Builder Booster plugin is not compatible with your host.', 'fl-builder' );
+__( 'The SATORI Studio Booster plugin is not compatible with your host.', 'fl-builder' );
 /* translators: %s: singular label */
 _x( 'Click here to edit content on this %s using an easy drag-and-drop builder.', '%s is the singular post type name (e.g. page)', 'fl-builder' );
 

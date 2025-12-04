@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WP Cli commands for Beaver Builder.
+ * WP Cli commands for SATORI Studio.
  */
 class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 
@@ -59,7 +59,7 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 					switch_to_blog( $blog_id );
 					FLBuilderModel::delete_asset_cache_for_all_posts();
 					/* translators: %s: current blog name */
-					WP_CLI::success( sprintf( _x( 'Cleared the Beaver Builder cache for blog %s', 'current blog name', 'fl-builder' ), get_option( 'home' ) ) );
+					WP_CLI::success( sprintf( _x( 'Cleared the SATORI Studio cache for blog %s', 'current blog name', 'fl-builder' ), get_option( 'home' ) ) );
 					if ( $all ) {
 						FLCustomizer::refresh_css();
 						/* translators: %s: current blog name */
@@ -69,7 +69,7 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 				}
 			} else {
 				FLBuilderModel::delete_asset_cache_for_all_posts();
-				WP_CLI::success( __( 'Cleared the Beaver Builder cache', 'fl-builder' ) );
+				WP_CLI::success( __( 'Cleared the SATORI Studio cache', 'fl-builder' ) );
 				if ( $all ) {
 					FLCustomizer::refresh_css();
 					WP_CLI::success( __( 'Rebuilt the theme cache', 'fl-builder' ) );
@@ -85,7 +85,7 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 
 
 	/**
-	 * Activate domain using Beaver Builder license key.
+	 * Activate domain using SATORI Studio license key.
 	 *
 	 * ## OPTIONS
 	 *
@@ -143,7 +143,7 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 	 * ## EXAMPLE
 	 *
 	 * 1. wp beaver global list
-	 *      - Returns list of Beaver Builder global options.
+	 *      - Returns list of SATORI Studio global options.
 	 * @subcommand global list
 	*/
 	public function global_list( $args, $assoc_args ) {

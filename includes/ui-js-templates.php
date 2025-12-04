@@ -7,7 +7,7 @@
 	<div class="fl-pro-message-content">We're sorry, {{data.feature}} is not available on your plan. Please upgrade to unlock all these awesome features.</div>
 	<div class="fl-pro-message-button">
 		<button class="fl-builder-upgrade-button fl-builder-button">
-			<?php _ex( 'Upgrade', 'Link to learn more about premium Beaver Builder', 'fl-builder' ); ?>
+			<?php _ex( 'Upgrade', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
 		</button>
 	</div>
 </script>
@@ -545,7 +545,7 @@
 			<?php _e( 'Get more time-saving features, modules, and expert support.', 'fl-builder' ); ?>
 		</a>
 		<button class="fl-builder-upgrade-button fl-builder-button">
-			<?php _ex( 'Learn More', 'Link to learn more about premium Beaver Builder', 'fl-builder' ); ?>
+			<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
 		</button>
 	</div>
 	<# } #>
@@ -586,7 +586,7 @@
 				<?php _e( 'Get more time-saving features, modules, and expert support.', 'fl-builder' ); ?>
 			</a>
 			<button class="fl-builder-upgrade-button fl-builder-button">
-				<?php _ex( 'Learn More', 'Link to learn more about premium Beaver Builder', 'fl-builder' ); ?>
+				<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
 			</button>
 		</div>
 		<# } #>
@@ -662,7 +662,7 @@
 			<?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?>
 		</a>
 		<button class="fl-builder-upgrade-button fl-builder-button">
-			<?php _ex( 'Learn More', 'Link to learn more about premium Beaver Builder', 'fl-builder' ); ?>
+			<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
 		</button>
 	</div>
 	<# } #>
@@ -796,7 +796,7 @@
 <script type="text/html" id="tmpl-fl-content-lite-templates-upgrade-view">
 	<div class="fl-builder--panel-message">
 		<p><?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?></p>
-		<a class="fl-builder-submenu-link fl-builder-upgrade-button fl-builder-button" href="{{FLBuilderConfig.upgradeUrl}}" target="_blank"><?php _ex( 'Learn More', 'Link to learn more about premium Beaver Builder', 'fl-builder' ); ?> <i class="fas fa-external-link-alt"></i></a>
+		<a class="fl-builder-submenu-link fl-builder-upgrade-button fl-builder-button" href="{{FLBuilderConfig.upgradeUrl}}" target="_blank"><?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?> <i class="fas fa-external-link-alt"></i></a>
 	</div>
 </script>
 <!-- #tmpl-fl-content-lite-templates-upgrade-view -->

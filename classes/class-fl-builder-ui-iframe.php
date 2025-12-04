@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Handles rendering the Beaver Builder iframe UI.
+ * Handles rendering the SATORI Studio iframe UI.
  */
 class FLBuilderUIIFrame {
 

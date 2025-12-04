@@ -232,13 +232,16 @@ final class FLBuilder {
 	 * @return string|bool The translation file path or false if none is found.
 	 */
 	static public function load_plugin_textdomain() {
-		// Traditional WordPress plugin locale filter
-		// Uses get_user_locale() which was added in 4.7 so we need to check its available.
-		if ( function_exists( 'get_user_locale' ) ) {
-			$locale = apply_filters( 'plugin_locale', get_user_locale(), 'fl-builder' );
-		} else {
-			$locale = apply_filters( 'plugin_locale', get_locale(), 'fl-builder' );
-		}
+                $primary_domain = 'satori-studio';
+                $legacy_domain  = 'fl-builder';
+
+                // Traditional WordPress plugin locale filter
+                // Uses get_user_locale() which was added in 4.7 so we need to check its available.
+                if ( function_exists( 'get_user_locale' ) ) {
+                        $locale = apply_filters( 'plugin_locale', get_user_locale(), $primary_domain );
+                } else {
+                        $locale = apply_filters( 'plugin_locale', get_locale(), $primary_domain );
+                }
 
 		/**
 		 * Allow users to override the locale.
@@ -248,20 +251,26 @@ final class FLBuilder {
 		$locale = apply_filters( 'fl_set_ui_locale', $locale );
 
 		//Setup paths to current locale file
-		$mofile_global = trailingslashit( WP_LANG_DIR ) . 'plugins/bb-plugin/' . $locale . '.mo';
-		$mofile_local  = trailingslashit( FL_BUILDER_DIR ) . 'languages/' . $locale . '.mo';
+                $mofile_global = trailingslashit( WP_LANG_DIR ) . 'plugins/satori-studio/' . $locale . '.mo';
+                $mofile_local  = trailingslashit( FL_BUILDER_DIR ) . 'languages/' . $locale . '.mo';
 
-		if ( file_exists( $mofile_global ) ) {
-			//Look in global /wp-content/languages/plugins/bb-plugin/ folder
-			return load_textdomain( 'fl-builder', $mofile_global );
-		} elseif ( file_exists( $mofile_local ) ) {
-			//Look in local /wp-content/plugins/bb-plugin/languages/ folder
-			return load_textdomain( 'fl-builder', $mofile_local );
-		}
+                if ( file_exists( $mofile_global ) ) {
+                        //Look in global /wp-content/languages/plugins/satori-studio/ folder
+                        load_textdomain( $primary_domain, $mofile_global );
+                } elseif ( file_exists( $mofile_local ) ) {
+                        //Look in local /wp-content/plugins/satori-studio/languages/ folder
+                        load_textdomain( $primary_domain, $mofile_local );
+                }
 
-		//Nothing found
-		return false;
-	}
+                if ( file_exists( $mofile_global ) ) {
+                        return load_textdomain( $legacy_domain, $mofile_global );
+                } elseif ( file_exists( $mofile_local ) ) {
+                        return load_textdomain( $legacy_domain, $mofile_local );
+                }
+
+                //Nothing found
+                return false;
+        }
 
 	static public function rich_edit() {
 		global $wp_version;
@@ -1167,11 +1176,11 @@ final class FLBuilder {
 					'intro'        => __( 'has detected a plugin conflict that is preventing the page from saving.', 'fl-builder' ),
 					'try'          => __( 'Try to fix it yourself now', 'fl-builder' ),
 					/* translators: %s: link to documentation */
-					'troubleshoot' => sprintf( __( 'If you want to troubleshoot further, you can check our %s for plugins we know to be incompatible. Then deactivate your plugins one by one while you try to save the page in the Beaver Builder editor.<br />When the page saves normally, you have identified the plugin causing the conflict.', 'fl-builder' ), $kb_link ),
-					'contact'      => __( 'If you contact Beaver Builder Support, we need to know what the error is in the JavaScript console in your browser.', 'fl-builder' ),
+					'troubleshoot' => sprintf( __( 'If you want to troubleshoot further, you can check our %s for plugins we know to be incompatible. Then deactivate your plugins one by one while you try to save the page in the SATORI Studio editor.<br />When the page saves normally, you have identified the plugin causing the conflict.', 'fl-builder' ), $kb_link ),
+					'contact'      => __( 'If you contact SATORI Studio Support, we need to know what the error is in the JavaScript console in your browser.', 'fl-builder' ),
 					'step_one'     => __( 'Step One', 'fl-builder' ),
 					'step_two'     => __( 'Step Two', 'fl-builder' ),
-					'if_contact'   => __( 'If you contact Beaver Builder Support, we need to know what the error is in the JavaScript console in your browser.', 'fl-builder' ),
+					'if_contact'   => __( 'If you contact SATORI Studio Support, we need to know what the error is in the JavaScript console in your browser.', 'fl-builder' ),
 					/* translators: %s: link to support form */
 					'contact'      => sprintf( __( 'Copy the errors you find there and submit them with your %s. It saves us having to ask you that as a second step.', 'fl-builder' ), $support ),
 					'hand'         => __( 'Need a helping hand?', 'fl-builder' ),
@@ -1208,9 +1217,9 @@ final class FLBuilder {
 			return $available;
 		}
 		// plugins first...
-		if ( isset( $updates->response['bb-plugin/fl-builder.php'] )
-			&& isset( $updates->response['bb-plugin/fl-builder.php']->new_version )
-			&& $updates->response['bb-plugin/fl-builder.php']->new_version < FL_BUILDER_VERSION ) {
+           if ( isset( $updates->response['satori-studio-pro/satori-studio-pro.php'] )
+                   && isset( $updates->response['satori-studio-pro/satori-studio-pro.php']->new_version )
+                   && $updates->response['satori-studio-pro/satori-studio-pro.php']->new_version < FL_BUILDER_VERSION ) {
 			$available['builder'] = $updatetxt;
 		}
 		if ( defined( 'FL_THEME_BUILDER_VERSION' )
@@ -4795,7 +4804,7 @@ final class FLBuilder {
 
 		if ( ! did_action( 'fl_did_render_content_filter' ) ) {
 			// we need to do a popup
-			$content = __( 'You must call the_content in the current theme template in order for Beaver Builder to work on this layout.', 'fl-builder' );
+			$content = __( 'You must call the_content in the current theme template in order for SATORI Studio to work on this layout.', 'fl-builder' );
 			?>
 			<script>
 				if ( FLBuilder ) {

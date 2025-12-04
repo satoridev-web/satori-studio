@@ -265,7 +265,7 @@ final class FLBuilderModel {
 	 */
 	static public function get_upgrade_url( $params = array() ) {
 		/**
-		 * Use this filter to modify the upgrade URL in Beaver Builder Lite.
+		 * Use this filter to modify the upgrade URL in SATORI Studio Lite.
 		 * This can be used to add an affiliate ID.
 		 * @see fl_builder_upgrade_url
 		 * @link https://docs.wpbeaverbuilder.com/beaver-builder/developer/tutorials-guides/common-beaver-builder-filter-examples
@@ -274,7 +274,7 @@ final class FLBuilderModel {
 	}
 
 	/**
-	 * Returns a URL that points to the Beaver Builder store.
+	 * Returns a URL that points to the SATORI Studio store.
 	 *
 	 * @since 1.8.6
 	 * @param string $path A URL path to append to the store URL.
@@ -3156,7 +3156,7 @@ final class FLBuilderModel {
 		// Log an error if a module with this slug already exists.
 		if ( isset( self::$modules[ $instance->slug ] ) ) {
 			/* translators: %s: module filename */
-			error_log( sprintf( _x( 'A module with the filename %s.php already exists! Please namespace your module filenames to ensure compatibility with Beaver Builder.', '%s stands for the module filename', 'fl-builder' ), $instance->slug ) );
+			error_log( sprintf( _x( 'A module with the filename %s.php already exists! Please namespace your module filenames to ensure compatibility with SATORI Studio.', '%s stands for the module filename', 'fl-builder' ), $instance->slug ) );
 			return;
 		}
 
@@ -3204,7 +3204,7 @@ final class FLBuilderModel {
 	static public function register_module_alias( $alias, $config ) {
 		if ( isset( self::$module_aliases[ $alias ] ) ) {
 			/* translators: %s: module alias key */
-			_doing_it_wrong( __CLASS__ . '::register_module_alias', sprintf( _x( 'The module alias %s already exists! Please namespace your module aliases to ensure compatibility with Beaver Builder.', '%s stands for the module alias key', 'fl-builder' ), $alias ), '1.10' );
+			_doing_it_wrong( __CLASS__ . '::register_module_alias', sprintf( _x( 'The module alias %s already exists! Please namespace your module aliases to ensure compatibility with SATORI Studio.', '%s stands for the module alias key', 'fl-builder' ), $alias ), '1.10' );
 			return;
 		}
 		if ( ! $config['module'] || ! isset( self::$modules[ $config['module'] ] ) ) {
@@ -7309,7 +7309,7 @@ final class FLBuilderModel {
 			return FLBuilderWhiteLabel::get_branding();
 		}
 
-		return __( 'Beaver Builder', 'fl-builder' );
+		return __( 'SATORI Studio', 'fl-builder' );
 	}
 
 	/**
@@ -7581,14 +7581,14 @@ final class FLBuilderModel {
 	}
 
 	/**
-	 * Returns the plugin basename for Beaver Builder.
+	 * Returns the plugin basename for SATORI Studio.
 	 *
 	 * @since 1.0
 	 * @return string
 	 */
 	static public function plugin_basename() {
-		return plugin_basename( FL_BUILDER_DIR . 'fl-builder.php' );
-	}
+                return plugin_basename( FL_BUILDER_DIR . 'satori-studio.php' );
+        }
 
 	/**
 	 * Deletes almost all database data and asset cache for the builder.

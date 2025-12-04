@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Manages remote updates for all Beaver Builder products.
+ * Manages remote updates for all SATORI Studio products.
  *
  * @since 1.0
  */
 final class FLUpdater {
 
 	/**
-	 * The API URL for the Beaver Builder update server.
+	 * The API URL for the SATORI Studio update server.
 	 *
 	 * @since 1.0
 	 * @access private
@@ -570,7 +570,7 @@ final class FLUpdater {
 
 			// find available plugin Version
 			foreach ( $subscription->downloads as $ver ) {
-				if ( stristr( $ver, 'Beaver Builder Plugin' ) ) {
+				if ( stristr( $ver, 'SATORI Studio Plugin' ) ) {
 					preg_match( '#\((.*)\sVersion\)$#', $ver, $match );
 					$version = ( isset( $match[1] ) ) ? $match[1] : false;
 					break;
@@ -579,11 +579,11 @@ final class FLUpdater {
 
 			switch ( $plugin_name ) {
 				// pro - show warning if standard is pnly available version
-				case 'Beaver Builder Plugin (Pro Version)':
+				case 'SATORI Studio Plugin (Pro Version)':
 					$show_warning = ( 'Standard' === $version ) ? true : false;
 					break;
 				// agency show warning if available is NOT agency
-				case 'Beaver Builder Plugin (Agency Version)':
+				case 'SATORI Studio Plugin (Agency Version)':
 					$show_warning = ( 'Agency' !== $version ) ? true : false;
 					break;
 				case 'Beaver Themer':
@@ -598,10 +598,10 @@ final class FLUpdater {
 			if ( $show_warning ) {
 				if ( ! $version ) {
 					// translators: %1$s: Plugin name
-					$out .= sprintf( __( 'Updates for Beaver Builder will not work as you appear to have %1$s activated but you have no active subscription.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>', $version );
+					$out .= sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %1$s activated but you have no active subscription.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>', $version );
 				} else {
 					// translators: %2$s: Plugin name
-					$out .= sprintf( __( 'Updates for Beaver Builder will not work as you appear to have %1$s activated but your license is for %2$s version.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>', $version );
+					$out .= sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %1$s activated but your license is for %2$s version.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>', $version );
 				}
 
 				if ( 'Beaver Themer' === $plugin_name ) {
@@ -622,11 +622,13 @@ final class FLUpdater {
 	 * @return string
 	 */
 	static private function get_plugin_file( $slug ) {
-		if ( 'bb-plugin' == $slug ) {
-			$file = $slug . '/fl-builder.php';
-		} else {
-			$file = $slug . '/' . $slug . '.php';
-		}
+                if ( 'bb-plugin' == $slug ) {
+                        $file = $slug . '/fl-builder.php';
+                } elseif ( 'satori-studio' === $slug ) {
+                        $file = $slug . '/satori-studio.php';
+                } else {
+                        $file = $slug . '/' . $slug . '.php';
+                }
 
 		return $file;
 	}
@@ -752,6 +754,6 @@ final class FLUpdater {
 	 * @since 2.9
 	 */
 	private function get_wp_66_text() {
-		return sprintf( '<span class="dashicons dashicons-warning"></span>&nbsp;<strong>%s</strong>', __( 'In version 2.10 of Beaver Builder, the required version of WordPress will be raised to 6.6', 'fl-builder' ) );
+		return sprintf( '<span class="dashicons dashicons-warning"></span>&nbsp;<strong>%s</strong>', __( 'In version 2.10 of SATORI Studio, the required version of WordPress will be raised to 6.6', 'fl-builder' ) );
 	}
 }

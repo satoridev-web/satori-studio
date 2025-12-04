@@ -1,7 +1,7 @@
-<h2><?php _e( "Unlock Your Website's Potential with Beaver Builder", 'fl-builder' ); ?></h2>
+<h2><?php _e( "Unlock Your Website's Potential with SATORI Studio", 'fl-builder' ); ?></h2>
 <p>
 	<?php printf( '<strong>%s</strong>&nbsp;', __( 'Welcome, Hostinger Customer!', 'fl-builder' ) ); ?>
-	<?php _e( "Start crafting your perfect website with Beaver Builder - WordPress's most user-friendly drag-and-drop page builder. Begin your journey today, and enjoy an exclusive six-month free upgrade, courtesy of Hostinger.", 'fl-builder' ); ?>
+	<?php _e( "Start crafting your perfect website with SATORI Studio - WordPress's most user-friendly drag-and-drop page builder. Begin your journey today, and enjoy an exclusive six-month free upgrade, courtesy of Hostinger.", 'fl-builder' ); ?>
 </p>
 <a
 	class="button button-primary"

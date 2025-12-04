@@ -2,7 +2,7 @@
 
 	<h3 class="fl-settings-form-header"><?php _e( 'Get More Features', 'fl-builder' ); ?></h3>
 
-	<p><?php _e( 'Along with access to our expert support team, the premium versions of Beaver Builder are packed with more features to save you time and make building websites easier!', 'fl-builder' ); ?></p>
+	<p><?php _e( 'Along with access to our expert support team, the premium versions of SATORI Studio are packed with more features to save you time and make building websites easier!', 'fl-builder' ); ?></p>
 
 	<h4><?php _e( 'Premium Features', 'fl-builder' ); ?></h4>
 
@@ -14,7 +14,7 @@
 		<li><?php _e( 'Build your own custom modules.', 'fl-builder' ); ?></li>
 	</ul>
 
-	<p><?php _e( 'Come by the Beaver Builder Homepage to learn more about what our premium features can do for you!', 'fl-builder' ); ?></p>
+	<p><?php _e( 'Come by the SATORI Studio Homepage to learn more about what our premium features can do for you!', 'fl-builder' ); ?></p>
 
 	<?php
 	$upgrade_url = FLBuilderModel::get_upgrade_url( array(

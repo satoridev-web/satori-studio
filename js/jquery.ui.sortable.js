@@ -1,5 +1,5 @@
 /**************************************************
- * This file has been modified to support Beaver Builder.
+ * This file has been modified to support SATORI Studio.
  * The following methods have been changed:
  *
  * isFloating:

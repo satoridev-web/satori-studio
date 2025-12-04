@@ -2,9 +2,9 @@
 
 if ( class_exists( 'FLUpdater' ) ) {
 	FLUpdater::add_product(array(
-		'name'    => 'Beaver Builder Plugin (Lite Version)',
-		'version' => '2.9.4.1',
-		'slug'    => 'bb-plugin',
-		'type'    => 'plugin',
-	));
+                'name'    => 'SATORI Studio Plugin (Lite Version)',
+                'version' => '2.9.4.1',
+                'slug'    => 'satori-studio',
+                'type'    => 'plugin',
+        ));
 }

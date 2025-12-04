@@ -1116,7 +1116,7 @@ final class FLBuilderCompatibility {
 	 * @since 2.4.2
 	 */
 	public static function aioseo_conflicting_shortcodes( $shortcodes ) {
-		$shortcodes['Beaver Builder'] = '[fl_builder_insert_layout';
+		$shortcodes['SATORI Studio'] = '[fl_builder_insert_layout';
 		return $shortcodes;
 	}
 	/**
