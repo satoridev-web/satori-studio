@@ -1,5 +1,5 @@
 === SATORI Studio Page Builder - Drag and Drop Website Builder ===
-Contributors: justinbusa, RobbyMcCullough, billyyoung, hinampaksh, diegoliv, webmandesign, eugenealegiojo, helgatheviking, ozancanakli, brentjettgmailcom, jproffitt71, brainstormforce, ideaboxcreations, laubsterboy, nikolayyordanov, codente, pross, pedromendonca
+Contributors: satorigraphics
 Tags: satori studio, page builder, landing page, front-end builder, drag and drop editor
 Requires at least: 5.2
 Tested up to: 6.9
@@ -12,115 +12,157 @@ The Professional's Choice for Drag & Drop WordPress Page Building. Fast, Reliabl
 
 == Documentation ==
 
-Internal roadmap, standards, and repository scaffolding notes live in the new `docs/` folder.
+Internal roadmap, standards, and repository scaffolding notes live in the `/docs/` folder:
+
+- `docs/SATORI-STUDIO-ROADMAP-v1.0.md`
+- `docs/SATORI-STUDIO-STANDARDS-v1.0.md`
+- `docs/SATORI-STUDIO-REPOSITORY-SCAFFOLD-v1.0.md`
+
+Public-facing documentation and a dedicated support portal for SATORI Studio
+will be published on the Satori website in a future release.
+
+Placeholder:
+- https://satori.com.au/satori-studio
+- https://satori.com.au/support
 
 == Description ==
 
 = The Professional's Choice for Drag & Drop WordPress Page Building. Fast, Reliable, and Trusted since 2014 =
 
-SATORI Studio is the page builder and website builder that agencies and developers rely on. Create pixel-perfect websites with our visual editor - no coding required. Front-end editing, flexible templates, and enterprise-grade performance.  Try [SATORI Studio Pro](https://www.wpbeaverbuilder.com/pricing/ "Get SATORI Studio Pro") for unlimited sites and premium features.
+SATORI Studio is the page builder and website builder that agencies and developers rely on. Create pixel-perfect websites with our visual editor – no coding required. Front-end editing, flexible templates, and performance-conscious output give you production-ready layouts in minutes.
+
+This plugin is currently maintained and extended by **Satori Graphics Pty Ltd** and is
+used as the core visual builder within the broader SATORI Studio toolkit.
 
 = What Is The SATORI Studio Page Builder? =
 
 SATORI Studio is a flexible drag and drop page builder that works on the front end of your WordPress website. Whether you're a beginner or a professional, you're going to love taking control of your website. Stop writing HTML or wrestling with confusing shortcodes. With SATORI Studio, building beautiful, professional WordPress pages is as easy as dragging and dropping.
 
-Watch the video below or [try out the demo](https://www.wpbeaverbuilder.com/go/demo?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-demo-link "SATORI Studio Live Demo") to see it in action!
+A live demo and example library for SATORI Studio will be made available on the
+Satori website in a future release.
 
-[youtube https://youtu.be/WUGyahZ5D2s?si=Xcbq2oPmV6P3KoD2]
+= Support & Knowledge Base =
 
-> **Premium Support**
+> **Premium Support (Planned)**
 >
-> The SATORI Studio team provides very limited support on the WordPress.org forums. Please feel free to post questions or bug reports, but for _timely_ support, we recommend purchasing a SATORI Studio license.
+> SATORI Studio is currently being developed and deployed primarily for Satori
+> Graphics clients and internal projects. A public support and licensing model
+> is planned for a future release.
 >
-> Along with access to our expert support team, there are many time-saving features in the premium versions which make it a great value for any serious WordPress user. [**Get a license today.**](https://www.wpbeaverbuilder.com/pricing/?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-support-cta "SATORI Studio Premium Support")
+> Once public support is available, details will be published on:
+> https://satori.com.au/satori-studio
 >
-> You can also reference our [Knowledge Base](https://docs.wpbeaverbuilder.com/ "SATORI Studio Knowledge Base"), or try asking the SATORI Studio community for help in either [Facebook](http://beaver.builders/wp-repo-fb "SATORI Studio builders on Facebook") or [Slack](https://www.wpbeaverbuilder.com/go/beaver-builders-slack "SATORI Studio builders on Slack"). Keep in mind, these are all folks just like you who are volunteering their time.
+> In the meantime, Satori Graphics clients should continue to use their usual
+> support channels (email, ticketing, or direct contact) for help with SATORI
+> Studio implementations.
 
-= Join our Growing Community =
+A dedicated SATORI Studio knowledge base and documentation hub is planned.
+Placeholder:
+- https://satori.com.au/support/satori-studio (to be created)
 
-There is a huge colony (_yeah, that's the term for a group of beavers_) of "SATORI Studio builders" that would love to get to know you! If you have questions, a project to show off, or you would like to meet and network with other SATORI Studio users, you'll feel right at home in the [SATORI Studio builders Facebook Group](http://beaver.builders/wp-repo-fb "SATORI Studio builders on Facebook") or the [SATORI Studio builders Slack Channel](https://www.wpbeaverbuilder.com/go/beaver-builders-slack "SATORI Studio builders on Slack"). Come on by and say hello.
+= Community =
+
+Community spaces (forums, Slack/Discord, etc.) for SATORI Studio are not
+available yet. If/when public distribution begins, community channels will be
+announced on the Satori website.
 
 = Page Builder Features =
 
-*   Content Modules: Box, Photo, Button, Button Group, Callout, Call to Action, Heading, Icon, Menu, Number Counter, Text Editor, HTML, Audio, Video, & Sidebar.
-*   Full-width, column-based layouts.
-*   Create flexbox and CSS grid layouts with the Box Module. Also included are some Box module presets to get you going faster!
-*   Lightweight and semantic markup for maximum performance.
-*   Photo, color, and video row backgrounds.
-*   Mobile-friendly, responsive layouts.
-*   Add your own CSS classes and IDs.
-*   Use WordPress Widgets and shortcodes.
-*   Works with Pages, Posts, and Custom Post Types.
-*   A friendly and supportive community.
-*   Build your own custom modules.
+* Content Modules: Box, Photo, Button, Button Group, Callout, Call to Action, Heading, Icon, Menu, Number Counter, Text Editor, HTML, Audio, Video, & Sidebar.
+* Full-width, column-based layouts.
+* Create flexbox and CSS grid layouts with the Box Module. Also included are some Box module presets to get you going faster!
+* Lightweight and semantic markup for maximum performance.
+* Photo, color, and video row backgrounds.
+* Mobile-friendly, responsive layouts.
+* Add your own CSS classes and IDs.
+* Use WordPress Widgets and shortcodes.
+* Works with Pages, Posts, and Custom Post Types.
+* A growing design system and module library.
+* Build your own custom modules.
 
-= Premium Features =
+= Premium Features (Planned / Derived From Pro Lineage) =
 
-*   Additional modules: Contact Form, Tabs, Slider, Pricing Table, Map, Blog Posts, Subscribe Form and many more.
-*   SATORI Studio Themer Theme Builder.
-*   SATORI Studio Theme.
-*   Expert support from our world-class support team.
-*   Beautiful pre-made layout templates.
-*   Save, export, and reuse full-page layouts, rows, and modules.
-*   Save a Global Color palette.
-*   Create styles that apply globally throughout your SATORI Studio layouts.
+The original codebase that SATORI Studio is based on includes support for an
+extended set of premium features. As SATORI Studio evolves, some or all of the
+following may be provided either as part of the core plugin or as SATORI Studio
+Pro and Suite add-ons:
 
+* Additional modules: Contact Form, Tabs, Slider, Pricing Table, Map, Blog Posts, Subscribe Form and many more.
+* Theme builder features (header/footer/layout templates).
+* A companion SATORI Studio Theme.
+* Priority support.
+* Beautiful pre-made layout templates.
+* Save, export, and reuse full-page layouts, rows, and modules.
+* Global Color palette and global style controls.
 
-Come by [the SATORI Studio Homepage](https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-homepage-link "SATORI Studio Homepage") to learn more about what our premium features can do for you!
-
-= People REALLY LOVE SATORI Studio =
-
-Don't just take our word for it, here are a few testimonials from happy users and customers.
-
-"Simply put, it is the best page builder in the WordPress ecosystem. There is no close second." - WP Crafter
-
-"Complete design freedom with no coding and it is all fully responsive as well." - skyboro
-
-"Easy to use, fast to get started, real product depth, great support." - David Bressler
+Please refer to the `/docs` directory for current roadmap details and how these
+features will be implemented within the SATORI Studio ecosystem.
 
 = Modules And Widgets =
 
-We've loaded SATORI Studio up with a flexible set of content modules to aid you in building stunning layouts and landing pages within an intuitive drag and drop system. SATORI Studio also supports core and third party WordPress widgets and shortcodes, so you can use SATORI Studio with all your _other_ favorite plugins!
+SATORI Studio ships with a flexible set of content modules to aid you in
+building stunning layouts and landing pages within an intuitive drag and drop
+system. SATORI Studio also supports core and third party WordPress widgets and
+shortcodes, so you can use SATORI Studio with all your other favorite plugins.
 
 = A WordPress Page Builder That Works With Your Theme =
 
-Yep, that's right! SATORI Studio was designed to work with almost any WordPress theme. Try SATORI Studio on your existing website today, or consider upgrading and using SATORI Studio's outstanding framework theme (available in Pro and Agency packages) for your next project.
+SATORI Studio is designed to work with almost any WordPress theme. You can use
+it on an existing site or pair it with a dedicated SATORI Studio–optimised
+theme in the future.
 
 = A WordPress Page Builder That's 100% Mobile Friendly =
 
-Every part of a SATORI Studio layout or landing page is fully responsive and looks gorgeous on any screen size. Responsive web design has never been easier.
+Every part of a SATORI Studio layout or landing page is fully responsive and
+looks great on any screen size.
 
 = A WordPress Page Builder That's Optimized For Performance =
 
-We've designed SATORI Studio to create layouts and landing pages that load quickly. Many page builders load in an ungodly number of scripts and stylesheets to every page on your site. Not SATORI Studio! It only loads the assets needed for a given layout or landing page.
+SATORI Studio is designed to create layouts and landing pages that load quickly.
+Where possible, it only loads the assets needed for a given layout or landing
+page instead of a large, fixed asset bundle across your entire site.
 
 == Installation ==
 
-1. Install SATORI Studio either via the WordPress plugin directory or by uploading the files to your server at wp-content/plugins.
+1. Install SATORI Studio either via the WordPress plugin directory or by uploading the files to your server at `wp-content/plugins`.
+2. After activating SATORI Studio, navigate to the settings page at **Settings > SATORI Studio** to configure the post types you would like it to work with.
+3. A **SATORI Studio** button will appear on the Edit Page/Post area. Also, a **SATORI Studio** option will appear in the WordPress Admin Bar on the front end of your website.
 
-2. After activating SATORI Studio, navigate to the settings page at Settings > SATORI Studio to configure the post types you would like it to work with.
-
-3. A _SATORI Studio_ button will appear on the Edit Page/Post area. Also, a _SATORI Studio_ option will appear in the WordPress Admin Bar on the front end of your website.
-
-For more information, please visit our [Knowledge Base](https://docs.wpbeaverbuilder.com/?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-install-kb-link "SATORI Studio Knowledge Base"). Keep in mind that not all features described in the knowledge base are available in this version of the SATORI Studio plugin.
+Additional installation and configuration guides will be added to the Satori
+website and `/docs` directory as the project progresses.
 
 == Frequently Asked Questions ==
 
-For information on using SATORI Studio, please visit our [Knowledge Base](https://docs.wpbeaverbuilder.com/?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-install-kb-link "SATORI Studio Knowledge Base").
+A dedicated FAQ for SATORI Studio will be published in a future release.
+
+For now, please refer to the internal documentation in the `/docs` directory
+and any project-specific implementation notes provided by Satori Graphics.
 
 == Screenshots ==
 
-1. Launch SATORI Studio from the top bar of your pages to open the SATORI Studio Page Builder interface
-2. Drag and Drop modules rows and columns to build layouts
-3. Images can easily be modified to fit your needs, both inline and background
-4. Stylize heading and paragraph text using module settings
-5. You'll love our ready made responsive design features and straightforward responsive editor
-6. Access templates from the SATORI Studio interface and find more on Assistant.Pro
+1. Launch SATORI Studio from the top bar of your pages to open the SATORI Studio Page Builder interface.
+2. Drag and drop modules, rows, and columns to build layouts.
+3. Images can easily be modified to fit your needs, both inline and as background images.
+4. Stylize heading and paragraph text using module settings.
+5. Use the responsive editor to refine layouts for different devices.
+6. Access templates from the SATORI Studio interface.
 
 == Changelog ==
 
-Visit our [changelog page](https://www.wpbeaverbuilder.com/change-logs/?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-changelog-page "SATORI Studio Changelog") for up-to-date information on what has been going on with the development of SATORI Studio.
+SATORI Studio is under active development. A project-level changelog and
+release notes will be maintained in the `/docs` directory and, if/when the
+plugin is distributed publicly, on the Satori website.
 
 == Upgrade Notice ==
 
-Visit our [changelog page](https://www.wpbeaverbuilder.com/change-logs/?utm_medium=bb-lite&utm_source=repo-readme&utm_campaign=repo-changelog-page "SATORI Studio Changelog") for up-to-date information on what has been going on with the development of SATORI Studio.
+Before upgrading SATORI Studio on production sites, please:
+
+1. Review the relevant release notes in `/docs`.
+2. Test the new version on a staging environment where possible.
+
+== Credits ==
+
+SATORI Studio is a fork and ongoing evolution of the open source Beaver Builder
+Lite plugin, originally developed by the Beaver Builder team. The SATORI
+Graphics team acknowledges and appreciates the original authors and
+contributors whose work made this project possible.
