@@ -1,5 +1,5 @@
 /**
- * Custom color picker for Beaver Builder based on Iris by Matt Wiebe.
+ * Custom color picker for SATORI Studio based on Iris by Matt Wiebe.
  *
  * Iris Color Picker - v1.0.7 - 2014-11-28
  * https://github.com/Automattic/Iris
@@ -318,7 +318,7 @@ var FLBuilderColorPicker;
 	};
 
 	/**
-	 * Main color picker class for Beaver Builder's custom implementation.
+	 * Main color picker class for SATORI Studio's custom implementation.
 	 *
 	 * @class FLBuilderColorPicker
 	 * @param {Object} settings

@@ -187,7 +187,7 @@ function fl_register_acf_block_module() {
 add_action( 'init', 'fl_register_acf_block_module' );
 
 /**
- * Check block.json for any Beaver Builder specific settings.
+ * Check block.json for any SATORI Studio specific settings.
  */
 function fl_handle_json_block_registration( $settings, $metadata ) {
 	if ( ! isset( $metadata['beaverBuilder'] ) ) {

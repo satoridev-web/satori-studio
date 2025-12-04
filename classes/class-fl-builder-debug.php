@@ -444,7 +444,7 @@ final class FL_Debug {
 			$from = ' - Previous ' . $info['from'];
 		}
 		$args = array(
-			'name' => 'Beaver Builder',
+			'name' => 'SATORI Studio',
 			'data' => FL_BUILDER_VERSION . $from,
 		);
 		self::register( 'bb_version', $args );
@@ -502,13 +502,13 @@ final class FL_Debug {
 		$cache = FLBuilderModel::get_cache_dir();
 
 		$args = array(
-			'name' => 'Beaver Builder Cache Path',
+			'name' => 'SATORI Studio Cache Path',
 			'data' => $cache['path'],
 		);
 		self::register( 'bb_cache_path', $args );
 
 		$args = array(
-			'name' => 'Beaver Builder Path writable',
+			'name' => 'SATORI Studio Path writable',
 			'data' => ( fl_builder_filesystem()->is_writable( $cache['path'] ) ) ? 'Yes' : 'No',
 		);
 		self::register( 'bb_cache_path_writable', $args );
@@ -543,7 +543,7 @@ final class FL_Debug {
 
 		if ( true === FL_BUILDER_LITE ) {
 			$args = array(
-				'name' => 'Beaver Builder License',
+				'name' => 'SATORI Studio License',
 				'data' => 'Lite version detected',
 			);
 			self::register( 'bb_sub_lite', $args );
@@ -551,7 +551,7 @@ final class FL_Debug {
 		} elseif ( class_exists( 'FLUpdater' ) ) {
 			$subscription = FLUpdater::get_subscription_info();
 			$args         = array(
-				'name' => 'Beaver Builder License',
+				'name' => 'SATORI Studio License',
 				'data' => ( isset( $subscription->active ) && ! isset( $subscription->error ) ) ? 'Active' : 'Not Active',
 			);
 			self::register( 'bb_sub', $args );

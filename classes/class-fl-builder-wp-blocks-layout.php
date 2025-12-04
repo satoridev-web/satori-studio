@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Beaver Builder layout block for the new editor.
+ * SATORI Studio layout block for the new editor.
  *
  * @since 2.1
  */
@@ -72,7 +72,7 @@ final class FLBuilderWPBlocksLayout {
 
 	/**
 	 * Updates posts being edited in the admin that we're built
-	 * using Beaver Builder before WordPress blocks existed.
+	 * using SATORI Studio before WordPress blocks existed.
 	 *
 	 * We do this on the `block_editor_preload_paths` filter because
 	 * that is the earliest we can hook into updating the post before

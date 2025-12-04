@@ -128,7 +128,7 @@
 
 	<form id="beta-form" action="<?php FLBuilderAdminSettings::render_form_action( 'tools' ); ?>" method="post">
 		<div class="fl-settings-form-content">
-			<p><?php _e( 'Enabling the prerelease channel will enable updates for all Beaver Builder products.', 'fl-builder' ); ?></p>
+			<p><?php _e( 'Enabling the prerelease channel will enable updates for all SATORI Studio products.', 'fl-builder' ); ?></p>
 			<p><input class='beta-checkbox' name='beta-checkbox' type='checkbox' value='1' <?php checked( $beta, 1 ); ?> /> <?php printf( '%s <strong>%s</strong> %s.', $enable_txt, $beta_txt, $updates_txt ); ?></p>
 			<?php if ( $beta ) : ?>
 			<p><input class='alpha-checkbox' name='alpha-checkbox' type='checkbox' value='1' <?php checked( $alpha, 1 ); ?> /> <?php printf( '%s <strong>%s</strong> %s.', $enable_txt, $alpha_txt, $updates_txt ); ?></p>

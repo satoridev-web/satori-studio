@@ -71,7 +71,7 @@ class Plugin {
 					\FLCustomizer::clear_all_css_cache();
 				}
 
-				\FLBuilder::log( 'Beaver Builder: URL change detected, cache cleared.' );
+				\FLBuilder::log( 'SATORI Studio: URL change detected, cache cleared.' );
 				do_action( 'fl_site_url_changed', $current, $saved );
 			}
 		}

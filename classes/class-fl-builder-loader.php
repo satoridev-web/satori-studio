@@ -21,16 +21,17 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 				include_once ABSPATH . 'wp-admin/includes/plugin.php';
 			}
 
-			$lite_dirname   = 'beaver-builder-lite-version';
-			$lite_active    = is_plugin_active( $lite_dirname . '/fl-builder.php' );
-			$plugin_dirname = basename( dirname( __DIR__, 1 ) );
+                        $plugin_dirname  = basename( dirname( __DIR__, 1 ) );
+                        $plugin_basename = $plugin_dirname . '/satori-studio.php';
+                        $legacy_lite     = 'beaver-builder-lite-version/fl-builder.php';
+                        $lite_active     = is_plugin_active( $legacy_lite );
 
-			if ( $lite_active && $plugin_dirname != $lite_dirname ) {
-				add_action( 'admin_init', function () {
-					deactivate_plugins( array( 'beaver-builder-lite-version/fl-builder.php' ), false, is_network_admin() );
-				});
-				return;
-			} elseif ( class_exists( 'FLBuilder' ) ) {
+                        if ( $lite_active && $plugin_basename !== $legacy_lite ) {
+                                add_action( 'admin_init', function () {
+                                        deactivate_plugins( array( 'beaver-builder-lite-version/fl-builder.php' ), false, is_network_admin() );
+                                });
+                                return;
+                        } elseif ( class_exists( 'FLBuilder' ) ) {
 				add_action( 'admin_notices', __CLASS__ . '::double_install_admin_notice' );
 				add_action( 'network_admin_notices', __CLASS__ . '::double_install_admin_notice' );
 				return;
@@ -48,8 +49,8 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 		 * @return void
 		 */
 		static private function define_constants() {
-			define( 'FL_BUILDER_VERSION', '2.9.4.1' );
-			define( 'FL_BUILDER_FILE', trailingslashit( dirname( __DIR__, 1 ) ) . 'fl-builder.php' );
+                        define( 'FL_BUILDER_VERSION', '2.9.4.1' );
+                        define( 'FL_BUILDER_FILE', trailingslashit( dirname( __DIR__, 1 ) ) . 'satori-studio.php' );
 			define( 'FL_BUILDER_DIR', plugin_dir_path( FL_BUILDER_FILE ) );
 			define( 'FL_BUILDER_URL', esc_url( plugins_url( '/', FL_BUILDER_FILE ) ) );
 			define( 'FL_BUILDER_LITE', true );
@@ -173,7 +174,7 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 		 * @return void
 		 */
 		static public function permissions_admin_notice() {
-			$message = __( 'Beaver Builder may not be functioning correctly as it does not have permission to write files to the WordPress uploads directory on your server. Please update the WordPress uploads directory permissions before continuing or contact your host for assistance.', 'fl-builder' );
+			$message = __( 'SATORI Studio may not be functioning correctly as it does not have permission to write files to the WordPress uploads directory on your server. Please update the WordPress uploads directory permissions before continuing or contact your host for assistance.', 'fl-builder' );
 
 			self::render_admin_notice( $message, 'error' );
 		}
@@ -187,7 +188,7 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 		 */
 		static public function double_install_admin_notice() {
 			/* translators: %s: plugins page link */
-			$message = __( 'You currently have two versions of Beaver Builder active on this site. Please <a href="%s">deactivate one</a> before continuing.', 'fl-builder' );
+			$message = __( 'You currently have two versions of SATORI Studio active on this site. Please <a href="%s">deactivate one</a> before continuing.', 'fl-builder' );
 
 			self::render_admin_notice( sprintf( $message, admin_url( 'plugins.php' ) ), 'error' );
 		}

@@ -18,7 +18,7 @@ if ( '{FL_BUILDER_NAME}' !== $plugin_data['Name'] && ! in_array( $plugin_name, $
 
 	// find available plugin Version
 	foreach ( $subscription->downloads as $ver ) {
-		if ( stristr( $ver, 'Beaver Builder Plugin' ) ) {
+		if ( stristr( $ver, 'SATORI Studio Plugin' ) ) {
 			preg_match( '#\((.*)\sVersion\)$#', $ver, $match );
 			$version = ( isset( $match[1] ) ) ? $match[1] : false;
 		}
@@ -26,11 +26,11 @@ if ( '{FL_BUILDER_NAME}' !== $plugin_data['Name'] && ! in_array( $plugin_name, $
 
 	switch ( $plugin_data['Name'] ) {
 		// pro - show warning if standard is pnly available version
-		case 'Beaver Builder Plugin (Pro Version)':
+		case 'SATORI Studio Plugin (Pro Version)':
 			$show_warning = ( 'Standard' === $version ) ? true : false;
 			break;
 		// agency show warning if available is NOT agency
-		case 'Beaver Builder Plugin (Agency Version)':
+		case 'SATORI Studio Plugin (Agency Version)':
 			$show_warning = ( 'Agency' !== $version ) ? true : false;
 			break;
 	}
@@ -40,9 +40,9 @@ if ( '{FL_BUILDER_NAME}' !== $plugin_data['Name'] && ! in_array( $plugin_name, $
 	}
 
 	if ( $show_warning ) {
-		$header_txt = __( 'Beaver Builder updates issue!!', 'fl-builder' );
+		$header_txt = __( 'SATORI Studio updates issue!!', 'fl-builder' );
 		// translators: %s: Product name
-		$txt = sprintf( __( 'Updates for Beaver Builder will not work as you appear to have %s activated but it is not in your available downloads.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>' );
+		$txt = sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %s activated but it is not in your available downloads.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>' );
 		printf(
 			'<div class="notice notice-error"><p><strong>%s</strong></p><p>%s</p></div>',
 			$header_txt,
@@ -70,7 +70,7 @@ if ( ! $themer && defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 
 <?php if ( ! $themer ) : ?>
 	<div class="themer">
-	<h3><?php _e( 'Take Beaver Builder Even Further', 'fl-builder' ); ?></h3>
+	<h3><?php _e( 'Take SATORI Studio Even Further', 'fl-builder' ); ?></h3>
 	<h4>
 		<strong>Beaver Themer</strong> - <a target="_blank" href="
 		<?php

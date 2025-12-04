@@ -20,11 +20,11 @@ $release_name    = '&#8220;Coyote&#8221;';
 ?>
 <div id="fl-welcome-form" class="fl-settings-form">
 
-	<h2 class="fl-settings-form-header"><?php _e( 'Welcome to Beaver Builder!', 'fl-builder' ); ?></h2>
+	<h2 class="fl-settings-form-header"><?php _e( 'Welcome to SATORI Studio!', 'fl-builder' ); ?></h2>
 
 	<div class="fl-settings-form-content fl-welcome-page-content">
 
-		<p class="welcome-intro"><?php _e( 'Thank you for choosing Beaver Builder and welcome to the colony! Find some helpful information below. Also, to the left are the Page Builder settings options.', 'fl-builder' ); ?>
+		<p class="welcome-intro"><?php _e( 'Thank you for choosing SATORI Studio and welcome to the colony! Find some helpful information below. Also, to the left are the Page Builder settings options.', 'fl-builder' ); ?>
 
 			<?php if ( true === FL_BUILDER_LITE ) : ?>
 				<?php /* translators: %s: upgrade url */ ?>
@@ -45,7 +45,7 @@ $release_name    = '&#8220;Coyote&#8221;';
 
 				<p><a href="<?php echo admin_url(); ?>post-new.php?post_type=page" class="fl-welcome-big-link"><?php _e( 'Pages &rarr; Add New', 'fl-builder' ); ?></a></p>
 
-				<p><?php _e( 'Ready to start building? Add a new page and jump into Beaver Builder by clicking the Launch Beaver Builder button shown on the image.', 'fl-builder' ); ?></p>
+				<p><?php _e( 'Ready to start building? Add a new page and jump into SATORI Studio by clicking the Launch SATORI Studio button shown on the image.', 'fl-builder' ); ?></p>
 			</div>
 
 			<div class="fl-welcome-col">
@@ -57,11 +57,11 @@ $release_name    = '&#8220;Coyote&#8221;';
 		<div class="fl-welcome-col-wrap">
 
 			<h2><?php _e( "What's New", 'fl-builder' ); ?></h2>
-			<h3><?php printf( __( "What's New in Beaver Builder", 'fl-builder' ) . ' %1$s %2$s', $release_ver, $release_name ); ?></h3>
+			<h3><?php printf( __( "What's New in SATORI Studio", 'fl-builder' ) . ' %1$s %2$s', $release_ver, $release_name ); ?></h3>
 
 			<div class="fl-welcome-col">
 				<?php /* translators: 1: version: 2: codename*/ ?>
-				<p><?php printf( __( 'We\'re thrilled to announce Beaver Builder %1$s %2$s. Beaver Builder %1$s brings a number of workflow enhancements.', 'fl-builder' ), $release_ver, $release_name ); ?></p>
+				<p><?php printf( __( 'We\'re thrilled to announce SATORI Studio %1$s %2$s. SATORI Studio %1$s brings a number of workflow enhancements.', 'fl-builder' ), $release_ver, $release_name ); ?></p>
 				<ul>
 					<li class="dashicons-before dashicons-plus-alt"><?php _e( 'With the brand new color and gradient pickers the color possibilities are endless! ', 'fl-builder' ); ?></li>
 					<li class="dashicons-before dashicons-plus-alt"><?php _e( 'A brand new multi-layer background field has been added to rows, columns and the box module.', 'fl-builder' ); ?></li>
@@ -112,13 +112,13 @@ $release_name    = '&#8220;Coyote&#8221;';
 
 				<h3><?php _e( 'Join the Community', 'fl-builder' ); ?></h3>
 
-				<p><?php _e( 'There\'s a wonderful community of "Beaver Builders" out there and we\'d love it if <em>you</em> joined us!', 'fl-builder' ); ?></p>
+				<p><?php _e( 'There\'s a wonderful community of "SATORI Studio builders" out there and we\'d love it if <em>you</em> joined us!', 'fl-builder' ); ?></p>
 
 				<ul>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/bb-facebook" target="_blank">%s</a>', __( "Join the Beaver Builder's Group on Facebook", 'fl-builder' ) ); ?></li>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/bb-slack" target="_blank">%s</a>', __( "Join the Beaver Builder's Group on Slack", 'fl-builder' ) ); ?></li>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/forum" target="_blank">%s</a>', __( 'Join the Beaver Builder Forums', 'fl-builder' ) ); ?></li>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/discord" target="_blank">%s</a>', __( 'Join the Beaver Builder Discord', 'fl-builder' ) ); ?></li>
+					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/bb-facebook" target="_blank">%s</a>', __( "Join the SATORI Studio's Group on Facebook", 'fl-builder' ) ); ?></li>
+					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/bb-slack" target="_blank">%s</a>', __( "Join the SATORI Studio's Group on Slack", 'fl-builder' ) ); ?></li>
+					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/forum" target="_blank">%s</a>', __( 'Join the SATORI Studio Forums', 'fl-builder' ) ); ?></li>
+					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/discord" target="_blank">%s</a>', __( 'Join the SATORI Studio Discord', 'fl-builder' ) ); ?></li>
 				</ul>
 
 				<p><?php _e( 'Share a project, ask a question, or just say hi! For news about new features and updates, like our <a href="https://www.facebook.com/wpbeaverbuilder/" target="_blank">Facebook Page</a> or follow us <a href="https://twitter.com/beaverbuilder" target="_blank">on Twitter</a>.', 'fl-builder' ); ?></p>
@@ -134,11 +134,11 @@ $release_name    = '&#8220;Coyote&#8221;';
 				<p><?php _e( 'The fastest way to find an answer to a question is to see if someone\'s already answered it!', 'fl-builder' ); ?></p>
 
 				<?php /* translators: 1: docs url: 2: facebook url */ ?>
-				<p><?php printf( __( 'For that, check our <a href="%1$s" target="_blank">Knowledge Base</a> or try searching <a href="%2$s" target="_blank">the Beaver Builders Facebook group</a> or our <a href="%3$s" target="_blank">Forums</a>.', 'fl-builder' ), $docs_url, $fb_url, $forums_url ); ?></p>
+				<p><?php printf( __( 'For that, check our <a href="%1$s" target="_blank">Knowledge Base</a> or try searching <a href="%2$s" target="_blank">the SATORI Studio builders Facebook group</a> or our <a href="%3$s" target="_blank">Forums</a>.', 'fl-builder' ), $docs_url, $fb_url, $forums_url ); ?></p>
 
 				<?php if ( true === FL_BUILDER_LITE ) : ?>
 					<?php /* translators: %s: upgrade url */ ?>
-					<p><?php printf( __( 'If you can\'t find an answer, consider upgrading to a premium version of Beaver Builder. Our expert support team is waiting to answer your questions and help you build your website. <a href="%s" target="_blank">Learn More</a>.', 'fl-builder' ), $upgrade_url ); ?></p>
+					<p><?php printf( __( 'If you can\'t find an answer, consider upgrading to a premium version of SATORI Studio. Our expert support team is waiting to answer your questions and help you build your website. <a href="%s" target="_blank">Learn More</a>.', 'fl-builder' ), $upgrade_url ); ?></p>
 				<?php else : ?>
 					<?php /* translators: %s: support url */ ?>
 					<p><?php printf( __( 'If you can\'t find an answer, feel free to <a href="%s" target="_blank">send us a message with your question.</a>', 'fl-builder' ), $support_url ); ?></p>

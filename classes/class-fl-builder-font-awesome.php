@@ -144,7 +144,7 @@ final class FLBuilderFontAwesome {
 	 */
 	public static function register_plugin() {
 		$args = apply_filters( 'fl_builder_font_awesome_register_args', array(
-			'name'       => __( 'Beaver Builder', 'fl-builder' ),
+			'name'       => __( 'SATORI Studio', 'fl-builder' ),
 			'technology' => 'webfont',
 		) );
 		fa()->register( $args );
@@ -219,7 +219,7 @@ final class FLBuilderFontAwesome {
 	 * Error text used in wp-admin and modal popup in buildef UI
 	 */
 	public static function error_text() {
-		return __( 'You appear to have the font awesome plugin configured to use svg icons, this currently is incompatible with Beaver Builder. You must switch to a webfont set/kit.', 'fl-builder' );
+		return __( 'You appear to have the font awesome plugin configured to use svg icons, this currently is incompatible with SATORI Studio. You must switch to a webfont set/kit.', 'fl-builder' );
 	}
 
 	/**
