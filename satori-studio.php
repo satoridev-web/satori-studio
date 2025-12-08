@@ -17,4 +17,6 @@
  * @package Satori_Studio
  */
 
-require_once 'classes/class-fl-builder-loader.php';
+require_once __DIR__ . '/src/autoload.php';
+
+\Satori_Studio\Core\Plugin::init( __FILE__ );
