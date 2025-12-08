@@ -20,3 +20,14 @@
 require_once __DIR__ . '/src/autoload.php';
 
 \Satori_Studio\Core\Plugin::init( __FILE__ );
+
+if ( ! function_exists( 'satori_studio' ) ) {
+	/**
+	 * Retrieve the SATORI Studio core plugin instance.
+	 *
+	 * @return \Satori_Studio\Core\Plugin
+	 */
+	function satori_studio() {
+		return \Satori_Studio\Core\Plugin::init( __FILE__ );
+	}
+}
