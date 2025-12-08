@@ -47,6 +47,13 @@ class Plugin {
 	private $plugin_dir;
 
 	/**
+	 * Core environment metadata for the plugin.
+	 *
+	 * @var Environment
+	 */
+	private $environment;
+
+	/**
 	 * Initialize the plugin instance.
 	 *
 	 * @param string $plugin_file Path to the main plugin file.
@@ -68,8 +75,18 @@ class Plugin {
 	public function __construct( $plugin_file ) {
 		$this->plugin_file = $plugin_file;
 		$this->plugin_dir  = plugin_dir_path( $plugin_file );
+		$this->environment = new Environment( $plugin_file );
 
 		$this->bootstrap();
+	}
+
+	/**
+	 * Get the core environment object.
+	 *
+	 * @return Environment
+	 */
+	public function get_environment() {
+		return $this->environment;
 	}
 
 	/**
