@@ -23,6 +23,9 @@
 
 namespace Satori_Studio\Core;
 
+use Satori_Studio\Core\Services\Container;
+use Satori_Studio\Core\Environment;
+
 class Plugin {
 
 	/**
@@ -46,12 +49,19 @@ class Plugin {
 	 */
 	private $plugin_dir;
 
-	/**
-	 * Core environment metadata for the plugin.
-	 *
-	 * @var Environment
-	 */
-	private $environment;
+        /**
+         * Core environment metadata for the plugin.
+         *
+         * @var Environment
+         */
+        private $environment;
+
+        /**
+         * Services container for shared systems.
+         *
+         * @var Container
+         */
+        private $services;
 
 	/**
 	 * Initialize the plugin instance.
@@ -73,21 +83,43 @@ class Plugin {
 	 * @param string $plugin_file Path to the main plugin file.
 	 */
 	public function __construct( $plugin_file ) {
-		$this->plugin_file = $plugin_file;
-		$this->plugin_dir  = plugin_dir_path( $plugin_file );
-		$this->environment = new Environment( $plugin_file );
+                $this->plugin_file = $plugin_file;
+                $this->plugin_dir  = plugin_dir_path( $plugin_file );
+                $this->environment = new Environment( $plugin_file );
+                $this->services    = new Container();
 
-		$this->bootstrap();
-	}
+                $this->register_services();
+
+                $this->bootstrap();
+        }
 
 	/**
 	 * Get the core environment object.
 	 *
 	 * @return Environment
 	 */
-	public function get_environment() {
-		return $this->environment;
-	}
+        public function get_environment() {
+                return $this->environment;
+        }
+
+        /**
+         * Get the services container.
+         *
+         * @return Container
+         */
+        public function get_services() {
+                return $this->services;
+        }
+
+        /**
+         * Retrieve a service by identifier.
+         *
+         * @param string $id Service identifier.
+         * @return mixed|null
+         */
+        public function service( $id ) {
+                return $this->services->get( $id );
+        }
 
 	/**
 	 * Load and delegate to the legacy FLBuilder bootstrapper.
@@ -103,11 +135,25 @@ class Plugin {
 		$loader = $this->plugin_dir . 'classes/class-fl-builder-loader.php';
 
 		// Load the original builder loader if it exists.
-		if ( file_exists( $loader ) ) {
-			require_once $loader;
-		}
+                if ( file_exists( $loader ) ) {
+                        require_once $loader;
+                }
 
-		// Do NOT call FLBuilderLoader::init() here.
-		// The legacy loader already runs init() internally.
-	}
+                // Do NOT call FLBuilderLoader::init() here.
+                // The legacy loader already runs init() internally.
+        }
+
+        /**
+         * Register core services.
+         *
+         * @return void
+         */
+        private function register_services() {
+                $this->services->set(
+                        'environment',
+                        function () {
+                                return $this->environment;
+                        }
+                );
+        }
 }
