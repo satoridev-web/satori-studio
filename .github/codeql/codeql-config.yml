@@ -1,0 +1,15 @@
+name: "SATORI Studio CodeQL config"
+
+paths:
+  - src
+  - classes
+  - includes
+  - modules
+
+paths-ignore:
+  - js/build/**
+  - js/ace/**
+  - js/vendors/**
+  - includes/vendor/**
+  - modules/**/js/**
+  - node_modules/**
