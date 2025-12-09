@@ -1,7 +1,7 @@
 <?php
-/* -------------------------------------------------
- * SATORI Studio — Services Container
- * -------------------------------------------------*/
+/**
+ * Lightweight service container for SATORI Studio core.
+ */
 
 /**
  * Lightweight services container for SATORI Studio.
