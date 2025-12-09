@@ -22,12 +22,24 @@ require_once __DIR__ . '/src/autoload.php';
 \Satori_Studio\Core\Plugin::init( __FILE__ );
 
 if ( ! function_exists( 'satori_studio' ) ) {
-	/**
-	 * Retrieve the SATORI Studio core plugin instance.
-	 *
-	 * @return \Satori_Studio\Core\Plugin
-	 */
-	function satori_studio() {
-		return \Satori_Studio\Core\Plugin::init( __FILE__ );
-	}
+        /**
+         * Retrieve the SATORI Studio core plugin instance.
+         *
+         * @return \Satori_Studio\Core\Plugin
+         */
+        function satori_studio() {
+                return \Satori_Studio\Core\Plugin::init( __FILE__ );
+        }
+}
+
+if ( ! function_exists( 'satori_studio_service' ) ) {
+        /**
+         * Retrieve a service from the SATORI Studio core container.
+         *
+         * @param string $id Service identifier.
+         * @return mixed|null
+         */
+        function satori_studio_service( $id ) {
+                return satori_studio()->service( $id );
+        }
 }
