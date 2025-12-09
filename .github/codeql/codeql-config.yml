@@ -1,15 +1,21 @@
 name: "SATORI Studio CodeQL configuration"
 
+# Only analyse first-party code we intend to own going forward.
 paths:
-  - src
-  - classes
-  - includes
-  - modules
-  - js
+  - src/**
+  - blocks/**
+  - extensions/**
 
+# Ignore legacy / vendor / generated assets from the upstream plugin.
 paths-ignore:
-  - vendor
-  - node_modules
-  - dist
-  - build
-  - '**/tests/**'
+  - css/**
+  - fonts/**
+  - img/**
+  - js/**
+  - json/**
+  - data/**
+  - modules/**
+  - classes/**
+  - includes/**
+  - languages/**
+  - docs/**
