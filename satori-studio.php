@@ -84,3 +84,21 @@ if ( ! function_exists( 'satori_studio_environment' ) ) {
                 return satori_studio_env();
         }
 }
+
+if ( ! function_exists( 'satori_studio_design_system' ) ) {
+        /**
+         * Convenience wrapper to access the DesignSystem service.
+         *
+         * Returns null when the service container is unavailable. The service is
+         * read-only and safe for use inside filters/actions when consuming design
+         * tokens. Future phases will connect these tokens to CSS/JS outputs and
+         * builder controls.
+         *
+         * @return \Satori_Studio\Core\DesignSystem|null
+         */
+        function satori_studio_design_system() {
+                return function_exists( 'satori_studio_service' )
+                        ? satori_studio_service( 'design_system' )
+                        : null;
+        }
+}
