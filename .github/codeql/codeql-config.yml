@@ -1,21 +1,32 @@
-name: "SATORI Studio CodeQL configuration"
+name: "SATORI Studio CodeQL scope"
 
-# Only analyse first-party code we intend to own going forward.
 paths:
-  - src/**
-  - blocks/**
-  - extensions/**
+  # Root plugin bootstrap files
+  - "satori-studio.php"
+  - "index.php"
 
-# Ignore legacy / vendor / generated assets from the upstream plugin.
+  # First-party PHP + core code
+  - "src/**"
+  - "includes/**"
+  - "classes/**"
+  - "modules/**"
+
 paths-ignore:
-  - css/**
-  - fonts/**
-  - img/**
-  - js/**
-  - json/**
-  - data/**
-  - modules/**
-  - classes/**
-  - includes/**
-  - languages/**
-  - docs/**
+  # Frontend assets & built bundles (mostly legacy / vendor)
+  - "js/**"
+  - "css/**"
+  - "blocks/**"
+  - "data/**"
+  - "docs/**"
+  - "img/**"
+  - "fonts/**"
+  - "json/**"
+  - "languages/**"
+
+  # Typical external/vendor locations
+  - "vendor/**"
+  - "node_modules/**"
+
+  # Test directories (none yet, but future-proof)
+  - "**/tests/**"
+  - "**/test/**"
