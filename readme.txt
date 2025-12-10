@@ -25,6 +25,12 @@ Placeholder:
 - https://satori.com.au/satori-studio
 - https://satori.com.au/support
 
+== Acknowledgements / Fork Origin ==
+
+SATORI Studio is a fork of Beaver Builder Lite by The Beaver Builder Team, used and modified under the terms of the GPL v2+ license.
+Original copyright © 2014-2024 The Beaver Builder Team (FastLine Media LLC).
+Modifications © 2024 Satori Graphics Pty Ltd.
+
 == Description ==
 
 = The Professional's Choice for Drag & Drop WordPress Page Building. Fast, Reliable, and Trusted since 2014 =
