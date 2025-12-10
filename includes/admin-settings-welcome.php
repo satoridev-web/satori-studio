@@ -80,17 +80,17 @@ $release_name    = '&#8220;Coyote&#8221;';
 
 		<div class="fl-welcome-col-wrap divider">
 
-			<h2><?php _e( 'Even More Power!', 'fl-builder' ); ?></h2>
+                        <h2><?php _e( 'Even More Power!', 'fl-builder' ); ?></h2>
 
-			<div class="fl-welcome-col">
+                        <div class="fl-welcome-col">
 
-				<h3 class="centered"><?php _e( 'Take Full Control of Your Entire Website With Beaver Themer', 'fl-builder' ); ?></h3>
+                                <h3 class="centered"><?php _e( 'Legacy Themer compatibility for site-wide control', 'fl-builder' ); ?></h3>
 
-				<a href="https://www.youtube.com/watch?v=KNpGTrCguEA" target="_blank"><img class="fl-welcome-img" src="<?php echo FLBuilder::plugin_url(); ?>img/video-beaver_themer.jpg" alt="" /></a>
+                                <a href="https://www.youtube.com/watch?v=KNpGTrCguEA" target="_blank"><img class="fl-welcome-img" src="<?php echo FLBuilder::plugin_url(); ?>img/video-beaver_themer.jpg" alt="<?php esc_attr_e( 'Overview video for legacy Beaver Themer compatibility', 'fl-builder' ); ?>" /></a>
 
-				<a href="https://www.wpbeaverbuilder.com/beaver-themer/" target="_blank" class="fl-button centered">Get Beaver Themer</a>
+                                <a href="https://www.wpbeaverbuilder.com/beaver-themer/" target="_blank" class="fl-button centered"><?php _e( 'Learn about Beaver Themer (legacy)', 'fl-builder' ); ?></a>
 
-			</div>
+                        </div>
 
 			<div class="fl-welcome-col">
 
@@ -110,20 +110,19 @@ $release_name    = '&#8220;Coyote&#8221;';
 
 			<div class="fl-welcome-col">
 
-				<h3><?php _e( 'Join the Community', 'fl-builder' ); ?></h3>
+                                <h3><?php _e( 'Join the Community', 'fl-builder' ); ?></h3>
 
-				<p><?php _e( 'There\'s a wonderful community of "SATORI Studio builders" out there and we\'d love it if <em>you</em> joined us!', 'fl-builder' ); ?></p>
+                                <p><?php _e( 'Community spaces for SATORI Studio are being finalised. Until public channels are available, please use Satori Graphics support contacts or project-specific communication paths.', 'fl-builder' ); ?></p>
 
-				<ul>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/bb-facebook" target="_blank">%s</a>', __( "Join the SATORI Studio's Group on Facebook", 'fl-builder' ) ); ?></li>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/bb-slack" target="_blank">%s</a>', __( "Join the SATORI Studio's Group on Slack", 'fl-builder' ) ); ?></li>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/go/forum" target="_blank">%s</a>', __( 'Join the SATORI Studio Forums', 'fl-builder' ) ); ?></li>
-					<li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="https://www.wpbeaverbuilder.com/discord" target="_blank">%s</a>', __( 'Join the SATORI Studio Discord', 'fl-builder' ) ); ?></li>
-				</ul>
+                                <ul>
+                                        <li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( 'https://satori.com.au/satori-studio/community' ), __( 'Community hub (coming soon)', 'fl-builder' ) ); ?></li>
+                                        <li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( 'https://satori.com.au/support' ), __( 'Support portal for Satori Graphics clients', 'fl-builder' ) ); ?></li>
+                                        <li class="dashicons-before dashicons-yes-alt"><?php printf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( 'https://satori.com.au/satori-studio/updates' ), __( 'Roadmap and release notes (coming soon)', 'fl-builder' ) ); ?></li>
+                                </ul>
 
-				<p><?php _e( 'Share a project, ask a question, or just say hi! For news about new features and updates, like our <a href="https://www.facebook.com/wpbeaverbuilder/" target="_blank">Facebook Page</a> or follow us <a href="https://twitter.com/beaverbuilder" target="_blank">on Twitter</a>.', 'fl-builder' ); ?></p>
+                                <p><?php _e( 'Share a project, ask a question, or just say hi! For news about new features and updates, check the SATORI Studio page on the Satori Graphics website.', 'fl-builder' ); ?></p>
 
-			</div>
+                        </div>
 
 			<div class="fl-welcome-col">
 

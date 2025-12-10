@@ -31,6 +31,10 @@ SATORI Studio is a fork of Beaver Builder Lite by The Beaver Builder Team, used 
 Original copyright © 2014-2024 The Beaver Builder Team (FastLine Media LLC).
 Modifications © 2024 Satori Graphics Pty Ltd.
 
+== Translation / Text Domains ==
+
+SATORI Studio retains legacy translation domains (such as `fl-builder` and `bb-plugin`) to remain compatible with upstream Beaver Builder Lite language packs and third-party integrations. New SATORI-authored strings should use the `satori-studio` text domain. Existing domains should not be renamed until a formal migration plan is documented.
+
 == Description ==
 
 = The Professional's Choice for Drag & Drop WordPress Page Building. Fast, Reliable, and Trusted since 2014 =
