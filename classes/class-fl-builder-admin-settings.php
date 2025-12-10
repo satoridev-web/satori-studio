@@ -236,30 +236,33 @@ final class FLBuilderAdminSettings {
 	 * @since 1.0
 	 * @return void
 	 */
-	static public function render_nav_items() {
-		/**
-		 * Builder admin nav items
-		 * @see fl_builder_admin_settings_nav_items
-		 */
-		$item_data = apply_filters( 'fl_builder_admin_settings_nav_items', array(
-			'welcome'       => array(
-				'title'    => __( 'Welcome', 'fl-builder' ),
-				'show'     => ! FLBuilderModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ),
-				'priority' => 50,
-			),
-			'license'       => array(
-				'title'    => __( 'License', 'fl-builder' ),
-				'show'     => ( is_network_admin() || ! self::multisite_support() ),
-				'priority' => 100,
-			),
-			'upgrade'       => array(
-				'title'    => __( 'Upgrade', 'fl-builder' ),
-				'show'     => FL_BUILDER_LITE === true,
-				'priority' => 200,
-			),
-			'modules'       => array(
-				'title'    => __( 'Modules', 'fl-builder' ),
-				'show'     => true,
+        static public function render_nav_items() {
+                /**
+                 * Builder admin nav items
+                 * @see fl_builder_admin_settings_nav_items
+                 */
+                $show_upgrade_screen = self::is_feature_enabled( 'ui-legacy-upgrade-screen' );
+                $show_license_screen = self::is_feature_enabled( 'ui-legacy-license-screen' );
+
+                $item_data = apply_filters( 'fl_builder_admin_settings_nav_items', array(
+                        'welcome'       => array(
+                                'title'    => __( 'Welcome', 'fl-builder' ),
+                                'show'     => ! FLBuilderModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ),
+                                'priority' => 50,
+                        ),
+                        'license'       => array(
+                                'title'    => __( 'License', 'fl-builder' ),
+                                'show'     => ( is_network_admin() || ! self::multisite_support() ) && $show_license_screen,
+                                'priority' => 100,
+                        ),
+                        'upgrade'       => array(
+                                'title'    => __( 'Upgrade', 'fl-builder' ),
+                                'show'     => FL_BUILDER_LITE === true && $show_upgrade_screen,
+                                'priority' => 200,
+                        ),
+                        'modules'       => array(
+                                'title'    => __( 'Modules', 'fl-builder' ),
+                                'show'     => true,
 				'priority' => 300,
 			),
 			'blocks'        => array(
@@ -342,15 +345,15 @@ final class FLBuilderAdminSettings {
 			self::render_form( 'welcome' );
 		}
 
-		// License
-		if ( is_network_admin() || ! self::multisite_support() ) {
-			self::render_form( 'license' );
-		}
+                // License
+                if ( ( is_network_admin() || ! self::multisite_support() ) && self::is_feature_enabled( 'ui-legacy-license-screen' ) ) {
+                        self::render_form( 'license' );
+                }
 
-		// Upgrade
-		if ( FL_BUILDER_LITE === true ) {
-			self::render_form( 'upgrade' );
-		}
+                // Upgrade
+                if ( FL_BUILDER_LITE === true && self::is_feature_enabled( 'ui-legacy-upgrade-screen' ) ) {
+                        self::render_form( 'upgrade' );
+                }
 
 		// Modules
 		self::render_form( 'modules' );
@@ -441,9 +444,21 @@ final class FLBuilderAdminSettings {
 	 * @since 1.0
 	 * @return bool
 	 */
-	static public function multisite_support() {
-		return is_multisite() && class_exists( 'FLBuilderMultisiteSettings' );
-	}
+        static public function multisite_support() {
+                return is_multisite() && class_exists( 'FLBuilderMultisiteSettings' );
+        }
+
+        /**
+         * Check a feature flag using the SATORI Studio registry.
+         *
+         * @param string $slug Feature slug to check.
+         * @return bool
+         */
+        private static function is_feature_enabled( $slug ) {
+                return function_exists( 'satori_studio_feature_enabled' )
+                        ? satori_studio_feature_enabled( $slug )
+                        : false;
+        }
 
 	/**
 	 * Adds an error message to be rendered.

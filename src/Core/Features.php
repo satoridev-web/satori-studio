@@ -320,6 +320,63 @@ class Features {
                 'description' => 'Compatibility helpers for common SEO plugins.',
             ),
 
+            // Legacy/upsell UI toggles.
+            'ui-legacy-upgrade-screen'   => array(
+                'enabled'     => false,
+                'type'        => 'ui',
+                'labels'      => array(
+                    'name'  => 'Legacy Upgrade Screen',
+                    'group' => 'UI',
+                ),
+                'status'      => 'legacy',
+                'legacy'      => true,
+                'description' => 'Display the legacy upgrade tab and related CTAs for premium Beaver Builder plans.',
+            ),
+            'ui-legacy-license-screen'   => array(
+                'enabled'     => false,
+                'type'        => 'ui',
+                'labels'      => array(
+                    'name'  => 'Legacy License Screen',
+                    'group' => 'UI',
+                ),
+                'status'      => 'legacy',
+                'legacy'      => true,
+                'description' => 'Display license management screens intended for Beaver Builder commercial keys.',
+            ),
+            'ui-legacy-upgrade-promos'   => array(
+                'enabled'     => false,
+                'type'        => 'ui',
+                'labels'      => array(
+                    'name'  => 'Legacy Builder Upsells',
+                    'group' => 'UI',
+                ),
+                'status'      => 'legacy',
+                'legacy'      => true,
+                'description' => 'Show marketing CTAs inside the builder for Beaver Builder premium plans.',
+            ),
+            'ui-legacy-themer-promos'    => array(
+                'enabled'     => false,
+                'type'        => 'ui',
+                'labels'      => array(
+                    'name'  => 'Legacy Themer Promos',
+                    'group' => 'UI',
+                ),
+                'status'      => 'legacy',
+                'legacy'      => true,
+                'description' => 'Promotional panels for Beaver Themer integrations.',
+            ),
+            'ui-legacy-assistant-promos' => array(
+                'enabled'     => false,
+                'type'        => 'ui',
+                'labels'      => array(
+                    'name'  => 'Assistant Pro Promos',
+                    'group' => 'UI',
+                ),
+                'status'      => 'legacy',
+                'legacy'      => true,
+                'description' => 'Promo panels for Assistant / Assistant Pro services.',
+            ),
+
             // Core systems.
             'core-loader'                => array(
                 'enabled'     => true,

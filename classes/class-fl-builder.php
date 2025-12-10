@@ -1490,31 +1490,32 @@ final class FLBuilder {
 	 * @since 2.0
 	 * @return array
 	 */
-	public static function get_main_menu_data() {
-		global $post;
+        public static function get_main_menu_data() {
+                global $post;
 
-		$views             = array();
-		$is_lite = true === FL_BUILDER_LITE; // @codingStandardsIgnoreLine
-		$is_user_template  = FLBuilderModel::is_post_user_template();
-		$enabled_templates = FLBuilderModel::get_enabled_templates();
-		$is_simple_ui      = ! FLBuilderUserAccess::current_user_can( 'unrestricted_editing' );
-		$key_shortcuts     = self::get_keyboard_shortcuts();
-		$help              = FLBuilderModel::get_help_button_settings();
+                $views             = array();
+                $is_lite = true === FL_BUILDER_LITE; // @codingStandardsIgnoreLine
+                $show_upgrade_ui   = function_exists( 'satori_studio_feature_enabled' ) ? satori_studio_feature_enabled( 'ui-legacy-upgrade-promos' ) : false;
+                $is_user_template  = FLBuilderModel::is_post_user_template();
+                $enabled_templates = FLBuilderModel::get_enabled_templates();
+                $is_simple_ui      = ! FLBuilderUserAccess::current_user_can( 'unrestricted_editing' );
+                $key_shortcuts     = self::get_keyboard_shortcuts();
+                $help              = FLBuilderModel::get_help_button_settings();
 		$notifications     = FLBuilderNotifications::is_notications_enabled();
-		$default_view      = array(
-			'name'       => __( 'Unnamed Menu', 'fl-builder' ),
-			'isShowing'  => false,
-			'isRootView' => false,
-			'items'      => array(),
-		);
+                $default_view      = array(
+                        'name'       => __( 'Unnamed Menu', 'fl-builder' ),
+                        'isShowing'  => false,
+                        'isRootView' => false,
+                        'items'      => array(),
+                );
 
-		// Tools
-		$tools_view = array(
-			'name'       => __( 'Tools', 'fl-builder' ) . ( $is_lite ? '<button class="fl-builder-upgrade-button fl-builder-button" onclick="FLBuilder._upgradeClicked()">Upgrade</button>' : '' ),
-			'isShowing'  => true,
-			'isRootView' => true,
-			'items'      => array(),
-		);
+                // Tools
+                $tools_view = array(
+                        'name'       => __( 'Tools', 'fl-builder' ) . ( $is_lite && $show_upgrade_ui ? '<button class="fl-builder-upgrade-button fl-builder-button" onclick="FLBuilder._upgradeClicked()">Upgrade</button>' : '' ),
+                        'isShowing'  => true,
+                        'isRootView' => true,
+                        'items'      => array(),
+                );
 
 		$tools_view['items'][04] = array(
 			'label'     => __( 'Publish Layout', 'fl-builder' ),

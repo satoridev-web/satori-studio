@@ -1,3 +1,7 @@
+<?php
+$fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled' ) ? satori_studio_feature_enabled( 'ui-legacy-upgrade-promos' ) : false;
+?>
+
 <script type="text/html" id="tmpl-fl-pro-lightbox">
 	<span class="dashicons dashicons-no" onclick="FLLightbox.closeParent( this )"></span>
 	<div class="fl-pro-message-badge">
@@ -5,11 +9,17 @@
 	</div>
 	<div class="fl-pro-message-title">{{data.feature}} is a Pro Feature</div>
 	<div class="fl-pro-message-content">We're sorry, {{data.feature}} is not available on your plan. Please upgrade to unlock all these awesome features.</div>
-	<div class="fl-pro-message-button">
-		<button class="fl-builder-upgrade-button fl-builder-button">
-			<?php _ex( 'Upgrade', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
-		</button>
-	</div>
+        <div class="fl-pro-message-button">
+                <?php if ( $fl_builder_show_legacy_promos ) : ?>
+                        <button class="fl-builder-upgrade-button fl-builder-button">
+                                <?php _ex( 'Upgrade', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
+                        </button>
+                <?php else : ?>
+                        <span class="fl-pro-message-content">
+                                <?php _ex( 'This feature is not available in this SATORI Studio build.', 'Alternate message when premium upsells are hidden.', 'fl-builder' ); ?>
+                        </span>
+                <?php endif; ?>
+        </div>
 </script>
 <!-- #tmpl-fl-pro-lightbox -->
 
@@ -655,17 +665,19 @@
 		}
 		#>
 	</div>
-	<# if (FLBuilderConfig.lite) { #>
-	<div class="fl-builder--panel-cta">
-		<img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
-		<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
-			<?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?>
-		</a>
-		<button class="fl-builder-upgrade-button fl-builder-button">
-			<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
-		</button>
-	</div>
-	<# } #>
+        <?php if ( $fl_builder_show_legacy_promos ) : ?>
+        <# if (FLBuilderConfig.lite) { #>
+        <div class="fl-builder--panel-cta">
+                <img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
+                <a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
+                        <?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?>
+                </a>
+                <button class="fl-builder-upgrade-button fl-builder-button">
+                        <?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
+                </button>
+        </div>
+        <# } #>
+        <?php endif; ?>
 </script>
 <!-- #tmpl-fl-content-panel-templates-view -->
 
@@ -794,10 +806,14 @@
 <!-- #tmpl-fl-content-panel-no-templates-view -->
 
 <script type="text/html" id="tmpl-fl-content-lite-templates-upgrade-view">
-	<div class="fl-builder--panel-message">
-		<p><?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?></p>
-		<a class="fl-builder-submenu-link fl-builder-upgrade-button fl-builder-button" href="{{FLBuilderConfig.upgradeUrl}}" target="_blank"><?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?> <i class="fas fa-external-link-alt"></i></a>
-	</div>
+        <div class="fl-builder--panel-message">
+                <?php if ( $fl_builder_show_legacy_promos ) : ?>
+                        <p><?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?></p>
+                        <a class="fl-builder-submenu-link fl-builder-upgrade-button fl-builder-button" href="{{FLBuilderConfig.upgradeUrl}}" target="_blank"><?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?> <i class="fas fa-external-link-alt"></i></a>
+                <?php else : ?>
+                        <p><?php _ex( 'Premium templates are not available in this SATORI Studio build.', 'Message that displays when upgrade prompts are hidden.', 'fl-builder' ); ?></p>
+                <?php endif; ?>
+        </div>
 </script>
 <!-- #tmpl-fl-content-lite-templates-upgrade-view -->
 
