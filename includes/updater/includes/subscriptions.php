@@ -52,7 +52,7 @@ if ( '{FL_BUILDER_NAME}' !== $plugin_data['Name'] && ! in_array( $plugin_name, $
 }
 // themer installed but no licence?
 if ( ! $themer && defined( 'FL_THEME_BUILDER_VERSION' ) ) {
-	echo( '<div class="notice notice-error"><p><strong>Beaver Themer updates issue!</strong></p><p>Updates for Beaver Themer will not work as you appear to have Beaver Themer activated but it is not in your available downloads</p></div>' );
+        echo( '<div class="notice notice-error"><p><strong>Legacy Beaver Themer updates issue!</strong></p><p>Updates for Beaver Themer will not work as you appear to have Beaver Themer activated but it is not in your available downloads.</p></div>' );
 }
 
 ?>
@@ -69,23 +69,23 @@ if ( ! $themer && defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 </ul>
 
 <?php if ( ! $themer ) : ?>
-	<div class="themer">
-	<h3><?php _e( 'Take SATORI Studio Even Further', 'fl-builder' ); ?></h3>
-	<h4>
-		<strong>Beaver Themer</strong> - <a target="_blank" href="
-		<?php
-		echo FLBuilderModel::get_store_url( 'beaver-themer', array(
-			'utm_medium'   => 'bb-pro',
-			'utm_source'   => 'license-settings-page',
-			'utm_campaign' => 'themer-upsell',
-		) );
-		?>
-		">Click here </a> to learn more about this Add-on</h4>
-		<ul>
-			<li><span class="dashicons dashicons-saved"></span>Create custom headers and footer layouts that override your theme.</li>
-			<li><span class="dashicons dashicons-saved"></span>Design unique page layouts for index, archive, search, single posts and 404 pages.</li>
-			<li><span class="dashicons dashicons-saved"></span>Customize WooCommerce Shop, Checkout, Cart and My Account pages.</li>
-			<li><span class="dashicons dashicons-saved"></span>Create layout "parts" to insert above or below headers, footers, or the content area.</li>
-		</ul>
-	</div>
+        <div class="themer">
+        <h3><?php _e( 'Take SATORI Studio Even Further', 'fl-builder' ); ?></h3>
+        <h4>
+                <strong><?php _e( 'Beaver Themer (legacy)', 'fl-builder' ); ?></strong> - <a target="_blank" href="
+                <?php
+                echo FLBuilderModel::get_store_url( 'beaver-themer', array(
+                        'utm_medium'   => 'bb-pro',
+                        'utm_source'   => 'license-settings-page',
+                        'utm_campaign' => 'themer-upsell',
+                ) );
+                ?>
+                "><?php _e( 'Learn more about this upstream add-on', 'fl-builder' ); ?> </a></h4>
+                <ul>
+                        <li><span class="dashicons dashicons-saved"></span>Create custom headers and footer layouts that override your theme.</li>
+                        <li><span class="dashicons dashicons-saved"></span>Design unique page layouts for index, archive, search, single posts and 404 pages.</li>
+                        <li><span class="dashicons dashicons-saved"></span>Customize WooCommerce Shop, Checkout, Cart and My Account pages.</li>
+                        <li><span class="dashicons dashicons-saved"></span>Create layout "parts" to insert above or below headers, footers, or the content area.</li>
+                </ul>
+        </div>
 <?php endif; ?>

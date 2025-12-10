@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       SATORI Studio
  * Plugin URI:        https://satori.com.au/satori-studio
- * Description:       SATORI Studio delivers a drag and drop frontend WordPress page builder that works with almost any theme. Maintained by Satori Graphics Pty Ltd and derived from the Beaver Builder Lite codebase.
+ * Description:       SATORI Studio delivers a drag and drop frontend WordPress page builder that works with almost any theme. Maintained by Satori Graphics Pty Ltd. Forked from Beaver Builder Lite by The Beaver Builder Team and distributed under the GPL v2+ license.
  * Version:           2.9.4.1
  * Author:            Satori Graphics Pty Ltd
  * Author URI:        https://satoristudio.com/
@@ -13,6 +13,8 @@
  * Requires at least: 5.2
  * Tested up to:      6.9
  * Requires PHP:      7.0
+ *
+ * Fork Origin:       Beaver Builder Lite by The Beaver Builder Team (FastLine Media LLC).
  *
  * @package Satori_Studio
  */

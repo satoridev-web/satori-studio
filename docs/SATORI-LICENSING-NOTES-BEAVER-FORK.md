@@ -11,16 +11,23 @@
 - Upstream authors must be credited wherever reasonable in documentation and notices.
 - SATORI Studio distributions must make source code available in accordance with GPL requirements.
 
+## GPL Compliance Practices
+- Plugin headers must clearly state SATORI authorship while acknowledging the Beaver Builder Lite fork origin.
+- Release packaging must continue to include the upstream GPL v2 (or later) license text without modification.
+- Public-facing documentation should describe the fork lineage honestly (fork of Beaver Builder Lite by The Beaver Builder Team) and avoid implying exclusive authorship where upstream code remains.
+- When redistributing, ensure copyright notices for both upstream and SATORI contributions are present in bundled documentation.
+
 ## SATORI Copyright Notice
 - **Copyright © 2024 Satori Graphics Pty Ltd**
 - New contributions made as part of the SATORI Studio fork are provided under GPL v2 or later while retaining upstream attribution.
 
 ## Text Domain Notes
-- Legacy Beaver Builder text domains remain in portions of the codebase to preserve translation compatibility.
-- New or clearly SATORI-authored strings should prefer the `satori-studio` text domain.
-- Future phases will evaluate consolidating text domains once downstream compatibility is assured.
+- Legacy Beaver Builder text domains (for example, `fl-builder` or `bb-plugin`) remain in portions of the codebase to preserve translation compatibility and third-party integration stability.
+- New or clearly SATORI-authored strings should prefer the `satori-studio` text domain. Avoid renaming existing domains unless a migration plan is documented and vetted.
+- Translation packs that target upstream domains should continue to function; ensure newly added strings follow the domain guidance above to prevent regressions.
+- Future phases will evaluate consolidating text domains once downstream compatibility is assured and a deprecation plan exists.
 
 ## Known Inherited Assets & TODOs
 - Current iconography and some visual assets still reflect Beaver Builder branding.
-- A later phase will replace these assets with SATORI-native artwork and update any related CSS/image paths.
+- A later phase will replace these assets with SATORI-native artwork and update any related CSS/image paths; background images that reference legacy logos remain untouched for now.
 - No binary assets were modified in this text-only pass.
