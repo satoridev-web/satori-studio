@@ -32,6 +32,7 @@ namespace Satori_Studio\Core;
 use Satori_Studio\Core\Services\Container;
 use Satori_Studio\Core\Environment;
 use Satori_Studio\Core\Features;
+use Satori_Studio\Core\DesignSystem;
 
 class Plugin {
 
@@ -88,16 +89,16 @@ class Plugin {
 		return self::$instance;
 	}
 
-	/**
-	 * Constructor.
-	 *
-	 * @param string $plugin_file Path to the main plugin file.
-	 */
-	public function __construct( $plugin_file ) {
-		$this->plugin_file = $plugin_file;
-		$this->plugin_dir  = plugin_dir_path( $plugin_file );
-		$this->environment = new Environment( $plugin_file );
-		$this->services    = new Container();
+        /**
+         * Constructor.
+         *
+         * @param string $plugin_file Path to the main plugin file.
+         */
+        public function __construct( $plugin_file ) {
+                $this->plugin_file = $plugin_file;
+                $this->plugin_dir  = plugin_dir_path( $plugin_file );
+                $this->environment = new Environment( $plugin_file );
+                $this->services    = new Container();
 
 		$this->register_services();
 
@@ -109,12 +110,25 @@ class Plugin {
 	 *
 	 * The Environment is created during construction and reused for the lifetime
 	 * of the plugin instance.
-	 *
-	 * @return Environment
-	 */
-	public function get_environment() {
-		return $this->environment;
-	}
+         *
+         * @return Environment
+         */
+        public function get_environment() {
+                return $this->environment;
+        }
+
+        /**
+         * Get the core design system service.
+         *
+         * Provides read-only access to design tokens (colors, spacing,
+         * typography) for downstream consumers. Tokens are currently defined in
+         * PHP and will later be reflected in CSS/JS outputs.
+         *
+         * @return DesignSystem|null
+         */
+        public function get_design_system() {
+                return $this->service( 'design_system' );
+        }
 
 	/**
 	 * Get the services container.
@@ -184,6 +198,13 @@ class Plugin {
                         'features',
                         function () {
                                 return new Features();
+                        }
+                );
+
+                $this->services->set(
+                        'design_system',
+                        function () {
+                                return new DesignSystem();
                         }
                 );
         }
