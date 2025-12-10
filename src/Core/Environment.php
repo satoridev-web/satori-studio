@@ -6,8 +6,17 @@
 /**
  * Core environment container for SATORI Studio metadata.
  *
- * Provides a centralized source of truth for plugin file paths, URLs,
- * version data, and identifying slugs.
+ * Responsibilities:
+ * - Provide a single source of truth for plugin file paths, URLs, version
+ *   data, and identifying slugs.
+ * - Normalise frequently reused metadata so other systems do not duplicate
+ *   filesystem/URL resolution logic.
+ *
+ * Lifecycle & usage notes:
+ * - Instantiated once by the Plugin bootstrap and typically accessed via the
+ *   services container or helper functions.
+ * - Values are resolved during construction and then cached as read-only
+ *   properties for fast reuse.
  *
  * @package Satori_Studio\Core
  */

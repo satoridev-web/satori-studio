@@ -21,9 +21,16 @@ require_once __DIR__ . '/src/autoload.php';
 
 \Satori_Studio\Core\Plugin::init( __FILE__ );
 
+/* -------------------------------------------------
+ * Core helper API — bootstrap + service accessors
+ * -------------------------------------------------*/
+
 if ( ! function_exists( 'satori_studio' ) ) {
         /**
          * Retrieve the SATORI Studio core plugin instance.
+         *
+         * Safe to call after the main plugin file has loaded; subsequent calls
+         * reuse the same singleton instance.
          *
          * @return \Satori_Studio\Core\Plugin
          */
@@ -36,10 +43,42 @@ if ( ! function_exists( 'satori_studio_service' ) ) {
         /**
          * Retrieve a service from the SATORI Studio core container.
          *
+         * Intended for use after plugin bootstrap (e.g. on or after
+         * `plugins_loaded`). Known service IDs include 'environment' for core
+         * metadata; future services will follow the same pattern.
+         *
          * @param string $id Service identifier.
-         * @return mixed|null
+         * @return mixed|null Returns the service instance if defined; null when
+         *                    the ID is unknown.
          */
         function satori_studio_service( $id ) {
                 return satori_studio()->service( $id );
+        }
+}
+
+if ( ! function_exists( 'satori_studio_env' ) ) {
+        /**
+         * Convenience wrapper to access the core Environment service.
+         *
+         * Returns null when the service container is unavailable (for example
+         * if called before the helper functions are defined).
+         *
+         * @return \Satori_Studio\Core\Environment|null
+         */
+        function satori_studio_env() {
+                return function_exists( 'satori_studio_service' )
+                        ? satori_studio_service( 'environment' )
+                        : null;
+        }
+}
+
+if ( ! function_exists( 'satori_studio_environment' ) ) {
+        /**
+         * Alias for satori_studio_env() to match descriptive naming styles.
+         *
+         * @return \Satori_Studio\Core\Environment|null
+         */
+        function satori_studio_environment() {
+                return satori_studio_env();
         }
 }
