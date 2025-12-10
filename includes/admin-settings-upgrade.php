@@ -1,3 +1,10 @@
+<?php
+if ( function_exists( 'satori_studio_feature_enabled' ) && ! satori_studio_feature_enabled( 'ui-legacy-upgrade-screen' ) ) {
+        echo '<div class="fl-settings-form fl-upgrade-page-content">' . esc_html__( 'The upgrade screen is disabled for SATORI Studio.', 'fl-builder' ) . '</div>';
+        return;
+}
+?>
+
 <div id="fl-upgrade-form" class="fl-settings-form fl-upgrade-page-content">
 
 	<h3 class="fl-settings-form-header"><?php _e( 'Get More Features', 'fl-builder' ); ?></h3>

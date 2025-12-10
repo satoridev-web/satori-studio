@@ -246,21 +246,23 @@ final class FLBuilderAdmin {
 	 * @param array $actions An array of row action links.
 	 * @return array
 	 */
-	static public function render_plugin_action_links( $actions ) {
+        static public function render_plugin_action_links( $actions ) {
 
-		/**
-		 * Some bad plugins set $actions to '' or false to remove all plugin actions
-		 * when it should be an empty array, in later PHP versions this results in a fatal error.
-		 */
-		if ( ! is_array( $actions ) ) {
-			$actions = array();
-		}
-		if ( FL_BUILDER_LITE === true ) {
-			$url       = FLBuilderModel::get_upgrade_url( array(
-				'utm_medium'   => 'bb-lite',
-				'utm_source'   => 'plugins-admin-page',
-				'utm_campaign' => 'plugins-admin-upgrade',
-			) );
+                /**
+                 * Some bad plugins set $actions to '' or false to remove all plugin actions
+                 * when it should be an empty array, in later PHP versions this results in a fatal error.
+                 */
+                if ( ! is_array( $actions ) ) {
+                        $actions = array();
+                }
+                $show_upgrade_link = function_exists( 'satori_studio_feature_enabled' ) ? satori_studio_feature_enabled( 'ui-legacy-upgrade-promos' ) : false;
+
+                if ( FL_BUILDER_LITE === true && $show_upgrade_link ) {
+                        $url       = FLBuilderModel::get_upgrade_url( array(
+                                'utm_medium'   => 'bb-lite',
+                                'utm_source'   => 'plugins-admin-page',
+                                'utm_campaign' => 'plugins-admin-upgrade',
+                        ) );
 			$actions[] = '<a href="' . $url . '" style="color:#3db634;" target="_blank">' . _x( 'Upgrade', 'Plugin action link label.', 'fl-builder' ) . '</a>';
 		}
 

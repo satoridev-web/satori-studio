@@ -17,6 +17,9 @@ $docs_url        = FLBuilderModel::get_store_url( 'go/docs', fl_welcome_utm( 'se
 $fb_url          = 'https://www.facebook.com/groups/beaverbuilders/';
 $release_ver     = '2.9';
 $release_name    = '&#8220;Coyote&#8221;';
+$show_upgrade_promos   = function_exists( 'satori_studio_feature_enabled' ) ? satori_studio_feature_enabled( 'ui-legacy-upgrade-promos' ) : false;
+$show_themer_promos    = function_exists( 'satori_studio_feature_enabled' ) ? satori_studio_feature_enabled( 'ui-legacy-themer-promos' ) : false;
+$show_assistant_promos = function_exists( 'satori_studio_feature_enabled' ) ? satori_studio_feature_enabled( 'ui-legacy-assistant-promos' ) : false;
 ?>
 <div id="fl-welcome-form" class="fl-settings-form">
 
@@ -26,12 +29,12 @@ $release_name    = '&#8220;Coyote&#8221;';
 
 		<p class="welcome-intro"><?php _e( 'Thank you for choosing SATORI Studio and welcome to the colony! Find some helpful information below. Also, to the left are the Page Builder settings options.', 'fl-builder' ); ?>
 
-			<?php if ( true === FL_BUILDER_LITE ) : ?>
-				<?php /* translators: %s: upgrade url */ ?>
-				<?php printf( __( 'For more time-saving features and access to our expert support team, <a href="%s" target="_blank">upgrade today</a>.', 'fl-builder' ), $upgrade_url ); ?>
-			<?php else : ?>
-				<?php _e( 'Be sure to add your license key for access to updates and new features.', 'fl-builder' ); ?>
-			<?php endif; ?>
+                        <?php if ( true === FL_BUILDER_LITE && $show_upgrade_promos ) : ?>
+                                <?php /* translators: %s: upgrade url */ ?>
+                                <?php printf( __( 'For more time-saving features and access to our expert support team, <a href="%s" target="_blank">upgrade today</a>.', 'fl-builder' ), $upgrade_url ); ?>
+                        <?php elseif ( true !== FL_BUILDER_LITE ) : ?>
+                                <?php _e( 'Be sure to add your license key for access to updates and new features.', 'fl-builder' ); ?>
+                        <?php endif; ?>
 
 		</p>
 
@@ -78,31 +81,37 @@ $release_name    = '&#8220;Coyote&#8221;';
 
 		</div>
 
-		<div class="fl-welcome-col-wrap divider">
+                <?php if ( $show_themer_promos || $show_assistant_promos ) : ?>
+                        <div class="fl-welcome-col-wrap divider">
 
-                        <h2><?php _e( 'Even More Power!', 'fl-builder' ); ?></h2>
+                                <h2><?php _e( 'Even More Power!', 'fl-builder' ); ?></h2>
 
-                        <div class="fl-welcome-col">
+                                <?php if ( $show_themer_promos ) : ?>
+                                <div class="fl-welcome-col">
 
-                                <h3 class="centered"><?php _e( 'Legacy Themer compatibility for site-wide control', 'fl-builder' ); ?></h3>
+                                        <h3 class="centered"><?php _e( 'Legacy Themer compatibility for site-wide control', 'fl-builder' ); ?></h3>
 
-                                <a href="https://www.youtube.com/watch?v=KNpGTrCguEA" target="_blank"><img class="fl-welcome-img" src="<?php echo FLBuilder::plugin_url(); ?>img/video-beaver_themer.jpg" alt="<?php esc_attr_e( 'Overview video for legacy Beaver Themer compatibility', 'fl-builder' ); ?>" /></a>
+                                        <a href="https://www.youtube.com/watch?v=KNpGTrCguEA" target="_blank"><img class="fl-welcome-img" src="<?php echo FLBuilder::plugin_url(); ?>img/video-beaver_themer.jpg" alt="<?php esc_attr_e( 'Overview video for legacy Beaver Themer compatibility', 'fl-builder' ); ?>" /></a>
 
-                                <a href="https://www.wpbeaverbuilder.com/beaver-themer/" target="_blank" class="fl-button centered"><?php _e( 'Learn about Beaver Themer (legacy)', 'fl-builder' ); ?></a>
+                                        <a href="https://www.wpbeaverbuilder.com/beaver-themer/" target="_blank" class="fl-button centered"><?php _e( 'Learn about Beaver Themer (legacy)', 'fl-builder' ); ?></a>
+
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if ( $show_assistant_promos ) : ?>
+                                <div class="fl-welcome-col">
+
+                                        <h3 class="centered"><?php _e( 'Access Your Design Assets Across All Sites with Assistant Pro', 'fl-builder' ); ?></h3>
+
+                                        <a href="https://www.youtube.com/watch?v=JtPeN_9Ns9o" target="_blank"><img class="fl-welcome-img" src="<?php echo FLBuilder::plugin_url(); ?>img/video-assistant.jpg" alt="" /></a>
+
+                                        <a href="https://assistant.pro" target="_blank" class="fl-button centered">Get Assistant</a>
+
+                                </div>
+                                <?php endif; ?>
 
                         </div>
-
-			<div class="fl-welcome-col">
-
-				<h3 class="centered"><?php _e( 'Access Your Design Assets Across All Sites with Assistant Pro', 'fl-builder' ); ?></h3>
-
-				<a href="https://www.youtube.com/watch?v=JtPeN_9Ns9o" target="_blank"><img class="fl-welcome-img" src="<?php echo FLBuilder::plugin_url(); ?>img/video-assistant.jpg" alt="" /></a>
-
-				<a href="https://assistant.pro" target="_blank" class="fl-button centered">Get Assistant</a>
-
-			</div>
-
-		</div>
+                <?php endif; ?>
 
 		<div class="fl-welcome-col-wrap divider">
 
@@ -135,13 +144,18 @@ $release_name    = '&#8220;Coyote&#8221;';
 				<?php /* translators: 1: docs url: 2: facebook url */ ?>
 				<p><?php printf( __( 'For that, check our <a href="%1$s" target="_blank">Knowledge Base</a> or try searching <a href="%2$s" target="_blank">the SATORI Studio builders Facebook group</a> or our <a href="%3$s" target="_blank">Forums</a>.', 'fl-builder' ), $docs_url, $fb_url, $forums_url ); ?></p>
 
-				<?php if ( true === FL_BUILDER_LITE ) : ?>
-					<?php /* translators: %s: upgrade url */ ?>
-					<p><?php printf( __( 'If you can\'t find an answer, consider upgrading to a premium version of SATORI Studio. Our expert support team is waiting to answer your questions and help you build your website. <a href="%s" target="_blank">Learn More</a>.', 'fl-builder' ), $upgrade_url ); ?></p>
-				<?php else : ?>
-					<?php /* translators: %s: support url */ ?>
-					<p><?php printf( __( 'If you can\'t find an answer, feel free to <a href="%s" target="_blank">send us a message with your question.</a>', 'fl-builder' ), $support_url ); ?></p>
-				<?php endif; ?>
+                                <?php if ( true === FL_BUILDER_LITE ) : ?>
+                                        <?php if ( $show_upgrade_promos ) : ?>
+                                                <?php /* translators: %s: upgrade url */ ?>
+                                                <p><?php printf( __( 'If you can\'t find an answer, consider upgrading to a premium version of SATORI Studio. Our expert support team is waiting to answer your questions and help you build your website. <a href="%s" target="_blank">Learn More</a>.', 'fl-builder' ), $upgrade_url ); ?></p>
+                                        <?php else : ?>
+                                                <?php /* translators: %s: support url */ ?>
+                                                <p><?php printf( __( 'If you can\'t find an answer, feel free to <a href="%s" target="_blank">send us a message with your question.</a>', 'fl-builder' ), $support_url ); ?></p>
+                                        <?php endif; ?>
+                                <?php else : ?>
+                                        <?php /* translators: %s: support url */ ?>
+                                        <p><?php printf( __( 'If you can\'t find an answer, feel free to <a href="%s" target="_blank">send us a message with your question.</a>', 'fl-builder' ), $support_url ); ?></p>
+                                <?php endif; ?>
 			</div>
 
 		</div>

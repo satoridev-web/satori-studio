@@ -15,6 +15,12 @@ $features = satori_studio_service( 'features' );
 $all      = $features ? $features->get_all() : array();
 ```
 
+To gate a specific toggle without pulling the entire registry, use the helper:
+
+```php
+$is_enabled = satori_studio_feature_enabled( 'ui-legacy-upgrade-promos' );
+```
+
 ## Disabling a feature via filter
 
 ```php
@@ -32,5 +38,12 @@ add_filter( 'satori_studio_feature_flags', function( $flags ) {
 - Prefer toggling **optional** or **legacy** features only; core features may be assumed elsewhere in the codebase.
 - When disabling integrations (e.g., `extension-fl-builder-seo-plugins`), ensure dependent plugins or workflows are unaffected.
 - No UI switches are provided in Phase 1B—filters are the only supported entry point.
+
+### Phase 1C upsell/legacy UI flags
+- `ui-legacy-upgrade-screen` — controls visibility of the legacy Upgrade tab in admin settings.
+- `ui-legacy-license-screen` — controls legacy license settings visibility.
+- `ui-legacy-upgrade-promos` — gates builder-side upgrade CTAs and template panel upsells.
+- `ui-legacy-themer-promos` — hides/shows Themer-specific promo panels.
+- `ui-legacy-assistant-promos` — hides/shows Assistant Pro promo panels.
 
 This registry is foundational for future phases where modules may be conditionally removed or packaged separately.

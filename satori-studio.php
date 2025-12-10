@@ -102,3 +102,46 @@ if ( ! function_exists( 'satori_studio_design_system' ) ) {
                         : null;
         }
 }
+
+if ( ! function_exists( 'satori_studio_features' ) ) {
+        /**
+         * Convenience wrapper to access the Features registry service.
+         *
+         * Returns null when the service container is unavailable. The registry
+         * is filterable via `satori_studio_feature_flags` for downstream code
+         * that needs to toggle modules or UI visibility.
+         *
+         * @return \Satori_Studio\Core\Features|null
+         */
+        function satori_studio_features() {
+                return function_exists( 'satori_studio_service' )
+                        ? satori_studio_service( 'features' )
+                        : null;
+        }
+}
+
+if ( ! function_exists( 'satori_studio_feature_enabled' ) ) {
+        /**
+         * Determine whether a feature flag is enabled in the registry.
+         *
+         * Returns false when the registry is unavailable or the slug is
+         * undefined. Intended for lightweight gating of legacy or optional UI
+         * such as upsell panels.
+         *
+         * @param string $slug Feature slug to check.
+         * @return bool
+         */
+        function satori_studio_feature_enabled( $slug ) {
+                if ( empty( $slug ) ) {
+                        return false;
+                }
+
+                $features = satori_studio_features();
+
+                if ( ! $features ) {
+                        return false;
+                }
+
+                return $features->is_enabled( $slug );
+        }
+}

@@ -1,6 +1,11 @@
 
 # SATORI STUDIO — MASTER DEVELOPMENT ROADMAP (v1.0)
 
+## Phase 1C — Module/Feature Pruning Audit (Outcome)
+- `docs/SATORI-MODULE-AUDIT-PHASE-1C.md` created with module and admin feature inventory plus recommendations.
+- Legacy Beaver Builder upsell surfaces (upgrade/license screens, Themer/Assistant promos, builder upgrade CTAs) are soft-hidden behind new SATORI feature flags.
+- No content modules were removed or renamed; candidates for hard removal are deferred to later phases.
+
 ## Phase 1 — Core Acquisition & Forking (Weeks 1–3)
 ### Goal: Create a stable, white-labelled foundation based on Beaver Builder Lite.
 - Obtain and freeze BB Lite release.
