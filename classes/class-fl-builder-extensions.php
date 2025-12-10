@@ -14,21 +14,33 @@ final class FLBuilderExtensions {
 	 * @param string $path Path to extensions to initialize.
 	 * @return void
 	 */
-	static public function init( $path = null ) {
-		$path       = $path ? trailingslashit( $path ) : FL_BUILDER_DIR . 'extensions/';
-		$extensions = glob( $path . '*' );
+        static public function init( $path = null ) {
+                $path       = $path ? trailingslashit( $path ) : FL_BUILDER_DIR . 'extensions/';
+                $extensions = glob( $path . '*' );
+                $features   = null;
 
-		if ( ! is_array( $extensions ) ) {
-			return;
-		}
+                if ( class_exists( '\\Satori_Studio\\Core\\Plugin' ) && defined( 'FL_BUILDER_FILE' ) ) {
+                        $features = \Satori_Studio\Core\Plugin::init( FL_BUILDER_FILE )->service( 'features' );
+                }
 
-		foreach ( $extensions as $extension ) {
+                if ( ! is_array( $extensions ) ) {
+                        return;
+                }
 
-			if ( ! is_dir( $extension ) ) {
-				continue;
-			}
+                foreach ( $extensions as $extension ) {
 
-			$path = trailingslashit( $extension ) . basename( $extension ) . '.php';
+                        // Phase 1B: consult the feature registry before loading extensions.
+                        $slug = basename( $extension );
+
+                        if ( $features && method_exists( $features, 'is_enabled' ) && ! $features->is_enabled( 'extension-' . $slug ) ) {
+                                continue;
+                        }
+
+                        if ( ! is_dir( $extension ) ) {
+                                continue;
+                        }
+
+                        $path = trailingslashit( $extension ) . $slug . '.php';
 
 			if ( file_exists( $path ) ) {
 				require_once $path;

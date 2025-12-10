@@ -3091,13 +3091,18 @@ final class FLBuilderModel {
 	 * @return void
 	 */
 	static public function load_modules() {
-		$paths = glob( FL_BUILDER_DIR . 'modules/*' );
-		/**
-		 * Filter the modules paths.
-		 * @see fl_builder_load_modules_paths
-		 */
-		$paths       = apply_filters( 'fl_builder_load_modules_paths', $paths );
-		$module_path = '';
+                $paths = glob( FL_BUILDER_DIR . 'modules/*' );
+                /**
+                 * Filter the modules paths.
+                 * @see fl_builder_load_modules_paths
+                 */
+                $paths       = apply_filters( 'fl_builder_load_modules_paths', $paths );
+                $module_path = '';
+                $features    = null;
+
+                if ( class_exists( '\\Satori_Studio\\Core\\Plugin' ) && defined( 'FL_BUILDER_FILE' ) ) {
+                        $features = \Satori_Studio\Core\Plugin::init( FL_BUILDER_FILE )->service( 'features' );
+                }
 
 		// Make sure we have an array.
 		if ( ! is_array( $paths ) ) {
@@ -3112,11 +3117,16 @@ final class FLBuilderModel {
 				continue;
 			}
 
-			// Get the module slug.
-			$slug = basename( $path );
+                        // Get the module slug.
+                        $slug = basename( $path );
 
-			// Paths to check.
-			$module_path  = $slug . '/' . $slug . '.php';
+                        // Phase 1B: consult the feature registry before loading modules.
+                        if ( $features && method_exists( $features, 'is_enabled' ) && ! $features->is_enabled( 'module-' . $slug ) ) {
+                                continue;
+                        }
+
+                        // Paths to check.
+                        $module_path  = $slug . '/' . $slug . '.php';
 			$child_path   = get_stylesheet_directory() . '/fl-builder/modules/' . $module_path;
 			$theme_path   = get_template_directory() . '/fl-builder/modules/' . $module_path;
 			$builder_path = FL_BUILDER_DIR . 'modules/' . $module_path;
