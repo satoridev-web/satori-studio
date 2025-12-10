@@ -31,6 +31,7 @@ namespace Satori_Studio\Core;
 
 use Satori_Studio\Core\Services\Container;
 use Satori_Studio\Core\Environment;
+use Satori_Studio\Core\Features;
 
 class Plugin {
 
@@ -171,12 +172,19 @@ class Plugin {
 	 *
 	 * @return void
 	 */
-	private function register_services() {
-		$this->services->set(
-			'environment',
-			function () {
-				return $this->environment;
-			}
-		);
-	}
+        private function register_services() {
+                $this->services->set(
+                        'environment',
+                        function () {
+                                return $this->environment;
+                        }
+                );
+
+                $this->services->set(
+                        'features',
+                        function () {
+                                return new Features();
+                        }
+                );
+        }
 }
