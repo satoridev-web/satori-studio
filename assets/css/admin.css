@@ -22,4 +22,127 @@ body.satori-studio-admin {
   --satori-typography-small: 0.875rem;
   --satori-typography-base: 1rem;
   --satori-typography-large: 1.25rem;
+  --satori-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --satori-radius-sm: 4px;
+  --satori-radius-md: 8px;
+  --satori-font-size-small: var(--satori-typography-small);
+  --satori-font-size-base: var(--satori-typography-base);
+  --satori-font-size-large: var(--satori-typography-large);
+}
+
+/* -------------------------------------------------
+ * SATORI Studio — Builder UI Shell (Token-aligned)
+ * -------------------------------------------------*/
+body.satori-studio-admin .fl-builder-bar .fl-builder-bar-content {
+  background-color: var(--satori-color-neutral-900);
+  border-bottom: 1px solid var(--satori-color-neutral-700);
+  color: var(--satori-color-neutral-100);
+  font-family: var(--satori-font-family-base, inherit);
+}
+
+body.satori-studio-admin .fl-builder-bar-title,
+body.satori-studio-admin .fl-builder-bar-title-area,
+body.satori-studio-admin .fl-builder-layout-title,
+body.satori-studio-admin .fl-builder-layout-pretitle,
+body.satori-studio-admin .fl-builder-bar-title-caret {
+  color: var(--satori-color-neutral-100);
+  font-family: var(--satori-font-family-base, inherit);
+  font-size: var(--satori-font-size-base, var(--satori-typography-base));
+}
+
+body.satori-studio-admin .fl-builder-bar-title:hover {
+  background: var(--satori-color-neutral-800);
+}
+
+body.satori-studio-admin .fl-builder-bar .fl-builder-button {
+  background: var(--satori-color-neutral-800);
+  border-color: var(--satori-color-neutral-700);
+  color: var(--satori-color-neutral-100) !important;
+  border-radius: var(--satori-radius-sm, 4px);
+  font-family: var(--satori-font-family-base, inherit);
+}
+
+body.satori-studio-admin .fl-builder-bar .fl-builder-button:hover,
+body.satori-studio-admin .fl-builder-bar .fl-builder-button:focus {
+  background: var(--satori-color-neutral-700);
+  color: var(--satori-color-neutral-100) !important;
+}
+
+body.satori-studio-admin .fl-builder-bar .fl-builder-button-primary,
+body.satori-studio-admin .fl-builder-publish-actions .fl-builder-button-primary {
+  background: var(--satori-color-primary);
+  border-color: var(--satori-color-primary);
+  color: #fff !important;
+}
+
+body.satori-studio-admin .fl-builder-bar .fl-builder-button-primary:hover,
+body.satori-studio-admin .fl-builder-bar .fl-builder-button-primary:focus,
+body.satori-studio-admin .fl-builder-publish-actions .fl-builder-button-primary:hover,
+body.satori-studio-admin .fl-builder-publish-actions .fl-builder-button-primary:focus {
+  background: var(--satori-color-accent);
+  border-color: var(--satori-color-accent);
+  color: #fff !important;
+}
+
+body.satori-studio-admin .fl-builder-panel,
+body.satori-studio-admin .fl-builder--main-menu-panel {
+  background: var(--satori-color-neutral-800);
+  color: var(--satori-color-neutral-100);
+  border-color: var(--satori-color-neutral-700);
+}
+
+body.satori-studio-admin .fl-builder-panel .fl-builder--panel-header {
+  background: var(--satori-color-neutral-900);
+  border-bottom: 1px solid var(--satori-color-neutral-700);
+  color: var(--satori-color-neutral-100);
+  font-family: var(--satori-font-family-base, inherit);
+  font-size: var(--satori-font-size-base, var(--satori-typography-base));
+}
+
+body.satori-studio-admin .fl-builder-panel .fl-builder-panel-drag-handle {
+  color: var(--satori-color-neutral-400) !important;
+}
+
+body.satori-studio-admin .fl-builder-panel .fl-builder--panel-controls .fl-builder-panel-search button {
+  color: var(--satori-color-neutral-100);
+}
+
+body.satori-studio-admin .fl-builder-panel-search .fl-builder-panel-search-input {
+  background: var(--satori-color-neutral-900);
+}
+
+body.satori-studio-admin .fl-builder-panel-search-input input {
+  border: 2px solid var(--satori-color-neutral-700);
+  background: var(--satori-color-neutral-800);
+  color: var(--satori-color-neutral-100);
+}
+
+body.satori-studio-admin .fl-builder-panel-search-input input:focus {
+  border-color: var(--satori-color-primary);
+}
+
+body.satori-studio-admin .fl-builder-blocks-group .fl-builder-blocks-section-group-name {
+  color: var(--satori-color-neutral-100);
+  font-family: var(--satori-font-family-base, inherit);
+}
+
+body.satori-studio-admin .fl-builder-blocks-section .fl-builder-blocks-section-header,
+body.satori-studio-admin .fl-builder--template-collection-section-header {
+  background-color: var(--satori-color-neutral-800);
+  border-top-color: var(--satori-color-neutral-700);
+}
+
+body.satori-studio-admin .fl-builder-blocks-section .fl-builder-blocks-section-title {
+  background: transparent;
+  color: var(--satori-color-neutral-100);
+  font-family: var(--satori-font-family-base, inherit);
+  font-size: var(--satori-font-size-base, var(--satori-typography-base));
+}
+
+body.satori-studio-admin .fl-builder-blocks-section .fl-builder-blocks-section-title i {
+  color: var(--satori-color-neutral-300);
+}
+
+body.satori-studio-admin .fl-builder-blocks-section .fl-builder-block {
+  color: var(--satori-color-neutral-100);
 }

@@ -76,6 +76,11 @@ Additional inline comments should follow WordPress/WPCS conventions.
   - Accent: SATORI Teal
   - Neutral greys: tokens defined in `_tokens.scss`.
 
+### 3.4 Builder Shell Tokenization (Phase 2C)
+- Builder toolbar chrome, side panel shell, section headings, and core actions inherit SATORI CSS variables exposed on `body.satori-studio-admin`.
+- Styling adjustments are limited to color, typography alignment, and subtle radius updates; layout and Beaver Builder Lite internals remain unchanged.
+- Deeper control/field alignment will follow in later phases.
+
 ---
 
 ## 4. Module Architecture Standard

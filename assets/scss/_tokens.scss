@@ -33,3 +33,21 @@ $token-typography: (
     'base': 1rem,
     'large': 1.25rem,
 );
+
+// Font tokens.
+$token-fonts: (
+    'family-base': '\'Inter\', system-ui, -apple-system, BlinkMacSystemFont, \'Segoe UI\', sans-serif',
+);
+
+// Border radius tokens.
+$token-radius: (
+    'sm': 4px,
+    'md': 8px,
+);
+
+// Aliases for readability.
+$token-typography-aliases: (
+    'font-size-small': map-get($token-typography, 'small'),
+    'font-size-base': map-get($token-typography, 'base'),
+    'font-size-large': map-get($token-typography, 'large'),
+);
