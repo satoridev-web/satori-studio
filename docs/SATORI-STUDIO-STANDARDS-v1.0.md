@@ -41,6 +41,9 @@ This document defines the foundational engineering, design, and distribution sta
 - Global Settings admin page stores color, typography, and spacing configuration in the `satori_studio_global_settings` option.
 - Stored values are scaffold-only in this phase and do not override SCSS tokens or builder defaults yet.
 
+### 1.5 Admin Navigation
+- SATORI Studio remains a top-level admin hub; the legacy Settings → SATORI Studio submenu is removed at runtime for clarity.
+
 ---
 
 ## 2. Commenting Standard
