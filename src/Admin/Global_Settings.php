@@ -88,7 +88,7 @@ class Global_Settings {
                 $this->initialized = true;
 
                 add_action( 'admin_init', array( $this, 'register_settings' ) );
-                add_action( 'fl_builder_admin_settings_render_forms', array( $this, 'render_settings_nav_link' ) );
+                add_action( 'fl_builder_admin_settings_nav_after', array( $this, 'render_settings_nav_link' ) );
         }
 
         /**
@@ -200,6 +200,10 @@ class Global_Settings {
          * @return void
          */
         public function render_settings_page() {
+                if ( ! current_user_can( 'manage_options' ) ) {
+                        wp_die( esc_html__( 'Sorry, you are not allowed to access this page.', 'satori-studio' ) );
+                }
+
                 ?>
                 <div class="wrap satori-global-settings">
                         <h1><?php esc_html_e( 'SATORI Studio — Global Settings', 'satori-studio' ); ?></h1>
@@ -320,19 +324,7 @@ class Global_Settings {
                         return;
                 }
 
-                ?>
-                <script type="text/javascript">
-                        ( function() {
-                                var navList = document.querySelector( '.fl-settings-nav ul' );
-
-                                if ( ! navList || navList.querySelector( '.satori-studio-global-settings-link' ) ) {
-                                        return;
-                                }
-
-                                navList.insertAdjacentHTML( 'beforeend', <?php echo wp_json_encode( $link_markup ); ?> );
-                        }() );
-                </script>
-                <?php
+                echo $link_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already escaped in template.
         }
 
         /**
