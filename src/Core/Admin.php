@@ -204,6 +204,9 @@ class Admin {
                         Global_Settings::MENU_SLUG,
                         array( $this->global_settings, 'render_settings_page' )
                 );
+
+                // Hide the Global Settings submenu entry from the WordPress sidebar while keeping the page registered.
+                remove_submenu_page( $settings_slug, Global_Settings::MENU_SLUG );
                 // Global Settings is intentionally accessible only via the in-app sidebar link
                 // within the SATORI Studio Settings screen and by direct URL.
         }
@@ -215,6 +218,5 @@ class Admin {
          */
         public static function remove_legacy_settings_submenu(): void {
                 remove_submenu_page( 'options-general.php', 'fl-builder-settings' );
-                remove_submenu_page( self::SETTINGS_SLUG, Global_Settings::MENU_SLUG );
         }
 }
