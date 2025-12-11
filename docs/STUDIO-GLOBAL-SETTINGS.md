@@ -29,3 +29,6 @@ The Global Settings panel centralises core color, typography, and spacing config
 - Behaviour: stores values via the WordPress Settings API; no runtime overrides are applied in this phase.
 - Admin registration: menu and submenu are registered through the core Admin bootstrap to avoid duplicates.
 - Beaver Builder settings sidebar surfaces a convenience link back to Global Settings without altering BB Lite defaults.
+- Navigation wiring: the Beaver Builder settings splash template (`includes/admin-settings-welcome.php`) is only included by
+  the canonical settings controller, while the sidebar link is injected via `fl_builder_admin_settings_nav_after` as a single
+  list item pointing to `admin.php?page=satori-studio-global-settings`.
