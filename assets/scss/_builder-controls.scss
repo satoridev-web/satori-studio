@@ -1,0 +1,140 @@
+/* -------------------------------------------------
+ * SATORI Studio — Builder Controls (Token-aligned)
+ * -------------------------------------------------*/
+
+body.satori-studio-admin {
+    .fl-builder-settings {
+        --fl-builder-accent-color: var(--satori-color-primary);
+        --fl-builder-accent-color-hover: var(--satori-color-accent);
+        --fl-builder-muted-accent-color: var(--satori-color-neutral-400);
+        --fl-builder-input-color: var(--satori-color-neutral-100);
+        --fl-builder-input-bg-color: var(--satori-color-neutral-900);
+        --fl-builder-panel-bg-color: var(--satori-color-neutral-800);
+        --fl-builder-heading-bg-color: var(--satori-color-neutral-900);
+        --fl-builder-platter-bg-color: var(--satori-color-neutral-800);
+        --fl-builder-outline-color: var(--satori-color-neutral-700);
+        --fl-builder-input-shadow: 0 0 0 1px var(--satori-color-neutral-700);
+        --fl-builder-focus-shadow: inset 0 0 0 1.5px var(--satori-color-primary);
+        --fl-builder-divider-color: var(--satori-color-neutral-700);
+        --fl-builder-selected-color: var(--satori-color-primary);
+        --fl-builder-dim-color: var(--satori-color-neutral-300);
+        font-family: var(--satori-font-family-base, inherit);
+        color: var(--satori-color-neutral-100);
+    }
+
+    .fl-builder-settings label,
+    .fl-builder-settings .fl-form-table th,
+    .fl-builder-settings .fl-field-label {
+        font-family: var(--satori-font-family-base, inherit);
+        font-size: var(--satori-font-size-small, var(--satori-typography-small));
+        color: var(--satori-color-neutral-100);
+    }
+
+    .fl-builder-settings .fl-field-description,
+    .fl-builder-settings .fl-field-description p {
+        color: var(--satori-color-neutral-300);
+        font-size: var(--satori-font-size-small, var(--satori-typography-small));
+    }
+
+    .fl-builder-settings input[type="text"],
+    .fl-builder-settings input[type="email"],
+    .fl-builder-settings input[type="url"],
+    .fl-builder-settings input[type="number"],
+    .fl-builder-settings input[type="password"],
+    .fl-builder-settings input[type="search"],
+    .fl-builder-settings input[type="tel"],
+    .fl-builder-settings select,
+    .fl-builder-settings textarea,
+    .fl-builder-settings .select2-selection--single,
+    .fl-builder-settings .select2-selection--multiple {
+        background-color: var(--satori-color-neutral-900);
+        border: 1px solid var(--satori-color-neutral-700);
+        border-radius: var(--satori-radius-sm, 4px);
+        color: var(--satori-color-neutral-100);
+        box-shadow: var(--fl-builder-input-shadow, 0 0 0 1px var(--satori-color-neutral-700));
+        font-family: var(--satori-font-family-base, inherit);
+    }
+
+    .fl-builder-settings input[type="text"]:hover,
+    .fl-builder-settings input[type="email"]:hover,
+    .fl-builder-settings input[type="url"]:hover,
+    .fl-builder-settings input[type="number"]:hover,
+    .fl-builder-settings input[type="password"]:hover,
+    .fl-builder-settings input[type="search"]:hover,
+    .fl-builder-settings input[type="tel"]:hover,
+    .fl-builder-settings select:hover,
+    .fl-builder-settings textarea:hover,
+    .fl-builder-settings .select2-selection--single:hover,
+    .fl-builder-settings .select2-selection--multiple:hover {
+        border-color: var(--satori-color-neutral-600);
+        box-shadow: 0 0 0 1px var(--satori-color-neutral-600);
+    }
+
+    .fl-builder-settings input[type="text"]:focus,
+    .fl-builder-settings input[type="email"]:focus,
+    .fl-builder-settings input[type="url"]:focus,
+    .fl-builder-settings input[type="number"]:focus,
+    .fl-builder-settings input[type="password"]:focus,
+    .fl-builder-settings input[type="search"]:focus,
+    .fl-builder-settings input[type="tel"]:focus,
+    .fl-builder-settings select:focus,
+    .fl-builder-settings textarea:focus,
+    .fl-builder-settings .select2-selection--single:focus,
+    .fl-builder-settings .select2-selection--multiple:focus {
+        border-color: var(--satori-color-primary);
+        box-shadow: 0 0 0 1px var(--satori-color-primary);
+        outline: none;
+    }
+
+    .fl-builder-settings input[type="text"]::placeholder,
+    .fl-builder-settings input[type="email"]::placeholder,
+    .fl-builder-settings input[type="url"]::placeholder,
+    .fl-builder-settings input[type="number"]::placeholder,
+    .fl-builder-settings input[type="password"]::placeholder,
+    .fl-builder-settings input[type="search"]::placeholder,
+    .fl-builder-settings input[type="tel"]::placeholder,
+    .fl-builder-settings textarea::placeholder {
+        color: var(--satori-color-neutral-400);
+    }
+
+    .fl-builder-settings input[type="text"]:disabled,
+    .fl-builder-settings input[type="email"]:disabled,
+    .fl-builder-settings input[type="url"]:disabled,
+    .fl-builder-settings input[type="number"]:disabled,
+    .fl-builder-settings input[type="password"]:disabled,
+    .fl-builder-settings input[type="search"]:disabled,
+    .fl-builder-settings input[type="tel"]:disabled,
+    .fl-builder-settings select:disabled,
+    .fl-builder-settings textarea:disabled {
+        background-color: var(--satori-color-neutral-800);
+        border-color: var(--satori-color-neutral-700);
+        color: var(--satori-color-neutral-500);
+    }
+
+    .fl-builder-settings .error,
+    .fl-builder-settings input.error,
+    .fl-builder-settings label.error,
+    .fl-builder-settings p.error {
+        color: var(--satori-color-primary) !important;
+    }
+
+    .fl-builder-settings input[type="checkbox"],
+    .fl-builder-settings input[type="radio"] {
+        accent-color: var(--satori-color-primary);
+    }
+
+    .fl-builder-settings .fl-switch-group .fl-switch-group-item {
+        color: var(--satori-color-neutral-200);
+        background-color: var(--satori-color-neutral-800) !important;
+    }
+
+    .fl-builder-settings .fl-switch-group .fl-switch-group-item:has(:checked) {
+        color: var(--satori-color-primary) !important;
+        background-color: var(--satori-color-neutral-900) !important;
+        box-shadow: 0 0 0 1px var(--satori-color-primary);
+    }
+
+    .fl-builder-settings .fl-switch-group .fl-switch-group-item:hover {
+        background-color: var(--satori-color-neutral-700) !important;
+    }
+}
