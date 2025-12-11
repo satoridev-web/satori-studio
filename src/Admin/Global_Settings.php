@@ -58,6 +58,13 @@ class Global_Settings {
         private $design_system;
 
         /**
+         * Tracks whether hooks have already been registered.
+         *
+         * @var bool
+         */
+        private $initialized = false;
+
+        /**
          * Constructor.
          *
          * @param Environment  $environment   Core environment metadata.
@@ -74,45 +81,14 @@ class Global_Settings {
          * @return void
          */
         public function init() {
-                add_action( 'admin_menu', array( $this, 'register_menu' ) );
+                if ( $this->initialized ) {
+                        return;
+                }
+
+                $this->initialized = true;
+
                 add_action( 'admin_init', array( $this, 'register_settings' ) );
-        }
-
-        /**
-         * Register the SATORI Studio admin menu and Global Settings submenu.
-         *
-         * @return void
-         */
-        public function register_menu() {
-                $capability = 'manage_options';
-                $parent_slug = $this->environment->get_slug();
-
-                if ( empty( $parent_slug ) ) {
-                        $parent_slug = self::PARENT_SLUG;
-                }
-
-                // Ensure the parent menu exists before adding the submenu.
-                global $admin_page_hooks;
-
-                if ( ! isset( $admin_page_hooks[ $parent_slug ] ) ) {
-                        add_menu_page(
-                                __( 'SATORI Studio', 'satori-studio' ),
-                                __( 'SATORI Studio', 'satori-studio' ),
-                                $capability,
-                                $parent_slug,
-                                array( $this, 'render_settings_page' ),
-                                'dashicons-admin-customizer'
-                        );
-                }
-
-                add_submenu_page(
-                        $parent_slug,
-                        __( 'SATORI Studio — Global Settings', 'satori-studio' ),
-                        __( 'Global Settings', 'satori-studio' ),
-                        $capability,
-                        self::MENU_SLUG,
-                        array( $this, 'render_settings_page' )
-                );
+                add_action( 'fl_builder_admin_settings_render_forms', array( $this, 'render_settings_nav_link' ) );
         }
 
         /**
@@ -322,6 +298,90 @@ class Global_Settings {
                 }
 
                 return $settings;
+        }
+
+        /**
+         * Render the Global Settings link into the Beaver Builder admin nav.
+         *
+         * The Beaver Builder settings nav only renders an unordered list. This
+         * helper injects a contextual link to the SATORI Studio Global Settings
+         * screen without altering Beaver Builder Lite internals.
+         *
+         * @return void
+         */
+        public function render_settings_nav_link() {
+                if ( ! $this->is_builder_settings_screen() ) {
+                        return;
+                }
+
+                $link_markup = $this->get_global_settings_nav_markup();
+
+                if ( empty( $link_markup ) ) {
+                        return;
+                }
+
+                ?>
+                <script type="text/javascript">
+                        ( function() {
+                                var navList = document.querySelector( '.fl-settings-nav ul' );
+
+                                if ( ! navList || navList.querySelector( '.satori-studio-global-settings-link' ) ) {
+                                        return;
+                                }
+
+                                navList.insertAdjacentHTML( 'beforeend', <?php echo wp_json_encode( $link_markup ); ?> );
+                        }() );
+                </script>
+                <?php
+        }
+
+        /**
+         * Retrieve the rendered nav link markup.
+         *
+         * @return string
+         */
+        private function get_global_settings_nav_markup() {
+                $template = dirname( __DIR__, 2 ) . '/templates/admin/partials/global-settings-link.php';
+
+                if ( ! file_exists( $template ) ) {
+                        return '';
+                }
+
+                ob_start();
+                include $template;
+
+                return trim( (string) ob_get_clean() );
+        }
+
+        /**
+         * Determine whether the current admin screen is the Beaver Builder settings page.
+         *
+         * @return bool
+         */
+        private function is_builder_settings_screen() {
+                if ( ! function_exists( 'get_current_screen' ) ) {
+                        return false;
+                }
+
+                $screen = get_current_screen();
+
+                if ( ! $screen ) {
+                        return false;
+                }
+
+                $needles = array(
+                        'fl-builder-settings',
+                        'fl-builder-multisite-settings',
+                        'fl-builder',
+                );
+
+                foreach ( $needles as $needle ) {
+                        if ( false !== strpos( $screen->id, $needle ) || false !== strpos( $screen->base, $needle ) ) {
+                                return true;
+                        }
+                }
+
+                return false;
         }
 
         /**
