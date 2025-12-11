@@ -19,4 +19,19 @@ body.satori-studio-admin {
     @each $token, $value in $token-typography {
         --satori-typography-#{$token}: #{$value};
     }
+
+    // Expose font tokens as CSS custom properties.
+    @each $token, $value in $token-fonts {
+        --satori-font-#{$token}: #{$value};
+    }
+
+    // Expose radius tokens as CSS custom properties.
+    @each $token, $value in $token-radius {
+        --satori-radius-#{$token}: #{$value};
+    }
+
+    // Provide readable typography aliases.
+    @each $token, $value in $token-typography-aliases {
+        --satori-#{$token}: #{$value};
+    }
 }

@@ -1,0 +1,119 @@
+/* -------------------------------------------------
+ * SATORI Studio — Builder UI Shell (Token-aligned)
+ * -------------------------------------------------*/
+
+body.satori-studio-admin {
+    .fl-builder-bar .fl-builder-bar-content {
+        background-color: var(--satori-color-neutral-900);
+        border-bottom: 1px solid var(--satori-color-neutral-700);
+        color: var(--satori-color-neutral-100);
+        font-family: var(--satori-font-family-base, inherit);
+    }
+
+    .fl-builder-bar-title,
+    .fl-builder-bar-title-area,
+    .fl-builder-layout-title,
+    .fl-builder-layout-pretitle,
+    .fl-builder-bar-title-caret {
+        color: var(--satori-color-neutral-100);
+        font-family: var(--satori-font-family-base, inherit);
+        font-size: var(--satori-font-size-base, var(--satori-typography-base));
+    }
+
+    .fl-builder-bar-title:hover {
+        background: var(--satori-color-neutral-800);
+    }
+
+    .fl-builder-bar .fl-builder-button {
+        background: var(--satori-color-neutral-800);
+        border-color: var(--satori-color-neutral-700);
+        color: var(--satori-color-neutral-100) !important;
+        border-radius: var(--satori-radius-sm, 4px);
+        font-family: var(--satori-font-family-base, inherit);
+    }
+
+    .fl-builder-bar .fl-builder-button:hover,
+    .fl-builder-bar .fl-builder-button:focus {
+        background: var(--satori-color-neutral-700);
+        color: var(--satori-color-neutral-100) !important;
+    }
+
+    .fl-builder-bar .fl-builder-button-primary,
+    .fl-builder-publish-actions .fl-builder-button-primary {
+        background: var(--satori-color-primary);
+        border-color: var(--satori-color-primary);
+        color: #fff !important;
+    }
+
+    .fl-builder-bar .fl-builder-button-primary:hover,
+    .fl-builder-bar .fl-builder-button-primary:focus,
+    .fl-builder-publish-actions .fl-builder-button-primary:hover,
+    .fl-builder-publish-actions .fl-builder-button-primary:focus {
+        background: var(--satori-color-accent);
+        border-color: var(--satori-color-accent);
+        color: #fff !important;
+    }
+
+    .fl-builder-panel,
+    .fl-builder--main-menu-panel {
+        background: var(--satori-color-neutral-800);
+        color: var(--satori-color-neutral-100);
+        border-color: var(--satori-color-neutral-700);
+    }
+
+    .fl-builder-panel .fl-builder--panel-header {
+        background: var(--satori-color-neutral-900);
+        border-bottom: 1px solid var(--satori-color-neutral-700);
+        color: var(--satori-color-neutral-100);
+        font-family: var(--satori-font-family-base, inherit);
+        font-size: var(--satori-font-size-base, var(--satori-typography-base));
+    }
+
+    .fl-builder-panel .fl-builder-panel-drag-handle {
+        color: var(--satori-color-neutral-400) !important;
+    }
+
+    .fl-builder-panel .fl-builder--panel-controls .fl-builder-panel-search button {
+        color: var(--satori-color-neutral-100);
+    }
+
+    .fl-builder-panel-search .fl-builder-panel-search-input {
+        background: var(--satori-color-neutral-900);
+    }
+
+    .fl-builder-panel-search-input input {
+        border: 2px solid var(--satori-color-neutral-700);
+        background: var(--satori-color-neutral-800);
+        color: var(--satori-color-neutral-100);
+    }
+
+    .fl-builder-panel-search-input input:focus {
+        border-color: var(--satori-color-primary);
+    }
+
+    .fl-builder-blocks-group .fl-builder-blocks-section-group-name {
+        color: var(--satori-color-neutral-100);
+        font-family: var(--satori-font-family-base, inherit);
+    }
+
+    .fl-builder-blocks-section .fl-builder-blocks-section-header,
+    .fl-builder--template-collection-section-header {
+        background-color: var(--satori-color-neutral-800);
+        border-top-color: var(--satori-color-neutral-700);
+    }
+
+    .fl-builder-blocks-section .fl-builder-blocks-section-title {
+        background: transparent;
+        color: var(--satori-color-neutral-100);
+        font-family: var(--satori-font-family-base, inherit);
+        font-size: var(--satori-font-size-base, var(--satori-typography-base));
+    }
+
+    .fl-builder-blocks-section .fl-builder-blocks-section-title i {
+        color: var(--satori-color-neutral-300);
+    }
+
+    .fl-builder-blocks-section .fl-builder-block {
+        color: var(--satori-color-neutral-100);
+    }
+}
