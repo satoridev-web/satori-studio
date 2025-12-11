@@ -33,6 +33,13 @@ class Admin {
         private $global_settings = null;
 
         /**
+         * Prevents hooks from registering multiple times.
+         *
+         * @var bool
+         */
+        private static $initialized = false;
+
+        /**
          * Constructor.
          *
          * @param Environment  $environment   Core environment metadata.
@@ -41,15 +48,27 @@ class Admin {
         public function __construct( Environment $environment, DesignSystem $design_system ) {
                 $this->environment   = $environment;
                 $this->design_system = $design_system;
+                $this->global_settings = new Global_Settings( $environment, $design_system );
 
-                if ( ! is_admin() ) {
+                $this->init();
+        }
+
+        /**
+         * Register admin hooks for the plugin.
+         *
+         * @return void
+         */
+        public function init() {
+                if ( self::$initialized || ! is_admin() ) {
                         return;
                 }
 
+                self::$initialized = true;
+
                 add_filter( 'admin_body_class', array( $this, 'append_body_class' ) );
                 add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_tokens' ) );
+                add_action( 'admin_menu', array( $this, 'register_menus' ) );
 
-                $this->global_settings = new Global_Settings( $environment, $design_system );
                 $this->global_settings->init();
         }
 
@@ -134,5 +153,45 @@ class Admin {
                 }
 
                 return null;
+        }
+
+        /**
+         * Register the SATORI Studio menu and Global Settings submenu.
+         *
+         * @return void
+         */
+        public function register_menus() {
+                if ( ! $this->global_settings ) {
+                        return;
+                }
+
+                $capability  = 'manage_options';
+                $parent_slug = $this->environment->get_slug();
+
+                if ( empty( $parent_slug ) ) {
+                        $parent_slug = Global_Settings::PARENT_SLUG;
+                }
+
+                global $admin_page_hooks;
+
+                if ( ! isset( $admin_page_hooks[ $parent_slug ] ) ) {
+                        add_menu_page(
+                                __( 'SATORI Studio', 'satori-studio' ),
+                                __( 'SATORI Studio', 'satori-studio' ),
+                                $capability,
+                                $parent_slug,
+                                array( $this->global_settings, 'render_settings_page' ),
+                                'dashicons-admin-customizer'
+                        );
+                }
+
+                add_submenu_page(
+                        $parent_slug,
+                        __( 'SATORI Studio — Global Settings', 'satori-studio' ),
+                        __( 'Global Settings', 'satori-studio' ),
+                        $capability,
+                        Global_Settings::MENU_SLUG,
+                        array( $this->global_settings, 'render_settings_page' )
+                );
         }
 }

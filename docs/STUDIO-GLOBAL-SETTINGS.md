@@ -27,3 +27,5 @@ The Global Settings panel centralises core color, typography, and spacing config
 - Location: SATORI Studio → **Global Settings**
 - Group: `satori_studio_global_settings_group`
 - Behaviour: stores values via the WordPress Settings API; no runtime overrides are applied in this phase.
+- Admin registration: menu and submenu are registered through the core Admin bootstrap to avoid duplicates.
+- Beaver Builder settings sidebar surfaces a convenience link back to Global Settings without altering BB Lite defaults.
