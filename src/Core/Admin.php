@@ -157,7 +157,7 @@ class Admin {
         }
 
         /**
-         * Register the SATORI Studio menu and Global Settings submenu.
+         * Register the SATORI Studio menu.
          *
          * @return void
          */
@@ -185,15 +185,8 @@ class Admin {
                                 'dashicons-admin-customizer'
                         );
                 }
-
-                add_submenu_page(
-                        $parent_slug,
-                        __( 'SATORI Studio — Global Settings', 'satori-studio' ),
-                        __( 'Global Settings', 'satori-studio' ),
-                        $capability,
-                        Global_Settings::MENU_SLUG,
-                        array( $this->global_settings, 'render_settings_page' )
-                );
+                // Global Settings is intentionally accessible only via the in-app sidebar link
+                // within the SATORI Studio Settings screen and by direct URL.
         }
 
         /**
