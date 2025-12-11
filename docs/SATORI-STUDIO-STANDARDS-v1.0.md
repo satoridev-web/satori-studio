@@ -42,8 +42,8 @@ This document defines the foundational engineering, design, and distribution sta
 - Stored values are scaffold-only in this phase and do not override SCSS tokens or builder defaults yet.
 
 ### 1.5 Admin Navigation
-- SATORI Studio remains a top-level admin hub; the legacy Settings → SATORI Studio submenu is removed at runtime for clarity.
-- The admin menu intentionally exposes only the top-level SATORI Studio entry (plus WordPress' default duplicate submenu); Global Settings is reachable from the SATORI Studio Settings sidebar or direct URL, not as a separate submenu.
+- SATORI Studio remains a top-level admin hub that opens the legacy welcome/settings screen (BB Lite splash) at the slug `satori-studio` for both the main menu and its first submenu.
+- The Global Settings screen uses the distinct slug `satori-studio-global-settings` and is reachable from the SATORI Studio Settings sidebar or direct URL; the Global Settings submenu entry stays removed by design.
 
 ---
 

@@ -181,10 +181,19 @@ class Admin {
                                 __( 'SATORI Studio', 'satori-studio' ),
                                 $capability,
                                 $parent_slug,
-                                array( $this->global_settings, 'render_settings_page' ),
+                                array( '\\FLBuilderAdminSettings', 'render' ),
                                 'dashicons-admin-customizer'
                         );
                 }
+
+                add_submenu_page(
+                        $parent_slug,
+                        __( 'Global Settings', 'satori-studio' ),
+                        __( 'Global Settings', 'satori-studio' ),
+                        $capability,
+                        Global_Settings::MENU_SLUG,
+                        array( $this->global_settings, 'render_settings_page' )
+                );
                 // Global Settings is intentionally accessible only via the in-app sidebar link
                 // within the SATORI Studio Settings screen and by direct URL.
         }
@@ -196,5 +205,6 @@ class Admin {
          */
         public static function remove_legacy_settings_submenu(): void {
                 remove_submenu_page( 'options-general.php', 'fl-builder-settings' );
+                remove_submenu_page( Global_Settings::PARENT_SLUG, Global_Settings::MENU_SLUG );
         }
 }

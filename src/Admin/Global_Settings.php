@@ -373,6 +373,7 @@ class Global_Settings {
                         'fl-builder-settings',
                         'fl-builder-multisite-settings',
                         'fl-builder',
+                        'satori-studio',
                 );
 
                 foreach ( $needles as $needle ) {
