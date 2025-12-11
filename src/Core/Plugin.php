@@ -216,7 +216,10 @@ class Plugin {
                 $this->services->set(
                         'admin',
                         function () {
-                                return new Admin( $this->environment );
+                                return new Admin(
+                                        $this->environment,
+                                        $this->services->get( 'design_system' )
+                                );
                         }
                 );
         }

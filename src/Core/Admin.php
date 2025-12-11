@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace Satori_Studio\Core;
 
+use Satori_Studio\Admin\Global_Settings;
 use WP_Screen;
 
 class Admin {
@@ -18,12 +19,28 @@ class Admin {
         private $environment;
 
         /**
+         * Design system tokens service.
+         *
+         * @var DesignSystem
+         */
+        private $design_system;
+
+        /**
+         * Global settings admin handler.
+         *
+         * @var Global_Settings|null
+         */
+        private $global_settings = null;
+
+        /**
          * Constructor.
          *
-         * @param Environment $environment Core environment metadata.
+         * @param Environment  $environment   Core environment metadata.
+         * @param DesignSystem $design_system Design system tokens service.
          */
-        public function __construct( Environment $environment ) {
-                $this->environment = $environment;
+        public function __construct( Environment $environment, DesignSystem $design_system ) {
+                $this->environment   = $environment;
+                $this->design_system = $design_system;
 
                 if ( ! is_admin() ) {
                         return;
@@ -31,6 +48,9 @@ class Admin {
 
                 add_filter( 'admin_body_class', array( $this, 'append_body_class' ) );
                 add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_tokens' ) );
+
+                $this->global_settings = new Global_Settings( $environment, $design_system );
+                $this->global_settings->init();
         }
 
         /**

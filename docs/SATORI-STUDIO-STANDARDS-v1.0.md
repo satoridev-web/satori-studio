@@ -37,6 +37,10 @@ This document defines the foundational engineering, design, and distribution sta
 - Output minified CSS in production builds.
 - Admin screens expose design tokens via CSS custom properties on `body.satori-studio-admin` (colors, spacing, typography available through `--satori-*` variables).
 
+### 1.4 Global Settings (Phase 2E)
+- Global Settings admin page stores color, typography, and spacing configuration in the `satori_studio_global_settings` option.
+- Stored values are scaffold-only in this phase and do not override SCSS tokens or builder defaults yet.
+
 ---
 
 ## 2. Commenting Standard
