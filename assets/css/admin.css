@@ -1,0 +1,25 @@
+/* -------------------------------------------------
+ * SATORI Studio — Admin Design Token Variables
+ * -------------------------------------------------*/
+body.satori-studio-admin {
+  --satori-color-primary: #1D4ED8;
+  --satori-color-secondary: #10B981;
+  --satori-color-accent: #0EA5E9;
+  --satori-color-neutral-100: #F3F4F6;
+  --satori-color-neutral-200: #E5E7EB;
+  --satori-color-neutral-300: #D1D5DB;
+  --satori-color-neutral-400: #9CA3AF;
+  --satori-color-neutral-500: #6B7280;
+  --satori-color-neutral-600: #4B5563;
+  --satori-color-neutral-700: #374151;
+  --satori-color-neutral-800: #1F2937;
+  --satori-color-neutral-900: #111827;
+  --satori-spacing-xs: 4px;
+  --satori-spacing-sm: 8px;
+  --satori-spacing-md: 12px;
+  --satori-spacing-lg: 16px;
+  --satori-spacing-xl: 24px;
+  --satori-typography-small: 0.875rem;
+  --satori-typography-base: 1rem;
+  --satori-typography-large: 1.25rem;
+}

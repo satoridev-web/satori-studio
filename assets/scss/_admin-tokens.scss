@@ -1,0 +1,22 @@
+/* -------------------------------------------------
+ * SATORI Studio — Admin Design Token Variables
+ * -------------------------------------------------*/
+
+@import 'tokens';
+
+body.satori-studio-admin {
+    // Expose color tokens as CSS custom properties.
+    @each $token, $value in $token-colors {
+        --satori-color-#{$token}: #{$value};
+    }
+
+    // Expose spacing tokens as CSS custom properties.
+    @each $token, $value in $token-spacing {
+        --satori-spacing-#{$token}: #{$value};
+    }
+
+    // Expose typography tokens as CSS custom properties.
+    @each $token, $value in $token-typography {
+        --satori-typography-#{$token}: #{$value};
+    }
+}

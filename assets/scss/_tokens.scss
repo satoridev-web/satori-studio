@@ -1,0 +1,35 @@
+/* -------------------------------------------------
+ * SATORI Studio — Design Tokens (SCSS)
+ * -------------------------------------------------*/
+
+// Color palette tokens.
+$token-colors: (
+    'primary': #1D4ED8,
+    'secondary': #10B981,
+    'accent': #0EA5E9,
+    'neutral-100': #F3F4F6,
+    'neutral-200': #E5E7EB,
+    'neutral-300': #D1D5DB,
+    'neutral-400': #9CA3AF,
+    'neutral-500': #6B7280,
+    'neutral-600': #4B5563,
+    'neutral-700': #374151,
+    'neutral-800': #1F2937,
+    'neutral-900': #111827,
+);
+
+// Spacing scale tokens (8-point inspired scale).
+$token-spacing: (
+    'xs': 4px,
+    'sm': 8px,
+    'md': 12px,
+    'lg': 16px,
+    'xl': 24px,
+);
+
+// Typography scale tokens.
+$token-typography: (
+    'small': 0.875rem,
+    'base': 1rem,
+    'large': 1.25rem,
+);

@@ -33,6 +33,7 @@ use Satori_Studio\Core\Services\Container;
 use Satori_Studio\Core\Environment;
 use Satori_Studio\Core\Features;
 use Satori_Studio\Core\DesignSystem;
+use Satori_Studio\Core\Admin;
 
 class Plugin {
 
@@ -100,10 +101,14 @@ class Plugin {
                 $this->environment = new Environment( $plugin_file );
                 $this->services    = new Container();
 
-		$this->register_services();
+                $this->register_services();
 
-		$this->bootstrap();
-	}
+                if ( is_admin() ) {
+                        $this->services->get( 'admin' );
+                }
+
+                $this->bootstrap();
+        }
 
 	/**
 	 * Get the core environment object.
@@ -205,6 +210,13 @@ class Plugin {
                         'design_system',
                         function () {
                                 return new DesignSystem();
+                        }
+                );
+
+                $this->services->set(
+                        'admin',
+                        function () {
+                                return new Admin( $this->environment );
                         }
                 );
         }

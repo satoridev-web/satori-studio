@@ -35,6 +35,7 @@ This document defines the foundational engineering, design, and distribution sta
 - 8‑point spacing scale.
 - Variables over hardcoded values.
 - Output minified CSS in production builds.
+- Admin screens expose design tokens via CSS custom properties on `body.satori-studio-admin` (colors, spacing, typography available through `--satori-*` variables).
 
 ---
 
