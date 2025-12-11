@@ -81,6 +81,12 @@ Additional inline comments should follow WordPress/WPCS conventions.
 - Styling adjustments are limited to color, typography alignment, and subtle radius updates; layout and Beaver Builder Lite internals remain unchanged.
 - Deeper control/field alignment will follow in later phases.
 
+### 3.5 Builder Controls Tokenization (Phase 2D)
+- Builder-side controls (inputs, selects, textareas, toggles, helper text) now consume SATORI tokens within `body.satori-studio-admin` using `_builder-controls.scss`.
+- Aligns field chrome, focus, hover, and simple error visuals to the SATORI color, typography, and radius tokens without altering control behaviour or layout.
+- Simple inline helper/description text inherits the base font family and small typography token for legibility inside the builder.
+- Later phases will extend token coverage to module-specific styling and Pro-only surfaces; Beaver Builder Lite core assets remain unchanged.
+
 ---
 
 ## 4. Module Architecture Standard
