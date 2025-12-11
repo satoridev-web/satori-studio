@@ -43,6 +43,7 @@ This document defines the foundational engineering, design, and distribution sta
 
 ### 1.5 Admin Navigation
 - SATORI Studio remains a top-level admin hub; the legacy Settings → SATORI Studio submenu is removed at runtime for clarity.
+- The admin menu intentionally exposes only the top-level SATORI Studio entry (plus WordPress' default duplicate submenu); Global Settings is reachable from the SATORI Studio Settings sidebar or direct URL, not as a separate submenu.
 
 ---
 
