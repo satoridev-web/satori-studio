@@ -12,6 +12,11 @@ use WP_Screen;
 class Admin {
 
         /**
+         * Legacy Beaver Builder settings slug leveraged for the SATORI Studio menu.
+         */
+        private const SETTINGS_SLUG = 'fl-builder-settings';
+
+        /**
          * Core environment metadata.
          *
          * @var Environment
@@ -166,28 +171,33 @@ class Admin {
                         return;
                 }
 
-                $capability  = 'manage_options';
-                $parent_slug = $this->environment->get_slug();
-
-                if ( empty( $parent_slug ) ) {
-                        $parent_slug = Global_Settings::PARENT_SLUG;
-                }
+                $capability    = 'manage_options';
+                $settings_slug = self::SETTINGS_SLUG;
 
                 global $admin_page_hooks;
 
-                if ( ! isset( $admin_page_hooks[ $parent_slug ] ) ) {
+                if ( ! isset( $admin_page_hooks[ $settings_slug ] ) ) {
                         add_menu_page(
-                                __( 'SATORI Studio', 'satori-studio' ),
+                                __( 'SATORI Studio Settings', 'satori-studio' ),
                                 __( 'SATORI Studio', 'satori-studio' ),
                                 $capability,
-                                $parent_slug,
+                                $settings_slug,
                                 array( '\\FLBuilderAdminSettings', 'render' ),
                                 'dashicons-admin-customizer'
                         );
                 }
 
                 add_submenu_page(
-                        $parent_slug,
+                        $settings_slug,
+                        __( 'SATORI Studio Settings', 'satori-studio' ),
+                        __( 'SATORI Studio', 'satori-studio' ),
+                        $capability,
+                        $settings_slug,
+                        array( '\\FLBuilderAdminSettings', 'render' )
+                );
+
+                add_submenu_page(
+                        $settings_slug,
                         __( 'Global Settings', 'satori-studio' ),
                         __( 'Global Settings', 'satori-studio' ),
                         $capability,
@@ -205,6 +215,6 @@ class Admin {
          */
         public static function remove_legacy_settings_submenu(): void {
                 remove_submenu_page( 'options-general.php', 'fl-builder-settings' );
-                remove_submenu_page( Global_Settings::PARENT_SLUG, Global_Settings::MENU_SLUG );
+                remove_submenu_page( self::SETTINGS_SLUG, Global_Settings::MENU_SLUG );
         }
 }
