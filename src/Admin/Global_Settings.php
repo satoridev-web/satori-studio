@@ -318,31 +318,14 @@ class Global_Settings {
                         return;
                 }
 
-                $link_markup = $this->get_global_settings_nav_markup();
+                $url  = admin_url( 'admin.php?page=' . self::MENU_SLUG );
+                $text = esc_html__( 'Global Settings', 'satori-studio' );
 
-                if ( empty( $link_markup ) ) {
-                        return;
-                }
-
-                echo $link_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already escaped in template.
-        }
-
-        /**
-         * Retrieve the rendered nav link markup.
-         *
-         * @return string
-         */
-        private function get_global_settings_nav_markup() {
-                $template = dirname( __DIR__, 2 ) . '/templates/admin/partials/global-settings-link.php';
-
-                if ( ! file_exists( $template ) ) {
-                        return '';
-                }
-
-                ob_start();
-                include $template;
-
-                return trim( (string) ob_get_clean() );
+                printf(
+                        '<li class="satori-studio-global-settings-link"><a href="%1$s">%2$s</a></li>',
+                        esc_url( $url ),
+                        $text
+                );
         }
 
         /**
