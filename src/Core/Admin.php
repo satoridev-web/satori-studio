@@ -68,6 +68,7 @@ class Admin {
                 add_filter( 'admin_body_class', array( $this, 'append_body_class' ) );
                 add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_tokens' ) );
                 add_action( 'admin_menu', array( $this, 'register_menus' ) );
+                add_action( 'admin_menu', array( __CLASS__, 'remove_legacy_settings_submenu' ), 99 );
 
                 $this->global_settings->init();
         }
@@ -193,5 +194,14 @@ class Admin {
                         Global_Settings::MENU_SLUG,
                         array( $this->global_settings, 'render_settings_page' )
                 );
+        }
+
+        /**
+         * Remove the legacy Settings → SATORI Studio submenu registered by the legacy settings page.
+         *
+         * @return void
+         */
+        public static function remove_legacy_settings_submenu(): void {
+                remove_submenu_page( 'options-general.php', 'fl-builder-settings' );
         }
 }
