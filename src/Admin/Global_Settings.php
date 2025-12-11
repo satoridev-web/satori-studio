@@ -41,7 +41,7 @@ class Global_Settings {
         /**
          * Parent menu slug for the SATORI Studio admin menu.
          */
-        const PARENT_SLUG = 'satori-studio';
+        const PARENT_SLUG = 'fl-builder-settings';
 
         /**
          * Core environment metadata.
