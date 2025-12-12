@@ -199,6 +199,15 @@ class Global_Settings {
          *
          * @return void
          */
+        public function render_page() {
+                $this->render_settings_page();
+        }
+
+        /**
+         * Render the main settings page markup.
+         *
+         * @return void
+         */
         public function render_settings_page() {
                 if ( ! current_user_can( 'manage_options' ) ) {
                         wp_die( esc_html__( 'Sorry, you are not allowed to access this page.', 'satori-studio' ) );

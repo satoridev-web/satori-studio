@@ -173,6 +173,7 @@ class Admin {
 
                 $capability    = 'manage_options';
                 $settings_slug = self::SETTINGS_SLUG;
+                $settings_cb   = array( '\FLBuilderAdminSettings', 'render' );
 
                 global $admin_page_hooks;
 
@@ -182,7 +183,7 @@ class Admin {
                                 __( 'SATORI Studio', 'satori-studio' ),
                                 $capability,
                                 $settings_slug,
-                                array( '\\FLBuilderAdminSettings', 'render' ),
+                                $settings_cb,
                                 'dashicons-admin-customizer'
                         );
                 }
@@ -193,7 +194,7 @@ class Admin {
                         __( 'SATORI Studio', 'satori-studio' ),
                         $capability,
                         $settings_slug,
-                        array( '\\FLBuilderAdminSettings', 'render' )
+                        $settings_cb
                 );
 
                 add_submenu_page(
@@ -202,7 +203,7 @@ class Admin {
                         __( 'Global Settings', 'satori-studio' ),
                         $capability,
                         Global_Settings::MENU_SLUG,
-                        array( $this->global_settings, 'render_settings_page' )
+                        array( $this->global_settings, 'render_page' )
                 );
 
                 // Hide the Global Settings submenu entry from the WordPress sidebar while keeping the page registered.
