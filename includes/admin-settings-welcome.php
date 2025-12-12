@@ -1,12 +1,14 @@
 <?php
 
+if ( ! function_exists( 'fl_welcome_utm' ) ) :
 function fl_welcome_utm( $campaign ) {
-	return array(
-		'utm_medium'   => true === FL_BUILDER_LITE ? 'bb-lite' : 'bb-pro',
-		'utm_source'   => 'welcome-settings-page',
-		'utm_campaign' => $campaign,
-	);
+return array(
+'utm_medium'   => true === FL_BUILDER_LITE ? 'bb-lite' : 'bb-pro',
+'utm_source'   => 'welcome-settings-page',
+'utm_campaign' => $campaign,
+);
 }
+endif;
 $blog_post_url   = FLBuilderModel::get_store_url( 'beaver-builder-2-9', fl_welcome_utm( 'settings-welcome-blog-post' ) );
 $change_logs_url = FLBuilderModel::get_store_url( 'change-logs', fl_welcome_utm( 'settings-welcome-change-logs' ) );
 $upgrade_url     = FLBuilderModel::get_upgrade_url( fl_welcome_utm( 'settings-welcome-upgrade' ) );

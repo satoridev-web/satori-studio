@@ -32,3 +32,6 @@ The Global Settings panel centralises core color, typography, and spacing config
 - Navigation wiring: the Beaver Builder settings splash template (`includes/admin-settings-welcome.php`) is only included by
   the canonical settings controller, while the sidebar link is injected via `fl_builder_admin_settings_nav_after` as a single
   list item pointing to `admin.php?page=satori-studio-global-settings`.
+- Rendering notes: `FLBuilderAdminSettings::render()` is the sole entry point for the settings UI and is guarded to run only
+  once per request. The canonical templates live under `includes/admin-settings-*.php` and should remain in place for the
+  settings controller.
