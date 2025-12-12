@@ -318,7 +318,11 @@ class Global_Settings {
                         return;
                 }
 
-                $url  = admin_url( 'admin.php?page=' . self::MENU_SLUG );
+                $url  = add_query_arg(
+                        'page',
+                        self::MENU_SLUG,
+                        admin_url( 'admin.php' )
+                );
                 $text = esc_html__( 'Global Settings', 'satori-studio' );
 
                 printf(
