@@ -14,9 +14,16 @@ final class FLBuilderAdminSettings {
 	 * @since 1.0
 	 * @var array $errors
 	 */
-	static public $errors = array();
+        static public $errors = array();
 
-	private static $registered_settings = array();
+        private static $registered_settings = array();
+
+        /**
+         * Tracks whether the settings screen has already rendered during this request.
+         *
+         * @var bool
+         */
+        private static $has_rendered = false;
 
 	private static $global_settings = array(
 		'_fl_builder_post_types',
@@ -40,12 +47,12 @@ final class FLBuilderAdminSettings {
 	 * @since 1.0
 	 * @return void
 	 */
-	static public function init() {
-		add_action( 'init', __CLASS__ . '::init_hooks', 11 );
-		add_action( 'wp_ajax_fl_welcome_submit', array( 'FLBuilderAdminSettings', 'welcome_submit' ) );
-		// register global settings
-		self::register_settings();
-	}
+        static public function init() {
+                add_action( 'init', __CLASS__ . '::init_hooks', 11 );
+                add_action( 'wp_ajax_fl_welcome_submit', array( 'FLBuilderAdminSettings', 'welcome_submit' ) );
+                // register global settings
+                self::register_settings();
+        }
 
 	/**
 	 * @since 2.6
@@ -109,12 +116,12 @@ final class FLBuilderAdminSettings {
 	 * @since 1.0
 	 * @return void
 	 */
-	static public function init_hooks() {
-		if ( ! is_admin() ) {
-			return;
-		}
+        static public function init_hooks() {
+                if ( ! is_admin() ) {
+                        return;
+                }
 
-		add_action( 'admin_menu', __CLASS__ . '::menu' );
+                add_action( 'admin_menu', __CLASS__ . '::menu', 20 );
 
 		if ( isset( $_REQUEST['page'] ) && 'fl-builder-settings' == $_REQUEST['page'] ) {
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
@@ -160,28 +167,63 @@ final class FLBuilderAdminSettings {
 	 * @since 1.0
 	 * @return void
 	 */
-	static public function menu() {
-		if ( FLBuilderAdmin::current_user_can_access_settings() ) {
+        static public function menu() {
+                if ( FLBuilderAdmin::current_user_can_access_settings() ) {
 
-			$title = FLBuilderModel::get_branding();
-			$cap   = FLBuilderAdmin::admin_settings_capability();
-			$slug  = 'fl-builder-settings';
-			$func  = __CLASS__ . '::render';
+                        $title = FLBuilderModel::get_branding();
+                        $cap   = FLBuilderAdmin::admin_settings_capability();
+                        $slug  = 'fl-builder-settings';
+                        $func  = __CLASS__ . '::render';
 
-			add_submenu_page( 'options-general.php', $title, $title, $cap, $slug, $func );
-		}
-	}
+                        if ( self::is_settings_page_registered( $slug ) ) {
+                                return;
+                        }
 
-	/**
-	 * Renders the admin settings.
-	 *
-	 * @since 1.0
-	 * @return void
-	 */
-	static public function render() {
-		include FL_BUILDER_DIR . 'includes/admin-settings-js-config.php';
-		include FL_BUILDER_DIR . 'includes/admin-settings.php';
-	}
+                        add_submenu_page( 'options-general.php', $title, $title, $cap, $slug, $func );
+                }
+        }
+
+        /**
+         * Renders the admin settings.
+         *
+         * @since 1.0
+         * @return void
+         */
+        static public function render() {
+                if ( self::$has_rendered ) {
+                        return;
+                }
+
+                self::$has_rendered = true;
+
+                include FL_BUILDER_DIR . 'includes/admin-settings-js-config.php';
+                include FL_BUILDER_DIR . 'includes/admin-settings.php';
+        }
+
+        /**
+         * Determine whether a settings page using the provided slug is already registered.
+         *
+         * @since 2.9.0
+         * @param string $slug Menu slug to check.
+         * @return bool
+         */
+        private static function is_settings_page_registered( $slug ) {
+                global $submenu;
+
+                if ( empty( $submenu ) ) {
+                        return false;
+                }
+
+                foreach ( $submenu as $items ) {
+                        foreach ( (array) $items as $item ) {
+                                if ( isset( $item[2] ) && $slug === $item[2] ) {
+                                        return true;
+                                }
+                        }
+                }
+
+                return false;
+        }
 
 	/**
 	 * Renders the page class for network installs and single site installs.
