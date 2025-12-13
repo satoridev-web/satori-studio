@@ -65,6 +65,13 @@ class Global_Settings {
         private $initialized = false;
 
         /**
+         * Capability required to manage Global Settings.
+         *
+         * @var string
+         */
+        private $capability = 'manage_options';
+
+        /**
          * Constructor.
          *
          * @param Environment  $environment   Core environment metadata.
@@ -200,7 +207,9 @@ class Global_Settings {
          * @return void
          */
         public function render_settings_page() {
-                if ( ! current_user_can( 'manage_options' ) ) {
+                $capability = $this->get_capability();
+
+                if ( ! current_user_can( $capability ) ) {
                         wp_die( esc_html__( 'Sorry, you are not allowed to access this page.', 'satori-studio' ) );
                 }
 
@@ -319,8 +328,7 @@ class Global_Settings {
                 }
 
                 $url  = add_query_arg(
-                        'page',
-                        self::MENU_SLUG,
+                        array( 'page' => self::MENU_SLUG ),
                         admin_url( 'admin.php' )
                 );
                 $text = esc_html__( 'Global Settings', 'satori-studio' );
@@ -328,8 +336,31 @@ class Global_Settings {
                 printf(
                         '<li class="satori-studio-global-settings-link"><a href="%1$s">%2$s</a></li>',
                         esc_url( $url ),
-                        $text
+                        esc_html( $text )
                 );
+        }
+
+        /**
+         * Define the capability required to access the Global Settings page.
+         *
+         * @param string $capability Capability string aligned to the parent settings page.
+         * @return void
+         */
+        public function set_capability( $capability ) {
+                if ( ! is_string( $capability ) || empty( $capability ) ) {
+                        return;
+                }
+
+                $this->capability = $capability;
+        }
+
+        /**
+         * Retrieve the capability required to access the Global Settings page.
+         *
+         * @return string
+         */
+        public function get_capability() {
+                return apply_filters( 'satori_studio_global_settings_capability', $this->capability );
         }
 
         /**

@@ -174,6 +174,10 @@ class Admin {
                 $capability    = 'manage_options';
                 $settings_slug = self::SETTINGS_SLUG;
 
+                $this->global_settings->set_capability( $capability );
+
+                $global_settings_capability = $this->global_settings->get_capability();
+
                 global $admin_page_hooks;
 
                 if ( ! isset( $admin_page_hooks[ $settings_slug ] ) ) {
@@ -200,7 +204,7 @@ class Admin {
                         $settings_slug,
                         __( 'Global Settings', 'satori-studio' ),
                         __( 'Global Settings', 'satori-studio' ),
-                        $capability,
+                        $global_settings_capability,
                         Global_Settings::MENU_SLUG,
                         array( $this->global_settings, 'render_settings_page' )
                 );
