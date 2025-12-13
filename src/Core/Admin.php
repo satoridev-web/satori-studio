@@ -176,9 +176,7 @@ class Admin {
 
                 $this->global_settings->set_capability( $capability );
 
-                $global_settings_capability = $this->global_settings->get_capability();
-
-                global $admin_page_hooks;
+               global $admin_page_hooks;
 
                 if ( ! isset( $admin_page_hooks[ $settings_slug ] ) ) {
                         add_menu_page(
@@ -191,28 +189,14 @@ class Admin {
                         );
                 }
 
-                add_submenu_page(
-                        $settings_slug,
-                        __( 'SATORI Studio Settings', 'satori-studio' ),
-                        __( 'SATORI Studio', 'satori-studio' ),
-                        $capability,
-                        $settings_slug,
-                        array( '\\FLBuilderAdminSettings', 'render' )
-                );
-
-                add_submenu_page(
-                        $settings_slug,
-                        __( 'Global Settings', 'satori-studio' ),
-                        __( 'Global Settings', 'satori-studio' ),
-                        $global_settings_capability,
-                        Global_Settings::MENU_SLUG,
-                        array( $this->global_settings, 'render_settings_page' )
-                );
-
-                // Hide the Global Settings submenu entry from the WordPress sidebar while keeping the page registered.
-                remove_submenu_page( $settings_slug, Global_Settings::MENU_SLUG );
-                // Global Settings is intentionally accessible only via the in-app sidebar link
-                // within the SATORI Studio Settings screen and by direct URL.
+               add_submenu_page(
+                       $settings_slug,
+                       __( 'SATORI Studio Settings', 'satori-studio' ),
+                       __( 'SATORI Studio', 'satori-studio' ),
+                       $capability,
+                       $settings_slug,
+                       array( '\\FLBuilderAdminSettings', 'render' )
+               );
         }
 
         /**
