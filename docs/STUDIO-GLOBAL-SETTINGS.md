@@ -40,3 +40,8 @@ The Global Settings panel centralises core color, typography, and spacing config
 - Rendering notes: `FLBuilderAdminSettings::render()` is the sole entry point for the settings UI and is guarded to run only
   once per request. The canonical templates live under `includes/admin-settings-*.php` and should remain in place for the
   settings controller.
+
+### Access details (Phase 2E)
+- Admin page slug: `satori-studio-global-settings`.
+- Registration: hidden submenu under the SATORI Studio Settings parent slug `fl-builder-settings`.
+- Capability: matches the main SATORI Studio Settings capability (defaults to `manage_options`).
