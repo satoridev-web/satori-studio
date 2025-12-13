@@ -43,8 +43,8 @@ This document defines the foundational engineering, design, and distribution sta
 
 ### 1.5 Admin Navigation
 - SATORI Studio remains a top-level admin hub that opens the legacy welcome/settings screen (BB Lite splash) at the legacy Beaver Builder slug `fl-builder-settings` for both the main menu and its first submenu so Beaver Builder CSS/JS enqueue rules continue to run unmodified.
-- The Global Settings screen uses the distinct slug `satori-studio-global-settings` and is reachable from the SATORI Studio Settings sidebar or direct URL; the Global Settings submenu entry stays removed by design.
-- Global Settings is registered as a hidden submenu under `fl-builder-settings` only to provide routing/capability checks; it is immediately removed so it never appears in the WordPress sidebar.
+- The Global Settings screen renders as a tab within the SATORI Studio Settings shell via `admin.php?page=fl-builder-settings&tab=satori-global-settings`; no standalone admin page slug is registered.
+- Global Settings inherits the parent settings capability and does not surface a separate submenu entry in the WordPress sidebar.
 - The sidebar link injected into the SATORI Studio Settings nav must output a single `<li>` item only (no duplicate nav wrappers or template includes) to avoid redeclaration errors in Beaver Builder core templates.
 
 ---

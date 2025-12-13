@@ -24,17 +24,15 @@ The Global Settings panel centralises core color, typography, and spacing config
 - `section_padding_default`
 
 ## Admin screen
-- Location: SATORI Studio → **Global Settings**
+- Location: SATORI Studio → **Global Settings** tab rendered within the main SATORI Studio Settings shell.
 - Group: `satori_studio_global_settings_group`
 - Behaviour: stores values via the WordPress Settings API; no runtime overrides are applied in this phase.
-- Admin registration: menu and submenu are registered through the core Admin bootstrap to avoid duplicates.
+- Admin registration: the parent settings shell remains the Beaver Builder settings page; Global Settings renders as an
+  internal tab without registering its own admin page slug.
 - Beaver Builder settings sidebar surfaces a convenience link back to Global Settings without altering BB Lite defaults.
 - Navigation wiring: the Beaver Builder settings splash template (`includes/admin-settings-welcome.php`) is only included by
   the canonical settings controller, while the sidebar link is injected via `fl_builder_admin_settings_nav_after` as a single
-  list item pointing to `admin.php?page=satori-studio-global-settings`.
-- Submenu registration: Global Settings is registered as a hidden submenu under the SATORI Studio settings slug
-  (`fl-builder-settings`) with the menu slug `satori-studio-global-settings`, keeping it accessible via direct URL without
-  adding clutter to the main WordPress sidebar.
+  list item pointing to `admin.php?page=fl-builder-settings&tab=satori-global-settings`.
 - Capability: access to Global Settings uses the same capability as the primary SATORI Studio Settings screen
   (`manage_options` by default).
 - Rendering notes: `FLBuilderAdminSettings::render()` is the sole entry point for the settings UI and is guarded to run only
@@ -42,6 +40,7 @@ The Global Settings panel centralises core color, typography, and spacing config
   settings controller.
 
 ### Access details (Phase 2E)
-- Admin page slug: `satori-studio-global-settings`.
-- Registration: hidden submenu under the SATORI Studio Settings parent slug `fl-builder-settings`.
+- Tab slug: `satori-global-settings`.
+- Registration: surfaced via `admin.php?page=fl-builder-settings&tab=satori-global-settings`; no standalone admin page is
+  registered.
 - Capability: matches the main SATORI Studio Settings capability (defaults to `manage_options`).

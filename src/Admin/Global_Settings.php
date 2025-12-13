@@ -34,9 +34,9 @@ class Global_Settings {
         const OPTION_GROUP = 'satori_studio_global_settings_group';
 
         /**
-         * Menu slug for the settings page.
+         * Tab slug for the settings page within the Beaver Builder settings shell.
          */
-        const MENU_SLUG = 'satori-studio-global-settings';
+        const TAB_SLUG = 'satori-global-settings';
 
         /**
          * Parent menu slug for the SATORI Studio admin menu.
@@ -65,6 +65,13 @@ class Global_Settings {
         private $initialized = false;
 
         /**
+         * Singleton-like reference to the active instance.
+         *
+         * @var Global_Settings|null
+         */
+        private static $instance = null;
+
+        /**
          * Capability required to manage Global Settings.
          *
          * @var string
@@ -77,10 +84,20 @@ class Global_Settings {
          * @param Environment  $environment   Core environment metadata.
          * @param DesignSystem $design_system Design system tokens service.
          */
-        public function __construct( Environment $environment, DesignSystem $design_system ) {
-                $this->environment   = $environment;
-                $this->design_system = $design_system;
-        }
+       public function __construct( Environment $environment, DesignSystem $design_system ) {
+               $this->environment   = $environment;
+               $this->design_system = $design_system;
+               self::$instance      = $this;
+       }
+
+       /**
+        * Retrieve the active Global_Settings instance.
+        *
+        * @return Global_Settings|null
+        */
+       public static function instance() {
+               return self::$instance;
+       }
 
         /**
          * Bootstrap the settings page hooks.
@@ -118,7 +135,7 @@ class Global_Settings {
                         'satori_studio_global_settings_colors',
                         __( 'Colors', 'satori-studio' ),
                         array( $this, 'render_colors_section_intro' ),
-                        self::MENU_SLUG
+                        self::TAB_SLUG
                 );
 
                 $color_fields = array(
@@ -134,7 +151,7 @@ class Global_Settings {
                                 'satori_studio_global_settings_color_' . $key,
                                 $label,
                                 array( $this, 'render_text_input_field' ),
-                                self::MENU_SLUG,
+                                self::TAB_SLUG,
                                 'satori_studio_global_settings_colors',
                                 array(
                                         'section' => 'colors',
@@ -149,7 +166,7 @@ class Global_Settings {
                         'satori_studio_global_settings_typography',
                         __( 'Typography', 'satori-studio' ),
                         array( $this, 'render_typography_section_intro' ),
-                        self::MENU_SLUG
+                        self::TAB_SLUG
                 );
 
                 $typography_fields = array(
@@ -163,7 +180,7 @@ class Global_Settings {
                                 'satori_studio_global_settings_typography_' . $key,
                                 $label,
                                 array( $this, 'render_text_input_field' ),
-                                self::MENU_SLUG,
+                                self::TAB_SLUG,
                                 'satori_studio_global_settings_typography',
                                 array(
                                         'section' => 'typography',
@@ -177,7 +194,7 @@ class Global_Settings {
                         'satori_studio_global_settings_spacing',
                         __( 'Spacing', 'satori-studio' ),
                         array( $this, 'render_spacing_section_intro' ),
-                        self::MENU_SLUG
+                        self::TAB_SLUG
                 );
 
                 $spacing_fields = array(
@@ -190,7 +207,7 @@ class Global_Settings {
                                 'satori_studio_global_settings_spacing_' . $key,
                                 $label,
                                 array( $this, 'render_text_input_field' ),
-                                self::MENU_SLUG,
+                                self::TAB_SLUG,
                                 'satori_studio_global_settings_spacing',
                                 array(
                                         'section' => 'spacing',
@@ -221,7 +238,7 @@ class Global_Settings {
                         </p>
                         <form action="options.php" method="post">
                                 <?php settings_fields( self::OPTION_GROUP ); ?>
-                                <?php do_settings_sections( self::MENU_SLUG ); ?>
+                                <?php do_settings_sections( self::TAB_SLUG ); ?>
                                 <?php submit_button( __( 'Save Changes', 'satori-studio' ) ); ?>
                         </form>
                 </div>
@@ -328,7 +345,10 @@ class Global_Settings {
                 }
 
                 $url  = add_query_arg(
-                        array( 'page' => self::MENU_SLUG ),
+                        array(
+                                'page' => self::PARENT_SLUG,
+                                'tab'  => self::TAB_SLUG,
+                        ),
                         admin_url( 'admin.php' )
                 );
                 $text = esc_html__( 'Global Settings', 'satori-studio' );
