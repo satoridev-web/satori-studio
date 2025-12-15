@@ -245,6 +245,7 @@ class Global_Settings {
                                         <p class="description">
                                                 <?php esc_html_e( 'Set your site-wide design defaults (colors, typography, and spacing) for SATORI Studio. These settings are saved for future use and do not change your existing pages automatically.', 'satori-studio' ); ?>
                                         </p>
+                                        <?php $this->render_preview_card(); ?>
                                         <?php settings_fields( self::OPTION_GROUP ); ?>
                                         <?php do_settings_sections( self::TAB_SLUG ); ?>
                                 </div>
@@ -281,6 +282,79 @@ class Global_Settings {
                         class="<?php echo esc_attr( $input_class ); ?>"
                         placeholder="<?php echo esc_attr( $placeholder ); ?>"
                 />
+                <?php
+        }
+
+        /**
+         * Render a lightweight preview card for the Global Settings inputs.
+         *
+         * @return void
+         */
+        private function render_preview_card() {
+                $settings    = $this->get_settings();
+                $colors      = isset( $settings['colors'] ) && is_array( $settings['colors'] ) ? $settings['colors'] : array();
+                $typography  = isset( $settings['typography'] ) && is_array( $settings['typography'] ) ? $settings['typography'] : array();
+                $spacing     = isset( $settings['spacing'] ) && is_array( $settings['spacing'] ) ? $settings['spacing'] : array();
+
+                $color_chips = array(
+                        'primary'         => __( 'Primary', 'satori-studio' ),
+                        'accent'          => __( 'Accent', 'satori-studio' ),
+                        'neutral_surface' => __( 'Surface', 'satori-studio' ),
+                );
+
+                $base_font_family = isset( $typography['base_font_family'] ) ? $typography['base_font_family'] : '';
+                $base_font_size   = isset( $typography['base_font_size'] ) ? $typography['base_font_size'] : '';
+                $heading_font     = isset( $typography['heading_font_family'] ) ? $typography['heading_font_family'] : '';
+
+                $base_unit        = isset( $spacing['base_unit'] ) ? $spacing['base_unit'] : '';
+                $section_padding  = isset( $spacing['section_padding_default'] ) ? $spacing['section_padding_default'] : '';
+                ?>
+                <div class="satori-global-settings__preview-card" role="presentation">
+                        <div class="satori-global-settings__preview-header"><?php esc_html_e( 'Preview', 'satori-studio' ); ?></div>
+                        <div class="satori-global-settings__preview-body">
+                                <div class="satori-global-settings__preview-row satori-global-settings__preview-row--colors">
+                                        <?php foreach ( $color_chips as $key => $label ) :
+                                                $value = isset( $colors[ $key ] ) ? $colors[ $key ] : '';
+                                                ?>
+                                                <div class="satori-global-settings__chip">
+                                                        <span class="satori-global-settings__chip-swatch" style="background-color: <?php echo esc_attr( $value ); ?>;"></span>
+                                                        <span class="satori-global-settings__chip-label"><?php echo esc_html( $label ); ?></span>
+                                                        <?php if ( '' !== $value ) : ?>
+                                                                <span class="satori-global-settings__chip-value"><?php echo esc_html( $value ); ?></span>
+                                                        <?php endif; ?>
+                                                </div>
+                                        <?php endforeach; ?>
+                                </div>
+
+                                <div
+                                        class="satori-global-settings__typography-sample"
+                                        style="font-family: <?php echo esc_attr( $base_font_family ); ?>; font-size: <?php echo esc_attr( $base_font_size ); ?>;"
+                                >
+                                        <div class="satori-global-settings__typography-eyebrow"><?php esc_html_e( 'Typography', 'satori-studio' ); ?></div>
+                                        <div class="satori-global-settings__typography-heading"><?php esc_html_e( 'Studio preview', 'satori-studio' ); ?></div>
+                                        <div class="satori-global-settings__typography-meta">
+                                                <?php if ( '' !== $heading_font ) : ?>
+                                                        <span><?php printf( esc_html__( 'Headings: %s', 'satori-studio' ), esc_html( $heading_font ) ); ?></span>
+                                                <?php endif; ?>
+                                                <?php if ( '' !== $base_font_size ) : ?>
+                                                        <span><?php printf( esc_html__( 'Base size: %s', 'satori-studio' ), esc_html( $base_font_size ) ); ?></span>
+                                                <?php endif; ?>
+                                        </div>
+                                </div>
+
+                                <div class="satori-global-settings__spacing-hint">
+                                        <div class="satori-global-settings__spacing-title"><?php esc_html_e( 'Spacing', 'satori-studio' ); ?></div>
+                                        <div class="satori-global-settings__spacing-meta">
+                                                <?php if ( '' !== $base_unit ) : ?>
+                                                        <span><?php printf( esc_html__( 'Base unit: %s', 'satori-studio' ), esc_html( $base_unit ) ); ?></span>
+                                                <?php endif; ?>
+                                                <?php if ( '' !== $section_padding ) : ?>
+                                                        <span><?php printf( esc_html__( 'Section padding: %s', 'satori-studio' ), esc_html( $section_padding ) ); ?></span>
+                                                <?php endif; ?>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
                 <?php
         }
 
