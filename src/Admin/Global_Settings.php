@@ -162,7 +162,8 @@ class Global_Settings {
                                 array(
                                         'section' => 'colors',
                                         'key'     => $key,
-                                        'type'    => 'text',
+                                        'type'    => 'color',
+                                        'input_class' => 'regular-text satori-color-control',
                                         'placeholder' => '#000000',
                                 )
                         );
@@ -263,6 +264,7 @@ class Global_Settings {
                 $section = isset( $args['section'] ) ? $args['section'] : '';
                 $key     = isset( $args['key'] ) ? $args['key'] : '';
                 $type    = isset( $args['type'] ) ? $args['type'] : 'text';
+                $input_class = isset( $args['input_class'] ) ? $args['input_class'] : 'regular-text';
 
                 if ( empty( $section ) || empty( $key ) ) {
                         return;
@@ -276,7 +278,7 @@ class Global_Settings {
                         type="<?php echo esc_attr( $type ); ?>"
                         name="<?php echo esc_attr( self::OPTION_NAME . "[$section][$key]" ); ?>"
                         value="<?php echo esc_attr( $value ); ?>"
-                        class="regular-text"
+                        class="<?php echo esc_attr( $input_class ); ?>"
                         placeholder="<?php echo esc_attr( $placeholder ); ?>"
                 />
                 <?php
