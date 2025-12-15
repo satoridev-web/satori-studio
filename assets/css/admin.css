@@ -5,6 +5,7 @@ body.satori-studio-admin {
   --satori-color-primary: #1D4ED8;
   --satori-color-secondary: #10B981;
   --satori-color-accent: #0EA5E9;
+  --satori-admin-accent: var(--satori-color-primary);
   --satori-color-neutral-100: #F3F4F6;
   --satori-color-neutral-200: #E5E7EB;
   --satori-color-neutral-300: #D1D5DB;
@@ -308,4 +309,61 @@ body.satori-studio-admin .fl-builder-blocks-section .fl-builder-blocks-section-t
 
 body.satori-studio-admin .fl-builder-blocks-section .fl-builder-block {
   color: var(--satori-color-neutral-100);
+}
+
+/* -------------------------------------------------
+ * SATORI Studio — Admin Branding tab
+ * -------------------------------------------------*/
+body.satori-studio-admin .fl-settings-nav a.fl-active,
+body.satori-studio-admin .fl-settings-nav a:focus,
+body.satori-studio-admin .fl-settings-nav a:hover {
+  color: var(--satori-admin-accent, var(--satori-color-primary));
+}
+
+body.satori-studio-admin .fl-settings-nav a.fl-active {
+  border-bottom-color: var(--satori-admin-accent, var(--satori-color-primary));
+}
+
+body.satori-studio-admin .satori-admin-branding.fl-settings-form {
+  max-width: 760px;
+}
+
+body.satori-studio-admin .satori-admin-branding__field {
+  margin: var(--satori-spacing-lg, 16px) 0;
+}
+
+body.satori-studio-admin .satori-admin-branding__label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--satori-spacing-sm, 8px);
+  color: var(--satori-color-neutral-800, #1f2937);
+}
+
+body.satori-studio-admin .satori-admin-branding__logo-control {
+  display: flex;
+  align-items: center;
+  gap: var(--satori-spacing-md, 12px);
+}
+
+body.satori-studio-admin .satori-admin-branding__logo-preview img {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--satori-radius-sm, 4px);
+  border: 1px solid var(--satori-admin-accent, var(--satori-color-neutral-300));
+  object-fit: contain;
+  background: #fff;
+  padding: var(--satori-spacing-xs, 4px);
+}
+
+body.satori-studio-admin .satori-admin-branding__logo-actions .button + .button {
+  margin-left: var(--satori-spacing-sm, 8px);
+}
+
+body.satori-studio-admin .satori-admin-branding__accent-input {
+  max-width: 220px;
+}
+
+body.satori-studio-admin .satori-admin-branding__hint {
+  margin-top: var(--satori-spacing-xs, 4px);
+  color: var(--satori-color-neutral-600, #4b5563);
 }

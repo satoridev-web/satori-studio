@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Satori_Studio\Core;
 
 use Satori_Studio\Admin\Global_Settings;
+use Satori_Studio\Admin\Branding;
 use WP_Screen;
 
 class Admin {
@@ -38,6 +39,13 @@ class Admin {
         private $global_settings = null;
 
         /**
+         * Admin branding handler.
+         *
+         * @var Branding|null
+         */
+        private $branding = null;
+
+        /**
          * Prevents hooks from registering multiple times.
          *
          * @var bool
@@ -51,9 +59,10 @@ class Admin {
          * @param DesignSystem $design_system Design system tokens service.
          */
         public function __construct( Environment $environment, DesignSystem $design_system ) {
-                $this->environment   = $environment;
-                $this->design_system = $design_system;
+                $this->environment     = $environment;
+                $this->design_system   = $design_system;
                 $this->global_settings = new Global_Settings( $environment, $design_system );
+                $this->branding        = new Branding( $environment );
 
                 $this->init();
         }
@@ -76,6 +85,7 @@ class Admin {
                 add_action( 'admin_menu', array( __CLASS__, 'remove_legacy_settings_submenu' ), 99 );
 
                 $this->global_settings->init();
+                $this->branding->init();
         }
 
         /**
@@ -175,6 +185,7 @@ class Admin {
                 $settings_slug = self::SETTINGS_SLUG;
 
                 $this->global_settings->set_capability( $capability );
+                $this->branding->set_capability( $capability );
 
                global $admin_page_hooks;
 

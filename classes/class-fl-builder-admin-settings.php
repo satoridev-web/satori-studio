@@ -1,5 +1,7 @@
 <?php
 
+use Satori_Studio\Admin\Branding;
+
 /**
  * Handles logic for the admin settings page.
  *
@@ -242,12 +244,17 @@ final class FLBuilderAdminSettings {
 	/**
 	 * Renders the admin settings page heading.
 	 *
-	 * @since 1.0
-	 * @return void
-	 */
-	static public function render_page_heading() {
-		$icon = FLBuilderModel::get_branding_icon();
-		$name = FLBuilderModel::get_branding();
+        * @since 1.0
+         * @return void
+         */
+        static public function render_page_heading() {
+                $branding_helper = class_exists( Branding::class ) ? Branding::instance() : null;
+                $icon            = $branding_helper ? $branding_helper->get_brand_mark_url() : '';
+                $name            = FLBuilderModel::get_branding();
+
+                if ( empty( $icon ) ) {
+                        $icon = FLBuilderModel::get_branding_icon();
+                }
 
 		if ( ! empty( $icon ) ) {
 			echo '<img role="presentation" src="' . $icon . '" />';
