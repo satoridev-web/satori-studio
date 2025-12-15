@@ -24,7 +24,8 @@ The Global Settings panel centralises core color, typography, and spacing config
 - `section_padding_default`
 
 ## Admin screen
-- Location: SATORI Studio → **Global Settings** tab rendered within the main SATORI Studio Settings shell.
+- Location: SATORI Studio → **Global Settings** tab rendered within the main SATORI Studio Settings shell. There is no
+  standalone admin page for Global Settings; all access routes through `admin.php?page=fl-builder-settings`.
 - Group: `satori_studio_global_settings_group`
 - Behaviour: stores values via the WordPress Settings API; no runtime overrides are applied in this phase.
 - Admin registration: the parent settings shell remains the Beaver Builder settings page; Global Settings renders as an
