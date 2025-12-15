@@ -231,14 +231,16 @@ class Global_Settings {
                 }
 
                 ?>
-                <div class="wrap satori-global-settings">
-                        <h1><?php esc_html_e( 'SATORI Studio — Global Settings', 'satori-studio' ); ?></h1>
-                        <p class="description">
-                                <?php esc_html_e( 'Configure global color, typography, and spacing tokens. Phase 2E stores these values without altering front-end rendering or builder defaults.', 'satori-studio' ); ?>
-                        </p>
+                <div id="fl-<?php echo esc_attr( self::TAB_SLUG ); ?>-form" class="fl-settings-form satori-global-settings">
+                        <h3 class="fl-settings-form-header"><?php esc_html_e( 'Global Settings', 'satori-studio' ); ?></h3>
                         <form action="options.php" method="post">
-                                <?php settings_fields( self::OPTION_GROUP ); ?>
-                                <?php do_settings_sections( self::TAB_SLUG ); ?>
+                                <div class="fl-settings-form-content">
+                                        <p class="description">
+                                                <?php esc_html_e( 'Set your site-wide design defaults (colors, typography, and spacing) for SATORI Studio. These settings are saved for future use and do not change your existing pages automatically.', 'satori-studio' ); ?>
+                                        </p>
+                                        <?php settings_fields( self::OPTION_GROUP ); ?>
+                                        <?php do_settings_sections( self::TAB_SLUG ); ?>
+                                </div>
                                 <?php submit_button( __( 'Save Changes', 'satori-studio' ) ); ?>
                         </form>
                 </div>
@@ -344,19 +346,24 @@ class Global_Settings {
                         return;
                 }
 
-                $url  = add_query_arg(
+                $url          = add_query_arg(
                         array(
                                 'page' => self::PARENT_SLUG,
                                 'tab'  => self::TAB_SLUG,
                         ),
                         admin_url( 'admin.php' )
                 );
-                $text = esc_html__( 'Global Settings', 'satori-studio' );
+                $current_tab  = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : '';
+                $is_active    = $current_tab === self::TAB_SLUG;
+                $link_classes = $is_active ? 'fl-active' : '';
+                $text         = esc_html__( 'Global Settings', 'satori-studio' );
 
                 printf(
-                        '<li class="satori-studio-global-settings-link"><a href="%1$s">%2$s</a></li>',
-                        esc_url( $url ),
-                        esc_html( $text )
+                        '<li class="satori-studio-global-settings-link%3$s"><a class="%4$s" href="%1$s">%2$s</a></li>',
+                        esc_url( $url . '#' . self::TAB_SLUG ),
+                        esc_html( $text ),
+                        $is_active ? ' fl-active' : '',
+                        esc_attr( $link_classes )
                 );
         }
 
