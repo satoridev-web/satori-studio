@@ -1,0 +1,121 @@
+/* -------------------------------------------------
+ * SATORI Studio — Global Settings Preview Card
+ * -------------------------------------------------*/
+
+body.satori-studio-admin .satori-global-settings {
+    .satori-global-settings__preview-card {
+        background: var(--satori-color-neutral-100, #fff);
+        border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
+        border-radius: var(--satori-radius-md, 8px);
+        padding: var(--satori-spacing-lg, 16px);
+        margin-bottom: var(--satori-spacing-xl, 24px);
+        display: flex;
+        flex-direction: column;
+        gap: var(--satori-spacing-md, 12px);
+        box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+    }
+
+    .satori-global-settings__preview-header {
+        font-size: var(--satori-font-size-small, 0.875rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--satori-color-neutral-700, #374151);
+    }
+
+    .satori-global-settings__preview-body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--satori-spacing-md, 12px);
+    }
+
+    .satori-global-settings__preview-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--satori-spacing-sm, 8px);
+        align-items: center;
+    }
+
+    .satori-global-settings__chip {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--satori-spacing-sm, 8px);
+        padding: var(--satori-spacing-sm, 8px) var(--satori-spacing-md, 12px);
+        background: var(--satori-color-neutral-200, #e5e7eb);
+        border-radius: var(--satori-radius-sm, 4px);
+        border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
+        font-size: var(--satori-font-size-small, 0.875rem);
+        color: var(--satori-color-neutral-800, #1f2937);
+    }
+
+    .satori-global-settings__chip-swatch {
+        width: 18px;
+        height: 18px;
+        border-radius: var(--satori-radius-sm, 4px);
+        border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
+        display: inline-block;
+        flex-shrink: 0;
+    }
+
+    .satori-global-settings__chip-label {
+        font-weight: 600;
+    }
+
+    .satori-global-settings__chip-value {
+        color: var(--satori-color-neutral-600, #4b5563);
+    }
+
+    .satori-global-settings__typography-sample {
+        background: var(--satori-color-neutral-200, #e5e7eb);
+        border: 1px dashed var(--satori-color-neutral-300, #dcdcdc);
+        border-radius: var(--satori-radius-sm, 4px);
+        padding: var(--satori-spacing-md, 12px);
+        display: flex;
+        flex-direction: column;
+        gap: var(--satori-spacing-xs, 4px);
+        color: var(--satori-color-neutral-900, #111827);
+        line-height: 1.4;
+    }
+
+    .satori-global-settings__typography-eyebrow {
+        font-size: var(--satori-font-size-small, 0.875rem);
+        color: var(--satori-color-neutral-600, #4b5563);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .satori-global-settings__typography-heading {
+        font-weight: 700;
+    }
+
+    .satori-global-settings__typography-meta {
+        display: flex;
+        gap: var(--satori-spacing-md, 12px);
+        flex-wrap: wrap;
+        color: var(--satori-color-neutral-700, #374151);
+        font-size: var(--satori-font-size-small, 0.875rem);
+    }
+
+    .satori-global-settings__spacing-hint {
+        border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
+        border-radius: var(--satori-radius-sm, 4px);
+        padding: var(--satori-spacing-sm, 8px) var(--satori-spacing-md, 12px);
+        display: flex;
+        flex-direction: column;
+        gap: var(--satori-spacing-xs, 4px);
+        background: var(--satori-color-neutral-100, #f3f4f6);
+    }
+
+    .satori-global-settings__spacing-title {
+        font-weight: 600;
+        font-size: var(--satori-font-size-small, 0.875rem);
+        color: var(--satori-color-neutral-800, #1f2937);
+    }
+
+    .satori-global-settings__spacing-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--satori-spacing-md, 12px);
+        color: var(--satori-color-neutral-700, #374151);
+        font-size: var(--satori-font-size-small, 0.875rem);
+    }
+}
