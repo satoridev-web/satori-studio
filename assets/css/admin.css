@@ -31,6 +31,30 @@ body.satori-studio-admin {
 }
 
 /* -------------------------------------------------
+ * SATORI Studio — Global Settings form tweaks
+ * -------------------------------------------------*/
+body.satori-studio-admin .satori-global-settings.fl-settings-form {
+  max-width: 760px;
+  width: 100%;
+}
+
+body.satori-studio-admin .satori-global-settings .form-table {
+  width: 100%;
+}
+
+body.satori-studio-admin .satori-global-settings .form-table th {
+  white-space: nowrap;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control {
+  width: 10.5rem;
+  max-width: 100%;
+  padding: 6px 10px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------
  * SATORI Studio — Builder UI Shell (Token-aligned)
  * -------------------------------------------------*/
 body.satori-studio-admin .fl-builder-bar .fl-builder-bar-content {
