@@ -1,8 +1,56 @@
 /* -------------------------------------------------
- * SATORI Studio — Global Settings Preview Card
+ * SATORI Studio — Global Settings form
  * -------------------------------------------------*/
 
 body.satori-studio-admin .satori-global-settings {
+    &.fl-settings-form {
+        max-width: 760px;
+        width: 100%;
+    }
+
+    .form-table {
+        width: 100%;
+
+        th {
+            white-space: nowrap;
+        }
+    }
+
+    .satori-color-field,
+    .satori-color-control {
+        width: 10.5rem;
+        max-width: 100%;
+        padding: 6px 10px;
+        box-sizing: border-box;
+    }
+
+    .wp-picker-container {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--satori-spacing-sm, 8px);
+    }
+
+    .wp-picker-input-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--satori-spacing-xs, 4px);
+
+        input.satori-color-field {
+            height: auto;
+            padding: 6px 10px;
+            box-sizing: border-box;
+        }
+    }
+
+    .wp-picker-container .wp-color-result {
+        border-radius: var(--satori-radius-sm, 4px);
+        box-shadow: none;
+    }
+
+    /* -------------------------------------------------
+     * SATORI Studio — Global Settings Preview Card
+     * -------------------------------------------------*/
+
     .satori-global-settings__preview-card {
         background: var(--satori-color-neutral-100, #fff);
         border: 1px solid var(--satori-color-neutral-300, #dcdcdc);

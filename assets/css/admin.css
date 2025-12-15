@@ -46,12 +46,35 @@ body.satori-studio-admin .satori-global-settings .form-table th {
   white-space: nowrap;
 }
 
+body.satori-studio-admin .satori-global-settings .satori-color-field,
 body.satori-studio-admin .satori-global-settings .satori-color-control {
   width: 10.5rem;
   max-width: 100%;
   padding: 6px 10px;
-  height: auto;
   box-sizing: border-box;
+}
+
+body.satori-studio-admin .satori-global-settings .wp-picker-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-sm, 8px);
+}
+
+body.satori-studio-admin .satori-global-settings .wp-picker-input-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-xs, 4px);
+}
+
+body.satori-studio-admin .satori-global-settings .wp-picker-input-wrap input.satori-color-field {
+  height: auto;
+  padding: 6px 10px;
+  box-sizing: border-box;
+}
+
+body.satori-studio-admin .satori-global-settings .wp-picker-container .wp-color-result {
+  border-radius: var(--satori-radius-sm, 4px);
+  box-shadow: none;
 }
 
 body.satori-studio-admin .satori-global-settings .satori-global-settings__preview-card {

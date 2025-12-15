@@ -119,6 +119,7 @@ class Global_Settings {
                 add_action( 'admin_init', array( $this, 'register_settings' ) );
                 add_action( 'fl_builder_admin_settings_nav_after', array( $this, 'render_settings_nav_link' ) );
                 add_action( 'admin_init', array( $this, 'redirect_legacy_page' ) );
+                add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
         }
 
         /**
@@ -162,9 +163,12 @@ class Global_Settings {
                                 array(
                                         'section' => 'colors',
                                         'key'     => $key,
-                                        'type'    => 'color',
-                                        'input_class' => 'regular-text satori-color-control',
+                                        'type'    => 'text',
+                                        'input_class' => 'regular-text satori-color-control satori-color-field',
                                         'placeholder' => '#000000',
+                                        'data'   => array(
+                                                'color-key' => $key,
+                                        ),
                                 )
                         );
                 }
@@ -225,6 +229,29 @@ class Global_Settings {
                 }
         }
 
+
+        /**
+         * Enqueue assets required for the Global Settings admin screen.
+         *
+         * @return void
+         */
+        public function enqueue_admin_assets() {
+                if ( ! $this->is_global_settings_screen() ) {
+                        return;
+                }
+
+                wp_enqueue_style( 'wp-color-picker' );
+                wp_enqueue_script( 'wp-color-picker' );
+
+                wp_enqueue_script(
+                        'satori-studio-global-settings-color-picker',
+                        $this->environment->get_plugin_url() . 'assets/js/admin-global-settings-color-picker.js',
+                        array( 'wp-color-picker', 'jquery' ),
+                        $this->environment->get_version(),
+                        true
+                );
+        }
+
         /**
          * Render the main settings page markup.
          *
@@ -266,6 +293,7 @@ class Global_Settings {
                 $key     = isset( $args['key'] ) ? $args['key'] : '';
                 $type    = isset( $args['type'] ) ? $args['type'] : 'text';
                 $input_class = isset( $args['input_class'] ) ? $args['input_class'] : 'regular-text';
+                $data_attrs  = isset( $args['data'] ) && is_array( $args['data'] ) ? $args['data'] : array();
 
                 if ( empty( $section ) || empty( $key ) ) {
                         return;
@@ -281,6 +309,9 @@ class Global_Settings {
                         value="<?php echo esc_attr( $value ); ?>"
                         class="<?php echo esc_attr( $input_class ); ?>"
                         placeholder="<?php echo esc_attr( $placeholder ); ?>"
+                        <?php foreach ( $data_attrs as $data_key => $data_value ) : ?>
+                                data-<?php echo esc_attr( $data_key ); ?>="<?php echo esc_attr( $data_value ); ?>"
+                        <?php endforeach; ?>
                 />
                 <?php
         }
@@ -316,7 +347,7 @@ class Global_Settings {
                                         <?php foreach ( $color_chips as $key => $label ) :
                                                 $value = isset( $colors[ $key ] ) ? $colors[ $key ] : '';
                                                 ?>
-                                                <div class="satori-global-settings__chip">
+                                                <div class="satori-global-settings__chip" data-color-key="<?php echo esc_attr( $key ); ?>">
                                                         <span class="satori-global-settings__chip-swatch" style="background-color: <?php echo esc_attr( $value ); ?>;"></span>
                                                         <span class="satori-global-settings__chip-label"><?php echo esc_html( $label ); ?></span>
                                                         <?php if ( '' !== $value ) : ?>
@@ -489,6 +520,31 @@ class Global_Settings {
          */
         public function get_capability() {
                 return apply_filters( 'satori_studio_global_settings_capability', $this->capability );
+        }
+
+        /**
+         * Determine whether the current admin request is for the Global Settings tab.
+         *
+         * @return bool
+         */
+        private function is_global_settings_screen() {
+                if ( ! $this->is_builder_settings_screen() ) {
+                        return false;
+                }
+
+                $page = isset( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : '';
+
+                if ( self::PARENT_SLUG !== $page ) {
+                        return false;
+                }
+
+                $tab = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : '';
+
+                if ( '' !== $tab && self::TAB_SLUG !== $tab ) {
+                        return false;
+                }
+
+                return true;
         }
 
         /**
