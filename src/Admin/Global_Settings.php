@@ -44,6 +44,11 @@ class Global_Settings {
         const PARENT_SLUG = 'fl-builder-settings';
 
         /**
+         * Legacy standalone slug retained only for defensive redirects.
+         */
+        const LEGACY_PAGE_SLUG = 'satori-studio-global-settings';
+
+        /**
          * Core environment metadata.
          *
          * @var Environment
@@ -113,6 +118,7 @@ class Global_Settings {
 
                 add_action( 'admin_init', array( $this, 'register_settings' ) );
                 add_action( 'fl_builder_admin_settings_nav_after', array( $this, 'render_settings_nav_link' ) );
+                add_action( 'admin_init', array( $this, 'redirect_legacy_page' ) );
         }
 
         /**
@@ -365,6 +371,40 @@ class Global_Settings {
                         $is_active ? ' fl-active' : '',
                         esc_attr( $link_classes )
                 );
+        }
+
+        /**
+         * Redirect requests from the legacy standalone slug to the tabbed settings shell.
+         *
+         * @return void
+         */
+        public function redirect_legacy_page() {
+                if ( ! isset( $_GET['page'] ) ) {
+                        return;
+                }
+
+                $requested_page = sanitize_key( wp_unslash( $_GET['page'] ) );
+
+                if ( self::LEGACY_PAGE_SLUG !== $requested_page ) {
+                        return;
+                }
+
+                $capability = $this->get_capability();
+
+                if ( ! current_user_can( $capability ) ) {
+                        return;
+                }
+
+                $redirect_url = add_query_arg(
+                        array(
+                                'page' => self::PARENT_SLUG,
+                                'tab'  => self::TAB_SLUG,
+                        ),
+                        admin_url( 'admin.php' )
+                );
+
+                wp_safe_redirect( $redirect_url . '#' . self::TAB_SLUG );
+                exit;
         }
 
         /**
