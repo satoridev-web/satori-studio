@@ -352,24 +352,10 @@ class Global_Settings {
                         return;
                 }
 
-                $url          = add_query_arg(
-                        array(
-                                'page' => self::PARENT_SLUG,
-                                'tab'  => self::TAB_SLUG,
-                        ),
-                        admin_url( 'admin.php' )
-                );
-                $current_tab  = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : '';
-                $is_active    = $current_tab === self::TAB_SLUG;
-                $link_classes = $is_active ? 'fl-active' : '';
-                $text         = esc_html__( 'Global Settings', 'satori-studio' );
-
                 printf(
-                        '<li class="satori-studio-global-settings-link%3$s"><a class="%4$s" href="%1$s">%2$s</a></li>',
-                        esc_url( $url . '#' . self::TAB_SLUG ),
-                        esc_html( $text ),
-                        $is_active ? ' fl-active' : '',
-                        esc_attr( $link_classes )
+                        '<li class="satori-studio-global-settings-link"><a href="#%1$s">%2$s</a></li>',
+                        esc_attr( self::TAB_SLUG ),
+                        esc_html__( 'Global Settings', 'satori-studio' )
                 );
         }
 
@@ -398,7 +384,6 @@ class Global_Settings {
                 $redirect_url = add_query_arg(
                         array(
                                 'page' => self::PARENT_SLUG,
-                                'tab'  => self::TAB_SLUG,
                         ),
                         admin_url( 'admin.php' )
                 );
