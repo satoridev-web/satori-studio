@@ -1,0 +1,61 @@
+/* -------------------------------------------------
+ * SATORI Studio — Admin Branding tab
+ * -------------------------------------------------*/
+
+body.satori-studio-admin {
+        --satori-admin-accent: var(--satori-color-primary);
+
+        .fl-settings-nav a.fl-active,
+        .fl-settings-nav a:focus,
+        .fl-settings-nav a:hover {
+                color: var(--satori-admin-accent, var(--satori-color-primary));
+        }
+
+        .fl-settings-nav a.fl-active {
+                border-bottom-color: var(--satori-admin-accent, var(--satori-color-primary));
+        }
+
+        .satori-admin-branding.fl-settings-form {
+                max-width: 760px;
+        }
+
+        .satori-admin-branding__field {
+                margin: var(--satori-spacing-lg, 16px) 0;
+        }
+
+        .satori-admin-branding__label {
+                display: block;
+                font-weight: 600;
+                margin-bottom: var(--satori-spacing-sm, 8px);
+                color: var(--satori-color-neutral-800, #1f2937);
+        }
+
+        .satori-admin-branding__logo-control {
+                display: flex;
+                align-items: center;
+                gap: var(--satori-spacing-md, 12px);
+        }
+
+        .satori-admin-branding__logo-preview img {
+                width: 64px;
+                height: 64px;
+                border-radius: var(--satori-radius-sm, 4px);
+                border: 1px solid var(--satori-admin-accent, var(--satori-color-neutral-300));
+                object-fit: contain;
+                background: #fff;
+                padding: var(--satori-spacing-xs, 4px);
+        }
+
+        .satori-admin-branding__logo-actions .button + .button {
+                margin-left: var(--satori-spacing-sm, 8px);
+        }
+
+        .satori-admin-branding__accent-input {
+                max-width: 220px;
+        }
+
+        .satori-admin-branding__hint {
+                margin-top: var(--satori-spacing-xs, 4px);
+                color: var(--satori-color-neutral-600, #4b5563);
+        }
+}
