@@ -45,6 +45,14 @@ body.satori-studio-admin .satori-global-settings {
 
 body.satori-studio-admin .satori-global-settings .form-table {
   width: 100%;
+  overflow: visible;
+}
+
+body.satori-studio-admin .satori-global-settings .form-table tbody,
+body.satori-studio-admin .satori-global-settings .form-table tr,
+body.satori-studio-admin .satori-global-settings .form-table th,
+body.satori-studio-admin .satori-global-settings .form-table td {
+  overflow: visible;
 }
 
 body.satori-studio-admin .satori-global-settings .form-table th {
@@ -56,20 +64,17 @@ body.satori-studio-admin .satori-global-settings .satori-global-settings__color-
   align-items: center;
   gap: var(--satori-spacing-sm, 8px);
   flex-wrap: wrap;
+  overflow: visible;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker {
-  display: inline-flex;
-  align-items: center;
-}
-
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-container {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container {
   display: inline-flex;
   align-items: center;
   gap: var(--satori-spacing-xs, 4px);
+  overflow: visible;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-color-result {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container .wp-color-result {
   height: var(--satori-color-control-height);
   display: inline-flex;
   align-items: center;
@@ -79,32 +84,41 @@ body.satori-studio-admin .satori-global-settings .satori-global-settings__color-
   box-shadow: none;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-input-wrap {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container .wp-color-result.is-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container .wp-picker-input-wrap {
   display: none;
   align-items: stretch;
   gap: var(--satori-spacing-xs, 4px);
 }
 
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-container.wp-picker-active .wp-picker-input-wrap {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container.wp-picker-active .wp-picker-input-wrap {
   display: inline-flex;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-input-wrap input[type=text] {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container .wp-picker-input-wrap input[type=text] {
   height: var(--satori-color-control-height);
   padding: 7px 10px;
   box-sizing: border-box;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-holder {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container .wp-picker-holder {
   margin-top: var(--satori-spacing-xs, 4px);
 }
 
-body.satori-studio-admin .satori-global-settings .satori-global-settings__color-default {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .wp-picker-container .wp-picker-clear {
   height: var(--satori-color-control-height);
   display: inline-flex;
   align-items: center;
   padding: 0 var(--satori-spacing-md, 12px);
   line-height: 1.2;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control .satori-global-color {
+  min-width: 0;
 }
 
 body.satori-studio-admin .satori-global-settings .satori-global-settings__transparent {

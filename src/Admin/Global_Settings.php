@@ -370,49 +370,26 @@ class Global_Settings {
                 }
 
                 $settings             = $this->get_settings();
-                $value                = isset( $settings[ $section ][ $key ] ) ? $settings[ $section ][ $key ] : '';
-                $default_value        = $this->get_default_value( $section, $key );
-                $is_transparent       = 'transparent' === strtolower( $value );
-                $picker_value         = $is_transparent ? $default_value : $value;
-                $input_name           = self::OPTION_NAME . "[$section][$key]";
-                $input_id             = 'satori-' . $section . '-' . $key;
-                $last_non_transparent = $is_transparent ? $default_value : ( '' === $value ? $default_value : $value );
+                $value          = isset( $settings[ $section ][ $key ] ) ? $settings[ $section ][ $key ] : '';
+                $default_value  = $this->get_default_value( $section, $key );
+                $is_transparent = '' === $value || 'transparent' === strtolower( $value );
+                $input_name     = self::OPTION_NAME . "[$section][$key]";
                 ?>
-                <div
-                        class="satori-global-settings__color-control<?php echo $is_transparent ? ' is-transparent' : ''; ?>"
-                        data-color-key="<?php echo esc_attr( $key ); ?>"
-                        data-default-value="<?php echo esc_attr( $default_value ); ?>"
-                        <?php if ( $supports_transparent ) : ?>data-supports-transparent="true"<?php endif; ?>
-                >
+                <div class="satori-global-settings__color-control<?php echo $is_transparent ? ' is-transparent' : ''; ?>" data-color-key="<?php echo esc_attr( $key ); ?>">
                         <input
-                                type="hidden"
+                                type="text"
                                 name="<?php echo esc_attr( $input_name ); ?>"
-                                value="<?php echo esc_attr( $value ); ?>"
-                                class="satori-global-settings__color-value"
-                                data-last-color="<?php echo esc_attr( $last_non_transparent ); ?>"
+                                value="<?php echo esc_attr( $is_transparent ? '' : $value ); ?>"
+                                class="wp-color-picker satori-global-color"
+                                data-default-color="<?php echo esc_attr( $default_value ); ?>"
+                                data-color-key="<?php echo esc_attr( $key ); ?>"
+                                autocomplete="off"
                         />
-                        <div class="satori-global-settings__color-picker">
-                                <input
-                                        type="text"
-                                        id="<?php echo esc_attr( $input_id ); ?>"
-                                        value="<?php echo esc_attr( $picker_value ); ?>"
-                                        class="satori-global-settings__color-field"
-                                        data-default-value="<?php echo esc_attr( $default_value ); ?>"
-                                        autocomplete="off"
-                                />
-                        </div>
-                        <button
-                                type="button"
-                                class="button satori-global-settings__color-default"
-                                data-default-value="<?php echo esc_attr( $default_value ); ?>"
-                        >
-                                <?php esc_html_e( 'Default', 'satori-studio' ); ?>
-                        </button>
                         <?php if ( $supports_transparent ) : ?>
                                 <label class="satori-global-settings__transparent">
                                         <input
                                                 type="checkbox"
-                                                class="satori-global-settings__transparent-toggle"
+                                                class="satori-global-color__transparent-toggle"
                                                 <?php checked( $is_transparent ); ?>
                                         />
                                         <span><?php esc_html_e( 'Transparent', 'satori-studio' ); ?></span>
@@ -495,7 +472,7 @@ class Global_Settings {
                                 <div class="satori-global-settings__preview-row satori-global-settings__preview-row--colors">
                                         <?php foreach ( $color_chips as $key => $label ) :
                                                 $value          = isset( $colors[ $key ] ) ? $colors[ $key ] : '';
-                                                $is_transparent = 'transparent' === strtolower( $value );
+                                                $is_transparent = '' === $value || 'transparent' === strtolower( $value );
                                                 $swatch_classes = 'satori-global-settings__chip-swatch';
 
                                                 if ( $is_transparent ) {
@@ -506,7 +483,7 @@ class Global_Settings {
                                                 <div class="satori-global-settings__chip" data-color-key="<?php echo esc_attr( $key ); ?>">
                                                         <span class="<?php echo esc_attr( $swatch_classes ); ?>" style="<?php echo $is_transparent ? '' : 'background-color: ' . esc_attr( $value ) . ';'; ?>"></span>
                                                         <span class="satori-global-settings__chip-label"><?php echo esc_html( $label ); ?></span>
-                                                        <?php if ( '' !== $value ) : ?>
+                                                        <?php if ( '' !== $value || $is_transparent ) : ?>
                                                                 <span class="satori-global-settings__chip-value"><?php echo esc_html( $is_transparent ? __( 'Transparent', 'satori-studio' ) : $value ); ?></span>
                                                         <?php endif; ?>
                                                 </div>
