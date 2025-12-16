@@ -70,6 +70,13 @@ class Global_Settings {
         private $initialized = false;
 
         /**
+         * Cached defaults derived from the design system tokens.
+         *
+         * @var array<string, array<string, string>>|null
+         */
+        private $defaults = null;
+
+        /**
          * Singleton-like reference to the active instance.
          *
          * @var Global_Settings|null
@@ -89,20 +96,20 @@ class Global_Settings {
          * @param Environment  $environment   Core environment metadata.
          * @param DesignSystem $design_system Design system tokens service.
          */
-       public function __construct( Environment $environment, DesignSystem $design_system ) {
-               $this->environment   = $environment;
-               $this->design_system = $design_system;
-               self::$instance      = $this;
-       }
+        public function __construct( Environment $environment, DesignSystem $design_system ) {
+                $this->environment   = $environment;
+                $this->design_system = $design_system;
+                self::$instance      = $this;
+        }
 
-       /**
-        * Retrieve the active Global_Settings instance.
-        *
-        * @return Global_Settings|null
-        */
-       public static function instance() {
-               return self::$instance;
-       }
+        /**
+         * Retrieve the active Global_Settings instance.
+         *
+         * @return Global_Settings|null
+         */
+        public static function instance() {
+                return self::$instance;
+        }
 
         /**
          * Bootstrap the settings page hooks.
@@ -146,29 +153,40 @@ class Global_Settings {
                 );
 
                 $color_fields = array(
-                        'primary'            => __( 'Primary color', 'satori-studio' ),
-                        'accent'             => __( 'Accent color', 'satori-studio' ),
-                        'neutral_background' => __( 'Neutral background', 'satori-studio' ),
-                        'neutral_surface'    => __( 'Neutral surface', 'satori-studio' ),
-                        'neutral_border'     => __( 'Neutral border', 'satori-studio' ),
+                        'primary'            => array(
+                                'label' => __( 'Primary color', 'satori-studio' ),
+                        ),
+                        'accent'             => array(
+                                'label' => __( 'Accent color', 'satori-studio' ),
+                        ),
+                        'neutral_background' => array(
+                                'label'                => __( 'Neutral background', 'satori-studio' ),
+                                'supports_transparent' => true,
+                        ),
+                        'neutral_surface'    => array(
+                                'label'                => __( 'Neutral surface', 'satori-studio' ),
+                                'supports_transparent' => true,
+                        ),
+                        'neutral_border'     => array(
+                                'label' => __( 'Neutral border', 'satori-studio' ),
+                        ),
                 );
 
-                foreach ( $color_fields as $key => $label ) {
+                foreach ( $color_fields as $key => $field_config ) {
+                        $label = isset( $field_config['label'] ) ? $field_config['label'] : '';
+
                         add_settings_field(
                                 'satori_studio_global_settings_color_' . $key,
                                 $label,
-                                array( $this, 'render_text_input_field' ),
+                                array( $this, 'render_color_input_field' ),
                                 self::TAB_SLUG,
                                 'satori_studio_global_settings_colors',
                                 array(
                                         'section' => 'colors',
                                         'key'     => $key,
                                         'type'    => 'text',
-                                        'input_class' => 'regular-text satori-color-control satori-color-field',
                                         'placeholder' => '#000000',
-                                        'data'   => array(
-                                                'color-key' => $key,
-                                        ),
+                                        'supports_transparent' => isset( $field_config['supports_transparent'] ) && true === $field_config['supports_transparent'],
                                 )
                         );
                 }
@@ -209,21 +227,30 @@ class Global_Settings {
                 );
 
                 $spacing_fields = array(
-                        'base_unit'              => __( 'Base unit', 'satori-studio' ),
-                        'section_padding_default'=> __( 'Section padding default', 'satori-studio' ),
+                        'base_unit'              => array(
+                                'label' => __( 'Base unit', 'satori-studio' ),
+                                'step'  => 1,
+                        ),
+                        'section_padding_default'=> array(
+                                'label' => __( 'Section padding default', 'satori-studio' ),
+                                'step'  => 1,
+                        ),
                 );
 
-                foreach ( $spacing_fields as $key => $label ) {
+                foreach ( $spacing_fields as $key => $field_config ) {
+                        $label = isset( $field_config['label'] ) ? $field_config['label'] : '';
+
                         add_settings_field(
                                 'satori_studio_global_settings_spacing_' . $key,
                                 $label,
-                                array( $this, 'render_text_input_field' ),
+                                array( $this, 'render_spacing_input_field' ),
                                 self::TAB_SLUG,
                                 'satori_studio_global_settings_spacing',
                                 array(
                                         'section' => 'spacing',
                                         'key'     => $key,
                                         'type'    => 'text',
+                                        'step'    => isset( $field_config['step'] ) ? $field_config['step'] : 1,
                                 )
                         );
                 }
@@ -244,11 +271,20 @@ class Global_Settings {
                 wp_enqueue_script( 'wp-color-picker' );
 
                 wp_enqueue_script(
-                        'satori-studio-global-settings-color-picker',
-                        $this->environment->get_plugin_url() . 'assets/js/admin-global-settings-color-picker.js',
+                        'satori-studio-global-settings',
+                        $this->environment->get_plugin_url() . 'assets/js/admin-global-settings.js',
                         array( 'wp-color-picker', 'jquery' ),
                         $this->environment->get_version(),
                         true
+                );
+
+                wp_localize_script(
+                        'satori-studio-global-settings',
+                        'SatoriGlobalSettingsL10n',
+                        array(
+                                'defaultLabel'    => __( 'Default', 'satori-studio' ),
+                                'transparentLabel'=> __( 'Transparent', 'satori-studio' ),
+                        )
                 );
         }
 
@@ -317,6 +353,120 @@ class Global_Settings {
         }
 
         /**
+         * Render a color input field with default and transparency helpers.
+         *
+         * @param array $args Field arguments including section and key identifiers.
+         * @return void
+         */
+        public function render_color_input_field( $args ) {
+                $section = isset( $args['section'] ) ? $args['section'] : '';
+                $key     = isset( $args['key'] ) ? $args['key'] : '';
+                $placeholder = isset( $args['placeholder'] ) ? $args['placeholder'] : '';
+                $supports_transparent = isset( $args['supports_transparent'] ) ? (bool) $args['supports_transparent'] : false;
+
+                if ( empty( $section ) || empty( $key ) ) {
+                        return;
+                }
+
+                $settings         = $this->get_settings();
+                $value            = isset( $settings[ $section ][ $key ] ) ? $settings[ $section ][ $key ] : '';
+                $default_value    = $this->get_default_value( $section, $key );
+                $is_transparent   = 'transparent' === strtolower( $value );
+                $display_value    = $is_transparent ? $default_value : $value;
+                $input_name       = self::OPTION_NAME . "[$section][$key]";
+                $input_id         = 'satori-' . $section . '-' . $key;
+                ?>
+                <div
+                        class="satori-color-control"
+                        data-color-key="<?php echo esc_attr( $key ); ?>"
+                        data-default-value="<?php echo esc_attr( $default_value ); ?>"
+                        <?php if ( $supports_transparent ) : ?>data-supports-transparent="true"<?php endif; ?>
+                >
+                        <input
+                                type="hidden"
+                                name="<?php echo esc_attr( $input_name ); ?>"
+                                value="<?php echo esc_attr( $value ); ?>"
+                                class="satori-color-control__value"
+                        />
+                        <div class="satori-color-control__input-row">
+                                <input
+                                        type="text"
+                                        id="<?php echo esc_attr( $input_id ); ?>"
+                                        value="<?php echo esc_attr( $display_value ); ?>"
+                                        class="regular-text satori-color-field"
+                                        placeholder="<?php echo esc_attr( $placeholder ); ?>"
+                                        data-color-key="<?php echo esc_attr( $key ); ?>"
+                                        data-default-value="<?php echo esc_attr( $default_value ); ?>"
+                                />
+                                <div class="satori-color-control__actions">
+                                        <button
+                                                type="button"
+                                                class="button satori-color-control__default"
+                                                data-default-value="<?php echo esc_attr( $default_value ); ?>"
+                                        >
+                                                <?php esc_html_e( 'Default', 'satori-studio' ); ?>
+                                        </button>
+                                        <?php if ( $supports_transparent ) : ?>
+                                                <label class="satori-color-control__transparent">
+                                                        <input
+                                                                type="checkbox"
+                                                                class="satori-color-control__transparent-checkbox"
+                                                                <?php checked( $is_transparent ); ?>
+                                                        />
+                                                        <span><?php esc_html_e( 'Transparent', 'satori-studio' ); ?></span>
+                                                </label>
+                                        <?php endif; ?>
+                                </div>
+                        </div>
+                        <div class="satori-color-control__picker-holder" aria-hidden="true"></div>
+                </div>
+                <?php
+        }
+
+        /**
+         * Render a spacing input field with steppers.
+         *
+         * @param array $args Field arguments including section and key identifiers.
+         * @return void
+         */
+        public function render_spacing_input_field( $args ) {
+                $section = isset( $args['section'] ) ? $args['section'] : '';
+                $key     = isset( $args['key'] ) ? $args['key'] : '';
+                $type    = isset( $args['type'] ) ? $args['type'] : 'text';
+                $step    = isset( $args['step'] ) ? (float) $args['step'] : 1;
+
+                if ( empty( $section ) || empty( $key ) ) {
+                        return;
+                }
+
+                $settings       = $this->get_settings();
+                $value          = isset( $settings[ $section ][ $key ] ) ? $settings[ $section ][ $key ] : '';
+                $default_value  = $this->get_default_value( $section, $key );
+                $unit_hint      = $this->extract_unit( $value );
+
+                if ( empty( $unit_hint ) ) {
+                        $unit_hint = $this->extract_unit( $default_value );
+                }
+                ?>
+                <div class="satori-spacing-control">
+                        <div class="satori-spacing-control__stepper">
+                                <button type="button" class="button satori-stepper__button" data-direction="decrement" aria-label="<?php esc_attr_e( 'Decrease value', 'satori-studio' ); ?>">-</button>
+                                <input
+                                        type="<?php echo esc_attr( $type ); ?>"
+                                        name="<?php echo esc_attr( self::OPTION_NAME . "[$section][$key]" ); ?>"
+                                        value="<?php echo esc_attr( $value ); ?>"
+                                        class="regular-text satori-spacing-field"
+                                        data-step="<?php echo esc_attr( $step ); ?>"
+                                        data-unit="<?php echo esc_attr( $unit_hint ); ?>"
+                                        data-default-value="<?php echo esc_attr( $default_value ); ?>"
+                                />
+                                <button type="button" class="button satori-stepper__button" data-direction="increment" aria-label="<?php esc_attr_e( 'Increase value', 'satori-studio' ); ?>">+</button>
+                        </div>
+                </div>
+                <?php
+        }
+
+        /**
          * Render a lightweight preview card for the Global Settings inputs.
          *
          * @return void
@@ -345,13 +495,20 @@ class Global_Settings {
                         <div class="satori-global-settings__preview-body">
                                 <div class="satori-global-settings__preview-row satori-global-settings__preview-row--colors">
                                         <?php foreach ( $color_chips as $key => $label ) :
-                                                $value = isset( $colors[ $key ] ) ? $colors[ $key ] : '';
+                                                $value          = isset( $colors[ $key ] ) ? $colors[ $key ] : '';
+                                                $is_transparent = 'transparent' === strtolower( $value );
+                                                $swatch_classes = 'satori-global-settings__chip-swatch';
+
+                                                if ( $is_transparent ) {
+                                                        $swatch_classes .= ' is-transparent';
+                                                }
+
                                                 ?>
                                                 <div class="satori-global-settings__chip" data-color-key="<?php echo esc_attr( $key ); ?>">
-                                                        <span class="satori-global-settings__chip-swatch" style="background-color: <?php echo esc_attr( $value ); ?>;"></span>
+                                                        <span class="<?php echo esc_attr( $swatch_classes ); ?>" style="<?php echo $is_transparent ? '' : 'background-color: ' . esc_attr( $value ) . ';'; ?>"></span>
                                                         <span class="satori-global-settings__chip-label"><?php echo esc_html( $label ); ?></span>
                                                         <?php if ( '' !== $value ) : ?>
-                                                                <span class="satori-global-settings__chip-value"><?php echo esc_html( $value ); ?></span>
+                                                                <span class="satori-global-settings__chip-value"><?php echo esc_html( $is_transparent ? __( 'Transparent', 'satori-studio' ) : $value ); ?></span>
                                                         <?php endif; ?>
                                                 </div>
                                         <?php endforeach; ?>
@@ -585,13 +742,17 @@ class Global_Settings {
          * @return array<string, array<string, string>>
          */
         public function get_defaults() {
+                if ( null !== $this->defaults ) {
+                        return $this->defaults;
+                }
+
                 $colors     = $this->design_system->get_color_palette();
                 $spacing    = $this->design_system->get_spacing_scale();
                 $typography = $this->design_system->get_typography_scale();
 
                 $default_font_family = "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
-                return array(
+                $this->defaults = array(
                         'colors' => array(
                                 'primary'            => isset( $colors['primary'] ) ? $colors['primary'] : '#1D4ED8',
                                 'accent'             => isset( $colors['accent'] ) ? $colors['accent'] : '#0EA5E9',
@@ -609,6 +770,43 @@ class Global_Settings {
                                 'section_padding_default' => isset( $spacing['xl'] ) ? $spacing['xl'] : '24px',
                         ),
                 );
+
+                return $this->defaults;
+        }
+
+        /**
+         * Retrieve an individual default value for a settings key.
+         *
+         * @param string $section Settings section key.
+         * @param string $key     Field key.
+         * @return string
+         */
+        private function get_default_value( $section, $key ) {
+                $defaults = $this->get_defaults();
+
+                if ( isset( $defaults[ $section ][ $key ] ) ) {
+                        return $defaults[ $section ][ $key ];
+                }
+
+                return '';
+        }
+
+        /**
+         * Extract the trailing unit from a numeric value string.
+         *
+         * @param string $value Value to parse.
+         * @return string
+         */
+        private function extract_unit( $value ) {
+                if ( ! is_string( $value ) || '' === $value ) {
+                        return '';
+                }
+
+                if ( preg_match( '/[\d.]+\s*([a-z%]+)$/i', $value, $matches ) && isset( $matches[1] ) ) {
+                        return $matches[1];
+                }
+
+                return '';
         }
 
         /**
