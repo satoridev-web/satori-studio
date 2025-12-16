@@ -14,6 +14,8 @@ The Global Settings panel centralises core color, typography, and spacing config
 - `neutral_surface`
 - `neutral_border`
 
+Color inputs use the same WordPress color picker behaviour as the Branding tab. Each row offers a **Default** button that restores the design-system seed value and a **Transparent** checkbox. Transparent selections are stored as the literal string `transparent` (sanitised alongside hex values) so templates can test for it directly.
+
 ### Typography
 - `base_font_family`
 - `base_font_size`

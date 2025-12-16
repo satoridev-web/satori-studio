@@ -51,44 +51,26 @@ body.satori-studio-admin .satori-global-settings .form-table th {
   white-space: nowrap;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--satori-spacing-xs, 4px);
-  width: 100%;
-}
-
-body.satori-studio-admin .satori-global-settings .satori-color-control__input-row {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: var(--satori-spacing-sm, 8px);
+  flex-wrap: wrap;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control__swatch {
-  width: 24px;
-  height: 24px;
-  border-radius: var(--satori-radius-sm, 4px);
-  border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
-  background: var(--satori-color-neutral-200, #e5e7eb);
-  box-shadow: inset 0 0 0 1px #fff;
-}
-
-body.satori-studio-admin .satori-global-settings .satori-color-control__swatch.is-transparent {
-  background-image: linear-gradient(45deg, #f3f4f6 25%, transparent 25%), linear-gradient(-45deg, #f3f4f6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f3f4f6 75%), linear-gradient(-45deg, #d1d5db 75%, #f3f4f6 75%);
-  background-size: 12px 12px;
-  background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
-}
-
-body.satori-studio-admin .satori-global-settings .satori-color-control__picker .wp-picker-container {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker {
   display: inline-flex;
   align-items: center;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control .wp-color-result {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-xs, 4px);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-color-result {
   height: var(--satori-color-control-height);
-  min-width: 116px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -97,33 +79,27 @@ body.satori-studio-admin .satori-global-settings .satori-color-control .wp-color
   box-shadow: none;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-input-wrap {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-input-wrap {
   display: none;
   align-items: stretch;
   gap: var(--satori-spacing-xs, 4px);
-  margin-left: var(--satori-spacing-xs, 4px);
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-container.wp-picker-active .wp-picker-input-wrap {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-container.wp-picker-active .wp-picker-input-wrap {
   display: inline-flex;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-input-wrap input.satori-color-field {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-input-wrap input[type=text] {
   height: var(--satori-color-control-height);
   padding: 7px 10px;
   box-sizing: border-box;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control__actions {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--satori-spacing-sm, 8px);
-  font-size: var(--satori-font-size-small, 0.875rem);
-  color: var(--satori-color-neutral-700, #374151);
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-picker .wp-picker-holder {
+  margin-top: var(--satori-spacing-xs, 4px);
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control__actions .button {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-default {
   height: var(--satori-color-control-height);
   display: inline-flex;
   align-items: center;
@@ -131,42 +107,23 @@ body.satori-studio-admin .satori-global-settings .satori-color-control__actions 
   line-height: 1.2;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control__transparent {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__transparent {
   display: inline-flex;
   align-items: center;
   gap: var(--satori-spacing-xs, 4px);
   white-space: nowrap;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control__transparent input[type="checkbox"] {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__transparent input[type=\"checkbox\"] {
   margin: 0;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-control__picker-holder {
-  position: relative;
-  width: 100%;
-  min-height: 0;
-  overflow: visible;
-}
-
-body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-holder {
-  position: static;
-  margin-top: var(--satori-spacing-xs, 4px);
-  z-index: 20;
-  min-width: 240px;
-  background: #fff;
-  border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
-  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.15);
-}
-
-body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-clear,
-body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-default {
-  display: none !important;
-}
-
-body.satori-studio-admin .satori-global-settings .satori-color-control.is-transparent .wp-color-result,
-body.satori-studio-admin .satori-global-settings .satori-color-field.is-transparent {
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control.is-transparent .wp-color-result {
   opacity: 0.6;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-global-settings__color-control.is-transparent .wp-picker-input-wrap {
+  display: none !important;
 }
 
 body.satori-studio-admin .satori-global-settings .satori-global-settings__preview-card {
