@@ -188,7 +188,6 @@ class Global_Settings {
                                         'section' => 'colors',
                                         'key'     => $key,
                                         'type'    => 'text',
-                                        'placeholder' => '#000000',
                                         'supports_transparent' => isset( $field_config['supports_transparent'] ) && true === $field_config['supports_transparent'],
                                 )
                         );
@@ -364,31 +363,23 @@ class Global_Settings {
         public function render_color_input_field( $args ) {
                 $section = isset( $args['section'] ) ? $args['section'] : '';
                 $key     = isset( $args['key'] ) ? $args['key'] : '';
-                $placeholder = isset( $args['placeholder'] ) ? $args['placeholder'] : '';
                 $supports_transparent = isset( $args['supports_transparent'] ) ? (bool) $args['supports_transparent'] : false;
 
                 if ( empty( $section ) || empty( $key ) ) {
                         return;
                 }
 
-                $settings         = $this->get_settings();
-                $value            = isset( $settings[ $section ][ $key ] ) ? $settings[ $section ][ $key ] : '';
-                $default_value    = $this->get_default_value( $section, $key );
-                $is_transparent   = 'transparent' === strtolower( $value );
-                $display_value    = $is_transparent ? $default_value : $value;
-                $swatch_classes   = 'satori-color-control__swatch';
-                $swatch_style     = '';
-                $input_name       = self::OPTION_NAME . "[$section][$key]";
-                $input_id         = 'satori-' . $section . '-' . $key;
-
-                if ( $is_transparent ) {
-                        $swatch_classes .= ' is-transparent';
-                } elseif ( '' !== $display_value ) {
-                        $swatch_style = 'background-color: ' . $display_value . ';';
-                }
+                $settings             = $this->get_settings();
+                $value                = isset( $settings[ $section ][ $key ] ) ? $settings[ $section ][ $key ] : '';
+                $default_value        = $this->get_default_value( $section, $key );
+                $is_transparent       = 'transparent' === strtolower( $value );
+                $picker_value         = $is_transparent ? $default_value : $value;
+                $input_name           = self::OPTION_NAME . "[$section][$key]";
+                $input_id             = 'satori-' . $section . '-' . $key;
+                $last_non_transparent = $is_transparent ? $default_value : ( '' === $value ? $default_value : $value );
                 ?>
                 <div
-                        class="satori-color-control"
+                        class="satori-global-settings__color-control<?php echo $is_transparent ? ' is-transparent' : ''; ?>"
                         data-color-key="<?php echo esc_attr( $key ); ?>"
                         data-default-value="<?php echo esc_attr( $default_value ); ?>"
                         <?php if ( $supports_transparent ) : ?>data-supports-transparent="true"<?php endif; ?>
@@ -397,42 +388,36 @@ class Global_Settings {
                                 type="hidden"
                                 name="<?php echo esc_attr( $input_name ); ?>"
                                 value="<?php echo esc_attr( $value ); ?>"
-                                class="satori-color-control__value"
+                                class="satori-global-settings__color-value"
+                                data-last-color="<?php echo esc_attr( $last_non_transparent ); ?>"
                         />
-                        <div class="satori-color-control__input-row">
-                                <span class="<?php echo esc_attr( $swatch_classes ); ?>" style="<?php echo esc_attr( $swatch_style ); ?>" aria-hidden="true"></span>
-                                <div class="satori-color-control__picker">
-                                        <input
-                                                type="text"
-                                                id="<?php echo esc_attr( $input_id ); ?>"
-                                                value="<?php echo esc_attr( $display_value ); ?>"
-                                                class="regular-text satori-color-field"
-                                                placeholder="<?php echo esc_attr( $placeholder ); ?>"
-                                                data-color-key="<?php echo esc_attr( $key ); ?>"
-                                                data-default-value="<?php echo esc_attr( $default_value ); ?>"
-                                        />
-                                </div>
-                                <div class="satori-color-control__actions">
-                                        <button
-                                                type="button"
-                                                class="button satori-color-control__default"
-                                                data-default-value="<?php echo esc_attr( $default_value ); ?>"
-                                        >
-                                                <?php esc_html_e( 'Default', 'satori-studio' ); ?>
-                                        </button>
-                                        <?php if ( $supports_transparent ) : ?>
-                                                <label class="satori-color-control__transparent">
-                                                        <input
-                                                                type="checkbox"
-                                                                class="satori-color-control__transparent-checkbox"
-                                                                <?php checked( $is_transparent ); ?>
-                                                        />
-                                                        <span><?php esc_html_e( 'Transparent', 'satori-studio' ); ?></span>
-                                                </label>
-                                        <?php endif; ?>
-                                </div>
+                        <div class="satori-global-settings__color-picker">
+                                <input
+                                        type="text"
+                                        id="<?php echo esc_attr( $input_id ); ?>"
+                                        value="<?php echo esc_attr( $picker_value ); ?>"
+                                        class="satori-global-settings__color-field"
+                                        data-default-value="<?php echo esc_attr( $default_value ); ?>"
+                                        autocomplete="off"
+                                />
                         </div>
-                        <div class="satori-color-control__picker-holder" aria-hidden="true"></div>
+                        <button
+                                type="button"
+                                class="button satori-global-settings__color-default"
+                                data-default-value="<?php echo esc_attr( $default_value ); ?>"
+                        >
+                                <?php esc_html_e( 'Default', 'satori-studio' ); ?>
+                        </button>
+                        <?php if ( $supports_transparent ) : ?>
+                                <label class="satori-global-settings__transparent">
+                                        <input
+                                                type="checkbox"
+                                                class="satori-global-settings__transparent-toggle"
+                                                <?php checked( $is_transparent ); ?>
+                                        />
+                                        <span><?php esc_html_e( 'Transparent', 'satori-studio' ); ?></span>
+                                </label>
+                        <?php endif; ?>
                 </div>
                 <?php
         }
@@ -585,7 +570,14 @@ class Global_Settings {
 
                         foreach ( $defaults[ $section ] as $key => $default_value ) {
                                 if ( isset( $section_input[ $key ] ) ) {
-                                        $sanitized[ $section ][ $key ] = sanitize_text_field( wp_unslash( $section_input[ $key ] ) );
+                                        $raw_value = wp_unslash( $section_input[ $key ] );
+
+                                        if ( 'colors' === $section ) {
+                                                $sanitized[ $section ][ $key ] = $this->sanitize_color_value( $raw_value, true );
+                                                continue;
+                                        }
+
+                                        $sanitized[ $section ][ $key ] = sanitize_text_field( $raw_value );
                                 }
                         }
                 }
@@ -614,6 +606,30 @@ class Global_Settings {
                 }
 
                 return $settings;
+        }
+
+        /**
+         * Sanitize a color value, allowing a transparent sentinel.
+         *
+         * @param string $value             Raw value from the request.
+         * @param bool   $allow_transparent Whether to allow the transparent sentinel.
+         * @return string
+         */
+        private function sanitize_color_value( $value, $allow_transparent = false ) {
+                $raw_value = is_string( $value ) ? trim( $value ) : '';
+
+                if ( '' === $raw_value ) {
+                        return '';
+                }
+
+                if ( $allow_transparent && 'transparent' === strtolower( $raw_value ) ) {
+                        return 'transparent';
+                }
+
+                $raw_value = ltrim( $raw_value, '#' );
+                $sanitized = sanitize_hex_color( '#' . $raw_value );
+
+                return $sanitized ? $sanitized : '';
         }
 
         /**

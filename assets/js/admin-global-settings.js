@@ -19,12 +19,16 @@
                         labels.transparent = window.SatoriGlobalSettingsL10n.transparentLabel || labels.transparent;
                 }
 
+                var isTransparentValue = function( value ) {
+                        return 'transparent' === String( value ).toLowerCase();
+                };
+
                 var updatePreview = function( key, value ) {
                         if ( ! key ) {
                                 return;
                         }
 
-                        var isTransparent = 'transparent' === String( value ).toLowerCase();
+                        var isTransparent = isTransparentValue( value );
                         var $chip = $panel.find( '.satori-global-settings__chip[data-color-key="' + key + '"]' );
 
                         if ( ! $chip.length ) {
@@ -63,107 +67,46 @@
                                 return;
                         }
 
-                        var closeAllPickers = function( current ) {
-                                $panel.find( '.wp-picker-container' ).each( function() {
-                                        var $container = $( this );
-                                        var pickerHolder = $container.data( 'satoriPickerHolder' );
-                                        var pickerWrapper = $container.data( 'satoriPickerWrapper' );
-
-                                        if ( current && $container.is( current ) ) {
-                                                return;
-                                        }
-
-                                        $container.removeClass( 'wp-picker-active' );
-                                        $container.find( '.wp-color-result' ).attr( 'aria-expanded', 'false' );
-
-                                        if ( pickerHolder && pickerHolder.length ) {
-                                                pickerHolder.hide();
-                                        }
-
-                                        if ( pickerWrapper && pickerWrapper.length ) {
-                                                pickerWrapper.attr( 'aria-hidden', 'true' );
-                                        }
-                                } );
-                        };
-
-                        $( document ).on( 'mousedown.satoriGlobalSettings', function( event ) {
-                                var $targetContainer = $( event.target ).closest( '.wp-picker-container' );
-
-                                if ( ! $targetContainer.length || ! $panel.find( $targetContainer ).length ) {
-                                        closeAllPickers();
-                                }
-                        } );
-
-                        $panel.find( '.satori-color-control' ).each( function() {
+                        $panel.find( '.satori-global-settings__color-control' ).each( function() {
                                 var $control = $( this );
-                                var $field = $control.find( '.satori-color-field' );
-                                var $valueInput = $control.find( '.satori-color-control__value' );
-                                var $transparentToggle = $control.find( '.satori-color-control__transparent-checkbox' );
-                                var $defaultButton = $control.find( '.satori-color-control__default' );
-                                var $pickerWrapper = $control.find( '.satori-color-control__picker-holder' );
-                                var $pickerSlot = $control.find( '.satori-color-control__picker' );
-                                var $swatch = $control.find( '.satori-color-control__swatch' );
+                                var key = $control.data( 'colorKey' ) || '';
                                 var defaultValue = $control.data( 'defaultValue' ) || '';
-                                var key = $control.data( 'colorKey' ) || $field.data( 'colorKey' );
                                 var supportsTransparent = !! $control.data( 'supportsTransparent' );
+                                var $valueInput = $control.find( '.satori-global-settings__color-value' );
+                                var $field = $control.find( '.satori-global-settings__color-field' );
+                                var $defaultButton = $control.find( '.satori-global-settings__color-default' );
+                                var $transparentToggle = $control.find( '.satori-global-settings__transparent-toggle' );
                                 var storedValue = $valueInput.val();
-                                var isTransparent = 'transparent' === String( storedValue ).toLowerCase();
-                                var initialColor = isTransparent ? ( $field.data( 'defaultValue' ) || defaultValue ) : ( storedValue || $field.val() || defaultValue );
+                                var transparent = supportsTransparent && isTransparentValue( storedValue );
+                                var lastColor = transparent ? ( $valueInput.data( 'lastColor' ) || defaultValue ) : ( storedValue || $valueInput.data( 'lastColor' ) || $field.val() || defaultValue );
 
-                                $field.val( initialColor );
-                                $field.data( 'lastColor', initialColor );
-
-                                var updateSwatch = function( nextValue, isValueTransparent ) {
-                                        if ( ! $swatch.length ) {
-                                                return;
-                                        }
-
-                                        var shouldShowTransparent = !! isValueTransparent;
-                                        var swatchColor = shouldShowTransparent ? '' : nextValue;
-
-                                        $swatch.toggleClass( 'is-transparent', shouldShowTransparent );
-                                        $swatch.css( 'background-color', swatchColor );
+                                var syncValue = function( nextValue ) {
+                                        $valueInput.val( nextValue );
+                                        updatePreview( key, nextValue );
                                 };
 
-                                var markTransparent = function() {
-                                        if ( ! supportsTransparent ) {
-                                                return;
+                                var setPickerColor = function( color ) {
+                                        if ( 'function' === typeof $field.wpColorPicker ) {
+                                                try {
+                                                        $field.wpColorPicker( 'color', color );
+                                                        return;
+                                                } catch ( error ) {
+                                                        // Fallback below when WP overrides are unavailable.
+                                                }
                                         }
 
-                                        $control.addClass( 'is-transparent' );
-                                        $field.addClass( 'is-transparent' ).prop( 'readonly', true );
-
-                                        if ( $transparentToggle.length ) {
-                                                $transparentToggle.prop( 'checked', true );
-                                        }
+                                        $field.val( color ).trigger( 'change' );
                                 };
 
-                                var clearTransparent = function() {
-                                        if ( ! supportsTransparent ) {
-                                                return;
+                                var disablePicker = function( disabled ) {
+                                        $control.toggleClass( 'is-transparent', disabled );
+                                        $field.prop( 'disabled', disabled );
+
+                                        var $result = $control.find( '.wp-color-result' );
+
+                                        if ( $result.length ) {
+                                                $result.prop( 'aria-disabled', disabled );
                                         }
-
-                                        $control.removeClass( 'is-transparent' );
-                                        $field.removeClass( 'is-transparent' ).prop( 'readonly', false );
-
-                                        if ( $transparentToggle.length ) {
-                                                $transparentToggle.prop( 'checked', false );
-                                        }
-                                };
-
-                                var setColor = function( nextColor, shouldSyncPicker ) {
-                                        var color = nextColor || '';
-
-                                        $valueInput.val( color );
-                                        $field.val( color );
-                                        $field.data( 'lastColor', color );
-                                        updateSwatch( color, false );
-
-                                        if ( shouldSyncPicker && $field.hasClass( 'wp-color-picker' ) ) {
-                                                $field.wpColorPicker( 'color', color );
-                                        }
-
-                                        updatePreview( key, color );
                                 };
 
                                 var setTransparentState = function( enable ) {
@@ -172,118 +115,87 @@
                                         }
 
                                         if ( enable ) {
-                                                var lastColor = $field.data( 'lastColor' ) || $field.val() || defaultValue;
+                                                var candidate = $field.val() || lastColor || defaultValue;
 
-                                                $field.data( 'lastColor', lastColor );
-                                                $valueInput.val( 'transparent' );
-                                                markTransparent();
-                                                updatePreview( key, 'transparent' );
-                                                updateSwatch( '', true );
-                                                closeAllPickers();
+                                                if ( ! isTransparentValue( candidate ) ) {
+                                                        lastColor = candidate;
+                                                }
+
+                                                disablePicker( true );
+                                                syncValue( 'transparent' );
+
+                                                if ( $transparentToggle.length ) {
+                                                        $transparentToggle.prop( 'checked', true );
+                                                }
+
                                                 return;
                                         }
 
-                                        clearTransparent();
-                                        var restoreColor = $field.data( 'lastColor' ) || defaultValue;
+                                        disablePicker( false );
 
-                                        if ( 'transparent' === String( restoreColor ).toLowerCase() ) {
-                                                restoreColor = defaultValue;
+                                        if ( $transparentToggle.length ) {
+                                                $transparentToggle.prop( 'checked', false );
                                         }
 
-                                        setColor( restoreColor, true );
+                                        var restoreColor = lastColor || defaultValue;
+
+                                        setPickerColor( restoreColor );
+                                        syncValue( restoreColor );
                                 };
 
-                                if ( supportsTransparent && isTransparent ) {
-                                        markTransparent();
-                                        updatePreview( key, 'transparent' );
-                                        updateSwatch( '', true );
+                                if ( transparent ) {
+                                        disablePicker( true );
+                                        $field.val( defaultValue );
+                                        syncValue( 'transparent' );
                                 } else {
-                                        updatePreview( key, initialColor );
-                                        updateSwatch( initialColor, false );
+                                        $field.val( lastColor );
+                                        syncValue( storedValue );
                                 }
 
                                 $field.wpColorPicker( {
                                         defaultColor: defaultValue,
                                         change: function( event, ui ) {
-                                                var colorString = ui.color.toString();
+                                                var colorString = ui.color ? ui.color.toString() : '';
+                                                lastColor = colorString || defaultValue;
 
-                                                clearTransparent();
-                                                setColor( colorString, false );
-                                        },
-                                        clear: function() {
-                                                clearTransparent();
-                                                setColor( defaultValue, false );
-                                        },
-                                } );
+                                                if ( supportsTransparent ) {
+                                                        disablePicker( false );
 
-                                var $wpContainer = $field.closest( '.wp-picker-container' );
-                                var $pickerHolder = $wpContainer.find( '.wp-picker-holder' );
-                                var $toggle = $wpContainer.find( '.wp-color-result' );
-                                var $clearButton = $wpContainer.find( '.wp-picker-clear' );
-                                var $defaultPickerButton = $wpContainer.find( '.wp-picker-default' );
-                                var attachPickerHolder = function() {
-                                        if ( $pickerWrapper.length && $pickerHolder.parent()[0] !== $pickerWrapper[0] ) {
-                                                $pickerWrapper.append( $pickerHolder );
-                                        }
-                                };
-                                var closePicker = function() {
-                                        $wpContainer.removeClass( 'wp-picker-active' );
-                                        $toggle.attr( 'aria-expanded', 'false' );
-                                        $pickerHolder.hide();
-                                        $pickerWrapper.attr( 'aria-hidden', 'true' );
-                                };
-                                var openPicker = function() {
-                                        if ( $control.hasClass( 'is-transparent' ) ) {
-                                                return;
-                                        }
-
-                                        attachPickerHolder();
-                                        closeAllPickers( $wpContainer );
-                                        $wpContainer.addClass( 'wp-picker-active' );
-                                        $pickerHolder.show();
-                                        $pickerWrapper.attr( 'aria-hidden', 'false' );
-                                        $toggle.attr( 'aria-expanded', 'true' );
-                                };
-
-                                if ( $pickerSlot.length ) {
-                                        $pickerSlot.prepend( $wpContainer );
-                                } else {
-                                        $control.find( '.satori-color-control__input-row' ).prepend( $wpContainer );
-                                }
-
-                                $pickerWrapper.append( $pickerHolder );
-                                $wpContainer.data( 'satoriPickerHolder', $pickerHolder );
-                                $wpContainer.data( 'satoriPickerWrapper', $pickerWrapper );
-                                $pickerHolder.hide();
-                                $pickerWrapper.attr( 'aria-hidden', 'true' );
-
-                                if ( $clearButton.length ) {
-                                        $clearButton.remove();
-                                }
-
-                                if ( $defaultPickerButton.length ) {
-                                        $defaultPickerButton.remove();
-                                }
-
-                                if ( $toggle.length ) {
-                                        $toggle.off( 'click' ).on( 'click', function( event ) {
-                                                event.preventDefault();
-
-                                                if ( $wpContainer.hasClass( 'wp-picker-active' ) ) {
-                                                        closePicker();
-                                                        return;
+                                                        if ( $transparentToggle.length ) {
+                                                                $transparentToggle.prop( 'checked', false );
+                                                        }
                                                 }
 
-                                                openPicker();
-                                        } );
-                                }
+                                                syncValue( colorString );
+                                        },
+                                        clear: function() {
+                                                lastColor = defaultValue;
+
+                                                if ( supportsTransparent ) {
+                                                        disablePicker( false );
+
+                                                        if ( $transparentToggle.length ) {
+                                                                $transparentToggle.prop( 'checked', false );
+                                                        }
+                                                }
+
+                                                syncValue( defaultValue );
+                                        },
+                                } );
 
                                 if ( $defaultButton.length ) {
                                         $defaultButton.text( labels.default ).on( 'click', function( event ) {
                                                 event.preventDefault();
-                                                setTransparentState( false );
-                                                setColor( defaultValue, true );
-                                                closePicker();
+
+                                                lastColor = defaultValue;
+                                                disablePicker( false );
+
+                                                if ( $transparentToggle.length ) {
+                                                        $transparentToggle.prop( 'checked', false );
+                                                }
+
+                                                setPickerColor( defaultValue );
+                                                syncValue( defaultValue );
                                         } );
                                 }
 
@@ -299,19 +211,13 @@
                                 }
 
                                 $field.on( 'input', function() {
-                                        var value = $( this ).val();
-                                        var isValueTransparent = 'transparent' === String( value ).toLowerCase();
-
-                                        if ( supportsTransparent ) {
-                                                if ( isValueTransparent ) {
-                                                        setTransparentState( true );
-                                                        return;
-                                                }
-
-                                                clearTransparent();
+                                        if ( supportsTransparent && $control.hasClass( 'is-transparent' ) ) {
+                                                return;
                                         }
 
-                                        setColor( value, false );
+                                        var value = $( this ).val();
+                                        lastColor = value || defaultValue;
+                                        syncValue( value );
                                 } );
                         } );
                 };
