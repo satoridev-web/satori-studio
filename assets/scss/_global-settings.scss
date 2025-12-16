@@ -16,35 +16,113 @@ body.satori-studio-admin .satori-global-settings {
         }
     }
 
-    .satori-color-field,
+    --satori-color-control-height: 34px;
+
     .satori-color-control {
-        width: 10.5rem;
-        max-width: 100%;
-        padding: 6px 10px;
-        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--satori-spacing-xs, 4px);
+        width: 100%;
     }
 
-    .wp-picker-container {
-        display: inline-flex;
-        align-items: center;
+    .satori-color-control__input-row {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: nowrap;
         gap: var(--satori-spacing-sm, 8px);
     }
 
-    .wp-picker-input-wrap {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--satori-spacing-xs, 4px);
+    .satori-color-field {
+        width: 8rem;
+        max-width: 100%;
+        padding: 7px 10px;
+        height: var(--satori-color-control-height);
+        box-sizing: border-box;
+    }
 
-        input.satori-color-field {
-            height: auto;
-            padding: 6px 10px;
-            box-sizing: border-box;
+    .satori-color-control .wp-picker-container {
+        display: inline-flex;
+        align-items: stretch;
+        gap: var(--satori-spacing-sm, 8px);
+
+        .wp-color-result {
+            height: var(--satori-color-control-height);
+            min-width: 112px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 var(--satori-spacing-md, 12px);
+            border-radius: var(--satori-radius-sm, 4px);
+            box-shadow: none;
+        }
+
+        .wp-picker-input-wrap {
+            display: inline-flex;
+            align-items: stretch;
+            gap: var(--satori-spacing-xs, 4px);
+
+            input.satori-color-field {
+                height: var(--satori-color-control-height);
+                padding: 7px 10px;
+                box-sizing: border-box;
+            }
         }
     }
 
-    .wp-picker-container .wp-color-result {
-        border-radius: var(--satori-radius-sm, 4px);
-        box-shadow: none;
+    .satori-color-control__actions {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: var(--satori-spacing-sm, 8px);
+        font-size: var(--satori-font-size-small, 0.875rem);
+        color: var(--satori-color-neutral-700, #374151);
+
+        .button {
+            height: var(--satori-color-control-height);
+            display: inline-flex;
+            align-items: center;
+            padding: 0 var(--satori-spacing-md, 12px);
+            line-height: 1.2;
+        }
+    }
+
+    .satori-color-control__transparent {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--satori-spacing-xs, 4px);
+        white-space: nowrap;
+
+        input[type='checkbox'] {
+            margin: 0;
+        }
+    }
+
+    .satori-color-control__picker-holder {
+        position: relative;
+        width: 100%;
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .satori-color-control .wp-picker-holder {
+        position: static;
+        margin-top: var(--satori-spacing-xs, 4px);
+        z-index: 20;
+        min-width: 240px;
+        background: #fff;
+        border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
+        box-shadow: 0 10px 30px rgba(17, 24, 39, 0.15);
+    }
+
+    .satori-color-control .wp-picker-clear,
+    .satori-color-control .wp-picker-default {
+        display: none !important;
+    }
+
+    .satori-color-control.is-transparent .wp-color-result,
+    .satori-color-control .satori-color-field.is-transparent {
+        opacity: 0.5;
     }
 
     /* -------------------------------------------------

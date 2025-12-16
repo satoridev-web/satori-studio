@@ -67,6 +67,7 @@
                                 $panel.find( '.wp-picker-container' ).each( function() {
                                         var $container = $( this );
                                         var pickerHolder = $container.data( 'satoriPickerHolder' );
+                                        var pickerWrapper = $container.data( 'satoriPickerWrapper' );
 
                                         if ( current && $container.is( current ) ) {
                                                 return;
@@ -77,6 +78,10 @@
 
                                         if ( pickerHolder && pickerHolder.length ) {
                                                 pickerHolder.hide();
+                                        }
+
+                                        if ( pickerWrapper && pickerWrapper.length ) {
+                                                pickerWrapper.attr( 'aria-hidden', 'true' );
                                         }
                                 } );
                         };
@@ -95,6 +100,7 @@
                                 var $valueInput = $control.find( '.satori-color-control__value' );
                                 var $transparentToggle = $control.find( '.satori-color-control__transparent-checkbox' );
                                 var $defaultButton = $control.find( '.satori-color-control__default' );
+                                var $pickerWrapper = $control.find( '.satori-color-control__picker-holder' );
                                 var defaultValue = $control.data( 'defaultValue' ) || '';
                                 var key = $control.data( 'colorKey' ) || $field.data( 'colorKey' );
                                 var supportsTransparent = !! $control.data( 'supportsTransparent' );
@@ -196,28 +202,56 @@
                                 var $pickerHolder = $wpContainer.find( '.wp-picker-holder' );
                                 var $toggle = $wpContainer.find( '.wp-color-result' );
                                 var $clearButton = $wpContainer.find( '.wp-picker-clear' );
+                                var $defaultPickerButton = $wpContainer.find( '.wp-picker-default' );
+                                var attachPickerHolder = function() {
+                                        if ( $pickerWrapper.length && $pickerHolder.parent()[0] !== $pickerWrapper[0] ) {
+                                                $pickerWrapper.append( $pickerHolder );
+                                        }
+                                };
+                                var closePicker = function() {
+                                        $wpContainer.removeClass( 'wp-picker-active' );
+                                        $toggle.attr( 'aria-expanded', 'false' );
+                                        $pickerHolder.hide();
+                                        $pickerWrapper.attr( 'aria-hidden', 'true' );
+                                };
+                                var openPicker = function() {
+                                        if ( $control.hasClass( 'is-transparent' ) ) {
+                                                return;
+                                        }
+
+                                        attachPickerHolder();
+                                        closeAllPickers( $wpContainer );
+                                        $wpContainer.addClass( 'wp-picker-active' );
+                                        $pickerHolder.show();
+                                        $pickerWrapper.attr( 'aria-hidden', 'false' );
+                                        $toggle.attr( 'aria-expanded', 'true' );
+                                };
 
                                 $control.find( '.satori-color-control__input-row' ).prepend( $wpContainer );
-                                $control.find( '.satori-color-control__picker-holder' ).append( $pickerHolder );
+                                $pickerWrapper.append( $pickerHolder );
                                 $wpContainer.data( 'satoriPickerHolder', $pickerHolder );
+                                $wpContainer.data( 'satoriPickerWrapper', $pickerWrapper );
+                                $pickerHolder.hide();
+                                $pickerWrapper.attr( 'aria-hidden', 'true' );
 
                                 if ( $clearButton.length ) {
-                                        $clearButton.text( labels.default ).addClass( 'satori-color-control__wp-clear' );
+                                        $clearButton.remove();
+                                }
+
+                                if ( $defaultPickerButton.length ) {
+                                        $defaultPickerButton.remove();
                                 }
 
                                 if ( $toggle.length ) {
-                                        $toggle.on( 'click', function( event ) {
+                                        $toggle.off( 'click' ).on( 'click', function( event ) {
                                                 event.preventDefault();
 
                                                 if ( $wpContainer.hasClass( 'wp-picker-active' ) ) {
-                                                        closeAllPickers();
+                                                        closePicker();
                                                         return;
                                                 }
 
-                                                closeAllPickers( $wpContainer );
-                                                $wpContainer.addClass( 'wp-picker-active' );
-                                                $pickerHolder.show();
-                                                $toggle.attr( 'aria-expanded', 'true' );
+                                                openPicker();
                                         } );
                                 }
 
@@ -226,6 +260,7 @@
                                                 event.preventDefault();
                                                 setTransparentState( false );
                                                 setColor( defaultValue, true );
+                                                closePicker();
                                         } );
                                 }
 

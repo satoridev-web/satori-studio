@@ -154,10 +154,12 @@ class Global_Settings {
 
                 $color_fields = array(
                         'primary'            => array(
-                                'label' => __( 'Primary color', 'satori-studio' ),
+                                'label'                => __( 'Primary color', 'satori-studio' ),
+                                'supports_transparent' => true,
                         ),
                         'accent'             => array(
-                                'label' => __( 'Accent color', 'satori-studio' ),
+                                'label'                => __( 'Accent color', 'satori-studio' ),
+                                'supports_transparent' => true,
                         ),
                         'neutral_background' => array(
                                 'label'                => __( 'Neutral background', 'satori-studio' ),
@@ -168,7 +170,8 @@ class Global_Settings {
                                 'supports_transparent' => true,
                         ),
                         'neutral_border'     => array(
-                                'label' => __( 'Neutral border', 'satori-studio' ),
+                                'label'                => __( 'Neutral border', 'satori-studio' ),
+                                'supports_transparent' => true,
                         ),
                 );
 
