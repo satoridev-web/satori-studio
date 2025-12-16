@@ -10,6 +10,14 @@ body.satori-studio-admin .satori-global-settings {
 
     .form-table {
         width: 100%;
+        overflow: visible;
+
+        tbody,
+        tr,
+        th,
+        td {
+            overflow: visible;
+        }
 
         th {
             white-space: nowrap;
@@ -23,16 +31,13 @@ body.satori-studio-admin .satori-global-settings {
         align-items: center;
         gap: var(--satori-spacing-sm, 8px);
         flex-wrap: wrap;
-    }
-
-    .satori-global-settings__color-picker {
-        display: inline-flex;
-        align-items: center;
+        overflow: visible;
 
         .wp-picker-container {
             display: inline-flex;
             align-items: center;
             gap: var(--satori-spacing-xs, 4px);
+            overflow: visible;
 
             .wp-color-result {
                 height: var(--satori-color-control-height);
@@ -42,6 +47,11 @@ body.satori-studio-admin .satori-global-settings {
                 padding: 0 var(--satori-spacing-md, 12px);
                 border-radius: var(--satori-radius-sm, 4px);
                 box-shadow: none;
+
+                &.is-disabled {
+                    pointer-events: none;
+                    opacity: 0.6;
+                }
             }
 
             .wp-picker-input-wrap {
@@ -63,15 +73,19 @@ body.satori-studio-admin .satori-global-settings {
             .wp-picker-holder {
                 margin-top: var(--satori-spacing-xs, 4px);
             }
-        }
-    }
 
-    .satori-global-settings__color-default {
-        height: var(--satori-color-control-height);
-        display: inline-flex;
-        align-items: center;
-        padding: 0 var(--satori-spacing-md, 12px);
-        line-height: 1.2;
+            .wp-picker-clear {
+                height: var(--satori-color-control-height);
+                display: inline-flex;
+                align-items: center;
+                padding: 0 var(--satori-spacing-md, 12px);
+                line-height: 1.2;
+            }
+        }
+
+        .satori-global-color {
+            min-width: 0;
+        }
     }
 
     .satori-global-settings__transparent {
