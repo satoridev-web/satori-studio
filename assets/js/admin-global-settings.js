@@ -101,6 +101,8 @@
                                 var $transparentToggle = $control.find( '.satori-color-control__transparent-checkbox' );
                                 var $defaultButton = $control.find( '.satori-color-control__default' );
                                 var $pickerWrapper = $control.find( '.satori-color-control__picker-holder' );
+                                var $pickerSlot = $control.find( '.satori-color-control__picker' );
+                                var $swatch = $control.find( '.satori-color-control__swatch' );
                                 var defaultValue = $control.data( 'defaultValue' ) || '';
                                 var key = $control.data( 'colorKey' ) || $field.data( 'colorKey' );
                                 var supportsTransparent = !! $control.data( 'supportsTransparent' );
@@ -110,6 +112,18 @@
 
                                 $field.val( initialColor );
                                 $field.data( 'lastColor', initialColor );
+
+                                var updateSwatch = function( nextValue, isValueTransparent ) {
+                                        if ( ! $swatch.length ) {
+                                                return;
+                                        }
+
+                                        var shouldShowTransparent = !! isValueTransparent;
+                                        var swatchColor = shouldShowTransparent ? '' : nextValue;
+
+                                        $swatch.toggleClass( 'is-transparent', shouldShowTransparent );
+                                        $swatch.css( 'background-color', swatchColor );
+                                };
 
                                 var markTransparent = function() {
                                         if ( ! supportsTransparent ) {
@@ -143,6 +157,7 @@
                                         $valueInput.val( color );
                                         $field.val( color );
                                         $field.data( 'lastColor', color );
+                                        updateSwatch( color, false );
 
                                         if ( shouldSyncPicker && $field.hasClass( 'wp-color-picker' ) ) {
                                                 $field.wpColorPicker( 'color', color );
@@ -163,6 +178,7 @@
                                                 $valueInput.val( 'transparent' );
                                                 markTransparent();
                                                 updatePreview( key, 'transparent' );
+                                                updateSwatch( '', true );
                                                 closeAllPickers();
                                                 return;
                                         }
@@ -180,8 +196,10 @@
                                 if ( supportsTransparent && isTransparent ) {
                                         markTransparent();
                                         updatePreview( key, 'transparent' );
+                                        updateSwatch( '', true );
                                 } else {
                                         updatePreview( key, initialColor );
+                                        updateSwatch( initialColor, false );
                                 }
 
                                 $field.wpColorPicker( {
@@ -227,7 +245,12 @@
                                         $toggle.attr( 'aria-expanded', 'true' );
                                 };
 
-                                $control.find( '.satori-color-control__input-row' ).prepend( $wpContainer );
+                                if ( $pickerSlot.length ) {
+                                        $pickerSlot.prepend( $wpContainer );
+                                } else {
+                                        $control.find( '.satori-color-control__input-row' ).prepend( $wpContainer );
+                                }
+
                                 $pickerWrapper.append( $pickerHolder );
                                 $wpContainer.data( 'satoriPickerHolder', $pickerHolder );
                                 $wpContainer.data( 'satoriPickerWrapper', $pickerWrapper );

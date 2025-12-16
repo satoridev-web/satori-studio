@@ -376,8 +376,16 @@ class Global_Settings {
                 $default_value    = $this->get_default_value( $section, $key );
                 $is_transparent   = 'transparent' === strtolower( $value );
                 $display_value    = $is_transparent ? $default_value : $value;
+                $swatch_classes   = 'satori-color-control__swatch';
+                $swatch_style     = '';
                 $input_name       = self::OPTION_NAME . "[$section][$key]";
                 $input_id         = 'satori-' . $section . '-' . $key;
+
+                if ( $is_transparent ) {
+                        $swatch_classes .= ' is-transparent';
+                } elseif ( '' !== $display_value ) {
+                        $swatch_style = 'background-color: ' . $display_value . ';';
+                }
                 ?>
                 <div
                         class="satori-color-control"
@@ -392,15 +400,18 @@ class Global_Settings {
                                 class="satori-color-control__value"
                         />
                         <div class="satori-color-control__input-row">
-                                <input
-                                        type="text"
-                                        id="<?php echo esc_attr( $input_id ); ?>"
-                                        value="<?php echo esc_attr( $display_value ); ?>"
-                                        class="regular-text satori-color-field"
-                                        placeholder="<?php echo esc_attr( $placeholder ); ?>"
-                                        data-color-key="<?php echo esc_attr( $key ); ?>"
-                                        data-default-value="<?php echo esc_attr( $default_value ); ?>"
-                                />
+                                <span class="<?php echo esc_attr( $swatch_classes ); ?>" style="<?php echo esc_attr( $swatch_style ); ?>" aria-hidden="true"></span>
+                                <div class="satori-color-control__picker">
+                                        <input
+                                                type="text"
+                                                id="<?php echo esc_attr( $input_id ); ?>"
+                                                value="<?php echo esc_attr( $display_value ); ?>"
+                                                class="regular-text satori-color-field"
+                                                placeholder="<?php echo esc_attr( $placeholder ); ?>"
+                                                data-color-key="<?php echo esc_attr( $key ); ?>"
+                                                data-default-value="<?php echo esc_attr( $default_value ); ?>"
+                                        />
+                                </div>
                                 <div class="satori-color-control__actions">
                                         <button
                                                 type="button"
