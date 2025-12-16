@@ -47,12 +47,94 @@ body.satori-studio-admin .satori-global-settings .form-table th {
   white-space: nowrap;
 }
 
-body.satori-studio-admin .satori-global-settings .satori-color-field,
-body.satori-studio-admin .satori-global-settings .satori-color-control {
+body.satori-studio-admin .satori-global-settings .satori-color-field {
   width: 10.5rem;
   max-width: 100%;
   padding: 6px 10px;
   box-sizing: border-box;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--satori-spacing-xs, 4px);
+  max-width: 24rem;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control__input-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--satori-spacing-sm, 8px);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-sm, 8px);
+  flex-wrap: wrap;
+  font-size: var(--satori-font-size-small, 0.875rem);
+  color: var(--satori-color-neutral-700, #374151);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control__default {
+  height: auto;
+  line-height: 1.2;
+  padding: 6px 10px;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control__transparent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-xs, 4px);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control__transparent input[type="checkbox"] {
+  margin: 0;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control__picker-holder {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-sm, 8px);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-holder {
+  position: absolute;
+  left: 0;
+  top: calc(100% + var(--satori-spacing-xs, 4px));
+  z-index: 20;
+  min-width: 240px;
+  background: #fff;
+  border: 1px solid var(--satori-color-neutral-300, #dcdcdc);
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.15);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-input-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-xs, 4px);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control .wp-picker-clear.satori-color-control__wp-clear {
+  display: none !important;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control .wp-color-result {
+  border-radius: var(--satori-radius-sm, 4px);
+  box-shadow: none;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-color-control.is-transparent .wp-color-result,
+body.satori-studio-admin .satori-global-settings .satori-color-field.is-transparent {
+  opacity: 0.5;
 }
 
 body.satori-studio-admin .satori-global-settings .wp-picker-container {
@@ -131,6 +213,12 @@ body.satori-studio-admin .satori-global-settings .satori-global-settings__chip-s
   flex-shrink: 0;
 }
 
+body.satori-studio-admin .satori-global-settings .satori-global-settings__chip-swatch.is-transparent {
+  background-image: linear-gradient(45deg, #f3f4f6 25%, transparent 25%), linear-gradient(-45deg, #f3f4f6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f3f4f6 75%), linear-gradient(-45deg, #d1d5db 75%, #f3f4f6 75%);
+  background-size: 12px 12px;
+  background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
+}
+
 body.satori-studio-admin .satori-global-settings .satori-global-settings__chip-label {
   font-weight: 600;
 }
@@ -192,6 +280,24 @@ body.satori-studio-admin .satori-global-settings .satori-global-settings__spacin
   gap: var(--satori-spacing-md, 12px);
   color: var(--satori-color-neutral-700, #374151);
   font-size: var(--satori-font-size-small, 0.875rem);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-spacing-control__stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--satori-spacing-xs, 4px);
+}
+
+body.satori-studio-admin .satori-global-settings .satori-spacing-field {
+  max-width: 8rem;
+  text-align: center;
+}
+
+body.satori-studio-admin .satori-global-settings .satori-stepper__button {
+  min-width: 32px;
+  height: 32px;
+  line-height: 1;
+  padding: 0 var(--satori-spacing-sm, 8px);
 }
 
 /* -------------------------------------------------
