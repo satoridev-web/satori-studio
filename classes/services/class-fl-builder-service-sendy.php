@@ -63,15 +63,15 @@ final class FLBuilderServiceSendy extends FLBuilderService {
 
 		// Make sure we have the Host.
 		if ( ! isset( $fields['api_host'] ) || empty( $fields['api_host'] ) ) {
-			$response['error'] = __( 'Error: You must provide your Sendy installation URL.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide your Sendy installation URL.', 'satori-studio' );
 		}
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		}
 		// Make sure we have the list ID.
 		if ( ! isset( $fields['list_id'] ) || empty( $fields['list_id'] ) ) {
-			$response['error'] = __( 'Error: You must provide a list ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a list ID.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( array(
@@ -91,7 +91,7 @@ final class FLBuilderServiceSendy extends FLBuilderService {
 				);
 			} else {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to Sendy. %s', 'fl-builder' ), $get_api_response['message'] );
+				$response['error'] = sprintf( __( 'Error: Could not connect to Sendy. %s', 'satori-studio' ), $get_api_response['message'] );
 			}
 		}
 
@@ -111,7 +111,7 @@ final class FLBuilderServiceSendy extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Installation URL', 'fl-builder' ),
+			'label'     => __( 'Installation URL', 'satori-studio' ),
 			'help'      => __( 'The URL where your Sendy application is installed (e.g. http://mywebsite.com/sendy).', 'fl-builder' ),
 			'preview'   => array(
 				'type' => 'none',
@@ -122,8 +122,8 @@ final class FLBuilderServiceSendy extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Found in your Sendy application under Settings.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Found in your Sendy application under Settings.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -133,8 +133,8 @@ final class FLBuilderServiceSendy extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'List ID', 'fl-builder' ),
-			'help'      => __( 'The ID of the list you would like users to subscribe to. The ID of a list can be found under "View all lists" in the section named ID.', 'fl-builder' ),
+			'label'     => __( 'List ID', 'satori-studio' ),
+			'help'      => __( 'The ID of the list you would like users to subscribe to. The ID of a list can be found under "View all lists" in the section named ID.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -182,7 +182,7 @@ final class FLBuilderServiceSendy extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Sendy. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Sendy. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( array(
@@ -206,7 +206,7 @@ final class FLBuilderServiceSendy extends FLBuilderService {
 
 			if ( false === $get_api_response['status'] ) {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'There was an error subscribing to Sendy. %s', 'fl-builder' ), $get_api_response['message'] );
+				$response['error'] = sprintf( __( 'There was an error subscribing to Sendy. %s', 'satori-studio' ), $get_api_response['message'] );
 			}
 		}
 

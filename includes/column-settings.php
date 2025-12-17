@@ -1,17 +1,17 @@
 <?php
 
 FLBuilder::register_settings_form('col', array(
-	'title' => __( 'Column', 'fl-builder' ),
+	'title' => __( 'Column', 'satori-studio' ),
 	'tabs'  => array(
 		'style'    => array(
-			'title'    => __( 'Style', 'fl-builder' ),
+			'title'    => __( 'Style', 'satori-studio' ),
 			'sections' => array(
 				'general'     => array(
 					'title'  => '',
 					'fields' => array(
 						'size'              => array(
 							'type'       => 'unit',
-							'label'      => __( 'Width', 'fl-builder' ),
+							'label'      => __( 'Width', 'satori-studio' ),
 							'default'    => '',
 							'responsive' => true,
 							'slider'     => true,
@@ -24,7 +24,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'min_height'        => array(
 							'type'       => 'unit',
-							'label'      => __( 'Minimum Height', 'fl-builder' ),
+							'label'      => __( 'Minimum Height', 'satori-studio' ),
 							'responsive' => true,
 							'units'      => array(
 								'px',
@@ -46,12 +46,12 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'equal_height'      => array(
 							'type'    => 'select',
-							'label'   => __( 'Equalize Heights', 'fl-builder' ),
-							'help'    => __( 'Setting this to yes will make all of the columns in this group the same height regardless of how much content is in each of them.', 'fl-builder' ),
+							'label'   => __( 'Equalize Heights', 'satori-studio' ),
+							'help'    => __( 'Setting this to yes will make all of the columns in this group the same height regardless of how much content is in each of them.', 'satori-studio' ),
 							'default' => 'no',
 							'options' => array(
-								'no'  => __( 'No', 'fl-builder' ),
-								'yes' => __( 'Yes', 'fl-builder' ),
+								'no'  => __( 'No', 'satori-studio' ),
+								'yes' => __( 'Yes', 'satori-studio' ),
 							),
 							'toggle'  => array(
 								'yes' => array(
@@ -64,7 +64,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'aspect_ratio'      => array(
 							'type'       => 'text',
-							'label'      => __( 'Aspect Ratio', 'fl-builder' ),
+							'label'      => __( 'Aspect Ratio', 'satori-studio' ),
 							'default'    => '',
 							'help'       => 'Use the forward slash notation: width/height.',
 							'responsive' => true,
@@ -77,12 +77,12 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'content_alignment' => array(
 							'type'    => 'select',
-							'label'   => __( 'Vertical Alignment', 'fl-builder' ),
+							'label'   => __( 'Vertical Alignment', 'satori-studio' ),
 							'default' => 'top',
 							'options' => array(
-								'top'    => __( 'Top', 'fl-builder' ),
-								'center' => __( 'Center', 'fl-builder' ),
-								'bottom' => __( 'Bottom', 'fl-builder' ),
+								'top'    => __( 'Top', 'satori-studio' ),
+								'center' => __( 'Center', 'satori-studio' ),
+								'bottom' => __( 'Bottom', 'satori-studio' ),
 							),
 							'preview' => array(
 								'type' => 'none',
@@ -91,12 +91,12 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'text'        => array(
-					'title'  => __( 'Text', 'fl-builder' ),
+					'title'  => __( 'Text', 'satori-studio' ),
 					'fields' => array(
 						'text_color'    => array(
 							'type'        => 'color',
 							'connections' => array( 'color' ),
-							'label'       => __( 'Color', 'fl-builder' ),
+							'label'       => __( 'Color', 'satori-studio' ),
 							'show_reset'  => true,
 							'show_alpha'  => true,
 							'preview'     => array(
@@ -106,7 +106,7 @@ FLBuilder::register_settings_form('col', array(
 						'link_color'    => array(
 							'type'        => 'color',
 							'connections' => array( 'color' ),
-							'label'       => __( 'Link Color', 'fl-builder' ),
+							'label'       => __( 'Link Color', 'satori-studio' ),
 							'show_reset'  => true,
 							'show_alpha'  => true,
 							'preview'     => array(
@@ -116,7 +116,7 @@ FLBuilder::register_settings_form('col', array(
 						'hover_color'   => array(
 							'type'        => 'color',
 							'connections' => array( 'color' ),
-							'label'       => __( 'Link Hover Color', 'fl-builder' ),
+							'label'       => __( 'Link Hover Color', 'satori-studio' ),
 							'show_reset'  => true,
 							'show_alpha'  => true,
 							'preview'     => array(
@@ -126,7 +126,7 @@ FLBuilder::register_settings_form('col', array(
 						'heading_color' => array(
 							'type'        => 'color',
 							'connections' => array( 'color' ),
-							'label'       => __( 'Heading Color', 'fl-builder' ),
+							'label'       => __( 'Heading Color', 'satori-studio' ),
 							'show_reset'  => true,
 							'show_alpha'  => true,
 							'preview'     => array(
@@ -136,18 +136,18 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'background'  => array(
-					'title'  => __( 'Background', 'fl-builder' ),
+					'title'  => __( 'Background', 'satori-studio' ),
 					'fields' => array(
 						'bg_type'    => array(
 							'type'    => 'select',
-							'label'   => __( 'Type', 'fl-builder' ),
+							'label'   => __( 'Type', 'satori-studio' ),
 							'default' => 'color',
 							'options' => array(
-								'none'     => _x( 'None', 'Background type.', 'fl-builder' ),
-								'color'    => _x( 'Color', 'Background type.', 'fl-builder' ),
-								'gradient' => _x( 'Gradient', 'Background type.', 'fl-builder' ),
-								'photo'    => _x( 'Photo', 'Background type.', 'fl-builder' ),
-								'multiple' => _x( 'Multiple Backgrounds', 'Background type.', 'fl-builder' ),
+								'none'     => _x( 'None', 'Background type.', 'satori-studio' ),
+								'color'    => _x( 'Color', 'Background type.', 'satori-studio' ),
+								'gradient' => _x( 'Gradient', 'Background type.', 'satori-studio' ),
+								'photo'    => _x( 'Photo', 'Background type.', 'satori-studio' ),
+								'multiple' => _x( 'Multiple Backgrounds', 'Background type.', 'satori-studio' ),
 							),
 							'toggle'  => array(
 								'color'    => array(
@@ -169,7 +169,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'background' => array(
 							'type'       => 'background',
-							'label'      => __( 'Background Layers', 'fl-builder' ),
+							'label'      => __( 'Background Layers', 'satori-studio' ),
 							'responsive' => [
 								'default' => [
 									'default' => [
@@ -199,12 +199,12 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'bg_photo'    => array(
-					'title'  => __( 'Background Photo', 'fl-builder' ),
+					'title'  => __( 'Background Photo', 'satori-studio' ),
 					'fields' => array(
 						'bg_image'      => array(
 							'type'        => 'photo',
 							'show_remove' => true,
-							'label'       => __( 'Photo', 'fl-builder' ),
+							'label'       => __( 'Photo', 'satori-studio' ),
 							'responsive'  => true,
 							'connections' => array( 'photo' ),
 							'preview'     => array(
@@ -215,14 +215,14 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_repeat'     => array(
 							'type'       => 'select',
-							'label'      => __( 'Repeat', 'fl-builder' ),
+							'label'      => __( 'Repeat', 'satori-studio' ),
 							'default'    => 'none',
 							'responsive' => true,
 							'options'    => array(
-								'no-repeat' => _x( 'None', 'Background repeat.', 'fl-builder' ),
-								'repeat'    => _x( 'Tile', 'Background repeat.', 'fl-builder' ),
-								'repeat-x'  => _x( 'Horizontal', 'Background repeat.', 'fl-builder' ),
-								'repeat-y'  => _x( 'Vertical', 'Background repeat.', 'fl-builder' ),
+								'no-repeat' => _x( 'None', 'Background repeat.', 'satori-studio' ),
+								'repeat'    => _x( 'Tile', 'Background repeat.', 'satori-studio' ),
+								'repeat-x'  => _x( 'Horizontal', 'Background repeat.', 'satori-studio' ),
+								'repeat-y'  => _x( 'Vertical', 'Background repeat.', 'satori-studio' ),
 							),
 							'preview'    => array(
 								'type'     => 'css',
@@ -232,20 +232,20 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_position'   => array(
 							'type'       => 'select',
-							'label'      => __( 'Position', 'fl-builder' ),
+							'label'      => __( 'Position', 'satori-studio' ),
 							'default'    => 'center center',
 							'responsive' => true,
 							'options'    => array(
-								'left top'      => __( 'Left Top', 'fl-builder' ),
-								'left center'   => __( 'Left Center', 'fl-builder' ),
-								'left bottom'   => __( 'Left Bottom', 'fl-builder' ),
-								'right top'     => __( 'Right Top', 'fl-builder' ),
-								'right center'  => __( 'Right Center', 'fl-builder' ),
-								'right bottom'  => __( 'Right Bottom', 'fl-builder' ),
-								'center top'    => __( 'Center Top', 'fl-builder' ),
-								'center center' => __( 'Center', 'fl-builder' ),
-								'center bottom' => __( 'Center Bottom', 'fl-builder' ),
-								'custom_pos'    => __( 'Custom Position', 'fl-builder' ),
+								'left top'      => __( 'Left Top', 'satori-studio' ),
+								'left center'   => __( 'Left Center', 'satori-studio' ),
+								'left bottom'   => __( 'Left Bottom', 'satori-studio' ),
+								'right top'     => __( 'Right Top', 'satori-studio' ),
+								'right center'  => __( 'Right Center', 'satori-studio' ),
+								'right bottom'  => __( 'Right Bottom', 'satori-studio' ),
+								'center top'    => __( 'Center Top', 'satori-studio' ),
+								'center center' => __( 'Center', 'satori-studio' ),
+								'center bottom' => __( 'Center Bottom', 'satori-studio' ),
+								'custom_pos'    => __( 'Custom Position', 'satori-studio' ),
 							),
 							'toggle'     => array(
 								'custom_pos' => array(
@@ -263,7 +263,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_x_position' => array(
 							'type'         => 'unit',
-							'label'        => __( 'X Position', 'fl-builder' ),
+							'label'        => __( 'X Position', 'satori-studio' ),
 							'units'        => array( 'px', '%' ),
 							'default_unit' => '%',
 							'responsive'   => true,
@@ -280,7 +280,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_y_position' => array(
 							'type'         => 'unit',
-							'label'        => __( 'Y Position', 'fl-builder' ),
+							'label'        => __( 'Y Position', 'satori-studio' ),
 							'units'        => array( 'px', '%' ),
 							'default_unit' => '%',
 							'responsive'   => true,
@@ -297,12 +297,12 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_attachment' => array(
 							'type'       => 'select',
-							'label'      => __( 'Attachment', 'fl-builder' ),
+							'label'      => __( 'Attachment', 'satori-studio' ),
 							'default'    => 'scroll',
 							'responsive' => true,
 							'options'    => array(
-								'scroll' => __( 'Scroll', 'fl-builder' ),
-								'fixed'  => __( 'Fixed', 'fl-builder' ),
+								'scroll' => __( 'Scroll', 'satori-studio' ),
+								'fixed'  => __( 'Fixed', 'satori-studio' ),
 							),
 							'preview'    => array(
 								'type'     => 'css',
@@ -312,13 +312,13 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_size'       => array(
 							'type'       => 'select',
-							'label'      => __( 'Scale', 'fl-builder' ),
+							'label'      => __( 'Scale', 'satori-studio' ),
 							'default'    => 'cover',
 							'responsive' => true,
 							'options'    => array(
-								'auto'    => _x( 'None', 'Background scale.', 'fl-builder' ),
-								'contain' => __( 'Fit', 'fl-builder' ),
-								'cover'   => __( 'Fill', 'fl-builder' ),
+								'auto'    => _x( 'None', 'Background scale.', 'satori-studio' ),
+								'contain' => __( 'Fit', 'satori-studio' ),
+								'cover'   => __( 'Fill', 'satori-studio' ),
 							),
 							'preview'    => array(
 								'type'     => 'css',
@@ -329,16 +329,16 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'bg_overlay'  => array(
-					'title'  => __( 'Background Overlay', 'fl-builder' ),
+					'title'  => __( 'Background Overlay', 'satori-studio' ),
 					'fields' => array(
 						'bg_overlay_type'     => array(
 							'type'    => 'select',
-							'label'   => __( 'Overlay Type', 'fl-builder' ),
+							'label'   => __( 'Overlay Type', 'satori-studio' ),
 							'default' => 'color',
 							'options' => array(
-								'none'     => __( 'None', 'fl-builder' ),
-								'color'    => __( 'Color', 'fl-builder' ),
-								'gradient' => __( 'Gradient', 'fl-builder' ),
+								'none'     => __( 'None', 'satori-studio' ),
+								'color'    => __( 'Color', 'satori-studio' ),
+								'gradient' => __( 'Gradient', 'satori-studio' ),
 							),
 							'toggle'  => array(
 								'color'    => array(
@@ -354,7 +354,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_overlay_color'    => array(
 							'type'        => 'color',
-							'label'       => __( 'Overlay Color', 'fl-builder' ),
+							'label'       => __( 'Overlay Color', 'satori-studio' ),
 							'show_reset'  => true,
 							'show_alpha'  => true,
 							'connections' => array( 'color' ),
@@ -364,7 +364,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'bg_overlay_gradient' => array(
 							'type'    => 'gradient',
-							'label'   => __( 'Overlay Gradient', 'fl-builder' ),
+							'label'   => __( 'Overlay Gradient', 'satori-studio' ),
 							'preview' => array(
 								'type'     => 'css',
 								'selector' => '> .fl-col-content:after',
@@ -374,12 +374,12 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'bg_color'    => array(
-					'title'  => __( 'Background Color', 'fl-builder' ),
+					'title'  => __( 'Background Color', 'satori-studio' ),
 					'fields' => array(
 						'bg_color' => array(
 							'type'        => 'color',
 							'connections' => array( 'color' ),
-							'label'       => __( 'Color', 'fl-builder' ),
+							'label'       => __( 'Color', 'satori-studio' ),
 							'show_reset'  => true,
 							'show_alpha'  => true,
 							'preview'     => array(
@@ -389,11 +389,11 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'bg_gradient' => array(
-					'title'  => __( 'Background Gradient', 'fl-builder' ),
+					'title'  => __( 'Background Gradient', 'satori-studio' ),
 					'fields' => array(
 						'bg_gradient' => array(
 							'type'       => 'gradient',
-							'label'      => __( 'Gradient', 'fl-builder' ),
+							'label'      => __( 'Gradient', 'satori-studio' ),
 							'responsive' => true,
 							'preview'    => array(
 								'type' => 'refresh',
@@ -402,11 +402,11 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'border'      => array(
-					'title'  => __( 'Border', 'fl-builder' ),
+					'title'  => __( 'Border', 'satori-studio' ),
 					'fields' => array(
 						'border' => array(
 							'type'       => 'border',
-							'label'      => __( 'Border', 'fl-builder' ),
+							'label'      => __( 'Border', 'satori-studio' ),
 							'responsive' => true,
 							'preview'    => array(
 								'type'     => 'css',
@@ -418,14 +418,14 @@ FLBuilder::register_settings_form('col', array(
 			),
 		),
 		'advanced' => array(
-			'title'    => __( 'Advanced', 'fl-builder' ),
+			'title'    => __( 'Advanced', 'satori-studio' ),
 			'sections' => array(
 				'margins'       => array(
-					'title'  => __( 'Spacing', 'fl-builder' ),
+					'title'  => __( 'Spacing', 'satori-studio' ),
 					'fields' => array(
 						'margin'  => array(
 							'type'       => 'dimension',
-							'label'      => __( 'Margins', 'fl-builder' ),
+							'label'      => __( 'Margins', 'satori-studio' ),
 							'slider'     => true,
 							'default'    => '',
 							'units'      => array(
@@ -465,7 +465,7 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'padding' => array(
 							'type'       => 'dimension',
-							'label'      => __( 'Padding', 'fl-builder' ),
+							'label'      => __( 'Padding', 'satori-studio' ),
 							'slider'     => true,
 							'default'    => '',
 							'units'      => array(
@@ -507,11 +507,11 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'visibility'    => array(
-					'title'  => __( 'Visibility', 'fl-builder' ),
+					'title'  => __( 'Visibility', 'satori-studio' ),
 					'fields' => array(
 						'responsive_display'         => array(
 							'type'         => 'button-group',
-							'label'        => __( 'Breakpoint', 'fl-builder' ),
+							'label'        => __( 'Breakpoint', 'satori-studio' ),
 							'options'      => FLBuilderModel::get_node_breakpoint_options(),
 							'tooltip'      => FLBuilderModel::get_node_breakpoint_tooltips(),
 							'default'      => 'desktop,large,medium,mobile',
@@ -524,14 +524,14 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'responsive_order'           => array(
 							'type'    => 'select',
-							'label'   => __( 'Reverse Column Order', 'fl-builder' ),
-							'help'    => __( 'The order of the columns in this group when they are stacked for medium and small devices.', 'fl-builder' ),
+							'label'   => __( 'Reverse Column Order', 'satori-studio' ),
+							'help'    => __( 'The order of the columns in this group when they are stacked for medium and small devices.', 'satori-studio' ),
 							'default' => '',
 							'options' => array(
-								''              => __( 'Disabled', 'fl-builder' ),
-								'mobile'        => __( 'Small', 'fl-builder' ),
-								'medium'        => __( 'Medium', 'fl-builder' ),
-								'mobile,medium' => __( 'Small and Medium', 'fl-builder' ),
+								''              => __( 'Disabled', 'satori-studio' ),
+								'mobile'        => __( 'Small', 'satori-studio' ),
+								'medium'        => __( 'Medium', 'satori-studio' ),
+								'mobile,medium' => __( 'Small and Medium', 'satori-studio' ),
 							),
 							'preview' => array(
 								'type' => 'none',
@@ -539,12 +539,12 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'visibility_display'         => array(
 							'type'    => 'select',
-							'label'   => __( 'Display', 'fl-builder' ),
+							'label'   => __( 'Display', 'satori-studio' ),
 							'options' => array(
-								''           => __( 'Always', 'fl-builder' ),
-								'logged_out' => __( 'Logged Out User', 'fl-builder' ),
-								'logged_in'  => __( 'Logged In User', 'fl-builder' ),
-								'0'          => __( 'Never', 'fl-builder' ),
+								''           => __( 'Always', 'satori-studio' ),
+								'logged_out' => __( 'Logged Out User', 'satori-studio' ),
+								'logged_in'  => __( 'Logged In User', 'satori-studio' ),
+								'0'          => __( 'Never', 'satori-studio' ),
 							),
 							'toggle'  => array(
 								'logged_in' => array(
@@ -557,9 +557,9 @@ FLBuilder::register_settings_form('col', array(
 						),
 						'visibility_user_capability' => array(
 							'type'        => 'text',
-							'label'       => __( 'User Capability', 'fl-builder' ),
+							'label'       => __( 'User Capability', 'satori-studio' ),
 							/* translators: %s: wporg docs link */
-							'description' => sprintf( __( 'Optional. Set the <a%s>capability</a> required for users to view this column.', 'fl-builder' ), ' href="http://codex.wordpress.org/Roles_and_Capabilities#Capability_vs._Role_Table" target="_blank"' ),
+							'description' => sprintf( __( 'Optional. Set the <a%s>capability</a> required for users to view this column.', 'satori-studio' ), ' href="http://codex.wordpress.org/Roles_and_Capabilities#Capability_vs._Role_Table" target="_blank"' ),
 							'preview'     => array(
 								'type' => 'none',
 							),
@@ -567,11 +567,11 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'animation'     => array(
-					'title'  => __( 'Animation', 'fl-builder' ),
+					'title'  => __( 'Animation', 'satori-studio' ),
 					'fields' => array(
 						'animation' => array(
 							'type'    => 'animation',
-							'label'   => __( 'Animation', 'fl-builder' ),
+							'label'   => __( 'Animation', 'satori-studio' ),
 							'preview' => array(
 								'type'     => 'animation',
 								'selector' => '{node}',
@@ -580,11 +580,11 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'css_selectors' => array(
-					'title'  => __( 'HTML Element', 'fl-builder' ),
+					'title'  => __( 'HTML Element', 'satori-studio' ),
 					'fields' => array(
 						'container_element' => array(
 							'type'     => 'select',
-							'label'    => __( 'Container Element', 'fl-builder' ),
+							'label'    => __( 'Container Element', 'satori-studio' ),
 							'sanitize' => array( 'FLBuilderUtils::esc_tags', 'div' ),
 							'default'  => 'div',
 							/**
@@ -600,31 +600,31 @@ FLBuilder::register_settings_form('col', array(
 								'header'  => '&lt;header&gt;',
 								'footer'  => '&lt;footer&gt;',
 							) ),
-							'help'     => __( 'Optional. Choose an appropriate HTML5 content sectioning element to use for this column to improve accessibility and machine-readability.', 'fl-builder' ),
+							'help'     => __( 'Optional. Choose an appropriate HTML5 content sectioning element to use for this column to improve accessibility and machine-readability.', 'satori-studio' ),
 							'preview'  => array(
 								'type' => 'none',
 							),
 						),
 						'id'                => array(
 							'type'    => 'text',
-							'label'   => __( 'ID', 'fl-builder' ),
-							'help'    => __( "A unique ID that will be applied to this column's HTML. Must start with a letter and only contain dashes, underscores, letters or numbers. No spaces.", 'fl-builder' ),
+							'label'   => __( 'ID', 'satori-studio' ),
+							'help'    => __( "A unique ID that will be applied to this column's HTML. Must start with a letter and only contain dashes, underscores, letters or numbers. No spaces.", 'satori-studio' ),
 							'preview' => array(
 								'type' => 'none',
 							),
 						),
 						'class'             => array(
 							'type'    => 'text',
-							'label'   => __( 'CSS Class', 'fl-builder' ),
-							'help'    => __( "A class that will be applied to this column's HTML. Must start with a letter and only contain dashes, underscores, letters or numbers. Separate multiple classes with spaces.", 'fl-builder' ),
+							'label'   => __( 'CSS Class', 'satori-studio' ),
+							'help'    => __( "A class that will be applied to this column's HTML. Must start with a letter and only contain dashes, underscores, letters or numbers. Separate multiple classes with spaces.", 'satori-studio' ),
 							'preview' => array(
 								'type' => 'none',
 							),
 						),
 						'node_label'        => array(
 							'type'     => 'text',
-							'label'    => __( 'Label', 'fl-builder' ),
-							'help'     => __( 'A label that will applied and used in the UI for easy identification.', 'fl-builder' ),
+							'label'    => __( 'Label', 'satori-studio' ),
+							'help'     => __( 'A label that will applied and used in the UI for easy identification.', 'satori-studio' ),
 							'sanitize' => 'strip_tags',
 							'preview'  => array(
 								'type' => 'none',
@@ -633,18 +633,18 @@ FLBuilder::register_settings_form('col', array(
 					),
 				),
 				'export_import' => array(
-					'title'     => __( 'Export/Import', 'fl-builder' ),
+					'title'     => __( 'Export/Import', 'satori-studio' ),
 					'collapsed' => true,
 					'fields'    => array(
 						'export' => array(
 							'type'    => 'raw',
-							'label'   => __( 'Export', 'fl-builder' ),
+							'label'   => __( 'Export', 'satori-studio' ),
 							'preview' => 'none',
 							'content' => '<button style="margin-right:10px" class="fl-builder-button fl-builder-button-small col-export-all" title="Copy Settings">Copy Settings</button><button class="fl-builder-button fl-builder-button-small col-export-style" title="Copy Styles">Copy Styles</button>',
 						),
 						'import' => array(
 							'type'    => 'raw',
-							'label'   => __( 'Import', 'fl-builder' ),
+							'label'   => __( 'Import', 'satori-studio' ),
 							'preview' => 'none',
 							'content' => '<div class="col-import-wrap"><input type="text" class="col-import-input" placeholder="Paste settings or styles here..." /><button class="fl-builder-button fl-builder-button-small col-import-apply">Import</button></div><div class="col-import-error"></div>',
 						),

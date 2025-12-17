@@ -32,7 +32,7 @@ class FLBuilderModuleDeprecations {
 	static public function register( $slug, $deprecations = [] ) {
 		if ( ! isset( FLBuilderModel::$modules[ $slug ] ) ) {
 			/* translators: %s module slug */
-			error_log( sprintf( _x( 'A module with the slug %s does not exist for registering deprecations.', '%s module slug', 'fl-builder' ), $slug ) );
+			error_log( sprintf( _x( 'A module with the slug %s does not exist for registering deprecations.', '%s module slug', 'satori-studio' ), $slug ) );
 		}
 
 		self::$deprecations[ $slug ] = $deprecations;

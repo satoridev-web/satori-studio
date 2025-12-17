@@ -70,15 +70,15 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 
 		// Make sure we have the Host.
 		if ( ! isset( $fields['api_host'] ) || empty( $fields['api_host'] ) ) {
-			$response['error'] = __( 'Error: You must provide your Mautic installation URL.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide your Mautic installation URL.', 'satori-studio' );
 		}
 		// Make sure we have a username
 		if ( ! isset( $fields['api_username'] ) || empty( $fields['api_username'] ) ) {
-			$response['error'] = __( 'Error: You must provide your Mautic app username.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide your Mautic app username.', 'satori-studio' );
 		}
 		// Make sure we have password
 		if ( ! isset( $fields['api_password'] ) || empty( $fields['api_password'] ) ) {
-			$response['error'] = __( 'Error: You must provide your Mautic app user password.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide your Mautic app user password.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$api = $this->get_api( array(
@@ -105,7 +105,7 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 					$error_message = '[' . $get_response['errors'][0]['code'] . '] ' . $get_response['errors'][0]['message'];
 				}
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to Mautic. %s', 'fl-builder' ), $error_message );
+				$response['error'] = sprintf( __( 'Error: Could not connect to Mautic. %s', 'satori-studio' ), $error_message );
 			}
 		}
 
@@ -125,10 +125,10 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'Installation URL', 'fl-builder' ),
+			'label'       => __( 'Installation URL', 'satori-studio' ),
 			'help'        => __( 'The URL where your Mautic application is installed (e.g. http://mautic.mywebsite.com).', 'fl-builder' ),
 			'description' => __( 'API should be enabled in your Mautic application.
-					Go to Mautic Configuration / API Settings and set `API enabled` to `Yes`, set `Enable HTTP basic auth` to `Yes` . Save changes.', 'fl-builder' ),
+					Go to Mautic Configuration / API Settings and set `API enabled` to `Yes`, set `Enable HTTP basic auth` to `Yes` . Save changes.', 'satori-studio' ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -138,8 +138,8 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Mautic Username', 'fl-builder' ),
-			'help'      => __( 'Username from your Mautic application. Make sure it has `Full system access`. Best practice would be to set up a new user for each external site.', 'fl-builder' ),
+			'label'     => __( 'Mautic Username', 'satori-studio' ),
+			'help'      => __( 'Username from your Mautic application. Make sure it has `Full system access`. Best practice would be to set up a new user for each external site.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -149,8 +149,8 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Mautic Password', 'fl-builder' ),
-			'help'      => __( 'Password associated with the username. Make this a Long Passphrase.', 'fl-builder' ),
+			'label'     => __( 'Mautic Password', 'satori-studio' ),
+			'help'      => __( 'Password associated with the username. Make this a Long Passphrase.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -185,7 +185,7 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 		);
 
 		if ( ! isset( $lists['lists'] ) ) {
-			$response['error'] = __( 'Error: Please check your API credentials.', 'fl-builder' );
+			$response['error'] = __( 'Error: Please check your API credentials.', 'satori-studio' );
 		} else {
 			$response['html'] = $this->render_list_field( $lists['lists'], $settings );
 		}
@@ -206,7 +206,7 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $list ) {
@@ -217,7 +217,7 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -245,7 +245,7 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Mautic. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Mautic. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( array(
@@ -278,7 +278,7 @@ final class FLBuilderServiceMautic extends FLBuilderService {
 			if ( isset( $get_api_response['errors'] ) && count( $get_api_response['errors'] ) > 0 ) {
 				$response['error'] = sprintf(
 					/* translators: %s: error */
-					__( 'There was an error subscribing to Mautic. %s', 'fl-builder' ),
+					__( 'There was an error subscribing to Mautic. %s', 'satori-studio' ),
 					'[' . $get_api_response['errors'][0]['code'] . '] ' . $get_api_response['errors'][0]['message']
 				);
 			}

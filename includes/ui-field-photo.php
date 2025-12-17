@@ -68,7 +68,7 @@ if ( photo && photo.url && photo.url.endsWith( '.svg' ) ) {
 
 #>
 <div class="{{className}}">
-	<a class="fl-photo-select" href="javascript:void(0);" onclick="return false;"><?php _e( 'Select Photo', 'fl-builder' ); ?></a>
+	<a class="fl-photo-select" href="javascript:void(0);" onclick="return false;"><?php _e( 'Select Photo', 'satori-studio' ); ?></a>
 	<div class="fl-photo-preview">
 		<div class="fl-photo-preview-img">
 			<img src="<# if ( photo ) { var src = FLBuilder._getPhotoSrc( photo ); #>{{{src}}}<# } #>" />
@@ -85,11 +85,11 @@ if ( photo && photo.url && photo.url.endsWith( '.svg' ) ) {
 				<# if ( photo ) { #>{{{photo.filename}}}<# } #>
 			</div>
 			<br />
-			<a class="fl-photo-edit" href="javascript:void(0);" onclick="return false;"><?php _e( 'Edit', 'fl-builder' ); ?></a>
+			<a class="fl-photo-edit" href="javascript:void(0);" onclick="return false;"><?php _e( 'Edit', 'satori-studio' ); ?></a>
 			<# if ( data.field.show_remove ) { #>
-			<a class="fl-photo-remove" href="javascript:void(0);" onclick="return false;"><?php _e( 'Remove', 'fl-builder' ); ?></a>
+			<a class="fl-photo-remove" href="javascript:void(0);" onclick="return false;"><?php _e( 'Remove', 'satori-studio' ); ?></a>
 			<# } else { #>
-			<a class="fl-photo-replace" href="javascript:void(0);" onclick="return false;"><?php _e( 'Replace', 'fl-builder' ); ?></a>
+			<a class="fl-photo-replace" href="javascript:void(0);" onclick="return false;"><?php _e( 'Replace', 'satori-studio' ); ?></a>
 			<# } #>
 		</div>
 	</div>

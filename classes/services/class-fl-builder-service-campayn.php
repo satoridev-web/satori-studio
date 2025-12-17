@@ -95,9 +95,9 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 
 		// Make sure we have the Host.
 		if ( ! isset( $fields['api_host'] ) || empty( $fields['api_host'] ) ) {
-			$response['error'] = __( 'Error: You must provide a Host.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a Host.', 'satori-studio' );
 		} elseif ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$result = $this->get_api_response( $fields['api_host'], $fields['api_key'], '/lists.json' );
@@ -109,7 +109,7 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 				);
 			} else {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to Campayn. %s', 'fl-builder' ), $result['error'] );
+				$response['error'] = sprintf( __( 'Error: Could not connect to Campayn. %s', 'satori-studio' ), $result['error'] );
 			}
 		}
 
@@ -129,7 +129,7 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Host', 'fl-builder' ),
+			'label'     => __( 'Host', 'satori-studio' ),
 			'help'      => __( 'The host you chose when you signed up for your account. Check your welcome email if you forgot it. Please enter it without the initial http:// (for example: demo.campayn.com).', 'fl-builder' ),
 			'preview'   => array(
 				'type' => 'none',
@@ -140,8 +140,8 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your Campayn account under Settings > API Key.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your Campayn account under Settings > API Key.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -172,7 +172,7 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 
 		if ( isset( $results['error'] ) ) {
 			/* translators: %s: error */
-			$response['error'] = sprintf( __( 'Error: Please check your API key. %s', 'fl-builder' ), $results['error'] );
+			$response['error'] = sprintf( __( 'Error: Please check your API key. %s', 'satori-studio' ), $results['error'] );
 		} else {
 			$response['html'] = $this->render_list_field( $results, $settings );
 		}
@@ -193,7 +193,7 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $list ) {
@@ -204,7 +204,7 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -233,7 +233,7 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 		$contact_id   = null;
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Campayn. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Campayn. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			// Build data array
@@ -281,7 +281,7 @@ final class FLBuilderServiceCampayn extends FLBuilderService {
 
 			if ( isset( $result['error'] ) ) {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'There was an error subscribing to Campayn. %s', 'fl-builder' ), $result['error'] );
+				$response['error'] = sprintf( __( 'There was an error subscribing to Campayn. %s', 'satori-studio' ), $result['error'] );
 			}
 		}
 

@@ -246,7 +246,7 @@ final class FLUpdater {
 		}
 
 		$response  = $this->get_response();
-		$changelog = __( 'Could not locate changelog.txt', 'fl-builder' );
+		$changelog = __( 'Could not locate changelog.txt', 'satori-studio' );
 
 		if ( ! isset( $response->error ) ) {
 
@@ -362,7 +362,7 @@ final class FLUpdater {
 			if ( wp_verify_nonce( $_POST['fl-updater-nonce'], 'updater-nonce' ) ) {
 				$response = self::save_subscription_license( $_POST['license'] );
 				if ( '' == $_POST['license'] ) {
-					$response->error = __( 'License Removed', 'fl-builder' );
+					$response->error = __( 'License Removed', 'satori-studio' );
 				}
 				if ( isset( $response->error ) ) {
 					unset( $_POST['fl-updater-nonce'] );
@@ -418,7 +418,7 @@ final class FLUpdater {
 
 		if ( preg_match( '/[^a-zA-Z\d\s@\.\-_]/', $license ) ) {
 			$response        = new StdClass();
-			$response->error = __( 'You submitted an invalid license. Non alphanumeric characters found.', 'fl-builder' );
+			$response->error = __( 'You submitted an invalid license. Non alphanumeric characters found.', 'satori-studio' );
 			return $response;
 		}
 		$response = FLUpdater::api_request(
@@ -495,10 +495,10 @@ final class FLUpdater {
 		if ( ! $plugin_data ) {
 
 			if ( ! $license ) {
-				$message = __( 'Please enter a valid license key to enable automatic updates.', 'fl-builder' );
+				$message = __( 'Please enter a valid license key to enable automatic updates.', 'satori-studio' );
 
 			} else {
-				$message = __( 'Please subscribe to enable automatic updates for this plugin.', 'fl-builder' );
+				$message = __( 'Please subscribe to enable automatic updates for this plugin.', 'satori-studio' );
 				if ( $check_downloads ) {
 					$message = $check_downloads;
 				}
@@ -510,9 +510,9 @@ final class FLUpdater {
 		} else { // plugins.php
 
 			if ( ! $license ) {
-				$link = sprintf( '<a href="%s" target="_blank" style="color: #fff; text-decoration: underline;">%s &raquo;</a>', admin_url( '/options-general.php?page=fl-builder-settings#license' ), __( 'Enter License Key', 'fl-builder' ) );
+				$link = sprintf( '<a href="%s" target="_blank" style="color: #fff; text-decoration: underline;">%s &raquo;</a>', admin_url( '/options-general.php?page=fl-builder-settings#license' ), __( 'Enter License Key', 'satori-studio' ) );
 				/* translators: %s: link to license tab */
-				$text = sprintf( __( 'Please enter a valid license key to enable automatic updates. %s', 'fl-builder' ), $link );
+				$text = sprintf( __( 'Please enter a valid license key to enable automatic updates. %s', 'satori-studio' ), $link );
 			} else {
 				if ( 'bb-theme-builder/bb-theme-builder.php' === $plugin_data['plugin'] ) {
 					$subscribe_link = FLBuilderModel::get_store_url(
@@ -533,9 +533,9 @@ final class FLUpdater {
 						)
 					);
 				}
-				$link = sprintf( '<a href="%s" target="_blank" style="color: #fff; text-decoration: underline;">%s &raquo;</a>', $subscribe_link, __( 'Subscribe Now', 'fl-builder' ) );
+				$link = sprintf( '<a href="%s" target="_blank" style="color: #fff; text-decoration: underline;">%s &raquo;</a>', $subscribe_link, __( 'Subscribe Now', 'satori-studio' ) );
 				/* translators: %s: subscribe link */
-				$text = sprintf( __( 'Please subscribe to enable automatic updates for this plugin. %s', 'fl-builder' ), $link );
+				$text = sprintf( __( 'Please subscribe to enable automatic updates for this plugin. %s', 'satori-studio' ), $link );
 			}
 
 			if ( isset( $subscription->error ) && '' !== $subscription->error ) {
@@ -544,12 +544,12 @@ final class FLUpdater {
 					'utm_medium' => 'bb-pro',
 					'utm_source' => 'plugin-updates',
 				) );
-				$url         = sprintf( '<a target="_blank" style="color: #fff; text-decoration: underline;" href="%s">%s</a>', $support_url, __( 'Contact Support for more information.', 'fl-builder' ) );
+				$url         = sprintf( '<a target="_blank" style="color: #fff; text-decoration: underline;" href="%s">%s</a>', $support_url, __( 'Contact Support for more information.', 'satori-studio' ) );
 				$text       .= sprintf( '<br />The following error was encountered: %s %s', $subscription->error, $url );
 			}
 
 			$message .= '<span style="display:block;padding:10px 20px;margin:10px 0; background: #d54e21; color: #fff;">';
-			$message .= ( $check_downloads ) ? $check_downloads : sprintf( '<strong>%s<strong>', __( 'UPDATE UNAVAILABLE!', 'fl-builder' ) );
+			$message .= ( $check_downloads ) ? $check_downloads : sprintf( '<strong>%s<strong>', __( 'UPDATE UNAVAILABLE!', 'satori-studio' ) );
 			$message .= '&nbsp;&nbsp;&nbsp;';
 			$message .= ( $check_downloads ) ? '' : $text;
 			$message .= '</span>';
@@ -598,14 +598,14 @@ final class FLUpdater {
 			if ( $show_warning ) {
 				if ( ! $version ) {
 					// translators: %1$s: Plugin name
-					$out .= sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %1$s activated but you have no active subscription.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>', $version );
+					$out .= sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %1$s activated but you have no active subscription.', 'satori-studio' ), '<strong>' . $plugin_name . '</strong>', $version );
 				} else {
 					// translators: %2$s: Plugin name
-					$out .= sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %1$s activated but your license is for %2$s version.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>', $version );
+					$out .= sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %1$s activated but your license is for %2$s version.', 'satori-studio' ), '<strong>' . $plugin_name . '</strong>', $version );
 				}
 
 				if ( 'Beaver Themer' === $plugin_name ) {
-					$out = __( 'Updates for Themer will not work as you do not have a valid subscription for this plugin.', 'fl-builder' );
+					$out = __( 'Updates for Themer will not work as you do not have a valid subscription for this plugin.', 'satori-studio' );
 				}
 			}
 		}
@@ -754,6 +754,6 @@ final class FLUpdater {
 	 * @since 2.9
 	 */
 	private function get_wp_66_text() {
-		return sprintf( '<span class="dashicons dashicons-warning"></span>&nbsp;<strong>%s</strong>', __( 'In version 2.10 of SATORI Studio, the required version of WordPress will be raised to 6.6', 'fl-builder' ) );
+		return sprintf( '<span class="dashicons dashicons-warning"></span>&nbsp;<strong>%s</strong>', __( 'In version 2.10 of SATORI Studio, the required version of WordPress will be raised to 6.6', 'satori-studio' ) );
 	}
 }

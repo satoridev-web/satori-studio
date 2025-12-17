@@ -18,7 +18,7 @@ $settings     = (object) array_merge( $defaults, $tab_defaults, (array) $setting
 			<svg width="20" height="20">
 				<use href="#fl-builder-forms-down-caret" />
 			</svg>
-			<?php _e( 'Post', 'fl-builder' ); ?>
+			<?php _e( 'Post', 'satori-studio' ); ?>
 		</button>
 	</div>
 
@@ -29,7 +29,7 @@ $settings     = (object) array_merge( $defaults, $tab_defaults, (array) $setting
 				// Post type
 				FLBuilder::render_settings_field('post_type', array(
 					'type'         => 'post-type',
-					'label'        => __( 'Post Type', 'fl-builder' ),
+					'label'        => __( 'Post Type', 'satori-studio' ),
 					'row_class'    => 'fl-custom-query',
 					'multi-select' => true,
 				), $settings);
@@ -37,7 +37,7 @@ $settings     = (object) array_merge( $defaults, $tab_defaults, (array) $setting
 				// Number of Posts
 				FLBuilder::render_settings_field('posts_per_page', array(
 					'type'   => 'unit',
-					'label'  => __( 'Posts Per Page', 'fl-builder' ),
+					'label'  => __( 'Posts Per Page', 'satori-studio' ),
 					'slider' => array(
 						'min'  => 1,
 						'max'  => 100,
@@ -48,31 +48,31 @@ $settings     = (object) array_merge( $defaults, $tab_defaults, (array) $setting
 				// Order
 				FLBuilder::render_settings_field('order', array(
 					'type'    => 'select',
-					'label'   => __( 'Order', 'fl-builder' ),
+					'label'   => __( 'Order', 'satori-studio' ),
 					'options' => array(
-						'DESC' => __( 'Descending', 'fl-builder' ),
-						'ASC'  => __( 'Ascending', 'fl-builder' ),
+						'DESC' => __( 'Descending', 'satori-studio' ),
+						'ASC'  => __( 'Ascending', 'satori-studio' ),
 					),
 				), $settings);
 
 				// Order by
 				FLBuilder::render_settings_field('order_by', array(
 					'type'    => 'select',
-					'label'   => __( 'Order By', 'fl-builder' ),
+					'label'   => __( 'Order By', 'satori-studio' ),
 					'options' => array(
-						'none'           => __( 'None', 'fl-builder' ),
-						'ID'             => __( 'ID', 'fl-builder' ),
-						'author'         => __( 'Author', 'fl-builder' ),
-						'title'          => __( 'Title', 'fl-builder' ),
-						'name'           => __( 'Name', 'fl-builder' ),
-						'date'           => __( 'Date', 'fl-builder' ),
-						'modified'       => __( 'Last Modified', 'fl-builder' ),
-						'comment_count'  => __( 'Comment Count', 'fl-builder' ),
-						'menu_order'     => __( 'Menu Order', 'fl-builder' ),
+						'none'           => __( 'None', 'satori-studio' ),
+						'ID'             => __( 'ID', 'satori-studio' ),
+						'author'         => __( 'Author', 'satori-studio' ),
+						'title'          => __( 'Title', 'satori-studio' ),
+						'name'           => __( 'Name', 'satori-studio' ),
+						'date'           => __( 'Date', 'satori-studio' ),
+						'modified'       => __( 'Last Modified', 'satori-studio' ),
+						'comment_count'  => __( 'Comment Count', 'satori-studio' ),
+						'menu_order'     => __( 'Menu Order', 'satori-studio' ),
 						'meta_value'     => __( 'Meta Value (Alphabetical)', 'fl-builder' ),
 						'meta_value_num' => __( 'Meta Value (Numeric)', 'fl-builder' ),
-						'rand'           => __( 'Random', 'fl-builder' ),
-						'post__in'       => __( 'Selection Order', 'fl-builder' ),
+						'rand'           => __( 'Random', 'satori-studio' ),
+						'post__in'       => __( 'Selection Order', 'satori-studio' ),
 					),
 					'toggle'  => array(
 						'meta_value'     => array(
@@ -87,7 +87,7 @@ $settings     = (object) array_merge( $defaults, $tab_defaults, (array) $setting
 				// Meta Key
 				FLBuilder::render_settings_field('order_by_meta_key', array(
 					'type'  => 'text',
-					'label' => __( 'Meta Key', 'fl-builder' ),
+					'label' => __( 'Meta Key', 'satori-studio' ),
 				), $settings);
 
 				foreach ( FLBuilderLoop::post_types() as $slug => $type ) {
@@ -97,9 +97,9 @@ $settings     = (object) array_merge( $defaults, $tab_defaults, (array) $setting
 						'action'    => 'fl_as_posts',
 						'data'      => $slug,
 						/* translators: %s: type label */
-						'label'     => sprintf( __( 'Filter by %1$s', 'fl-builder' ), $type->label ),
+						'label'     => sprintf( __( 'Filter by %1$s', 'satori-studio' ), $type->label ),
 						/* translators: %s: type label */
-						'help'      => sprintf( __( 'Enter a list of %1$s.', 'fl-builder' ), $type->label ),
+						'help'      => sprintf( __( 'Enter a list of %1$s.', 'satori-studio' ), $type->label ),
 						'matching'  => true,
 						'row_class' => "fl-custom-query-filter fl-custom-query-{$slug}-filter",
 					), $settings );
@@ -126,9 +126,9 @@ $settings     = (object) array_merge( $defaults, $tab_defaults, (array) $setting
 							'action'    => 'fl_as_terms',
 							'data'      => $tax_slug,
 							/* translators: %s: tax label */
-							'label'     => sprintf( __( 'Filter by %1$s', 'fl-builder' ), $tax->label ),
+							'label'     => sprintf( __( 'Filter by %1$s', 'satori-studio' ), $tax->label ),
 							/* translators: %s: tax label */
-							'help'      => sprintf( __( 'Enter a list of %1$s.', 'fl-builder' ), $tax->label ),
+							'help'      => sprintf( __( 'Enter a list of %1$s.', 'satori-studio' ), $tax->label ),
 							'matching'  => true,
 							'row_class' => "fl-custom-query-filter fl-custom-query-{$slug}-filter",
 						), $field_settings );

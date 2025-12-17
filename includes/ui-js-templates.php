@@ -12,11 +12,11 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
         <div class="fl-pro-message-button">
                 <?php if ( $fl_builder_show_legacy_promos ) : ?>
                         <button class="fl-builder-upgrade-button fl-builder-button">
-                                <?php _ex( 'Upgrade', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
+                                <?php _ex( 'Upgrade', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?>
                         </button>
                 <?php else : ?>
                         <span class="fl-pro-message-content">
-                                <?php _ex( 'This feature is not available in this SATORI Studio build.', 'Alternate message when premium upsells are hidden.', 'fl-builder' ); ?>
+                                <?php _ex( 'This feature is not available in this SATORI Studio build.', 'Alternate message when premium upsells are hidden.', 'satori-studio' ); ?>
                         </span>
                 <?php endif; ?>
         </div>
@@ -30,27 +30,27 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 	<# } #>
 	<div class="fl-lightbox-message-info">{{{data.info}}}</div>
 	<div class="fl-lightbox-footer">
-		<span class="fl-builder-alert-close fl-builder-button fl-builder-button-large fl-builder-button-primary" href="javascript:void(0);"><?php _e( 'OK', 'fl-builder' ); ?></span>
+		<span class="fl-builder-alert-close fl-builder-button fl-builder-button-large fl-builder-button-primary" href="javascript:void(0);"><?php _e( 'OK', 'satori-studio' ); ?></span>
 	</div>
 </script>
 <!-- #tmpl-fl-crash-lightbox -->
 
 <script type="text/html" id="tmpl-fl-tour-lightbox">
 	<div class="fl-builder-actions fl-builder-tour-actions">
-		<span class="fl-builder-actions-title"><?php _e( 'Welcome! It looks like this might be your first time using the builder. Would you like to take a tour?', 'fl-builder' ); ?></span>
-		<span class="fl-builder-no-tour-button fl-builder-button fl-builder-button-large"><?php _e( 'No Thanks', 'fl-builder' ); ?></span>
-		<span class="fl-builder-yes-tour-button fl-builder-button fl-builder-button-primary fl-builder-button-large"><?php _e( 'Yes Please!', 'fl-builder' ); ?></span>
+		<span class="fl-builder-actions-title"><?php _e( 'Welcome! It looks like this might be your first time using the builder. Would you like to take a tour?', 'satori-studio' ); ?></span>
+		<span class="fl-builder-no-tour-button fl-builder-button fl-builder-button-large"><?php _e( 'No Thanks', 'satori-studio' ); ?></span>
+		<span class="fl-builder-yes-tour-button fl-builder-button fl-builder-button-primary fl-builder-button-large"><?php _e( 'Yes Please!', 'satori-studio' ); ?></span>
 	</div>
 </script>
 <!-- #tmpl-fl-tour-lightbox -->
 
 <script type="text/html" id="tmpl-fl-video-lightbox">
 	<div class="fl-lightbox-header">
-		<h1><?php _e( 'Getting Started Video', 'fl-builder' ); ?></h1>
+		<h1><?php _e( 'Getting Started Video', 'satori-studio' ); ?></h1>
 	</div>
 	<div class="fl-builder-getting-started-video">{{{data.video}}}</div>
 	<div class="fl-lightbox-footer">
-		<span class="fl-builder-settings-cancel fl-builder-button fl-builder-button-large fl-builder-button-primary" href="javascript:void(0);"><?php _e( 'Done', 'fl-builder' ); ?></span>
+		<span class="fl-builder-settings-cancel fl-builder-button fl-builder-button-large fl-builder-button-primary" href="javascript:void(0);"><?php _e( 'Done', 'satori-studio' ); ?></span>
 	</div>
 </script>
 <!-- #tmpl-fl-video-lightbox -->
@@ -60,7 +60,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 	<div class="fl-responsive-preview">
 		<div class="fl-responsive-preview-message">
 			<span>
-				<?php _e( 'Responsive Editing', 'fl-builder' ); ?>
+				<?php _e( 'Responsive Editing', 'satori-studio' ); ?>
 			</span>
 			<button class="fl-builder-button fl-builder-button-large" data-mode="responsive">
 				<i class="dashicons dashicons-smartphone"></i>
@@ -72,7 +72,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 				<i class="dashicons dashicons-laptop"></i>
 			</button>
 			<button class="fl-builder-button fl-builder-button-large" data-mode="default">
-				<?php _e( 'Exit', 'fl-builder' ); ?>
+				<?php _e( 'Exit', 'satori-studio' ); ?>
 			</button>
 			<span class="size"></span>
 		</div>
@@ -90,7 +90,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 			#>
 			<div class="fl-builder-blocks-group">
 				<# if ( _.isUndefined( FLBuilderConfig.moduleGroups[ groupSlug ] ) ) { #>
-				<span class="fl-builder-blocks-section-group-name"><?php _e( 'Standard Modules', 'fl-builder' ); ?></span>
+				<span class="fl-builder-blocks-section-group-name"><?php _e( 'Standard Modules', 'satori-studio' ); ?></span>
 				<# } else { #>
 				<span class="fl-builder-blocks-section-group-name">{{FLBuilderConfig.moduleGroups[ groupSlug ]}}</span>
 				<# } #>
@@ -134,7 +134,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 <!-- #tmpl-fl-search-results-panel -->
 
 <script type="text/html" id="tmpl-fl-search-no-results">
-	<div class="fl-builder--no-results"><?php _ex( 'No Results Found', 'No content panel search results found', 'fl-builder' ); ?></div>
+	<div class="fl-builder--no-results"><?php _ex( 'No Results Found', 'No content panel search results found', 'satori-studio' ); ?></div>
 </script>
 <!-- #tmpl-fl-search-no-results -->
 
@@ -265,7 +265,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 						</svg>
 					</button>
 					<div class="fl-builder-panel-search-input">
-						<input name="search-term" placeholder="<?php _e( 'Search Modules', 'fl-builder' ); ?>" />
+						<input name="search-term" placeholder="<?php _e( 'Search Modules', 'satori-studio' ); ?>" />
 						<button class="fl-builder-dismiss-panel-search">
 							<svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 								<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -332,7 +332,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 			</i>
 		</button>
 		<div class="fl-builder--panel-no-settings">
-			<div><?php _e( 'No settings selected.', 'fl-builder' ); ?></div>
+			<div><?php _e( 'No settings selected.', 'satori-studio' ); ?></div>
 		</div>
 	</div>
 </script>
@@ -346,7 +346,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 	<div class="fl-builder--category-select">
 		<div class="fl-builder--selector-display">
 			<button class="fl-builder--selector-display-label">
-				<span class="fl-builder--group-label"><?php _e( 'Group', 'fl-builder' ); ?></span>
+				<span class="fl-builder--group-label"><?php _e( 'Group', 'satori-studio' ); ?></span>
 				<span class="fl-builder--current-view-name">{{{activeViewName}}}</span>
 			</button>
 		</div>
@@ -552,10 +552,10 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 	<div class="fl-builder--panel-cta">
 		<img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
 		<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
-			<?php _e( 'Get more time-saving features, modules, and expert support.', 'fl-builder' ); ?>
+			<?php _e( 'Get more time-saving features, modules, and expert support.', 'satori-studio' ); ?>
 		</a>
 		<button class="fl-builder-upgrade-button fl-builder-button">
-			<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
+			<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?>
 		</button>
 	</div>
 	<# } #>
@@ -593,10 +593,10 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 		<div class="fl-builder--panel-cta">
 			<img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
 			<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
-				<?php _e( 'Get more time-saving features, modules, and expert support.', 'fl-builder' ); ?>
+				<?php _e( 'Get more time-saving features, modules, and expert support.', 'satori-studio' ); ?>
 			</a>
 			<button class="fl-builder-upgrade-button fl-builder-button">
-				<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
+				<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?>
 			</button>
 		</div>
 		<# } #>
@@ -670,10 +670,10 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
         <div class="fl-builder--panel-cta">
                 <img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
                 <a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
-                        <?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?>
+                        <?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'satori-studio' ); ?>
                 </a>
                 <button class="fl-builder-upgrade-button fl-builder-button">
-                        <?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?>
+                        <?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?>
                 </button>
         </div>
         <# } #>
@@ -793,14 +793,14 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 
 <script type="text/html" id="tmpl-fl-content-panel-no-view">
 	<div class="fl-builder--panel-message">
-		<?php _ex( 'Sorry, no content was found!', 'Message that displays when a panel tab has no view to display', 'fl-builder' ); ?>
+		<?php _ex( 'Sorry, no content was found!', 'Message that displays when a panel tab has no view to display', 'satori-studio' ); ?>
 	</div>
 </script>
 <!-- #tmpl-fl-content-panel-no-view -->
 
 <script type="text/html" id="tmpl-fl-content-panel-no-templates-view">
 	<div class="fl-builder--panel-message">
-		<?php _ex( 'Sorry, no templates were found!', 'Message that displays when there are no templates to display', 'fl-builder' ); ?>
+		<?php _ex( 'Sorry, no templates were found!', 'Message that displays when there are no templates to display', 'satori-studio' ); ?>
 	</div>
 </script>
 <!-- #tmpl-fl-content-panel-no-templates-view -->
@@ -808,10 +808,10 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 <script type="text/html" id="tmpl-fl-content-lite-templates-upgrade-view">
         <div class="fl-builder--panel-message">
                 <?php if ( $fl_builder_show_legacy_promos ) : ?>
-                        <p><?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'fl-builder' ); ?></p>
-                        <a class="fl-builder-submenu-link fl-builder-upgrade-button fl-builder-button" href="{{FLBuilderConfig.upgradeUrl}}" target="_blank"><?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'fl-builder' ); ?> <i class="fas fa-external-link-alt"></i></a>
+                        <p><?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'satori-studio' ); ?></p>
+                        <a class="fl-builder-submenu-link fl-builder-upgrade-button fl-builder-button" href="{{FLBuilderConfig.upgradeUrl}}" target="_blank"><?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?> <i class="fas fa-external-link-alt"></i></a>
                 <?php else : ?>
-                        <p><?php _ex( 'Premium templates are not available in this SATORI Studio build.', 'Message that displays when upgrade prompts are hidden.', 'fl-builder' ); ?></p>
+                        <p><?php _ex( 'Premium templates are not available in this SATORI Studio build.', 'Message that displays when upgrade prompts are hidden.', 'satori-studio' ); ?></p>
                 <?php endif; ?>
         </div>
 </script>
@@ -837,15 +837,15 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 <script type="text/html" id="tmpl-fl-no-revisions-message">
 	<div class="fl-no-revisions-message">
 		<div class="fl-no-revisions-message-title">
-			<?php _e( 'No Revisions Found', 'fl-builder' ); ?>
+			<?php _e( 'No Revisions Found', 'satori-studio' ); ?>
 		</div>
 		<?php if ( defined( 'WP_POST_REVISIONS' ) && ! WP_POST_REVISIONS ) : ?>
 			<div class="fl-no-revisions-message-text">
-				<?php _e( "Revisions are disabled for this site. Please contact your host if you aren't sure how to enable revisions.", 'fl-builder' ); ?>
+				<?php _e( "Revisions are disabled for this site. Please contact your host if you aren't sure how to enable revisions.", 'satori-studio' ); ?>
 			</div>
 		<?php else : ?>
 			<div class="fl-no-revisions-message-text">
-				<?php _e( "You haven't saved any revisions yet. Each time you publish a new revision will be saved here.", 'fl-builder' ); ?>
+				<?php _e( "You haven't saved any revisions yet. Each time you publish a new revision will be saved here.", 'satori-studio' ); ?>
 			</div>
 		<?php endif; ?>
 	</div>
@@ -872,7 +872,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 			<# } #>
 
 			<div class="fl-builder-ui-keyboard-shortcust-footer">
-				<button class="dismiss-shortcut-ui"><?php _e( 'Close', 'fl-builder' ); ?></button>
+				<button class="dismiss-shortcut-ui"><?php _e( 'Close', 'satori-studio' ); ?></button>
 			</div>
 		</div>
 	</div>

@@ -40,9 +40,9 @@ if ( '{FL_BUILDER_NAME}' !== $plugin_data['Name'] && ! in_array( $plugin_name, $
 	}
 
 	if ( $show_warning ) {
-		$header_txt = __( 'SATORI Studio updates issue!!', 'fl-builder' );
+		$header_txt = __( 'SATORI Studio updates issue!!', 'satori-studio' );
 		// translators: %s: Product name
-		$txt = sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %s activated but it is not in your available downloads.', 'fl-builder' ), '<strong>' . $plugin_name . '</strong>' );
+		$txt = sprintf( __( 'Updates for SATORI Studio will not work as you appear to have %s activated but it is not in your available downloads.', 'satori-studio' ), '<strong>' . $plugin_name . '</strong>' );
 		printf(
 			'<div class="notice notice-error"><p><strong>%s</strong></p><p>%s</p></div>',
 			$header_txt,
@@ -56,7 +56,7 @@ if ( ! $themer && defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 }
 
 ?>
-<h3><?php _e( 'Available Downloads', 'fl-builder' ); ?></h3>
+<h3><?php _e( 'Available Downloads', 'satori-studio' ); ?></h3>
 <p><?php _e( 'The following downloads are currently available for remote update with the subscription(s) associated with this license.', 'fl-builder' ); ?></p>
 <ul class='subscription-downloads'>
 	<?php
@@ -70,7 +70,7 @@ if ( ! $themer && defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 
 <?php if ( ! $themer ) : ?>
         <div class="themer">
-        <h3><?php _e( 'Take SATORI Studio Even Further', 'fl-builder' ); ?></h3>
+        <h3><?php _e( 'Take SATORI Studio Even Further', 'satori-studio' ); ?></h3>
         <h4>
                 <strong><?php _e( 'Beaver Themer (legacy)', 'fl-builder' ); ?></strong> - <a target="_blank" href="
                 <?php
@@ -80,7 +80,7 @@ if ( ! $themer && defined( 'FL_THEME_BUILDER_VERSION' ) ) {
                         'utm_campaign' => 'themer-upsell',
                 ) );
                 ?>
-                "><?php _e( 'Learn more about this upstream add-on', 'fl-builder' ); ?> </a></h4>
+                "><?php _e( 'Learn more about this upstream add-on', 'satori-studio' ); ?> </a></h4>
                 <ul>
                         <li><span class="dashicons dashicons-saved"></span>Create custom headers and footer layouts that override your theme.</li>
                         <li><span class="dashicons dashicons-saved"></span>Design unique page layouts for index, archive, search, single posts and 404 pages.</li>

@@ -105,13 +105,13 @@ const icons = {
 }
 
 const options = {
-	stretch:         '<?php _e( 'Stretch', 'fl-builder' ); ?>',
-	start:           '<?php _e( 'Start', 'fl-builder' ); ?>',
-	center:          '<?php _e( 'Center', 'fl-builder' ); ?>',
-	end:             '<?php _e( 'End', 'fl-builder' ); ?>',
-	'space-evenly':  '<?php _e( 'Space Evenly', 'fl-builder' ); ?>',
-	'space-between': '<?php _e( 'Space Between', 'fl-builder' ); ?>',
-	'space-around' : '<?php _e( 'Space Around', 'fl-builder' ); ?>'
+	stretch:         '<?php _e( 'Stretch', 'satori-studio' ); ?>',
+	start:           '<?php _e( 'Start', 'satori-studio' ); ?>',
+	center:          '<?php _e( 'Center', 'satori-studio' ); ?>',
+	end:             '<?php _e( 'End', 'satori-studio' ); ?>',
+	'space-evenly':  '<?php _e( 'Space Evenly', 'satori-studio' ); ?>',
+	'space-between': '<?php _e( 'Space Between', 'satori-studio' ); ?>',
+	'space-around' : '<?php _e( 'Space Around', 'satori-studio' ); ?>'
 }
 
 const vertical = wp.template( 'fl-builder-field-button-group' )( {

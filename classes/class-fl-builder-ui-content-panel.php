@@ -29,7 +29,7 @@ class FLBuilderUIContentPanel {
 		if ( $modules_data['should_display'] ) {
 			$modules_tab             = array(
 				'handle'          => 'modules',
-				'name'            => __( 'Modules', 'fl-builder' ),
+				'name'            => __( 'Modules', 'satori-studio' ),
 				'views'           => $modules_data['views'],
 				'isSearchEnabled' => true,
 			);
@@ -40,7 +40,7 @@ class FLBuilderUIContentPanel {
 		if ( $rows_data['should_display'] ) {
 			$rows_tab             = array(
 				'handle' => 'rows',
-				'name'   => __( 'Rows', 'fl-builder' ),
+				'name'   => __( 'Rows', 'satori-studio' ),
 				'views'  => $rows_data['views'],
 			);
 			$data['tabs']['rows'] = $rows_tab;
@@ -50,7 +50,7 @@ class FLBuilderUIContentPanel {
 		if ( $templates_data['should_display'] ) {
 			$templates_tab             = array(
 				'handle' => 'templates',
-				'name'   => __( 'Templates', 'fl-builder' ),
+				'name'   => __( 'Templates', 'satori-studio' ),
 				'views'  => $templates_data['views'],
 			);
 			$data['tabs']['templates'] = $templates_tab;
@@ -83,7 +83,7 @@ class FLBuilderUIContentPanel {
 		// Standard Modules View
 		$data['views'][] = array(
 			'handle'              => 'standard',
-			'name'                => __( 'Standard Modules', 'fl-builder' ),
+			'name'                => __( 'Standard Modules', 'satori-studio' ),
 			'query'               => array(
 				'kind'        => 'module',
 				'categorized' => true,
@@ -183,7 +183,7 @@ class FLBuilderUIContentPanel {
 		// Columns View
 		$data['views'][] = array(
 			'handle'       => 'columns',
-			'name'         => __( 'Columns', 'fl-builder' ),
+			'name'         => __( 'Columns', 'satori-studio' ),
 			'query'        => array(
 				'kind' => 'colGroup',
 			),
@@ -266,7 +266,7 @@ class FLBuilderUIContentPanel {
 			if ( true === FL_BUILDER_LITE ) {
 				$data['views'][] = array(
 					'handle'       => 'standard',
-					'name'         => __( 'Upgrade', 'fl-builder' ),
+					'name'         => __( 'Upgrade', 'satori-studio' ),
 					'templateName' => 'fl-content-lite-templates-upgrade-view',
 				);
 			}

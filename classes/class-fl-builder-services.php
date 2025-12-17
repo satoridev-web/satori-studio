@@ -243,11 +243,11 @@ final class FLBuilderServices {
 
 		// Validate the service data.
 		if ( ! isset( $post_data['service'] ) || empty( $post_data['service'] ) ) {
-			$response['error'] = _x( 'Error: Missing service type.', 'Third party service such as MailChimp.', 'fl-builder' );
+			$response['error'] = _x( 'Error: Missing service type.', 'Third party service such as MailChimp.', 'satori-studio' );
 		} elseif ( ! isset( $post_data['fields'] ) || 0 === count( $post_data['fields'] ) ) {
-			$response['error'] = _x( 'Error: Missing service data.', 'Connection data such as an API key.', 'fl-builder' );
+			$response['error'] = _x( 'Error: Missing service data.', 'Connection data such as an API key.', 'satori-studio' );
 		} elseif ( ! isset( $post_data['fields']['service_account'] ) || empty( $post_data['fields']['service_account'] ) ) {
-			$response['error'] = _x( 'Error: Missing account name.', 'Account name for a third party service such as MailChimp.', 'fl-builder' );
+			$response['error'] = _x( 'Error: Missing account name.', 'Account name for a third party service such as MailChimp.', 'satori-studio' );
 		}
 
 		// Get the service data.
@@ -256,7 +256,7 @@ final class FLBuilderServices {
 
 		// Does this account already exist?
 		if ( isset( $saved_services[ $service ][ $service_account ] ) ) {
-			$response['error'] = _x( 'Error: An account with that name already exists.', 'Account name for a third party service such as MailChimp.', 'fl-builder' );
+			$response['error'] = _x( 'Error: An account with that name already exists.', 'Account name for a third party service such as MailChimp.', 'satori-studio' );
 		}
 
 		// Try to connect to the service.
@@ -327,8 +327,8 @@ final class FLBuilderServices {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Account Name', 'fl-builder' ),
-			'help'      => __( 'Used to identify this connection within the accounts list and can be anything you like.', 'fl-builder' ),
+			'label'     => __( 'Account Name', 'satori-studio' ),
+			'help'      => __( 'Used to identify this connection within the accounts list and can be anything you like.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -341,7 +341,7 @@ final class FLBuilderServices {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-button',
 			'type'      => 'button',
-			'label'     => __( 'Connect', 'fl-builder' ),
+			'label'     => __( 'Connect', 'satori-studio' ),
 		));
 
 		return ob_get_clean();
@@ -362,7 +362,7 @@ final class FLBuilderServices {
 		$settings                  = new stdClass();
 		$settings->service_account = $active;
 		$options                   = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		// Build the account select options.
@@ -370,14 +370,14 @@ final class FLBuilderServices {
 			$options[ $account ] = $account;
 		}
 
-		$options['add_new_account'] = __( 'Add Account...', 'fl-builder' );
+		$options['add_new_account'] = __( 'Add Account...', 'satori-studio' );
 
 		// Render the account select.
 		FLBuilder::render_settings_field( 'service_account', array(
 			'row_class' => 'fl-builder-service-account-row',
 			'class'     => 'fl-builder-service-account-select',
 			'type'      => 'select',
-			'label'     => __( 'Account', 'fl-builder' ),
+			'label'     => __( 'Account', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',

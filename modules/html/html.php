@@ -10,9 +10,9 @@ class FLHtmlModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'HTML', 'fl-builder' ),
-			'description'     => __( 'Display raw HTML code.', 'fl-builder' ),
-			'category'        => __( 'Basic', 'fl-builder' ),
+			'name'            => __( 'HTML', 'satori-studio' ),
+			'description'     => __( 'Display raw HTML code.', 'satori-studio' ),
+			'category'        => __( 'Basic', 'satori-studio' ),
 			'icon'            => 'editor-code.svg',
 			'partial_refresh' => true,
 			'include_wrapper' => false,
@@ -26,7 +26,7 @@ class FLHtmlModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLHtmlModule', array(
 	'general' => array(
-		'title'    => __( 'General', 'fl-builder' ),
+		'title'    => __( 'General', 'satori-studio' ),
 		'sections' => array(
 			'general' => array(
 				'title'  => '',

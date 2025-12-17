@@ -20,9 +20,9 @@ class FLMenuModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Menu', 'fl-builder' ),
-			'description'     => __( 'Renders a WordPress menu.', 'fl-builder' ),
-			'category'        => __( 'Actions', 'fl-builder' ),
+			'name'            => __( 'Menu', 'satori-studio' ),
+			'description'     => __( 'Renders a WordPress menu.', 'satori-studio' ),
+			'category'        => __( 'Actions', 'satori-studio' ),
 			'partial_refresh' => true,
 			'editor_export'   => false,
 			'icon'            => 'menu.svg',
@@ -44,7 +44,7 @@ class FLMenuModule extends FLBuilderModule {
 	 */
 	public function enqueue_scripts() {
 		if ( ! FLBuilderModel::is_builder_active() && $this->is_responsive_menu_flyout() ) {
-			wp_add_inline_script( 'fl-builder-layout-' . FLBuilderModel::get_post_id(), sprintf( 'var fl_responsive_close="%s"', __( 'Close', 'fl-builder' ) ) );
+			wp_add_inline_script( 'fl-builder-layout-' . FLBuilderModel::get_post_id(), sprintf( 'var fl_responsive_close="%s"', __( 'Close', 'satori-studio' ) ) );
 			$this->add_css( 'font-awesome-5' );
 		}
 	}
@@ -181,8 +181,8 @@ class FLMenuModule extends FLBuilderModule {
 			'update_term_meta_cache' => false,
 		) );
 		$fields    = array(
-			'label' => __( 'Menu', 'fl-builder' ),
-			'help'  => __( 'Select a WordPress menu that you created in the admin under Appearance > Menus.', 'fl-builder' ),
+			'label' => __( 'Menu', 'satori-studio' ),
+			'help'  => __( 'Select a WordPress menu that you created in the admin under Appearance > Menus.', 'satori-studio' ),
 		);
 
 		if ( $get_menus ) {
@@ -203,17 +203,17 @@ class FLMenuModule extends FLBuilderModule {
 		} else {
 
 			$url  = current_user_can( 'edit_theme_options' ) ? admin_url( 'nav-menus.php' ) : esc_url( home_url( '/' ) );
-			$text = current_user_can( 'edit_theme_options' ) ? __( 'Add a menu', 'fl-builder' ) : __( 'Home', 'fl-builder' );
+			$text = current_user_can( 'edit_theme_options' ) ? __( 'Add a menu', 'satori-studio' ) : __( 'Home', 'satori-studio' );
 
 			$fields['type']    = 'raw';
-			$fields['content'] = sprintf( '<p class="fl-builder-settings-tab-description">%s&nbsp;<a target="_blank" href="%s">%s</a></p>', __( 'No Menus Found.', 'fl-builder' ), $url, $text );
+			$fields['content'] = sprintf( '<p class="fl-builder-settings-tab-description">%s&nbsp;<a target="_blank" href="%s">%s</a></p>', __( 'No Menus Found.', 'satori-studio' ), $url, $text );
 		}
 
 		return $fields;
 	}
 
 	public function get_menu_label() {
-		return isset( $this->settings->mobile_title ) && '' !== $this->settings->mobile_title ? $this->settings->mobile_title : __( 'Menu', 'fl-builder' );
+		return isset( $this->settings->mobile_title ) && '' !== $this->settings->mobile_title ? $this->settings->mobile_title : __( 'Menu', 'satori-studio' );
 	}
 
 	public function render_toggle_button() {
@@ -422,7 +422,7 @@ class FLMenuModule extends FLBuilderModule {
 	public function menu_search_settings() {
 		$settings = array(
 			'layout'     => 'button',
-			'btn_text'   => sprintf( '<span class="sr-only">%s</span>', __( 'Search', 'fl-builder' ) ),
+			'btn_text'   => sprintf( '<span class="sr-only">%s</span>', __( 'Search', 'satori-studio' ) ),
 			'btn_action' => 'reveal',
 		);
 
@@ -465,11 +465,11 @@ class FLMenuModule extends FLBuilderModule {
 		$item_content = '';
 
 		if ( 0 == $cart_count ) {
-			$menu_item_title   = __( 'Start shopping', 'fl-builder' );
+			$menu_item_title   = __( 'Start shopping', 'satori-studio' );
 			$menu_item_classes = 'fl-menu-cart-contents empty-fl-menu-cart-visible';
 			$cart_url          = wc_get_page_permalink( 'shop' );
 		} else {
-			$menu_item_title   = __( 'View your shopping cart', 'fl-builder' );
+			$menu_item_title   = __( 'View your shopping cart', 'satori-studio' );
 			$menu_item_classes = 'fl-menu-cart-contents';
 			$cart_url          = wc_get_cart_url();
 		}
@@ -493,13 +493,13 @@ class FLMenuModule extends FLBuilderModule {
 		if ( $settings ) {
 			$display_type = isset( $settings->cart_display_type ) ? $settings->cart_display_type : 'count';
 			/* translators: %d: item count */
-			$items_count  = sprintf( _n( '%d item', '%d items', $cart_count, 'fl-builder' ), $cart_count );
+			$items_count  = sprintf( _n( '%d item', '%d items', $cart_count, 'satori-studio' ), $cart_count );
 			$cart_total   = $this->get_woo_cart_total();
 			$cart_content = '<span class="fl-menu-cart-count">' . $items_count . '</span>';
 			$icon         = '';
 
 			if ( isset( $settings->cart_icon ) && ! empty( $settings->cart_icon ) ) {
-				$icon = '<i class="fl-menu-cart-icon ' . $settings->cart_icon . '" role="img" aria-label="' . __( 'Cart', 'fl-builder' ) . '"></i>';
+				$icon = '<i class="fl-menu-cart-icon ' . $settings->cart_icon . '" role="img" aria-label="' . __( 'Cart', 'satori-studio' ) . '"></i>';
 			}
 
 			if ( in_array( $display_type, array( 'total', 'count-total' ) ) ) {
@@ -574,7 +574,7 @@ class FLMenuModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLMenuModule', array(
 	'general' => array( // Tab
-		'title'    => __( 'General', 'fl-builder' ), // Tab title
+		'title'    => __( 'General', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'general'              => array( // Section
 				'title'  => '', // Section Title
@@ -582,13 +582,13 @@ FLBuilder::register_module('FLMenuModule', array(
 					'menu'                 => FLMenuModule::_get_menus(),
 					'menu_layout'          => array(
 						'type'    => 'select',
-						'label'   => __( 'Layout', 'fl-builder' ),
+						'label'   => __( 'Layout', 'satori-studio' ),
 						'default' => 'horizontal',
 						'options' => array(
-							'horizontal' => __( 'Horizontal', 'fl-builder' ),
-							'vertical'   => __( 'Vertical', 'fl-builder' ),
-							'accordion'  => __( 'Accordion', 'fl-builder' ),
-							'expanded'   => __( 'Expanded', 'fl-builder' ),
+							'horizontal' => __( 'Horizontal', 'satori-studio' ),
+							'vertical'   => __( 'Vertical', 'satori-studio' ),
+							'accordion'  => __( 'Accordion', 'satori-studio' ),
+							'expanded'   => __( 'Expanded', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'horizontal' => array(
@@ -606,74 +606,74 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'submenu_hover_toggle' => array(
 						'type'    => 'select',
-						'label'   => __( 'Submenu Icon', 'fl-builder' ),
+						'label'   => __( 'Submenu Icon', 'satori-studio' ),
 						'default' => 'none',
 						'options' => array(
-							'arrows' => __( 'Arrows', 'fl-builder' ),
-							'plus'   => __( 'Plus sign', 'fl-builder' ),
-							'none'   => __( 'None', 'fl-builder' ),
+							'arrows' => __( 'Arrows', 'satori-studio' ),
+							'plus'   => __( 'Plus sign', 'satori-studio' ),
+							'none'   => __( 'None', 'satori-studio' ),
 						),
 					),
 					'submenu_click_toggle' => array(
 						'type'    => 'select',
-						'label'   => __( 'Submenu Icon click', 'fl-builder' ),
+						'label'   => __( 'Submenu Icon click', 'satori-studio' ),
 						'default' => 'arrows',
 						'options' => array(
-							'arrows' => __( 'Arrows', 'fl-builder' ),
-							'plus'   => __( 'Plus sign', 'fl-builder' ),
+							'arrows' => __( 'Arrows', 'satori-studio' ),
+							'plus'   => __( 'Plus sign', 'satori-studio' ),
 						),
 					),
 					'collapse'             => array(
 						'type'    => 'select',
-						'label'   => __( 'Collapse Inactive', 'fl-builder' ),
+						'label'   => __( 'Collapse Inactive', 'satori-studio' ),
 						'default' => '1',
 						'options' => array(
-							'1' => __( 'Yes', 'fl-builder' ),
-							'0' => __( 'No', 'fl-builder' ),
+							'1' => __( 'Yes', 'satori-studio' ),
+							'0' => __( 'No', 'satori-studio' ),
 						),
-						'help'    => __( 'Choosing yes will keep only one item open at a time. Choosing no will allow multiple items to be open at the same time.', 'fl-builder' ),
+						'help'    => __( 'Choosing yes will keep only one item open at a time. Choosing no will allow multiple items to be open at the same time.', 'satori-studio' ),
 						'preview' => array(
 							'type' => 'none',
 						),
 					),
 					'mobile_title'         => array(
-						'label'   => __( 'Menu Name', 'fl-builder' ),
+						'label'   => __( 'Menu Name', 'satori-studio' ),
 						'type'    => 'text',
-						'help'    => __( 'This is used as the menu aria attribute for accessibility and label for responsive menus.', 'fl-builder' ),
-						'default' => __( 'Menu', 'fl-builder' ),
+						'help'    => __( 'This is used as the menu aria attribute for accessibility and label for responsive menus.', 'satori-studio' ),
+						'default' => __( 'Menu', 'satori-studio' ),
 					),
 				),
 			),
 			'centered_inline_logo' => array(
-				'title'  => __( 'Centered + Inline Logo', 'fl-builder' ),
+				'title'  => __( 'Centered + Inline Logo', 'satori-studio' ),
 				'fields' => array(
 					'menu_logo_image'        => array(
 						'type'        => 'photo',
-						'label'       => __( 'Logo Image', 'fl-builder' ),
+						'label'       => __( 'Logo Image', 'satori-studio' ),
 						'show_remove' => true,
 					),
 					'menu_logo_odd_position' => array(
 						'type'    => 'select',
-						'label'   => __( 'Inline Logo Position', 'fl-builder' ),
+						'label'   => __( 'Inline Logo Position', 'satori-studio' ),
 						'default' => 'left',
-						'help'    => __( 'The inline logo will appear on the left or right side of odd menu items.', 'fl-builder' ),
+						'help'    => __( 'The inline logo will appear on the left or right side of odd menu items.', 'satori-studio' ),
 						'options' => array(
-							'left'  => __( 'Left', 'fl-builder' ),
-							'right' => __( 'Right', 'fl-builder' ),
+							'left'  => __( 'Left', 'satori-studio' ),
+							'right' => __( 'Right', 'satori-studio' ),
 						),
 					),
 				),
 			),
 			'search'               => array(
-				'title'  => __( 'Search', 'fl-builder' ),
+				'title'  => __( 'Search', 'satori-studio' ),
 				'fields' => array(
 					'menu_search'     => array(
 						'type'    => 'select',
-						'label'   => __( 'Search Menu', 'fl-builder' ),
+						'label'   => __( 'Search Menu', 'satori-studio' ),
 						'default' => 'hide',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'show' => array(
@@ -685,23 +685,23 @@ FLBuilder::register_module('FLMenuModule', array(
 					'search_btn_icon' => array(
 						'type'        => 'icon',
 						'default'     => 'fas fa-search',
-						'label'       => __( 'Icon', 'fl-builder' ),
+						'label'       => __( 'Icon', 'satori-studio' ),
 						'show_remove' => true,
 					),
 				),
 			),
 			'mobile'               => array(
-				'title'  => __( 'Responsive', 'fl-builder' ),
+				'title'  => __( 'Responsive', 'satori-studio' ),
 				'fields' => array(
 					'mobile_toggle'                   => array(
 						'type'    => 'select',
-						'label'   => __( 'Responsive Toggle', 'fl-builder' ),
+						'label'   => __( 'Responsive Toggle', 'satori-studio' ),
 						'default' => 'hamburger',
 						'options' => array(
-							'hamburger'       => __( 'Hamburger Icon', 'fl-builder' ),
-							'hamburger-label' => __( 'Hamburger Icon + Label', 'fl-builder' ),
-							'text'            => __( 'Menu Button', 'fl-builder' ),
-							'expanded'        => __( 'None', 'fl-builder' ),
+							'hamburger'       => __( 'Hamburger Icon', 'satori-studio' ),
+							'hamburger-label' => __( 'Hamburger Icon + Label', 'satori-studio' ),
+							'text'            => __( 'Menu Button', 'satori-studio' ),
+							'expanded'        => __( 'None', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'hamburger'       => array(
@@ -723,18 +723,18 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'mobile_full_width'               => array(
 						'type'    => 'select',
-						'label'   => __( 'Responsive Style', 'fl-builder' ),
+						'label'   => __( 'Responsive Style', 'satori-studio' ),
 						'default' => 'no',
 						'preview' => array(
 							'type' => 'refresh',
 						),
 						'options' => array(
-							'no'                  => __( 'Inline', 'fl-builder' ),
-							'below'               => __( 'Below Row', 'fl-builder' ),
-							'yes'                 => __( 'Overlay', 'fl-builder' ),
-							'flyout-overlay'      => __( 'Flyout Overlay', 'fl-builder' ),
-							'flyout-push'         => __( 'Flyout Push', 'fl-builder' ),
-							'flyout-push-opacity' => __( 'Flyout Push with Opacity', 'fl-builder' ),
+							'no'                  => __( 'Inline', 'satori-studio' ),
+							'below'               => __( 'Below Row', 'satori-studio' ),
+							'yes'                 => __( 'Overlay', 'satori-studio' ),
+							'flyout-overlay'      => __( 'Flyout Overlay', 'satori-studio' ),
+							'flyout-push'         => __( 'Flyout Push', 'satori-studio' ),
+							'flyout-push-opacity' => __( 'Flyout Push with Opacity', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'yes'                 => array(
@@ -756,11 +756,11 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'flyout_position'                 => array(
 						'type'    => 'select',
-						'label'   => __( 'Flyout Position', 'fl-builder' ),
+						'label'   => __( 'Flyout Position', 'satori-studio' ),
 						'default' => 'left',
 						'options' => array(
-							'left'  => __( 'Left', 'fl-builder' ),
-							'right' => __( 'Right', 'fl-builder' ),
+							'left'  => __( 'Left', 'satori-studio' ),
+							'right' => __( 'Right', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -768,22 +768,22 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'mobile_breakpoint'               => array(
 						'type'    => 'select',
-						'label'   => __( 'Responsive Breakpoint', 'fl-builder' ),
+						'label'   => __( 'Responsive Breakpoint', 'satori-studio' ),
 						'default' => 'mobile',
 						'options' => array(
-							'always'        => __( 'Always', 'fl-builder' ),
-							'large-mobile'  => __( 'Large, Medium &amp; Small Devices Only', 'fl-builder' ),
-							'medium-mobile' => __( 'Medium &amp; Small Devices Only', 'fl-builder' ),
-							'mobile'        => __( 'Small Devices Only', 'fl-builder' ),
+							'always'        => __( 'Always', 'satori-studio' ),
+							'large-mobile'  => __( 'Large, Medium &amp; Small Devices Only', 'satori-studio' ),
+							'medium-mobile' => __( 'Medium &amp; Small Devices Only', 'satori-studio' ),
+							'mobile'        => __( 'Small Devices Only', 'satori-studio' ),
 						),
 					),
 					'mobile_stacked'                  => array(
 						'type'    => 'select',
-						'label'   => __( 'Stacked Layout', 'fl-builder' ),
+						'label'   => __( 'Stacked Layout', 'satori-studio' ),
 						'default' => 'yes',
 						'options' => array(
-							'yes' => __( 'Yes', 'fl-builder' ),
-							'no'  => __( 'No', 'fl-builder' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
+							'no'  => __( 'No', 'satori-studio' ),
 						),
 					),
 					'mobile_toggle_submenu_item_icon' => array(
@@ -807,11 +807,11 @@ FLBuilder::register_module('FLMenuModule', array(
 				'fields' => array( // Section Fields
 					'woo_menu_cart'           => array(
 						'type'    => 'select',
-						'label'   => __( 'Menu Cart', 'fl-builder' ),
+						'label'   => __( 'Menu Cart', 'satori-studio' ),
 						'default' => 'hide',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'show' => array(
@@ -822,16 +822,16 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'cart_icon'               => array(
 						'type'        => 'icon',
-						'label'       => __( 'Cart Icon', 'fl-builder' ),
+						'label'       => __( 'Cart Icon', 'satori-studio' ),
 						'show_remove' => true,
 					),
 					'show_menu_cart_checkout' => array(
 						'type'    => 'select',
-						'label'   => __( 'Show on Checkout', 'fl-builder' ),
+						'label'   => __( 'Show on Checkout', 'satori-studio' ),
 						'default' => 'no',
 						'options' => array(
-							'yes' => __( 'Yes', 'fl-builder' ),
-							'no'  => __( 'No', 'fl-builder' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
+							'no'  => __( 'No', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -839,12 +839,12 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'cart_display_type'       => array(
 						'type'    => 'select',
-						'label'   => __( 'Display Type', 'fl-builder' ),
+						'label'   => __( 'Display Type', 'satori-studio' ),
 						'default' => 'count',
 						'options' => array(
-							'count'       => __( 'Items Count', 'fl-builder' ),
-							'total'       => __( 'Total Amount', 'fl-builder' ),
-							'count-total' => __( 'Items Count and Total Amount', 'fl-builder' ),
+							'count'       => __( 'Items Count', 'satori-studio' ),
+							'total'       => __( 'Total Amount', 'satori-studio' ),
+							'count-total' => __( 'Items Count and Total Amount', 'satori-studio' ),
 						),
 					),
 				),
@@ -852,21 +852,21 @@ FLBuilder::register_module('FLMenuModule', array(
 		),
 	),
 	'style'   => array( // Tab
-		'title'    => __( 'Style', 'fl-builder' ), // Tab title
+		'title'    => __( 'Style', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'general_style'        => array(
-				'title'  => __( 'Menu', 'fl-builder' ),
+				'title'  => __( 'Menu', 'satori-studio' ),
 				'fields' => array(
 					'menu_align'     => array(
 						'type'       => 'align',
-						'label'      => __( 'Menu Alignment', 'fl-builder' ),
+						'label'      => __( 'Menu Alignment', 'satori-studio' ),
 						'default'    => '',
 						'responsive' => true,
 					),
 					'menu_bg_color'  => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Menu Background Color', 'fl-builder' ),
+						'label'       => __( 'Menu Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -885,13 +885,13 @@ FLBuilder::register_module('FLMenuModule', array(
 				),
 			),
 			'text_style'           => array(
-				'title'     => __( 'Links', 'fl-builder' ),
+				'title'     => __( 'Links', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => array(
 					'link_color'          => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Color', 'fl-builder' ),
+						'label'       => __( 'Link Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -911,7 +911,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'link_hover_color'    => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Hover Color', 'fl-builder' ),
+						'label'       => __( 'Link Hover Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -923,7 +923,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'link_hover_bg_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Hover Background Color', 'fl-builder' ),
+						'label'       => __( 'Link Hover Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -934,7 +934,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'link_padding'        => array(
 						'type'       => 'dimension',
-						'label'      => __( 'Link Padding', 'fl-builder' ),
+						'label'      => __( 'Link Padding', 'satori-studio' ),
 						'default'    => '14',
 						'units'      => array( 'px', 'em' ),
 						'slider'     => true,
@@ -947,7 +947,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'typography'          => array(
 						'type'       => 'typography',
-						'label'      => __( 'Link Typography', 'fl-builder' ),
+						'label'      => __( 'Link Typography', 'satori-studio' ),
 						'responsive' => array(
 							'default'    => array(
 								'default' => array(
@@ -972,16 +972,16 @@ FLBuilder::register_module('FLMenuModule', array(
 				),
 			),
 			'separator_style'      => array(
-				'title'     => __( 'Separators', 'fl-builder' ),
+				'title'     => __( 'Separators', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => array(
 					'show_separator'  => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Separators', 'fl-builder' ),
+						'label'   => __( 'Show Separators', 'satori-studio' ),
 						'default' => 'no',
 						'options' => array(
-							'no'  => __( 'No', 'fl-builder' ),
-							'yes' => __( 'Yes', 'fl-builder' ),
+							'no'  => __( 'No', 'satori-studio' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'yes' => array(
@@ -992,7 +992,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'separator_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Separator Color', 'fl-builder' ),
+						'label'       => __( 'Separator Color', 'satori-studio' ),
 						'default'     => '000000',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -1005,13 +1005,13 @@ FLBuilder::register_module('FLMenuModule', array(
 				),
 			),
 			'submenu_style'        => array(
-				'title'     => __( 'Dropdowns', 'fl-builder' ),
+				'title'     => __( 'Dropdowns', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => array(
 					'submenu_link_color'          => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Color', 'fl-builder' ),
+						'label'       => __( 'Link Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1031,7 +1031,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'submenu_link_hover_color'    => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Hover Color', 'fl-builder' ),
+						'label'       => __( 'Link Hover Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1043,7 +1043,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'submenu_link_hover_bg_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Hover Background Color', 'fl-builder' ),
+						'label'       => __( 'Link Hover Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1055,7 +1055,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'submenu_bg_color'            => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Dropdown Background Color', 'fl-builder' ),
+						'label'       => __( 'Dropdown Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'default'     => 'ffffff',
@@ -1067,16 +1067,16 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'drop_shadow'                 => array(
 						'type'    => 'select',
-						'label'   => __( 'Dropdown Shadow', 'fl-builder' ),
+						'label'   => __( 'Dropdown Shadow', 'satori-studio' ),
 						'default' => 'yes',
 						'options' => array(
-							'no'  => __( 'No', 'fl-builder' ),
-							'yes' => __( 'Yes', 'fl-builder' ),
+							'no'  => __( 'No', 'satori-studio' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
 						),
 					),
 					'submenu_spacing'             => array(
 						'type'    => 'dimension',
-						'label'   => __( 'Dropdown Padding', 'fl-builder' ),
+						'label'   => __( 'Dropdown Padding', 'satori-studio' ),
 						'default' => '0',
 						'units'   => array( 'px', 'em' ),
 						'slider'  => true,
@@ -1088,7 +1088,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'submenu_link_spacing'        => array(
 						'type'    => 'dimension',
-						'label'   => __( 'Dropdown Link Padding', 'fl-builder' ),
+						'label'   => __( 'Dropdown Link Padding', 'satori-studio' ),
 						'default' => '',
 						'units'   => array( 'px', 'em' ),
 						'slider'  => true,
@@ -1100,7 +1100,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'submenu_border'              => array(
 						'type'       => 'border',
-						'label'      => __( 'Dropdown Border', 'fl-builder' ),
+						'label'      => __( 'Dropdown Border', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'      => 'css',
@@ -1111,7 +1111,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'submenu_border_hover_color'  => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Dropdown Border Hover Color', 'fl-builder' ),
+						'label'       => __( 'Dropdown Border Hover Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -1121,7 +1121,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'submenu_typography'          => array(
 						'type'       => 'typography',
-						'label'      => __( 'Dropdown Typography', 'fl-builder' ),
+						'label'      => __( 'Dropdown Typography', 'satori-studio' ),
 						'responsive' => array(
 							'default'    => array(
 								'default' => array(
@@ -1146,13 +1146,13 @@ FLBuilder::register_module('FLMenuModule', array(
 				),
 			),
 			'mobile_submenu_style' => array(
-				'title'     => __( 'Responsive Dropdowns', 'fl-builder' ),
+				'title'     => __( 'Responsive Dropdowns', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => array(
 					'mobile_submenu_link_color'          => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Color', 'fl-builder' ),
+						'label'       => __( 'Link Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -1163,7 +1163,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'mobile_submenu_link_hover_color'    => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Hover Color', 'fl-builder' ),
+						'label'       => __( 'Link Hover Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1173,7 +1173,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'mobile_submenu_link_hover_bg_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Link Hover Background Color', 'fl-builder' ),
+						'label'       => __( 'Link Hover Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1183,7 +1183,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'mobile_submenu_bg_color'            => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Dropdown Background Color', 'fl-builder' ),
+						'label'       => __( 'Dropdown Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'default'     => '',
@@ -1194,12 +1194,12 @@ FLBuilder::register_module('FLMenuModule', array(
 				),
 			),
 			'mobile_toggle_style'  => array(
-				'title'     => __( 'Responsive Toggle', 'fl-builder' ),
+				'title'     => __( 'Responsive Toggle', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => array(
 					'mobile_toggle_size'           => array(
 						'type'     => 'unit',
-						'label'    => __( 'Size', 'fl-builder' ),
+						'label'    => __( 'Size', 'satori-studio' ),
 						'default'  => '16',
 						'sanitize' => 'floatval',
 						'units'    => array( 'px', 'em', 'rem' ),
@@ -1213,7 +1213,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'mobile_toggle_bg_color'       => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Background Color', 'fl-builder' ),
+						'label'       => __( 'Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1225,7 +1225,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'mobile_toggle_hover_bg_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Hover Background Color', 'fl-builder' ),
+						'label'       => __( 'Hover Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1233,7 +1233,7 @@ FLBuilder::register_module('FLMenuModule', array(
 						),
 					),
 					'mobile_toggle_color'          => array(
-						'label'       => __( 'Color', 'fl-builder' ),
+						'label'       => __( 'Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'show_reset'  => true,
@@ -1245,7 +1245,7 @@ FLBuilder::register_module('FLMenuModule', array(
 						),
 					),
 					'mobile_toggle_hover_color'    => array(
-						'label'       => __( 'Hover Color', 'fl-builder' ),
+						'label'       => __( 'Hover Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'show_reset'  => true,
@@ -1256,7 +1256,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'mobile_toggle_padding'        => array(
 						'type'    => 'dimension',
-						'label'   => __( 'Padding', 'fl-builder' ),
+						'label'   => __( 'Padding', 'satori-studio' ),
 						'default' => '14',
 						'units'   => array( 'px', 'em' ),
 						'slider'  => true,
@@ -1268,7 +1268,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'mobile_toggle_border'         => array(
 						'type'    => 'border',
-						'label'   => __( 'Border', 'fl-builder' ),
+						'label'   => __( 'Border', 'satori-studio' ),
 						'preview' => array(
 							'type'      => 'css',
 							'selector'  => '.fl-menu-mobile-toggle',
@@ -1278,12 +1278,12 @@ FLBuilder::register_module('FLMenuModule', array(
 				),
 			),
 			'search_style'         => array(
-				'title'     => __( 'Search Menu', 'fl-builder' ),
+				'title'     => __( 'Search Menu', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => array(
 					'search_icon_size'            => array(
 						'type'       => 'unit',
-						'label'      => __( 'Icon Size', 'fl-builder' ),
+						'label'      => __( 'Icon Size', 'satori-studio' ),
 						'default'    => '16',
 						'sanitize'   => 'floatval',
 						'responsive' => true,
@@ -1299,7 +1299,7 @@ FLBuilder::register_module('FLMenuModule', array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'default'     => '808080',
-						'label'       => __( 'Icon Color', 'fl-builder' ),
+						'label'       => __( 'Icon Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1312,7 +1312,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'search_btn_icon_color_hover' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Icon Hover Color', 'fl-builder' ),
+						'label'       => __( 'Icon Hover Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1321,7 +1321,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'form_width'                  => array(
 						'type'     => 'unit',
-						'label'    => __( 'Form Width', 'fl-builder' ),
+						'label'    => __( 'Form Width', 'satori-studio' ),
 						'default'  => '400',
 						'sanitize' => 'absint',
 						'units'    => array( 'px', '%' ),
@@ -1338,7 +1338,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'search_form_bg_color'        => array(
 						'type'        => 'color',
-						'label'       => __( 'Form Background Color', 'fl-builder' ),
+						'label'       => __( 'Form Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'connections' => array( 'color' ),
@@ -1350,7 +1350,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'search_form_bg_hover_color'  => array(
 						'type'        => 'color',
-						'label'       => __( 'Form Background Hover Color', 'fl-builder' ),
+						'label'       => __( 'Form Background Hover Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -1361,7 +1361,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'search_form_border'          => array(
 						'type'    => 'border',
-						'label'   => __( 'Form Border', 'fl-builder' ),
+						'label'   => __( 'Form Border', 'satori-studio' ),
 						'preview' => array(
 							'type'      => 'css',
 							'selector'  => '.fl-menu-search-item .fl-search-form-input-wrap',
@@ -1370,14 +1370,14 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'search_form_border_hover'    => array(
 						'type'    => 'border',
-						'label'   => __( 'Form Border Hover', 'fl-builder' ),
+						'label'   => __( 'Form Border Hover', 'satori-studio' ),
 						'preview' => array(
 							'type' => 'none',
 						),
 					),
 					'search_form_padding'         => array(
 						'type'       => 'dimension',
-						'label'      => __( 'Form Padding', 'fl-builder' ),
+						'label'      => __( 'Form Padding', 'satori-studio' ),
 						'default'    => '10',
 						'responsive' => true,
 						'slider'     => true,
@@ -1391,13 +1391,13 @@ FLBuilder::register_module('FLMenuModule', array(
 				),
 			),
 			'woo_menu_cart_style'  => array(
-				'title'     => __( 'WooCommerce Menu Cart', 'fl-builder' ),
+				'title'     => __( 'WooCommerce Menu Cart', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => array(
 					'menu_cart_bg_color'       => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Background Color', 'fl-builder' ),
+						'label'       => __( 'Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1410,7 +1410,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					'menu_cart_hover_bg_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Hover Background Color', 'fl-builder' ),
+						'label'       => __( 'Hover Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -1418,7 +1418,7 @@ FLBuilder::register_module('FLMenuModule', array(
 						),
 					),
 					'menu_cart_color'          => array(
-						'label'       => __( 'Color', 'fl-builder' ),
+						'label'       => __( 'Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'show_reset'  => true,
@@ -1430,7 +1430,7 @@ FLBuilder::register_module('FLMenuModule', array(
 						),
 					),
 					'menu_cart_hover_color'    => array(
-						'label'       => __( 'Hover Color', 'fl-builder' ),
+						'label'       => __( 'Hover Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'show_reset'  => true,
@@ -1441,7 +1441,7 @@ FLBuilder::register_module('FLMenuModule', array(
 					),
 					'menu_cart_typography'     => array(
 						'type'    => 'typography',
-						'label'   => __( 'Typography', 'fl-builder' ),
+						'label'   => __( 'Typography', 'satori-studio' ),
 						'preview' => array(
 							'type'      => 'css',
 							'selector'  => 'li.fl-menu-cart-item > a.fl-menu-cart-contents',

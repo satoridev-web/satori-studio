@@ -45,7 +45,7 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 			$this->api_instance        = new stdClass();
 			$this->api_instance->error = sprintf(
 				/* translators: %s: error */
-				__( 'There was an error connecting to Infusionsoft. %s', 'fl-builder' ),
+				__( 'There was an error connecting to Infusionsoft. %s', 'satori-studio' ),
 				$e->getMessage()
 			);
 		}
@@ -74,9 +74,9 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} elseif ( ! isset( $fields['app_id'] ) || empty( $fields['app_id'] ) ) {
-			$response['error'] = __( 'Error: You must provide an app ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an app ID.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$api = $this->get_api( $fields['app_id'], $fields['api_key'] );
@@ -107,8 +107,8 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'App ID', 'fl-builder' ),
-			'help'      => __( 'Your App ID can be found in the URL for your account. For example, if the URL for your account is myaccount.infusionsoft.com, your App ID would be <strong>myaccount</strong>.', 'fl-builder' ),
+			'label'     => __( 'App ID', 'satori-studio' ),
+			'help'      => __( 'Your App ID can be found in the URL for your account. For example, if the URL for your account is myaccount.infusionsoft.com, your App ID would be <strong>myaccount</strong>.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -118,8 +118,8 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your Infusionsoft account under Admin > Settings > Application > API > Encrypted Key.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your Infusionsoft account under Admin > Settings > Application > API > Encrypted Key.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -193,7 +193,7 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $list ) {
@@ -208,7 +208,7 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'Select Tag', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'Select Tag', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -237,7 +237,7 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 		$data         = array();
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Infusionsoft. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Infusionsoft. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $account_data['app_id'], $account_data['api_key'] );
@@ -283,7 +283,7 @@ final class FLBuilderServiceInfusionsoft extends FLBuilderService {
 				} catch ( iSDKException $e ) {
 					$response['error'] = sprintf(
 						/* translators: %s: error */
-						__( 'There was an error subscribing to Infusionsoft. %s', 'fl-builder' ),
+						__( 'There was an error subscribing to Infusionsoft. %s', 'satori-studio' ),
 						$e->getMessage()
 					);
 				}

@@ -131,13 +131,13 @@ final class FLBuilderRevisions {
 	 */
 	static public function main_menu_config( $config ) {
 		$config['main']['items'][35] = array(
-			'label' => __( 'Revisions', 'fl-builder' ),
+			'label' => __( 'Revisions', 'satori-studio' ),
 			'type'  => 'view',
 			'view'  => 'revisions',
 		);
 
 		$config['revisions'] = array(
-			'name'       => __( 'Revisions', 'fl-builder' ),
+			'name'       => __( 'Revisions', 'satori-studio' ),
 			'isShowing'  => false,
 			'isRootView' => false,
 			'items'      => array(),

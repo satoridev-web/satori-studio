@@ -19,7 +19,7 @@ final class FLBuilderPrivacy {
 
 	static public function register_exporter( $exporters ) {
 		$exporters[] = array(
-			'exporter_friendly_name' => __( 'SATORI Studio Plugin', 'fl-builder' ),
+			'exporter_friendly_name' => __( 'SATORI Studio Plugin', 'satori-studio' ),
 			'callback'               => array( 'FLBuilderPrivacy', 'exporter' ),
 		);
 		return $exporters;
@@ -87,7 +87,7 @@ final class FLBuilderPrivacy {
 	}
 
 	static public function register_policy() {
-		wp_add_privacy_policy_content( 'SATORI Studio', sprintf( '<p>%s</p>', __( 'In terms of GDPR, SATORI Studio products do not collect any personal information from your users. However some modules such as videos and maps might need you to update your privacy policy accordingly.', 'fl-builder' ) ) );
+		wp_add_privacy_policy_content( 'SATORI Studio', sprintf( '<p>%s</p>', __( 'In terms of GDPR, SATORI Studio products do not collect any personal information from your users. However some modules such as videos and maps might need you to update your privacy policy accordingly.', 'satori-studio' ) ) );
 	}
 }
 FLBuilderPrivacy::init();

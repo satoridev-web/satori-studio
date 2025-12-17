@@ -1328,7 +1328,7 @@ final class FLBuilderLoop {
 	 */
 	static public function get_term_options( $taxonomy = '' ) {
 
-		$result = array( 0 => __( 'None', 'fl-builder' ) );
+		$result = array( 0 => __( 'None', 'satori-studio' ) );
 
 		if ( ! $taxonomy ) {
 			$post_data = FLBuilderModel::get_post_data();

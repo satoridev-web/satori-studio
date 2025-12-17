@@ -6,22 +6,22 @@
  *
  *   'select_field_name' => array(
  *     'type'         => 'select',
- *     'label'        => esc_html__( 'Select Field', 'fl-builder' ),
+ *     'label'        => esc_html__( 'Select Field', 'satori-studio' ),
  *     'default'      => 'option-1',
  *     'className'    => '',
  *     'multi-select' => false,
  *     'options'      => array(
- *       'option-1' => esc_html__( 'Option 1', 'fl-builder' ),
+ *       'option-1' => esc_html__( 'Option 1', 'satori-studio' ),
  *       'option-2' => array(
- *         'label'   => esc_html__( 'Premium Option 2', 'fl-builder' ),
+ *         'label'   => esc_html__( 'Premium Option 2', 'satori-studio' ),
  *         'premium' => true,
  *       ),
  *       'optgroup-1' => array(
- *         'label'   => esc_html__( 'Optgroup 1', 'fl-builder' ),
+ *         'label'   => esc_html__( 'Optgroup 1', 'satori-studio' ),
  *         'options' => array( *
- *           'option-3' => esc_html__( 'Option 3', 'fl-builder' ),
+ *           'option-3' => esc_html__( 'Option 3', 'satori-studio' ),
  *           'option-4' => array(
- *             'label'   => esc_html__( 'Premium Option 4', 'fl-builder' ),
+ *             'label'   => esc_html__( 'Premium Option 4', 'satori-studio' ),
  *             'premium' => true,
  *           ),
  *         ),
@@ -108,16 +108,16 @@ if ( field.saved_data ) {
 	}
 	if ( dataOption.length === 0 ) {
 		if ( 'row' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Rows Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Rows Found', 'satori-studio' ); ?>';
 		}
 		if ( 'column' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Columns Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Columns Found', 'satori-studio' ); ?>';
 		}
 		if ( 'module' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Modules Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Modules Found', 'satori-studio' ); ?>';
 		}
 		if ( 'layout' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Layout Templates Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Layout Templates Found', 'satori-studio' ); ?>';
 		}
 	}
 	field.options = dataOption;

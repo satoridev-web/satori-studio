@@ -77,11 +77,11 @@ if ( isset( $settings->menu_search ) && 'show' == $settings->menu_search ) {
 		?>
 		<ul class="menu fl-menu-horizontal">
 			<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home">
-				<?php printf( '<a href="%s">%s</a>', esc_url( home_url( '/' ) ), __( 'Home', 'fl-builder' ) ); ?>
+				<?php printf( '<a href="%s">%s</a>', esc_url( home_url( '/' ) ), __( 'Home', 'satori-studio' ) ); ?>
 			</li>
 			<?php if ( current_user_can( 'edit_theme_options' ) ) : ?>
 			<li class="menu-item menu-item-type-custom menu-item-object-custom">
-				<?php printf( '<a href="%s" target="_blank">%s</a>', admin_url( 'nav-menus.php' ), __( 'Add a menu', 'fl-builder' ) ); ?>
+				<?php printf( '<a href="%s" target="_blank">%s</a>', admin_url( 'nav-menus.php' ), __( 'Add a menu', 'satori-studio' ) ); ?>
 			</li>
 			<?php endif; ?>
 		</ul>

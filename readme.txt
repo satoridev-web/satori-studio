@@ -33,7 +33,7 @@ Modifications © 2024 Satori Graphics Pty Ltd.
 
 == Translation / Text Domains ==
 
-SATORI Studio retains legacy translation domains (such as `fl-builder` and `bb-plugin`) to remain compatible with upstream Beaver Builder Lite language packs and third-party integrations. New SATORI-authored strings should use the `satori-studio` text domain. Existing domains should not be renamed until a formal migration plan is documented.
+SATORI Studio now uses the `satori-studio` text domain across all translatable strings (PHP and JavaScript). Language packs load from `/languages/` within the plugin or the WordPress languages directory under `plugins/satori-studio/`. Legacy Beaver Builder domains (`fl-builder`, `bb-plugin`, etc.) have been retired from SATORI Studio strings as part of the branding migration.
 
 == Description ==
 

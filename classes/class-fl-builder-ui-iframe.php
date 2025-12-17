@@ -68,15 +68,15 @@ class FLBuilderUIIFrame {
 				$frame_ancestors = preg_grep( '#frame-ancestors\s+?[\'|"]none[\'|"]#i', (array) $csp );
 
 				if ( $deny || $frame_ancestors ) {
-					$message = sprintf( '<h1>%s</h1>', __( 'Error: Could not load the UI', 'fl-builder' ) );
+					$message = sprintf( '<h1>%s</h1>', __( 'Error: Could not load the UI', 'satori-studio' ) );
 
-					$message .= sprintf( '<p>%s</p>', __( "The UI uses an iFrame but this site's security policy is preventing it from loading.", 'fl-builder' ) );
+					$message .= sprintf( '<p>%s</p>', __( "The UI uses an iFrame but this site's security policy is preventing it from loading.", 'satori-studio' ) );
 
-					$message .= sprintf( '<p>%s</p>', __( 'Refresh this page to restart the builder in legacy mode.', 'fl-builder' ) );
+					$message .= sprintf( '<p>%s</p>', __( 'Refresh this page to restart the builder in legacy mode.', 'satori-studio' ) );
 
-					$message .= sprintf( '<p>%s</p>', __( 'We do recommend that you look into this as the new UI is an improvement to the legacy UI and eventually the legacy UI will be removed.', 'fl-builder' ) );
+					$message .= sprintf( '<p>%s</p>', __( 'We do recommend that you look into this as the new UI is an improvement to the legacy UI and eventually the legacy UI will be removed.', 'satori-studio' ) );
 
-					$message .= $deny ? sprintf( '<p>%s</p>', __( 'To fix the issue: X-Frame-Options is set to DENY, change it to SAMEORIGIN', 'fl-builder' ) ) : sprintf( '<p>%s</p>', __( 'To fix the issue: Content-Security-Policy frame-ancestors is set to none, change to self', 'fl-builder' ) );
+					$message .= $deny ? sprintf( '<p>%s</p>', __( 'To fix the issue: X-Frame-Options is set to DENY, change it to SAMEORIGIN', 'satori-studio' ) ) : sprintf( '<p>%s</p>', __( 'To fix the issue: Content-Security-Policy frame-ancestors is set to none, change to self', 'satori-studio' ) );
 
 					update_option( '_fl_builder_iframe_ui', false );
 					wp_die( $message, 'Oops!' );

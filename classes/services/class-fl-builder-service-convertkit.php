@@ -62,7 +62,7 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $fields['api_key'] );
@@ -73,7 +73,7 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 				);
 			} else {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Please check your API key. %s', 'fl-builder' ), $api::$response['error_message'] );
+				$response['error'] = sprintf( __( 'Error: Please check your API key. %s', 'satori-studio' ), $api::$response['error_message'] );
 			}
 		}
 
@@ -93,8 +93,8 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your ConvertKit account under Account > Account Settings > API Key.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your ConvertKit account under Account > Account Settings > API Key.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -124,7 +124,7 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 		);
 
 		if ( ! $forms ) {
-			$response['error'] = __( 'Error: Please check your API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: Please check your API key.', 'satori-studio' );
 		} else {
 			$response['html'] = $this->render_list_field( $forms, $settings );
 		}
@@ -145,7 +145,7 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		if ( isset( $forms['forms'] ) ) {
@@ -158,7 +158,7 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -186,7 +186,7 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to ConvertKit. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to ConvertKit. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api  = $this->get_api( $account_data['api_key'] );
@@ -204,7 +204,7 @@ final class FLBuilderServiceConvertKit extends FLBuilderService {
 				$message           = isset( $result->message ) ? $result->message : '';
 				$response['error'] = sprintf(
 					/* translators: %s: error */
-					__( 'There was an error subscribing to ConvertKit. Error: %s', 'fl-builder' ),
+					__( 'There was an error subscribing to ConvertKit. Error: %s', 'satori-studio' ),
 					$message
 				);
 			}

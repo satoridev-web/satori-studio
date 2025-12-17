@@ -33,12 +33,12 @@ var dimensions = {
 		max: 100,
 	},
 	blur: {
-		label: '<?php _e( 'Blur', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Blur', 'satori-studio' ); ?>',
 		min: 0,
 		max: 100,
 	},
 	spread: {
-		label: '<?php _e( 'Spread', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Spread', 'satori-studio' ); ?>',
 		min: -100,
 		max: 100,
 	},

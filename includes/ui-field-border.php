@@ -165,13 +165,13 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 		<div class="fl-compound-field-row">
 			<div class="fl-compound-field-setting fl-border-field-style" data-property="border-style">
 				<label class="fl-compound-field-label">
-					<?php _e( 'Style', 'fl-builder' ); ?>
+					<?php _e( 'Style', 'satori-studio' ); ?>
 				</label>
 				{{{style}}}
 			</div>
 			<div class="fl-compound-field-setting fl-border-field-color" data-property="border-color">
 				<label class="fl-compound-field-label">
-					<?php _e( 'Color', 'fl-builder' ); ?>
+					<?php _e( 'Color', 'satori-studio' ); ?>
 				</label>
 				{{{color}}}
 			</div>
@@ -179,7 +179,7 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 		<div class="fl-compound-field-row">
 			<div class="fl-compound-field-setting fl-border-field-width" data-property="border-width">
 				<label class="fl-compound-field-label">
-					<?php _e( 'Width', 'fl-builder' ); ?>
+					<?php _e( 'Width', 'satori-studio' ); ?>
 				</label>
 				{{{width}}}
 			</div>
@@ -195,7 +195,7 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 				<div class="fl-compound-field-row">
 					<div class="fl-compound-field-setting fl-border-field-radius" data-property="border-radius">
 						<label class="fl-compound-field-label">
-							<?php _e( 'Radius', 'fl-builder' ); ?>
+							<?php _e( 'Radius', 'satori-studio' ); ?>
 						</label>
 						{{{radius}}}
 					</div>
@@ -205,7 +205,7 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 				<div class="fl-compound-field-row">
 					<div class="fl-compound-field-setting fl-border-field-shadow" data-property="box-shadow">
 						<label class="fl-compound-field-label">
-							<?php _e( 'Box Shadow', 'fl-builder' ); ?>
+							<?php _e( 'Box Shadow', 'satori-studio' ); ?>
 						</label>
 						{{{shadow}}}
 					</div>

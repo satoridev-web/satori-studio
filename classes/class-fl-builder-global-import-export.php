@@ -11,7 +11,7 @@ class FLBuilderGlobalImportExport {
 			if ( 'settings_page_fl-builder-settings' === $hook ) {
 				wp_enqueue_script( 'fl-builder-global-import-export', FLBuilder::plugin_url() . 'js/fl-builder-global-import-export.js', array( 'jquery' ), FL_BUILDER_VERSION );
 				wp_localize_script( 'fl-builder-global-import-export', 'FLBuilderAdminImportExportConfig', array(
-					'select' => __( 'Import Settings', 'fl-builder' ),
+					'select' => __( 'Import Settings', 'satori-studio' ),
 				));
 			}
 		});
