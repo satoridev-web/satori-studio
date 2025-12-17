@@ -93,7 +93,7 @@ final class FLBuilderWPBlocks {
 				'title'       => $branding,
 				/* translators: %s: post type name */
 				'view'        => sprintf( _x( 'View %s', '%s post type name.', 'satori-studio' ), $post_type_name ),
-				'warning'     => __( 'Switching to the native WordPress editor will disable your SATORI Studio layout until it is enabled again. Any edits made in the WordPress editor will not be converted to your Page Builder layout. Do you want to continue?', 'satori-studio' ),
+				'warning'     => __( 'Switching to the native WordPress editor will disable your SATORI Studio layout until it is enabled again. Any edits made in the WordPress editor will not be converted to your SATORI Studio layout. Do you want to continue?', 'satori-studio' ),
 			),
 			'urls'    => array(
 				'edit' => FLBuilderModel::get_edit_url( $post->ID ),

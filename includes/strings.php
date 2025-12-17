@@ -11,4 +11,4 @@ _x( 'Click here to edit content on this %s using an easy drag-and-drop builder.'
 
 __( 'Use an easy drag-and-drop builder to edit content on this page.', 'satori-studio' );
 
-__( 'Launch Page Builder', 'satori-studio' );
+__( 'Launch SATORI Studio', 'satori-studio' );

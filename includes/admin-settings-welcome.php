@@ -29,7 +29,7 @@ $show_assistant_promos = function_exists( 'satori_studio_feature_enabled' ) ? sa
 
 	<div class="fl-settings-form-content fl-welcome-page-content">
 
-		<p class="welcome-intro"><?php _e( 'Thank you for choosing SATORI Studio and welcome to the colony! Find some helpful information below. Also, to the left are the Page Builder settings options.', 'satori-studio' ); ?>
+		<p class="welcome-intro"><?php _e( 'Thank you for choosing SATORI Studio and welcome to the colony! Find some helpful information below. Also, to the left are the SATORI Studio settings options.', 'satori-studio' ); ?>
 
                         <?php if ( true === FL_BUILDER_LITE && $show_upgrade_promos ) : ?>
                                 <?php /* translators: %s: upgrade url */ ?>
