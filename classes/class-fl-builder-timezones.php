@@ -72,7 +72,7 @@ final class FLBuilderTimezones {
 		$structure = array();
 
 		if ( empty( $selected_zone ) ) {
-			$structure[] = '<option selected="selected" value="">' . __( 'Select a city', 'fl-builder' ) . '</option>';
+			$structure[] = '<option selected="selected" value="">' . __( 'Select a city', 'satori-studio' ) . '</option>';
 		}
 
 		foreach ( $zonen as $key => $zone ) {
@@ -117,16 +117,16 @@ final class FLBuilderTimezones {
 		}
 
 		// Do UTC
-		$structure[] = '<optgroup label="' . esc_attr__( 'UTC', 'fl-builder' ) . '">';
+		$structure[] = '<optgroup label="' . esc_attr__( 'UTC', 'satori-studio' ) . '">';
 		$selected    = '';
 		if ( 'UTC' === $selected_zone ) {
 			$selected = 'selected="selected" ';
 		}
-		$structure[] = '<option ' . $selected . 'value="' . esc_attr__( 'UTC', 'fl-builder' ) . '">' . __( 'UTC', 'fl-builder' ) . '</option>';
+		$structure[] = '<option ' . $selected . 'value="' . esc_attr__( 'UTC', 'satori-studio' ) . '">' . __( 'UTC', 'satori-studio' ) . '</option>';
 		$structure[] = '</optgroup>';
 
 		// Do manual UTC offsets.
-		$structure[]  = '<optgroup label="' . esc_attr__( 'Manual Offsets', 'fl-builder' ) . '">';
+		$structure[]  = '<optgroup label="' . esc_attr__( 'Manual Offsets', 'satori-studio' ) . '">';
 		$offset_range = array(
 			-12,
 			-11,

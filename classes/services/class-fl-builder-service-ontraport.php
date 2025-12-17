@@ -65,9 +65,9 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 
 		// Make sure we have an API token.
 		if ( ! isset( $fields['app_id'] ) || empty( $fields['app_id'] ) ) {
-			$response['error'] = __( 'Error: You must provide an APP ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an APP ID.', 'satori-studio' );
 		} elseif ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) { // Make sure we have an Account ID.
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$api = $this->get_api( $fields['app_id'], $fields['api_key'] );
@@ -87,7 +87,7 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 			} else {
 				$response['error'] = sprintf(
 					/* translators: %s: error code */
-					__( 'Error: Please check your API token. Code: %s', 'fl-builder' ),
+					__( 'Error: Please check your API token. Code: %s', 'satori-studio' ),
 					$status_code
 				);
 			}
@@ -109,8 +109,8 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'APP ID', 'fl-builder' ),
-			'help'      => __( 'Your APP ID can be found in your Ontraport account.', 'fl-builder' ),
+			'label'     => __( 'APP ID', 'satori-studio' ),
+			'help'      => __( 'Your APP ID can be found in your Ontraport account.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -120,8 +120,8 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your Ontraport account.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your Ontraport account.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -180,7 +180,7 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'0' => __( 'Choose...', 'fl-builder' ),
+			'0' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		if ( $campaigns > 0 ) {
@@ -193,7 +193,7 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'Campaign', 'An email campaign from your Ontraport account.', 'fl-builder' ),
+			'label'     => _x( 'Campaign', 'An email campaign from your Ontraport account.', 'satori-studio' ),
 			'options'   => $options,
 			'default'   => 0,
 			'preview'   => array(
@@ -222,7 +222,7 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Ontraport. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Ontraport. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api  = $this->get_api( $account_data['app_id'], $account_data['api_key'] );
@@ -249,7 +249,7 @@ final class FLBuilderServiceOntraport extends FLBuilderService {
 			if ( 200 !== $api->getLastStatusCode() ) {
 				$response['error'] = sprintf(
 					/* translators: %s: error code */
-					__( 'There was an error subscribing to Ontraport. Code: %s', 'fl-builder' ),
+					__( 'There was an error subscribing to Ontraport. Code: %s', 'satori-studio' ),
 					$api->getLastStatusCode()
 				);
 			}

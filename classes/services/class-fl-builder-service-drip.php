@@ -62,9 +62,9 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 
 		// Make sure we have an API token.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API token.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API token.', 'satori-studio' );
 		} elseif ( ! isset( $fields['api_account_id'] ) || empty( $fields['api_account_id'] ) ) {
-			$response['error'] = __( 'Error: You must provide an Account ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an Account ID.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 			try {
 
@@ -85,14 +85,14 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 				} catch ( Exception $e ) {
 					$response['error'] = sprintf(
 						/* translators: %s: error */
-						__( 'Error: Please check your Account ID. %s', 'fl-builder' ),
+						__( 'Error: Please check your Account ID. %s', 'satori-studio' ),
 						$e->getMessage()
 					);
 				}
 			} catch ( Exception $e ) {
 				$response['error'] = sprintf(
 					/* translators: %s: error */
-					__( 'Error: Please check your API token. %s', 'fl-builder' ),
+					__( 'Error: Please check your API token. %s', 'satori-studio' ),
 					$e->getMessage()
 				);
 			}
@@ -114,9 +114,9 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'API Token', 'fl-builder' ),
+			'label'       => __( 'API Token', 'satori-studio' ),
 			/* translators: %s: api url */
-			'description' => sprintf( __( 'Your API Token can be found in your Drip account under Settings > My User Settings. Or, you can click this <a%s>direct link</a>.', 'fl-builder' ), ' href="https://www.getdrip.com/user/edit" target="_blank"' ),
+			'description' => sprintf( __( 'Your API Token can be found in your Drip account under Settings > My User Settings. Or, you can click this <a%s>direct link</a>.', 'satori-studio' ), ' href="https://www.getdrip.com/user/edit" target="_blank"' ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -126,8 +126,8 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Account ID', 'fl-builder' ),
-			'help'      => __( 'Your Account ID can be found in your Drip account under Settings > Site Setup.', 'fl-builder' ),
+			'label'     => __( 'Account ID', 'satori-studio' ),
+			'help'      => __( 'Your Account ID can be found in your Drip account under Settings > Site Setup.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -183,7 +183,7 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $campaigns as $campaign ) {
@@ -194,7 +194,7 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-campaign-select',
 			'type'      => 'select',
-			'label'     => _x( 'Campaign', 'An email campaign from your GetDrip account.', 'fl-builder' ),
+			'label'     => _x( 'Campaign', 'An email campaign from your GetDrip account.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -219,8 +219,8 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'text',
-			'label'     => _x( 'Tags', 'A tag to add to contacts in Drip when they subscribe.', 'fl-builder' ),
-			'help'      => __( 'For multiple tags, separate with comma.', 'fl-builder' ),
+			'label'     => _x( 'Tags', 'A tag to add to contacts in Drip when they subscribe.', 'satori-studio' ),
+			'help'      => __( 'For multiple tags, separate with comma.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -242,7 +242,7 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		if ( ! empty( $workflows ) ) {
@@ -255,7 +255,7 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-workflow-select',
 			'type'      => 'select',
-			'label'     => _x( 'Workflow', 'An email workflow from your GetDrip account.', 'fl-builder' ),
+			'label'     => _x( 'Workflow', 'An email workflow from your GetDrip account.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -284,7 +284,7 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 		$subscriber_id = null;
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Drip. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Drip. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api  = $this->get_api( $account_data['api_key'] );
@@ -303,7 +303,7 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 			} catch ( Exception $e ) {
 				$response['error'] = sprintf(
 					/* translators: %s: error */
-					__( 'There was an error searching contact from Drip. %s', 'fl-builder' ),
+					__( 'There was an error searching contact from Drip. %s', 'satori-studio' ),
 					$e->getMessage()
 				);
 				return $response;
@@ -345,7 +345,7 @@ final class FLBuilderServiceDrip extends FLBuilderService {
 			} catch ( Exception $e ) {
 				$response['error'] = sprintf(
 					/* translators: %s: error */
-					__( 'There was an error subscribing to Drip. %s', 'fl-builder' ),
+					__( 'There was an error subscribing to Drip. %s', 'satori-studio' ),
 					$e->getMessage()
 				);
 			}

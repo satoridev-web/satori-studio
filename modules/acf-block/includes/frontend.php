@@ -7,5 +7,5 @@ if ( isset( $block ) && ! empty( $block ) ) {
 } elseif ( FLBuilderModel::is_builder_active() ) {
 	// Block doesn't exist!
 	/* translators: %s: acf block */
-	printf( _x( '%s no longer exists.', '%s stands for acf block.', 'fl-builder' ), $module->name );
+	printf( _x( '%s no longer exists.', '%s stands for acf block.', 'satori-studio' ), $module->name );
 }

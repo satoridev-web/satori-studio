@@ -44,9 +44,9 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} elseif ( ! isset( $fields['access_token'] ) || empty( $fields['access_token'] ) ) {
-			$response['error'] = __( 'Error: You must provide an access token.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an access token.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$url     = $this->api_url . 'lists?api_key=' . $fields['api_key'] . '&access_token=' . $fields['access_token'];
@@ -54,7 +54,7 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 
 			if ( ! is_array( $request ) || ( isset( $request[0] ) && isset( $request[0]->error_message ) ) ) {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'fl-builder' ), $request[0]->error_message );
+				$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'satori-studio' ), $request[0]->error_message );
 			} else {
 				$response['data'] = array(
 					'api_key'      => $fields['api_key'],
@@ -78,8 +78,8 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your Constant Contact API key.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your Constant Contact API key.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -89,10 +89,10 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'Access Token', 'fl-builder' ),
-			'help'        => __( 'Your Constant Contact access token.', 'fl-builder' ),
+			'label'       => __( 'Access Token', 'satori-studio' ),
+			'help'        => __( 'Your Constant Contact access token.', 'satori-studio' ),
 			/* translators: 1: documentation link */
-			'description' => sprintf( __( 'You must already have registered a Developer Account with Constant Contact and obtained an API key and access token. <a%1$s>Creating new v2 API Keys</a> is no longer supported by Constant Contact. If you do not already have a v2 API key, please use the other Constant Contact option that supports the v3 API.', 'fl-builder' ), ' href="https://v2.developer.constantcontact.com/docs/developer-guides/api-documentation-index.html" target="_blank"' ),
+			'description' => sprintf( __( 'You must already have registered a Developer Account with Constant Contact and obtained an API key and access token. <a%1$s>Creating new v2 API Keys</a> is no longer supported by Constant Contact. If you do not already have a v2 API key, please use the other Constant Contact option that supports the v3 API.', 'satori-studio' ), ' href="https://v2.developer.constantcontact.com/docs/developer-guides/api-documentation-index.html" target="_blank"' ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -125,7 +125,7 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 
 		if ( ! is_array( $request ) || ( isset( $request[0] ) && isset( $request[0]->error_message ) ) ) {
 			/* translators: %s: error */
-			$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'fl-builder' ), $request[0]->error_message );
+			$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'satori-studio' ), $request[0]->error_message );
 		} else {
 			$response['html'] = $this->render_list_field( $request, $settings );
 		}
@@ -146,7 +146,7 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $list ) {
@@ -157,7 +157,7 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -185,7 +185,7 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Constant Contact. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Constant Contact. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api_key      = $account_data['api_key'];
@@ -236,7 +236,7 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 
 				if ( isset( $res->error_key ) ) {
 					/* translators: %s: error */
-					$response['error'] = sprintf( __( 'There was an error subscribing to Constant Contact. %s', 'fl-builder' ), $res->error_key );
+					$response['error'] = sprintf( __( 'There was an error subscribing to Constant Contact. %s', 'satori-studio' ), $res->error_key );
 				}
 			} else {
 				// @codingStandardsIgnoreLine
@@ -269,7 +269,7 @@ final class FLBuilderServiceConstantContact extends FLBuilderService {
 
 				if ( isset( $create->error_key ) ) {
 					/* translators: %s: error */
-					$response['error'] = sprintf( __( 'There was an error subscribing to Constant Contact. %s', 'fl-builder' ), $create->error_key );
+					$response['error'] = sprintf( __( 'There was an error subscribing to Constant Contact. %s', 'satori-studio' ), $create->error_key );
 				}
 			}
 		}

@@ -528,10 +528,10 @@ class FLBuilderModule {
 	 * @return string
 	 */
 	private function normalize_category_name( $cat ) {
-		if ( __( 'Basic Modules', 'fl-builder' ) === $cat ) {
-			$cat = __( 'Basic', 'fl-builder' );
-		} elseif ( __( 'Advanced Modules', 'fl-builder' ) === $cat ) {
-			$cat = __( 'Advanced', 'fl-builder' );
+		if ( __( 'Basic Modules', 'satori-studio' ) === $cat ) {
+			$cat = __( 'Basic', 'satori-studio' );
+		} elseif ( __( 'Advanced Modules', 'satori-studio' ) === $cat ) {
+			$cat = __( 'Advanced', 'satori-studio' );
 		}
 		return $cat;
 	}

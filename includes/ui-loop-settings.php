@@ -32,11 +32,11 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 	// Data Source
 	FLBuilder::render_settings_field('data_source', array(
 		'type'    => 'select',
-		'label'   => __( 'Source', 'fl-builder' ),
+		'label'   => __( 'Source', 'satori-studio' ),
 		'default' => 'custom_query',
 		'options' => array(
-			'custom_query' => __( 'Custom Query', 'fl-builder' ),
-			'main_query'   => __( 'Main Query', 'fl-builder' ),
+			'custom_query' => __( 'Custom Query', 'satori-studio' ),
+			'main_query'   => __( 'Main Query', 'satori-studio' ),
 		),
 		'toggle'  => array(
 			'custom_query' => array(
@@ -52,7 +52,7 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 <div class="fl-custom-query fl-loop-data-source" data-source="custom_query">
 	<div id="fl-builder-settings-section-general" class="fl-builder-settings-section">
 		<h3 class="fl-builder-settings-title">
-			<span class="fl-builder-settings-title-text-wrap"><?php _e( 'Custom Query', 'fl-builder' ); ?></span>
+			<span class="fl-builder-settings-title-text-wrap"><?php _e( 'Custom Query', 'satori-studio' ); ?></span>
 		</h3>
 		<table class="fl-form-table">
 		<?php
@@ -60,36 +60,36 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 		// Post type
 		FLBuilder::render_settings_field('post_type', array(
 			'type'         => 'post-type',
-			'label'        => __( 'Post Type', 'fl-builder' ),
+			'label'        => __( 'Post Type', 'satori-studio' ),
 			'multi-select' => true,
 		), $settings);
 
 		// Order
 		FLBuilder::render_settings_field('order', array(
 			'type'    => 'select',
-			'label'   => __( 'Order', 'fl-builder' ),
+			'label'   => __( 'Order', 'satori-studio' ),
 			'options' => array(
-				'DESC' => __( 'Descending', 'fl-builder' ),
-				'ASC'  => __( 'Ascending', 'fl-builder' ),
+				'DESC' => __( 'Descending', 'satori-studio' ),
+				'ASC'  => __( 'Ascending', 'satori-studio' ),
 			),
 		), $settings);
 
 		// Order by
 		FLBuilder::render_settings_field('order_by', array(
 			'type'    => 'select',
-			'label'   => __( 'Order By', 'fl-builder' ),
+			'label'   => __( 'Order By', 'satori-studio' ),
 			'options' => array(
-				'author'         => __( 'Author', 'fl-builder' ),
-				'comment_count'  => __( 'Comment Count', 'fl-builder' ),
-				'date'           => __( 'Date', 'fl-builder' ),
-				'modified'       => __( 'Date Last Modified', 'fl-builder' ),
-				'ID'             => __( 'ID', 'fl-builder' ),
-				'menu_order'     => __( 'Menu Order', 'fl-builder' ),
-				'meta_value'     => __( 'Meta Value (Alphabetical)', 'fl-builder' ),
-				'meta_value_num' => __( 'Meta Value (Numeric)', 'fl-builder' ),
-				'rand'           => __( 'Random', 'fl-builder' ),
-				'title'          => __( 'Title', 'fl-builder' ),
-				'post__in'       => __( 'Selection Order', 'fl-builder' ),
+				'author'         => __( 'Author', 'satori-studio' ),
+				'comment_count'  => __( 'Comment Count', 'satori-studio' ),
+				'date'           => __( 'Date', 'satori-studio' ),
+				'modified'       => __( 'Date Last Modified', 'satori-studio' ),
+				'ID'             => __( 'ID', 'satori-studio' ),
+				'menu_order'     => __( 'Menu Order', 'satori-studio' ),
+				'meta_value'     => __( 'Meta Value (Alphabetical)', 'satori-studio' ),
+				'meta_value_num' => __( 'Meta Value (Numeric)', 'satori-studio' ),
+				'rand'           => __( 'Random', 'satori-studio' ),
+				'title'          => __( 'Title', 'satori-studio' ),
+				'post__in'       => __( 'Selection Order', 'satori-studio' ),
 			),
 			'toggle'  => array(
 				'meta_value'     => array(
@@ -104,13 +104,13 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 		// Meta Key
 		FLBuilder::render_settings_field('order_by_meta_key', array(
 			'type'  => 'text',
-			'label' => __( 'Meta Key', 'fl-builder' ),
+			'label' => __( 'Meta Key', 'satori-studio' ),
 		), $settings);
 
 		// Offset
 		FLBuilder::render_settings_field('offset', array(
 			'type'        => 'unit',
-			'label'       => _x( 'Offset', 'How many posts to skip.', 'fl-builder' ),
+			'label'       => _x( 'Offset', 'How many posts to skip.', 'satori-studio' ),
 			'default'     => '0',
 			'placeholder' => '0',
 			'sanitize'    => 'absint',
@@ -119,17 +119,17 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 				'max'  => 100,
 				'step' => 2,
 			),
-			'help'        => __( 'Skip this many posts that match the specified criteria.', 'fl-builder' ),
+			'help'        => __( 'Skip this many posts that match the specified criteria.', 'satori-studio' ),
 		), $settings);
 
 		FLBuilder::render_settings_field('exclude_self', array(
 			'type'    => 'select',
-			'label'   => __( 'Exclude Current Post', 'fl-builder' ),
+			'label'   => __( 'Exclude Current Post', 'satori-studio' ),
 			'default' => 'no',
-			'help'    => __( 'Exclude the current post from the query.', 'fl-builder' ),
+			'help'    => __( 'Exclude the current post from the query.', 'satori-studio' ),
 			'options' => array(
-				'yes' => __( 'Yes', 'fl-builder' ),
-				'no'  => __( 'No', 'fl-builder' ),
+				'yes' => __( 'Yes', 'satori-studio' ),
+				'no'  => __( 'No', 'satori-studio' ),
 			),
 		), $settings);
 		?>
@@ -137,7 +137,7 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 	</div>
 	<div id="fl-builder-settings-section-filter" class="fl-builder-settings-section">
 		<h3 class="fl-builder-settings-title">
-			<span class="fl-builder-settings-title-text-wrap"><?php _e( 'Filter', 'fl-builder' ); ?></span>
+			<span class="fl-builder-settings-title-text-wrap"><?php _e( 'Filter', 'satori-studio' ); ?></span>
 		</h3>
 		<?php foreach ( FLBuilderLoop::post_types() as $slug => $type ) : ?>
 			<table class="fl-form-table fl-custom-query-filter fl-custom-query-<?php echo $slug; ?>-filter"<?php echo ( $slug == $settings->post_type ) ? ' style="display:table;"' : ''; ?>>
@@ -150,7 +150,7 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 				'data'     => $slug,
 				'label'    => $type->label,
 				/* translators: %s: type label */
-				'help'     => sprintf( __( 'Enter a list of %1$s.', 'fl-builder' ), $type->label ),
+				'help'     => sprintf( __( 'Enter a list of %1$s.', 'satori-studio' ), $type->label ),
 				'matching' => true,
 			), $settings );
 
@@ -178,7 +178,7 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 					'data'     => $tax_slug,
 					'label'    => $tax->label,
 					/* translators: %s: tax label */
-					'help'     => sprintf( __( 'Enter a list of %1$s.', 'fl-builder' ), $tax->label ),
+					'help'     => sprintf( __( 'Enter a list of %1$s.', 'satori-studio' ), $tax->label ),
 					'matching' => true,
 				), $field_settings );
 			}
@@ -191,8 +191,8 @@ do_action( 'fl_builder_loop_settings_before_form', $settings );
 		FLBuilder::render_settings_field('users', array(
 			'type'     => 'suggest',
 			'action'   => 'fl_as_users',
-			'label'    => __( 'Authors', 'fl-builder' ),
-			'help'     => __( 'Enter a list of authors usernames.', 'fl-builder' ),
+			'label'    => __( 'Authors', 'satori-studio' ),
+			'help'     => __( 'Enter a list of authors usernames.', 'satori-studio' ),
 			'matching' => true,
 		), $settings);
 		?>

@@ -4,7 +4,7 @@
 
 		var service_type = null,
 			services     = {},
-			options 	 = { '' : '<?php esc_html_e( 'Choose...', 'fl-builder' ); ?>' },
+			options 	 = { '' : '<?php esc_html_e( 'Choose...', 'satori-studio' ); ?>' },
 			key			 = '',
 			fields		 = {},
 			html		 = '';
@@ -33,7 +33,7 @@
 				row_class : 'fl-builder-service-select-row',
 				className : 'fl-builder-service-select',
 				type      : 'select',
-				label     : '<?php esc_html_e( 'Service', 'fl-builder' ); ?>',
+				label     : '<?php esc_html_e( 'Service', 'satori-studio' ); ?>',
 				options   : options,
 				preview   : {
 					type 	: 'none'

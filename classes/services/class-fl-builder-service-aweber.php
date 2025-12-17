@@ -69,9 +69,9 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 
 		// Make sure we have an authorization code.
 		if ( ! isset( $fields['auth_code'] ) || empty( $fields['auth_code'] ) ) {
-			$response['error'] = __( 'Error: You must provide an Authorization Code.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an Authorization Code.', 'satori-studio' );
 		} elseif ( 6 != count( explode( '|', $fields['auth_code'] ) ) ) {
-			$response['error'] = __( 'Error: Please enter a valid Authorization Code.', 'fl-builder' );
+			$response['error'] = __( 'Error: Please enter a valid Authorization Code.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$api = $this->get_api( $fields['auth_code'] );
@@ -117,9 +117,9 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'Authorization Code', 'fl-builder' ),
+			'label'       => __( 'Authorization Code', 'satori-studio' ),
 			/* translators: %s: register url */
-			'description' => sprintf( __( 'Please register this website with AWeber to get your Authorization Code. <a%s>Register Now</a>', 'fl-builder' ), ' href="https://auth.aweber.com/1.0/oauth/authorize_app/baa1f131" target="_blank"' ),
+			'description' => sprintf( __( 'Please register this website with AWeber to get your Authorization Code. <a%s>Register Now</a>', 'satori-studio' ), ' href="https://auth.aweber.com/1.0/oauth/authorize_app/baa1f131" target="_blank"' ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -200,7 +200,7 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists->data['entries'] as $list ) {
@@ -211,7 +211,7 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -236,8 +236,8 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => _x( 'Tags', 'A comma separated list of tags.', 'fl-builder' ),
-			'help'      => __( 'A comma separated list of tags.', 'fl-builder' ),
+			'label'     => _x( 'Tags', 'A comma separated list of tags.', 'satori-studio' ),
+			'help'      => __( 'A comma separated list of tags.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -264,7 +264,7 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to AWeber. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to AWeber. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api  = $this->get_api( $account_data['auth_code'] );
@@ -310,12 +310,12 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 						if ( is_array( $result ) && isset( $result['Status-Code'] ) && 209 == $result['Status-Code'] ) {
 							return $response;
 						} else {
-							$response['error'] = __( 'There was an error connecting to AWeber. Please try again.', 'fl-builder' );
+							$response['error'] = __( 'There was an error connecting to AWeber. Please try again.', 'satori-studio' );
 						}
 					} catch ( AWeberAPIException $e ) {
 						$response['error'] = sprintf(
 							/* translators: %s: error */
-							__( 'There was an error subscribing to AWeber. %s', 'fl-builder' ),
+							__( 'There was an error subscribing to AWeber. %s', 'satori-studio' ),
 							$e->getMessage()
 						);
 					}
@@ -328,13 +328,13 @@ final class FLBuilderServiceAWeber extends FLBuilderService {
 					if ( is_array( $result ) && isset( $result['Status-Code'] ) && 201 == $result['Status-Code'] ) {
 						return $response;
 					} else {
-						$response['error'] = __( 'There was an error connecting to AWeber. Please try again.', 'fl-builder' );
+						$response['error'] = __( 'There was an error connecting to AWeber. Please try again.', 'satori-studio' );
 					}
 				}
 			} catch ( AWeberAPIException $e ) {
 				$response['error'] = sprintf(
 					/* translators: %s: error */
-					__( 'There was an error subscribing to AWeber. %s', 'fl-builder' ),
+					__( 'There was an error subscribing to AWeber. %s', 'satori-studio' ),
 					$e->getMessage()
 				);
 			}

@@ -52,7 +52,7 @@ final class FLBuilderNodeCodeSettings {
 
 	public static function get_css_field_config() {
 		return array(
-			'title'     => __( 'CSS', 'fl-builder' ),
+			'title'     => __( 'CSS', 'satori-studio' ),
 			'collapsed' => true,
 			'fields'    => array(
 				'bb_css_code' => array(
@@ -70,7 +70,7 @@ final class FLBuilderNodeCodeSettings {
 
 	public static function get_js_field_config() {
 		return array(
-			'title'     => __( 'JavaScript', 'fl-builder' ),
+			'title'     => __( 'JavaScript', 'satori-studio' ),
 			'collapsed' => true,
 			'fields'    => array(
 				'bb_js_code' => array(

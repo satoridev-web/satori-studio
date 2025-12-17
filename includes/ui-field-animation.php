@@ -12,78 +12,78 @@ var value = '' === data.value ? defaults : jQuery.extend( true, defaults, data.v
 <?php
 
 $styles = array(
-	''       => _x( 'None', 'Animation style.', 'fl-builder' ),
+	''       => _x( 'None', 'Animation style.', 'satori-studio' ),
 	'fade'   => array(
-		'label'   => _x( 'Fade', 'Animation style.', 'fl-builder' ),
+		'label'   => _x( 'Fade', 'Animation style.', 'satori-studio' ),
 		'options' => array(
-			'fade-in'    => _x( 'Fade In', 'Animation style.', 'fl-builder' ),
-			'fade-left'  => _x( 'Fade Left', 'Animation style.', 'fl-builder' ),
-			'fade-right' => _x( 'Fade Right', 'Animation style.', 'fl-builder' ),
-			'fade-up'    => _x( 'Fade Up', 'Animation style.', 'fl-builder' ),
-			'fade-down'  => _x( 'Fade Down', 'Animation style.', 'fl-builder' ),
+			'fade-in'    => _x( 'Fade In', 'Animation style.', 'satori-studio' ),
+			'fade-left'  => _x( 'Fade Left', 'Animation style.', 'satori-studio' ),
+			'fade-right' => _x( 'Fade Right', 'Animation style.', 'satori-studio' ),
+			'fade-up'    => _x( 'Fade Up', 'Animation style.', 'satori-studio' ),
+			'fade-down'  => _x( 'Fade Down', 'Animation style.', 'satori-studio' ),
 		),
 	),
 	'slide'  => array(
-		'label'   => _x( 'Slide', 'Animation style.', 'fl-builder' ),
+		'label'   => _x( 'Slide', 'Animation style.', 'satori-studio' ),
 		'options' => array(
-			'slide-in-left'  => _x( 'Slide Left', 'Animation style.', 'fl-builder' ),
-			'slide-in-right' => _x( 'Slide Right', 'Animation style.', 'fl-builder' ),
-			'slide-in-up'    => _x( 'Slide Up', 'Animation style.', 'fl-builder' ),
-			'slide-in-down'  => _x( 'Slide Down', 'Animation style.', 'fl-builder' ),
+			'slide-in-left'  => _x( 'Slide Left', 'Animation style.', 'satori-studio' ),
+			'slide-in-right' => _x( 'Slide Right', 'Animation style.', 'satori-studio' ),
+			'slide-in-up'    => _x( 'Slide Up', 'Animation style.', 'satori-studio' ),
+			'slide-in-down'  => _x( 'Slide Down', 'Animation style.', 'satori-studio' ),
 		),
 	),
 	'zoom'   => array(
-		'label'   => _x( 'Zoom', 'Animation style.', 'fl-builder' ),
+		'label'   => _x( 'Zoom', 'Animation style.', 'satori-studio' ),
 		'options' => array(
-			'zoom-in'    => _x( 'Zoom In', 'Animation style.', 'fl-builder' ),
-			'zoom-left'  => _x( 'Zoom Left', 'Animation style.', 'fl-builder' ),
-			'zoom-right' => _x( 'Zoom Right', 'Animation style.', 'fl-builder' ),
-			'zoom-up'    => _x( 'Zoom Up', 'Animation style.', 'fl-builder' ),
-			'zoom-down'  => _x( 'Zoom Down', 'Animation style.', 'fl-builder' ),
+			'zoom-in'    => _x( 'Zoom In', 'Animation style.', 'satori-studio' ),
+			'zoom-left'  => _x( 'Zoom Left', 'Animation style.', 'satori-studio' ),
+			'zoom-right' => _x( 'Zoom Right', 'Animation style.', 'satori-studio' ),
+			'zoom-up'    => _x( 'Zoom Up', 'Animation style.', 'satori-studio' ),
+			'zoom-down'  => _x( 'Zoom Down', 'Animation style.', 'satori-studio' ),
 		),
 	),
 	'bounce' => array(
-		'label'   => _x( 'Bounce', 'Animation style.', 'fl-builder' ),
+		'label'   => _x( 'Bounce', 'Animation style.', 'satori-studio' ),
 		'options' => array(
-			'bounce'       => _x( 'Bounce', 'Animation style.', 'fl-builder' ),
-			'bounce-in'    => _x( 'Bounce In', 'Animation style.', 'fl-builder' ),
-			'bounce-left'  => _x( 'Bounce Left', 'Animation style.', 'fl-builder' ),
-			'bounce-right' => _x( 'Bounce Right', 'Animation style.', 'fl-builder' ),
-			'bounce-up'    => _x( 'Bounce Up', 'Animation style.', 'fl-builder' ),
-			'bounce-down'  => _x( 'Bounce Down', 'Animation style.', 'fl-builder' ),
+			'bounce'       => _x( 'Bounce', 'Animation style.', 'satori-studio' ),
+			'bounce-in'    => _x( 'Bounce In', 'Animation style.', 'satori-studio' ),
+			'bounce-left'  => _x( 'Bounce Left', 'Animation style.', 'satori-studio' ),
+			'bounce-right' => _x( 'Bounce Right', 'Animation style.', 'satori-studio' ),
+			'bounce-up'    => _x( 'Bounce Up', 'Animation style.', 'satori-studio' ),
+			'bounce-down'  => _x( 'Bounce Down', 'Animation style.', 'satori-studio' ),
 		),
 	),
 	'rotate' => array(
-		'label'   => _x( 'Rotate', 'Animation style.', 'fl-builder' ),
+		'label'   => _x( 'Rotate', 'Animation style.', 'satori-studio' ),
 		'options' => array(
-			'rotate-in'         => _x( 'Rotate In', 'Animation style.', 'fl-builder' ),
-			'rotate-down-left'  => _x( 'Rotate Down Left', 'Animation style.', 'fl-builder' ),
-			'rotate-down-right' => _x( 'Rotate Down Right', 'Animation style.', 'fl-builder' ),
-			'rotate-up-left'    => _x( 'Rotate Up Left', 'Animation style.', 'fl-builder' ),
-			'rotate-up-right'   => _x( 'Rotate Up Right', 'Animation style.', 'fl-builder' ),
+			'rotate-in'         => _x( 'Rotate In', 'Animation style.', 'satori-studio' ),
+			'rotate-down-left'  => _x( 'Rotate Down Left', 'Animation style.', 'satori-studio' ),
+			'rotate-down-right' => _x( 'Rotate Down Right', 'Animation style.', 'satori-studio' ),
+			'rotate-up-left'    => _x( 'Rotate Up Left', 'Animation style.', 'satori-studio' ),
+			'rotate-up-right'   => _x( 'Rotate Up Right', 'Animation style.', 'satori-studio' ),
 		),
 	),
 	'flip'   => array(
-		'label'   => _x( 'Flip', 'Animation style.', 'fl-builder' ),
+		'label'   => _x( 'Flip', 'Animation style.', 'satori-studio' ),
 		'options' => array(
-			'flip-vertical'   => _x( 'Flip Vertical', 'Animation style.', 'fl-builder' ),
-			'flip-horizontal' => _x( 'Flip Horizontal', 'Animation style.', 'fl-builder' ),
+			'flip-vertical'   => _x( 'Flip Vertical', 'Animation style.', 'satori-studio' ),
+			'flip-horizontal' => _x( 'Flip Horizontal', 'Animation style.', 'satori-studio' ),
 		),
 	),
 	'fancy'  => array(
-		'label'   => _x( 'Fancy', 'Animation style.', 'fl-builder' ),
+		'label'   => _x( 'Fancy', 'Animation style.', 'satori-studio' ),
 		'options' => array(
-			'fancy-flash'       => _x( 'Flash', 'Animation style.', 'fl-builder' ),
-			'fancy-pulse'       => _x( 'Pulse', 'Animation style.', 'fl-builder' ),
-			'fancy-rubber-band' => _x( 'Rubber Band', 'Animation style.', 'fl-builder' ),
-			'fancy-shake'       => _x( 'Shake', 'Animation style.', 'fl-builder' ),
-			'fancy-swing'       => _x( 'Swing', 'Animation style.', 'fl-builder' ),
-			'fancy-tada'        => _x( 'Tada', 'Animation style.', 'fl-builder' ),
-			'fancy-wobble'      => _x( 'Wobble', 'Animation style.', 'fl-builder' ),
-			'fancy-jello'       => _x( 'Jello', 'Animation style.', 'fl-builder' ),
-			'fancy-light-speed' => _x( 'Light Speed', 'Animation style.', 'fl-builder' ),
-			'fancy-jack-box'    => _x( 'Jack in the Box', 'Animation style.', 'fl-builder' ),
-			'fancy-roll-in'     => _x( 'Roll In', 'Animation style.', 'fl-builder' ),
+			'fancy-flash'       => _x( 'Flash', 'Animation style.', 'satori-studio' ),
+			'fancy-pulse'       => _x( 'Pulse', 'Animation style.', 'satori-studio' ),
+			'fancy-rubber-band' => _x( 'Rubber Band', 'Animation style.', 'satori-studio' ),
+			'fancy-shake'       => _x( 'Shake', 'Animation style.', 'satori-studio' ),
+			'fancy-swing'       => _x( 'Swing', 'Animation style.', 'satori-studio' ),
+			'fancy-tada'        => _x( 'Tada', 'Animation style.', 'satori-studio' ),
+			'fancy-wobble'      => _x( 'Wobble', 'Animation style.', 'satori-studio' ),
+			'fancy-jello'       => _x( 'Jello', 'Animation style.', 'satori-studio' ),
+			'fancy-light-speed' => _x( 'Light Speed', 'Animation style.', 'satori-studio' ),
+			'fancy-jack-box'    => _x( 'Jack in the Box', 'Animation style.', 'satori-studio' ),
+			'fancy-roll-in'     => _x( 'Roll In', 'Animation style.', 'satori-studio' ),
 		),
 	),
 );
@@ -129,13 +129,13 @@ var duration = wp.template( 'fl-builder-field-unit' )( {
 			<div class="fl-compound-field-setting fl-animation-field-delay">
 				{{{delay}}}
 				<label class="fl-compound-field-label fl-compound-field-label-bottom">
-					<?php _e( 'Delay', 'fl-builder' ); ?>
+					<?php _e( 'Delay', 'satori-studio' ); ?>
 				</label>
 			</div>
 			<div class="fl-compound-field-setting fl-animation-field-duration">
 				{{{duration}}}
 				<label class="fl-compound-field-label fl-compound-field-label-bottom">
-					<?php _e( 'Duration', 'fl-builder' ); ?>
+					<?php _e( 'Duration', 'satori-studio' ); ?>
 				</label>
 			</div>
 		</div>

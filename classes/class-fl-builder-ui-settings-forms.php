@@ -563,10 +563,10 @@ class FLBuilderUISettingsForms {
 		$meta           = wp_get_attachment_metadata( $id );
 		$sizes          = array();
 		$possible_sizes = apply_filters( 'image_size_names_choose', array(
-			'thumbnail' => __( 'Thumbnail', 'fl-builder' ),
-			'medium'    => __( 'Medium', 'fl-builder' ),
-			'large'     => __( 'Large', 'fl-builder' ),
-			'full'      => __( 'Full Size', 'fl-builder' ),
+			'thumbnail' => __( 'Thumbnail', 'satori-studio' ),
+			'medium'    => __( 'Medium', 'satori-studio' ),
+			'large'     => __( 'Large', 'satori-studio' ),
+			'full'      => __( 'Full Size', 'satori-studio' ),
 		) );
 
 		if ( isset( $meta['sizes'] ) ) {
@@ -990,7 +990,7 @@ class FLBuilderUISettingsForms {
 					echo '<td>&nbsp;</td><td>';
 				}
 				/* translators: %s: field name to add */
-				echo '<a href="javascript:void(0);" onclick="return false;" class="fl-builder-field-add fl-builder-button" data-field="' . $arr_name . '">' . sprintf( _x( 'Add %s', 'Field name to add.', 'fl-builder' ), $field['label'] ) . '</a>';
+				echo '<a href="javascript:void(0);" onclick="return false;" class="fl-builder-field-add fl-builder-button" data-field="' . $arr_name . '">' . sprintf( _x( 'Add %s', 'Field name to add.', 'satori-studio' ), $field['label'] ) . '</a>';
 				echo '</td>';
 				echo '</tr>';
 				echo '</tbody>';
@@ -1094,7 +1094,7 @@ class FLBuilderUISettingsForms {
 		// Add new
 		$categories[] = array(
 			'id'   => 'add_new',
-			'name' => sprintf( '-- %s --', __( 'Add New Category', 'fl-builder' ) ),
+			'name' => sprintf( '-- %s --', __( 'Add New Category', 'satori-studio' ) ),
 		);
 		return $categories;
 	}

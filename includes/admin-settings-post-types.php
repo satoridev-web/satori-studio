@@ -1,13 +1,13 @@
 <div id="fl-post-types-form" class="fl-settings-form">
 
-	<h3 class="fl-settings-form-header"><?php _e( 'Post Types', 'fl-builder' ); ?></h3>
+	<h3 class="fl-settings-form-header"><?php _e( 'Post Types', 'satori-studio' ); ?></h3>
 
 	<form id="post-types-form" action="<?php FLBuilderAdminSettings::render_form_action( 'post-types' ); ?>" method="post">
 
 		<?php if ( FLBuilderAdminSettings::multisite_support() && ! is_network_admin() ) : ?>
 		<label>
 			<input class="fl-override-ms-cb" type="checkbox" name="fl-override-ms" value="1" <?php echo ( get_option( '_fl_builder_post_types' ) ) ? 'checked="checked"' : ''; ?> />
-			<?php _e( 'Override network settings?', 'fl-builder' ); ?>
+			<?php _e( 'Override network settings?', 'satori-studio' ); ?>
 		</label>
 		<?php endif; ?>
 
@@ -15,8 +15,8 @@
 
 			<?php if ( is_network_admin() ) : ?>
 
-				<p><?php _e( 'Enter a comma separated list of the post types you would like the builder to work with.', 'fl-builder' ); ?></p>
-				<p><?php _e( 'NOTE: Not all custom post types may be supported.', 'fl-builder' ); ?></p>
+				<p><?php _e( 'Enter a comma separated list of the post types you would like the builder to work with.', 'satori-studio' ); ?></p>
+				<p><?php _e( 'NOTE: Not all custom post types may be supported.', 'satori-studio' ); ?></p>
 				<?php
 
 				$saved_post_types = FLBuilderModel::get_post_types();
@@ -31,12 +31,12 @@
 
 				?>
 				<input type="text" name="fl-post-types" value="<?php echo esc_html( $saved_post_types ); ?>" class="regular-text" />
-				<p class="description"><?php _e( 'Example: page, post, product', 'fl-builder' ); ?></p>
+				<p class="description"><?php _e( 'Example: page, post, product', 'satori-studio' ); ?></p>
 
 			<?php else : ?>
 
-				<p><?php _e( 'Select the post types you would like the builder to work with.', 'fl-builder' ); ?></p>
-				<p><?php _e( 'NOTE: Not all custom post types may be supported.', 'fl-builder' ); ?></p>
+				<p><?php _e( 'Select the post types you would like the builder to work with.', 'satori-studio' ); ?></p>
+				<p><?php _e( 'NOTE: Not all custom post types may be supported.', 'satori-studio' ); ?></p>
 
 				<?php
 
@@ -75,7 +75,7 @@
 
 		</div>
 		<p class="submit">
-			<input type="submit" name="update" class="button-primary" value="<?php esc_attr_e( 'Save Post Types', 'fl-builder' ); ?>" />
+			<input type="submit" name="update" class="button-primary" value="<?php esc_attr_e( 'Save Post Types', 'satori-studio' ); ?>" />
 			<?php wp_nonce_field( 'post-types', 'fl-post-types-nonce' ); ?>
 		</p>
 	</form>

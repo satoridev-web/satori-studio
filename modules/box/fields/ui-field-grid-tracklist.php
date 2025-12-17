@@ -1,13 +1,13 @@
 <#
 const strings = {
-	columns: '<?php _e( 'Columns', 'fl-builder' ); ?>',
-	rows: '<?php _e( 'Rows', 'fl-builder' ); ?>',
-	auto_columns: '<?php _e( 'Auto Columns', 'fl-builder' ); ?>',
-	auto_rows: '<?php _e( 'Auto Rows', 'fl-builder' ); ?>',
-	clear: '<?php _e( 'Clear', 'fl-builder' ); ?>',
-	addNew: '<?php _e( 'Add New...', 'fl-builder' ); ?>',
-	clone: '<?php _e( 'Duplicate', 'fl-builder' ); ?>',
-	delete: '<?php _e( 'Remove', 'fl-builder' ); ?>',
+	columns: '<?php _e( 'Columns', 'satori-studio' ); ?>',
+	rows: '<?php _e( 'Rows', 'satori-studio' ); ?>',
+	auto_columns: '<?php _e( 'Auto Columns', 'satori-studio' ); ?>',
+	auto_rows: '<?php _e( 'Auto Rows', 'satori-studio' ); ?>',
+	clear: '<?php _e( 'Clear', 'satori-studio' ); ?>',
+	addNew: '<?php _e( 'Add New...', 'satori-studio' ); ?>',
+	clone: '<?php _e( 'Duplicate', 'satori-studio' ); ?>',
+	delete: '<?php _e( 'Remove', 'satori-studio' ); ?>',
 }
 const defaults = {
 	columns: [],

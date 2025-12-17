@@ -44,13 +44,13 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['access_token'] ) || empty( $fields['access_token'] ) ) {
-			$response['error'] = __( 'Error: You must provide an Access Token.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an Access Token.', 'satori-studio' );
 		} elseif ( ! isset( $fields['refresh_token'] ) || empty( $fields['refresh_token'] ) ) {
-			$response['error'] = __( 'Error: You must provide a Refresh Token.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a Refresh Token.', 'satori-studio' );
 		} elseif ( ! isset( $fields['client_id'] ) || empty( $fields['client_id'] ) ) {
-			$response['error'] = __( 'Error: You must provide a Client ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a Client ID.', 'satori-studio' );
 		} elseif ( ! isset( $fields['client_secret'] ) || empty( $fields['client_secret'] ) ) {
-			$response['error'] = __( 'Error: You must provide a Client Secret.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a Client Secret.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$url     = $this->api_url . 'contact_lists?include_count=true&status=active&include_membership_count=all';
@@ -64,7 +64,7 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 
 			if ( is_array( $request ) && isset( $request[0] ) && isset( $request[0]->error_message ) ) {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'fl-builder' ), $request[0]->error_message );
+				$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'satori-studio' ), $request[0]->error_message );
 			} else {
 				$response['data'] = array(
 					'client_id'     => $fields['client_id'],
@@ -91,8 +91,8 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Client ID', 'fl-builder' ),
-			'help'      => __( 'Your Client ID.', 'fl-builder' ),
+			'label'     => __( 'Client ID', 'satori-studio' ),
+			'help'      => __( 'Your Client ID.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -102,8 +102,8 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Client Secret', 'fl-builder' ),
-			'help'      => __( 'Your Client Secret.', 'fl-builder' ),
+			'label'     => __( 'Client Secret', 'satori-studio' ),
+			'help'      => __( 'Your Client Secret.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -114,8 +114,8 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'textarea',
 			'rows'      => 6,
-			'label'     => __( 'Access Token', 'fl-builder' ),
-			'help'      => __( 'Your generated Access Token.', 'fl-builder' ),
+			'label'     => __( 'Access Token', 'satori-studio' ),
+			'help'      => __( 'Your generated Access Token.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -125,13 +125,13 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'Refresh Token', 'fl-builder' ),
-			'help'        => __( 'Your generated Refresh Token.', 'fl-builder' ),
+			'label'       => __( 'Refresh Token', 'satori-studio' ),
+			'help'        => __( 'Your generated Refresh Token.', 'satori-studio' ),
 			'description' => sprintf(
 				/* translators: 1: account link: 2: api key link: 3: line break*/
-				__( 'You must create an Application and generate access keys to use this service. %3$s 1. Create the application %1$s. %3$s 2. Generate access keys using this %2$s.', 'fl-builder' ),
-				sprintf( '<a target="_blank" href="https://app.constantcontact.com/pages/dma/portal/">%s</a>', __( 'on the portal', 'fl-builder' ) ),
-				sprintf( '<a target="_blank" href="https://www.wpbeaverbuilder.com/constant-contact-auth/">%s</a>', __( 'Code Generator', 'fl-builder' ) ),
+				__( 'You must create an Application and generate access keys to use this service. %3$s 1. Create the application %1$s. %3$s 2. Generate access keys using this %2$s.', 'satori-studio' ),
+				sprintf( '<a target="_blank" href="https://app.constantcontact.com/pages/dma/portal/">%s</a>', __( 'on the portal', 'satori-studio' ) ),
+				sprintf( '<a target="_blank" href="https://www.wpbeaverbuilder.com/constant-contact-auth/">%s</a>', __( 'Code Generator', 'satori-studio' ) ),
 				'<br />'
 			),
 			'preview'     => array(
@@ -172,7 +172,7 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 
 		if ( is_array( $request ) && isset( $request[0] ) && isset( $request[0]->error_message ) ) {
 			/* translators: %s: error */
-			$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'fl-builder' ), $request[0]->error_message );
+			$response['error'] = sprintf( __( 'Error: Could not connect to Constant Contact. %s', 'satori-studio' ), $request[0]->error_message );
 		} else {
 			$response['html'] = $this->render_list_field( $request, $settings );
 		}
@@ -193,7 +193,7 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists->lists as $list ) {
@@ -204,7 +204,7 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -232,7 +232,7 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Constant Contact. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Constant Contact. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$refresh_token = $account_data['refresh_token'];
@@ -275,13 +275,13 @@ final class FLBuilderServiceConstantContact3 extends FLBuilderService {
 				case 401:
 					// access token invalid!
 					$this->update_tokens( $settings );
-					$response['error'] = __( 'Please try again', 'fl-builder' );
+					$response['error'] = __( 'Please try again', 'satori-studio' );
 					break;
 				case 409:
-					$response['error'] = __( 'You are either already subscribed to this list or you have unsubscribed in the past', 'fl-builder' );
+					$response['error'] = __( 'You are either already subscribed to this list or you have unsubscribed in the past', 'satori-studio' );
 					break;
 				default:
-					$response['error'] = __( 'An unknown error has occurred', 'fl-builder' );
+					$response['error'] = __( 'An unknown error has occurred', 'satori-studio' );
 					break;
 			}
 		}

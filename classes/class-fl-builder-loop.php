@@ -90,7 +90,7 @@ final class FLBuilderLoop {
 		 */
 		add_filter( 'fl_builder_render_settings_field', function ( $field, $name, $settings ) {
 			if ( 'order_by' === $name && class_exists( 'woocommerce' ) ) {
-				$field['options']['woo_price'] = __( 'Sort By Price (Woo)', 'fl-builder' );
+				$field['options']['woo_price'] = __( 'Sort By Price (Woo)', 'satori-studio' );
 			}
 			return $field;
 		}, 10, 3 );
@@ -1328,7 +1328,7 @@ final class FLBuilderLoop {
 	 */
 	static public function get_term_options( $taxonomy = '' ) {
 
-		$result = array( 0 => __( 'None', 'fl-builder' ) );
+		$result = array( 0 => __( 'None', 'satori-studio' ) );
 
 		if ( ! $taxonomy ) {
 			$post_data = FLBuilderModel::get_post_data();

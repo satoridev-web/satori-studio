@@ -89,7 +89,7 @@ final class FLBuilderServiceMailPoet extends FLBuilderService {
 
 			$response['html'] = self::render_list_field( $lists, $settings );
 		} catch ( Exception $e ) {
-			$response['error'] = __( 'There was an error retrieving your lists.', 'fl-builder' );
+			$response['error'] = __( 'There was an error retrieving your lists.', 'satori-studio' );
 		}
 
 		return $response;
@@ -108,7 +108,7 @@ final class FLBuilderServiceMailPoet extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $list ) {
@@ -119,7 +119,7 @@ final class FLBuilderServiceMailPoet extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -151,7 +151,7 @@ final class FLBuilderServiceMailPoet extends FLBuilderService {
 		if ( ! class_exists( 'WYSIJA' )
 			&& ( ! defined( 'MAILPOET_INITIALIZED' ) || ( defined( 'MAILPOET_INITIALIZED' ) && false === MAILPOET_INITIALIZED ) )
 			) {
-			$response['error'] = __( 'There was an error subscribing. MailPoet is not installed.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing. MailPoet is not installed.', 'satori-studio' );
 		} else {
 
 			if ( $name ) {
@@ -219,7 +219,7 @@ final class FLBuilderServiceMailPoet extends FLBuilderService {
 				}
 				if ( false !== $error ) {
 					/* translators: %s: error */
-					$response['error'] = sprintf( __( 'There was an error subscribing to MailPoet. %s', 'fl-builder' ), $error );
+					$response['error'] = sprintf( __( 'There was an error subscribing to MailPoet. %s', 'satori-studio' ), $error );
 				}
 			}
 		}

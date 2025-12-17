@@ -64,7 +64,7 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $fields['api_key'] );
@@ -78,7 +78,7 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 				);
 			} else {
 				/* translators: %s: error */
-				$response['error'] = sprintf(__( 'Error: Could not connect to Enormail. %s', 'fl-builder' ),
+				$response['error'] = sprintf(__( 'Error: Could not connect to Enormail. %s', 'satori-studio' ),
 					'(' . $api_response->error->http_code . ': ' . $api_response->error->message . ')'
 				);
 			}
@@ -100,8 +100,8 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Found in your Sendy application under Settings.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Found in your Sendy application under Settings.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -131,7 +131,7 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 		);
 
 		if ( ! $lists ) {
-			$response['error'] = __( 'Error: Please check your API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: Please check your API key.', 'satori-studio' );
 		} else {
 			$response['html'] = $this->render_list_field( $lists, $settings );
 		}
@@ -152,7 +152,7 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $list ) {
@@ -165,7 +165,7 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -193,7 +193,7 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Enormail. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Enormail. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $account_data['api_key'] );
@@ -217,7 +217,7 @@ final class FLBuilderServiceEnormail extends FLBuilderService {
 
 			if ( isset( $get_results->status ) && 'error' === $get_results->status ) {
 				/* translators: %s: error */
-				$response['error'] = sprintf(__( 'There was an error subscribing to Enormail. %s', 'fl-builder' ),
+				$response['error'] = sprintf(__( 'There was an error subscribing to Enormail. %s', 'satori-studio' ),
 					'(' . $get_results->code . ': ' . $get_results->message . ')'
 				);
 			}

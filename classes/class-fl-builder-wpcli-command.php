@@ -38,7 +38,7 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 			if ( class_exists( 'FLCustomizer' ) ) {
 				$all = true;
 			} else {
-				WP_CLI::error( __( '--all switch used but bb-theme is not active. If using multisite bb-theme must be active on the root site.', 'fl-builder' ) );
+				WP_CLI::error( __( '--all switch used but bb-theme is not active. If using multisite bb-theme must be active on the root site.', 'satori-studio' ) );
 			}
 		}
 
@@ -59,20 +59,20 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 					switch_to_blog( $blog_id );
 					FLBuilderModel::delete_asset_cache_for_all_posts();
 					/* translators: %s: current blog name */
-					WP_CLI::success( sprintf( _x( 'Cleared the SATORI Studio cache for blog %s', 'current blog name', 'fl-builder' ), get_option( 'home' ) ) );
+					WP_CLI::success( sprintf( _x( 'Cleared the SATORI Studio cache for blog %s', 'current blog name', 'satori-studio' ), get_option( 'home' ) ) );
 					if ( $all ) {
 						FLCustomizer::refresh_css();
 						/* translators: %s: current blog name */
-						WP_CLI::success( sprintf( _x( 'Rebuilt the theme cache for blog %s', 'current blog name', 'fl-builder' ), get_option( 'home' ) ) );
+						WP_CLI::success( sprintf( _x( 'Rebuilt the theme cache for blog %s', 'current blog name', 'satori-studio' ), get_option( 'home' ) ) );
 					}
 					restore_current_blog();
 				}
 			} else {
 				FLBuilderModel::delete_asset_cache_for_all_posts();
-				WP_CLI::success( __( 'Cleared the SATORI Studio cache', 'fl-builder' ) );
+				WP_CLI::success( __( 'Cleared the SATORI Studio cache', 'satori-studio' ) );
 				if ( $all ) {
 					FLCustomizer::refresh_css();
-					WP_CLI::success( __( 'Rebuilt the theme cache', 'fl-builder' ) );
+					WP_CLI::success( __( 'Rebuilt the theme cache', 'satori-studio' ) );
 				}
 			}
 			/**
@@ -110,23 +110,23 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 
 		if ( isset( $assoc_args['deactivate'] ) ) {
 			FLUpdater::save_subscription_license( '' );
-			WP_CLI::success( __( 'Deactivated', 'fl-builder' ) );
+			WP_CLI::success( __( 'Deactivated', 'satori-studio' ) );
 			return false;
 		}
 
 		if ( defined( 'FL_LICENSE_KEY' ) ) {
 			$license = FL_LICENSE_KEY;
-			WP_CLI::log( __( 'Found license using FL_LICENSE_KEY global.', 'fl-builder' ) );
+			WP_CLI::log( __( 'Found license using FL_LICENSE_KEY global.', 'satori-studio' ) );
 		}
 		if ( isset( $assoc_args['license'] ) && '' != $assoc_args['license'] ) {
 			$license = $assoc_args['license'];
 		}
 
 		if ( ! $license ) {
-			WP_CLI::error( __( 'No license info found.', 'fl-builder' ) );
+			WP_CLI::error( __( 'No license info found.', 'satori-studio' ) );
 		}
 		/* translators: %1$s: license : %2$s: domain */
-		WP_CLI::log( sprintf( __( 'Using license [ %1$s ] to register %2$s', 'fl-builder' ), $license, network_home_url() ) );
+		WP_CLI::log( sprintf( __( 'Using license [ %1$s ] to register %2$s', 'satori-studio' ), $license, network_home_url() ) );
 
 		$response = FLUpdater::save_subscription_license( $license );
 
@@ -197,7 +197,7 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 		$result = FLBuilderUtils::update_option( '_fl_builder_settings', $current_options, true );
 		if ( $result ) {
 			/* translators: %s: global option key */
-			WP_CLI::success( sprintf( __( "Global option '%s' updated", 'fl-builder' ), $assoc_args['id'] ) );
+			WP_CLI::success( sprintf( __( "Global option '%s' updated", 'satori-studio' ), $assoc_args['id'] ) );
 		}
 	}
 
@@ -227,7 +227,7 @@ class FLbuilder_WPCLI_Command extends WP_CLI_Command {
 		$url     = FLBuilderModel::get_edit_url( $post_id );
 
 		WP_CLI::line( $post_id );
-		WP_CLI::success( __( 'Layout duplicated', 'fl-builder' ) );
+		WP_CLI::success( __( 'Layout duplicated', 'satori-studio' ) );
 	}
 }
 
@@ -282,7 +282,7 @@ class FLThemer_List_WPCLI_Command extends WP_CLI_Command {
 		$id     = $assoc_args['id'];
 
 		if ( ! in_array( $status, array( 'publish', 'draft' ) ) ) {
-			WP_CLI::error( __( 'Status must be either draft or publish', 'fl-builder' ) );
+			WP_CLI::error( __( 'Status must be either draft or publish', 'satori-studio' ) );
 			exit;
 		}
 		$args = array(
@@ -292,9 +292,9 @@ class FLThemer_List_WPCLI_Command extends WP_CLI_Command {
 
 		if ( 'fl-theme-layout' == get_post_type( $id ) ) {
 			wp_update_post( $args );
-			WP_CLI::success( __( 'Layout status updated', 'fl-builder' ) );
+			WP_CLI::success( __( 'Layout status updated', 'satori-studio' ) );
 		} else {
-			WPCLI::error( __( 'Post was not valid Themer layout.', 'fl-builder' ) );
+			WPCLI::error( __( 'Post was not valid Themer layout.', 'satori-studio' ) );
 		}
 	}
 
@@ -346,20 +346,20 @@ class FLThemer_List_WPCLI_Command extends WP_CLI_Command {
 		}
 
 		if ( ! in_array( $type, array( 'archive', 'single', 'part', 'header', 'footer', '404' ) ) ) {
-			WP_CLI::error( __( 'Incorrect type.', 'fl-builder' ) );
+			WP_CLI::error( __( 'Incorrect type.', 'satori-studio' ) );
 			exit;
 		}
 
 		if ( 'fl-theme-layout' == get_post_type( $id ) ) {
 			update_post_meta( $id, '_fl_theme_layout_type', $type );
 			update_post_meta( $id, '_fl_theme_layout_hook', '' );
-			WP_CLI::success( __( 'Layout type updated', 'fl-builder' ) );
+			WP_CLI::success( __( 'Layout type updated', 'satori-studio' ) );
 			if ( false !== $hook && 'part' == $type ) {
 				update_post_meta( $id, '_fl_theme_layout_hook', $hook );
-				WP_CLI::success( __( 'Hook updated', 'fl-builder' ) );
+				WP_CLI::success( __( 'Hook updated', 'satori-studio' ) );
 			}
 		} else {
-			WPCLI::error( __( 'Not valid Themer layout.', 'fl-builder' ) );
+			WPCLI::error( __( 'Not valid Themer layout.', 'satori-studio' ) );
 		}
 	}
 
@@ -573,7 +573,7 @@ class FLThemer_List_WPCLI_Command extends WP_CLI_Command {
 
 	protected function is_themer() {
 		if ( ! class_exists( 'FLThemeBuilder' ) ) {
-			WP_CLI::error( __( 'Unable to find Themer, is it installed and activated?', 'fl-builder' ) );
+			WP_CLI::error( __( 'Unable to find Themer, is it installed and activated?', 'satori-studio' ) );
 			exit;
 		}
 	}

@@ -31,8 +31,8 @@ var encodedValue = '' !== data.value && data.value.length ? JSON.stringify( data
 	<# if ( data.field.className ) { #> {{data.field.className}}<# } #>"
 	<# if ( data.field.toggle ) { data.field.toggle = JSON.stringify( data.field.toggle ); #>data-toggle='{{{data.field.toggle}}}'<# } #>>
 	<div class="fl-multiple-audios-count">{{selectedText}}</div>
-	<a class="fl-multiple-audios-select" href="javascript:void(0);" onclick="return false;"><?php _e( 'Select Audio', 'fl-builder' ); ?></a>
-	<a class="fl-multiple-audios-edit" href="javascript:void(0);" onclick="return false;"><?php _e( 'Edit Playlist', 'fl-builder' ); ?></a>
-	<a class="fl-multiple-audios-add" href="javascript:void(0);" onclick="return false;"><?php _e( 'Add Audio Files', 'fl-builder' ); ?></a>
+	<a class="fl-multiple-audios-select" href="javascript:void(0);" onclick="return false;"><?php _e( 'Select Audio', 'satori-studio' ); ?></a>
+	<a class="fl-multiple-audios-edit" href="javascript:void(0);" onclick="return false;"><?php _e( 'Edit Playlist', 'satori-studio' ); ?></a>
+	<a class="fl-multiple-audios-add" href="javascript:void(0);" onclick="return false;"><?php _e( 'Add Audio Files', 'satori-studio' ); ?></a>
 	<input name="{{data.name}}" type="hidden" value='{{{encodedValue}}}' />
 </div>

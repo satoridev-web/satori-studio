@@ -1,11 +1,11 @@
 <div class="fl-icons-filter">
-	<input type="text" class="fl-icons-filter-text-live" placeholder="<?php _e( 'Search Icons', 'fl-builder' ); ?>" />
+	<input type="text" class="fl-icons-filter-text-live" placeholder="<?php _e( 'Search Icons', 'satori-studio' ); ?>" />
 </div>
 <div class="fl-icons-list">
 	<div class="fl-icons-section results">
 	</div>
 	<div class="fl-icons-section recent">
-		<h2 class="recent"><?php _e( 'Recently used icons', 'fl-builder' ); ?></h2>
+		<h2 class="recent"><?php _e( 'Recently used icons', 'satori-studio' ); ?></h2>
 		<div class="recent-icons"></div>
 	</div>
 	<div class="fl-icons-section all-icons">
@@ -25,5 +25,5 @@
 	</div>
 </div>
 <div class="fl-lightbox-footer fl-icon-selector-footer">
-	<a class="fl-icon-selector-cancel fl-builder-button fl-builder-button-large" href="javascript:void(0);" onclick="return false;"><?php _e( 'Cancel', 'fl-builder' ); ?></a>
+	<a class="fl-icon-selector-cancel fl-builder-button fl-builder-button-large" href="javascript:void(0);" onclick="return false;"><?php _e( 'Cancel', 'satori-studio' ); ?></a>
 </div>

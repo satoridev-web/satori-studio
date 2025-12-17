@@ -50,7 +50,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else {
 
 			$api    = new CS_REST_General( array(
@@ -63,7 +63,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 					'api_key' => $fields['api_key'],
 				);
 			} else {
-				$response['error'] = __( 'Error: Please check your API key.', 'fl-builder' );
+				$response['error'] = __( 'Error: Please check your API key.', 'satori-studio' );
 			}
 		}
 
@@ -83,8 +83,8 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your Campaign Monitor account under Account Settings > API Key.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your Campaign Monitor account under Account Settings > API Key.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -122,7 +122,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 
 			$response['html'] .= $this->render_list_field( $account_data, $settings );
 		} else {
-			$response['error'] = __( 'Error: Please check your API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: Please check your API key.', 'satori-studio' );
 		}
 
 		return $response;
@@ -141,7 +141,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $clients->response as $client ) {
@@ -153,7 +153,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-campaign-monitor-client-select',
 			'type'      => 'select',
-			'label'     => _x( 'Client', 'A client account in Campaign Monitor.', 'fl-builder' ),
+			'label'     => _x( 'Client', 'A client account in Campaign Monitor.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -192,7 +192,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists->response as $list ) {
@@ -204,7 +204,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -232,7 +232,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Campaign Monitor. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Campaign Monitor. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api  = new CS_Rest_Subscribers( $settings->list_id, $account_data );
@@ -248,7 +248,7 @@ final class FLBuilderServiceCampaignMonitor extends FLBuilderService {
 			$result = $api->add( $data );
 
 			if ( ! $result->was_successful() ) {
-				$response['error'] = __( 'There was an error subscribing to Campaign Monitor.', 'fl-builder' );
+				$response['error'] = __( 'There was an error subscribing to Campaign Monitor.', 'satori-studio' );
 			}
 		}
 

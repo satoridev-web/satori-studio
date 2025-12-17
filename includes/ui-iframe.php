@@ -17,13 +17,13 @@ if ( isset( $settings['position'] ) && '' !== $settings['position'] ) {
 	<body <?php body_class( $body_classes ); ?> <?php echo "style='{$style}'"; ?>>
 		<div class="fl-builder-ui-iframe-toolbar">
 			<div class="fl-builder-ui-iframe-breakpoint-text">
-				<?php _e( 'Breakpoint', 'fl-builder' ); ?>
+				<?php _e( 'Breakpoint', 'satori-studio' ); ?>
 			</div>
 			<select class="fl-builder-ui-iframe-breakpoint fl-builder-button">
-				<option value="default"><?php _e( 'Extra Large', 'fl-builder' ); ?></option>
-				<option value="large"><?php _e( 'Large', 'fl-builder' ); ?></option>
-				<option value="medium"><?php _e( 'Medium', 'fl-builder' ); ?></option>
-				<option value="responsive"><?php _e( 'Small', 'fl-builder' ); ?></option>
+				<option value="default"><?php _e( 'Extra Large', 'satori-studio' ); ?></option>
+				<option value="large"><?php _e( 'Large', 'satori-studio' ); ?></option>
+				<option value="medium"><?php _e( 'Medium', 'satori-studio' ); ?></option>
+				<option value="responsive"><?php _e( 'Small', 'satori-studio' ); ?></option>
 			</select>
 			<div class="fl-builder-ui-iframe-size">
 				<input class="fl-builder-ui-iframe-width" type="number" value="300" />
@@ -35,10 +35,10 @@ if ( isset( $settings['position'] ) && '' !== $settings['position'] ) {
 				<option value="100">100%</option>
 				<option value="75">75%</option>
 				<option value="50">50%</option>
-				<option value="fit"><?php _e( 'Fit to Window', 'fl-builder' ); ?></option>
+				<option value="fit"><?php _e( 'Fit to Window', 'satori-studio' ); ?></option>
 			</select>
 			<button class="fl-builder-button fl-builder-button-large fl-builder-ui-iframe-exit">
-				<?php _e( 'Exit', 'fl-builder' ); ?>
+				<?php _e( 'Exit', 'satori-studio' ); ?>
 			</button>
 		</div>
 		<div class="fl-builder-ui-iframe-wrap">

@@ -7,10 +7,10 @@ class FLACFBlockModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct( array(
-			'name'            => __( 'ACF Block', 'fl-builder' ),
-			'description'     => __( 'Display an ACF block.', 'fl-builder' ),
-			'group'           => __( 'ACF Blocks', 'fl-builder' ),
-			'category'        => __( 'ACF Blocks', 'fl-builder' ),
+			'name'            => __( 'ACF Block', 'satori-studio' ),
+			'description'     => __( 'Display an ACF block.', 'satori-studio' ),
+			'group'           => __( 'ACF Blocks', 'satori-studio' ),
+			'category'        => __( 'ACF Blocks', 'satori-studio' ),
 			'icon'            => 'layout.svg',
 			'editor_export'   => true,
 			'partial_refresh' => true,
@@ -115,7 +115,7 @@ class FLACFBlockModule extends FLBuilderModule {
 			}
 		}
 
-		return __( 'ACF Blocks', 'fl-builder' );
+		return __( 'ACF Blocks', 'satori-studio' );
 	}
 
 	/**
@@ -178,7 +178,7 @@ function fl_register_acf_block_module() {
 
 	FLBuilder::register_module( 'FLACFBlockModule', array(
 		'settings' => array(
-			'title' => __( 'Settings', 'fl-builder' ),
+			'title' => __( 'Settings', 'satori-studio' ),
 			'file'  => FL_BUILDER_DIR . 'modules/acf-block/includes/settings.php',
 		),
 	) );

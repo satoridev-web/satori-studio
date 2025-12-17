@@ -35,7 +35,7 @@ final class FLBuilderServiceEmailAddress extends FLBuilderService {
 
 		// Make sure we have an email address.
 		if ( ! isset( $fields['email'] ) || empty( $fields['email'] ) ) {
-			$response['error'] = __( 'Error: You must provide an email address.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an email address.', 'satori-studio' );
 		} else {
 			$response['data'] = array(
 				'email' => $fields['email'],
@@ -58,8 +58,8 @@ final class FLBuilderServiceEmailAddress extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'Email Address', 'fl-builder' ),
-			'description' => sprintf( '%s&nbsp;<a target="_blank" href="https://docs.wpbeaverbuilder.com/beaver-builder/how-to-tips/use-smtp-to-send-form-notifications">%s</a>', __( 'Note: Please read the following info on email deliverability for this module.', 'fl-builder' ), __( 'Link to Doc', 'fl-builder' ) ),
+			'label'       => __( 'Email Address', 'satori-studio' ),
+			'description' => sprintf( '%s&nbsp;<a target="_blank" href="https://docs.wpbeaverbuilder.com/beaver-builder/how-to-tips/use-smtp-to-send-form-notifications">%s</a>', __( 'Note: Please read the following info on email deliverability for this module.', 'satori-studio' ), __( 'Link to Doc', 'satori-studio' ) ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -106,19 +106,19 @@ final class FLBuilderServiceEmailAddress extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing. The account is no longer connected.', 'satori-studio' );
 		} else {
 
-			$subject = __( 'Subscribe Form Signup', 'fl-builder' );
+			$subject = __( 'Subscribe Form Signup', 'satori-studio' );
 
 			if ( $settings->custom_subject ) {
 				$subject = $settings->custom_subject;
 			}
 
-			$message = __( 'Email', 'fl-builder' ) . ': ' . $email;
+			$message = __( 'Email', 'satori-studio' ) . ': ' . $email;
 
 			if ( $name ) {
-				$message .= "\n" . __( 'Name', 'fl-builder' ) . ': ' . $name;
+				$message .= "\n" . __( 'Name', 'satori-studio' ) . ': ' . $name;
 			}
 			$headers = array(
 				'Content-Type: text/plain; charset=UTF-8',
@@ -126,7 +126,7 @@ final class FLBuilderServiceEmailAddress extends FLBuilderService {
 			);
 			$result  = wp_mail( $account_data['email'], $subject, $message, $headers );
 			if ( ! $result ) {
-				$response['error'] = __( 'There was an error subscribing. Please try again.', 'fl-builder' );
+				$response['error'] = __( 'There was an error subscribing. Please try again.', 'satori-studio' );
 			}
 		}
 

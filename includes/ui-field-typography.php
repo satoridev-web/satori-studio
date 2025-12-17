@@ -153,11 +153,11 @@ var textDecoration = wp.template( 'fl-builder-field-select' )( {
 	value: value.text_decoration,
 	field: {
 		options: {
-			'': '<?php esc_attr_e( 'Default', 'fl-builder' ); ?>',
-			'none': '<?php esc_attr_e( 'None', 'fl-builder' ); ?>',
-			'underline': '<?php esc_attr_e( 'Underline', 'fl-builder' ); ?>',
-			'overline': '<?php esc_attr_e( 'Overline', 'fl-builder' ); ?>',
-			'line-through': '<?php esc_attr_e( 'Line Through', 'fl-builder' ); ?>',
+			'': '<?php esc_attr_e( 'Default', 'satori-studio' ); ?>',
+			'none': '<?php esc_attr_e( 'None', 'satori-studio' ); ?>',
+			'underline': '<?php esc_attr_e( 'Underline', 'satori-studio' ); ?>',
+			'overline': '<?php esc_attr_e( 'Overline', 'satori-studio' ); ?>',
+			'line-through': '<?php esc_attr_e( 'Line Through', 'satori-studio' ); ?>',
 		},
 	},
 } );
@@ -167,10 +167,10 @@ var fontStyle = wp.template( 'fl-builder-field-select' )( {
 	value: value.font_style,
 	field: {
 		options: {
-			'': '<?php esc_attr_e( 'Default', 'fl-builder' ); ?>',
-			'normal': '<?php esc_attr_e( 'Normal', 'fl-builder' ); ?>',
-			'italic': '<?php esc_attr_e( 'Italic', 'fl-builder' ); ?>',
-			'oblique': '<?php esc_attr_e( 'Oblique', 'fl-builder' ); ?>',
+			'': '<?php esc_attr_e( 'Default', 'satori-studio' ); ?>',
+			'normal': '<?php esc_attr_e( 'Normal', 'satori-studio' ); ?>',
+			'italic': '<?php esc_attr_e( 'Italic', 'satori-studio' ); ?>',
+			'oblique': '<?php esc_attr_e( 'Oblique', 'satori-studio' ); ?>',
 		},
 	},
 } );
@@ -180,9 +180,9 @@ var fontVariant = wp.template( 'fl-builder-field-select' )( {
 	value: value.font_variant,
 	field: {
 		options: {
-			'': '<?php esc_attr_e( 'Default', 'fl-builder' ); ?>',
-			'normal': '<?php esc_attr_e( 'Normal', 'fl-builder' ); ?>',
-			'small-caps': '<?php esc_attr_e( 'Small Caps', 'fl-builder' ); ?>',
+			'': '<?php esc_attr_e( 'Default', 'satori-studio' ); ?>',
+			'normal': '<?php esc_attr_e( 'Normal', 'satori-studio' ); ?>',
+			'small-caps': '<?php esc_attr_e( 'Small Caps', 'satori-studio' ); ?>',
 		},
 	},
 } );
@@ -201,7 +201,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 	<div class="fl-compound-field-section fl-typography-field-section-general">
 		<div class="fl-compound-field-section-toggle">
 			<i class="dashicons dashicons-arrow-right-alt2"></i>
-			<?php _e( 'Font', 'fl-builder' ); ?>
+			<?php _e( 'Font', 'satori-studio' ); ?>
 		</div>
 		<# if ( 'default' === device ) { #>
 		<div class="fl-compound-field-row fl-typography-field-family-row">
@@ -216,7 +216,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 			<div class="fl-compound-field-setting fl-typography-field-size" data-property="font-size">
 				<# if ( fl_typography_enabled( 'font_size' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Size', 'fl-builder' ); ?>
+					<?php _e( 'Size', 'satori-studio' ); ?>
 				</label>
 				{{{fontSize}}}
 				<# } #>
@@ -224,7 +224,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 			<div class="fl-compound-field-setting fl-typography-field-line-height" data-property="line-height">
 			<# if ( fl_typography_enabled( 'line_height' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Line Height', 'fl-builder' ); ?>
+					<?php _e( 'Line Height', 'satori-studio' ); ?>
 				</label>
 				{{{lineHeight}}}
 				<# } #>
@@ -232,7 +232,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 			<div class="fl-compound-field-setting fl-typography-field-align" data-property="text-align">
 			<# if ( fl_typography_enabled( 'text_align' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Align', 'fl-builder' ); ?>
+					<?php _e( 'Align', 'satori-studio' ); ?>
 				</label>
 				{{{textAlign}}}
 				<# } #>
@@ -242,13 +242,13 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 	<div class="fl-compound-field-section fl-compound-field-section-style">
 		<div class="fl-compound-field-section-toggle">
 			<i class="dashicons dashicons-arrow-right-alt2"></i>
-			<?php _e( 'Style &amp Spacing', 'fl-builder' ); ?>
+			<?php _e( 'Style &amp Spacing', 'satori-studio' ); ?>
 		</div>
 		<div class="fl-compound-field-row fl-typography-field-spacing-row">
 			<div class="fl-compound-field-setting fl-typography-field-spacing" data-property="letter-spacing">
 				<# if ( fl_typography_enabled( 'letter_spacing' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Spacing', 'fl-builder' ); ?>
+					<?php _e( 'Spacing', 'satori-studio' ); ?>
 				</label>
 				{{{letterSpacing}}}
 				<# } #>
@@ -256,7 +256,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 			<div class="fl-compound-field-setting fl-typography-field-transform" data-property="text-transform">
 			<# if ( fl_typography_enabled( 'text_transform' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Transform', 'fl-builder' ); ?>
+					<?php _e( 'Transform', 'satori-studio' ); ?>
 				</label>
 				{{{textTransform}}}
 				<# } #>
@@ -266,7 +266,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 			<div class="fl-compound-field-setting fl-typography-field-decoration" data-property="text-decoration">
 			<# if ( fl_typography_enabled( 'text_decoration' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Decoration', 'fl-builder' ); ?>
+					<?php _e( 'Decoration', 'satori-studio' ); ?>
 				</label>
 				{{{textDecoration}}}
 				<# } #>
@@ -274,7 +274,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 			<div class="fl-compound-field-setting fl-typography-field-style" data-property="font-style">
 			<# if ( fl_typography_enabled( 'font_style' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Style', 'fl-builder' ); ?>
+					<?php _e( 'Style', 'satori-studio' ); ?>
 				</label>
 				{{{fontStyle}}}
 				<# } #>
@@ -282,7 +282,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 			<div class="fl-compound-field-setting fl-typography-field-variant" data-property="font-variant">
 				<# if ( fl_typography_enabled( 'font_variant' ) ) { #>
 				<label class="fl-compound-field-label">
-					<?php _e( 'Variant', 'fl-builder' ); ?>
+					<?php _e( 'Variant', 'satori-studio' ); ?>
 				</label>
 				{{{fontVariant}}}
 				<# } #>
@@ -293,7 +293,7 @@ var textShadow = wp.template( 'fl-builder-field-shadow' )( {
 		<# if ( fl_typography_enabled( 'text_shadow' ) ) { #>
 		<div class="fl-compound-field-section-toggle">
 			<i class="dashicons dashicons-arrow-right-alt2"></i>
-			<?php _e( 'Text Shadow', 'fl-builder' ); ?>
+			<?php _e( 'Text Shadow', 'satori-studio' ); ?>
 		</div>
 		<div class="fl-compound-field-row fl-typography-field-shadow-row">
 			<div class="fl-compound-field-setting fl-typography-field-shadow" data-property="text-shadow">

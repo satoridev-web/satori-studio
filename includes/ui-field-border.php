@@ -1,9 +1,9 @@
 <#
 var i18n = {
-	general: '<?php esc_attr_e( 'General', 'fl-builder' ); ?>',
-	radius: '<?php esc_attr_e( 'Radius', 'fl-builder' ); ?>',
-	shadow: '<?php esc_attr_e( 'Shadow', 'fl-builder' ); ?>',
-	separator: '<?php esc_attr_e( '&amp;', 'fl-builder' ); ?>'
+	general: '<?php esc_attr_e( 'General', 'satori-studio' ); ?>',
+	radius: '<?php esc_attr_e( 'Radius', 'satori-studio' ); ?>',
+	shadow: '<?php esc_attr_e( 'Shadow', 'satori-studio' ); ?>',
+	separator: '<?php esc_attr_e( '&amp;', 'satori-studio' ); ?>'
 };
 
 var defaults = {
@@ -75,12 +75,12 @@ var style = wp.template( 'fl-builder-field-select' )( {
 	value: value.style,
 	field: {
 		options: {
-			'': '<?php esc_attr_e( 'Default', 'fl-builder' ); ?>',
-			'none': '<?php esc_attr_e( 'None', 'fl-builder' ); ?>',
-			'solid': '<?php esc_attr_e( 'Solid', 'fl-builder' ); ?>',
-			'dashed': '<?php esc_attr_e( 'Dashed', 'fl-builder' ); ?>',
-			'dotted': '<?php esc_attr_e( 'Dotted', 'fl-builder' ); ?>',
-			'double': '<?php esc_attr_e( 'Double', 'fl-builder' ); ?>',
+			'': '<?php esc_attr_e( 'Default', 'satori-studio' ); ?>',
+			'none': '<?php esc_attr_e( 'None', 'satori-studio' ); ?>',
+			'solid': '<?php esc_attr_e( 'Solid', 'satori-studio' ); ?>',
+			'dashed': '<?php esc_attr_e( 'Dashed', 'satori-studio' ); ?>',
+			'dotted': '<?php esc_attr_e( 'Dotted', 'satori-studio' ); ?>',
+			'double': '<?php esc_attr_e( 'Double', 'satori-studio' ); ?>',
 		},
 	},
 } );
@@ -165,13 +165,13 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 		<div class="fl-compound-field-row">
 			<div class="fl-compound-field-setting fl-border-field-style" data-property="border-style">
 				<label class="fl-compound-field-label">
-					<?php _e( 'Style', 'fl-builder' ); ?>
+					<?php _e( 'Style', 'satori-studio' ); ?>
 				</label>
 				{{{style}}}
 			</div>
 			<div class="fl-compound-field-setting fl-border-field-color" data-property="border-color">
 				<label class="fl-compound-field-label">
-					<?php _e( 'Color', 'fl-builder' ); ?>
+					<?php _e( 'Color', 'satori-studio' ); ?>
 				</label>
 				{{{color}}}
 			</div>
@@ -179,7 +179,7 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 		<div class="fl-compound-field-row">
 			<div class="fl-compound-field-setting fl-border-field-width" data-property="border-width">
 				<label class="fl-compound-field-label">
-					<?php _e( 'Width', 'fl-builder' ); ?>
+					<?php _e( 'Width', 'satori-studio' ); ?>
 				</label>
 				{{{width}}}
 			</div>
@@ -195,7 +195,7 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 				<div class="fl-compound-field-row">
 					<div class="fl-compound-field-setting fl-border-field-radius" data-property="border-radius">
 						<label class="fl-compound-field-label">
-							<?php _e( 'Radius', 'fl-builder' ); ?>
+							<?php _e( 'Radius', 'satori-studio' ); ?>
 						</label>
 						{{{radius}}}
 					</div>
@@ -205,7 +205,7 @@ var shadow = wp.template( 'fl-builder-field-shadow' )( {
 				<div class="fl-compound-field-row">
 					<div class="fl-compound-field-setting fl-border-field-shadow" data-property="box-shadow">
 						<label class="fl-compound-field-label">
-							<?php _e( 'Box Shadow', 'fl-builder' ); ?>
+							<?php _e( 'Box Shadow', 'satori-studio' ); ?>
 						</label>
 						{{{shadow}}}
 					</div>

@@ -13,10 +13,10 @@ class FLReusableBlockModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct( array(
-			'name'            => __( 'WordPress Pattern', 'fl-builder' ),
-			'description'     => __( 'Display a WordPress Pattern.', 'fl-builder' ),
-			'group'           => __( 'WordPress Patterns', 'fl-builder' ),
-			'category'        => __( 'WordPress Patterns', 'fl-builder' ),
+			'name'            => __( 'WordPress Pattern', 'satori-studio' ),
+			'description'     => __( 'Display a WordPress Pattern.', 'satori-studio' ),
+			'group'           => __( 'WordPress Patterns', 'satori-studio' ),
+			'category'        => __( 'WordPress Patterns', 'satori-studio' ),
 			'icon'            => 'layout.svg',
 			'editor_export'   => true,
 			'partial_refresh' => true,
@@ -39,9 +39,9 @@ class FLReusableBlockModule extends FLBuilderModule {
 		) );
 
 		if ( count( $posts ) ) {
-			$blocks = array( __( 'Choose...', 'fl-builder' ) );
+			$blocks = array( __( 'Choose...', 'satori-studio' ) );
 		} else {
-			$blocks = array( __( 'No WordPress Patterns found!', 'fl-builder' ) );
+			$blocks = array( __( 'No WordPress Patterns found!', 'satori-studio' ) );
 		}
 
 		foreach ( $posts as $post ) {
@@ -57,14 +57,14 @@ class FLReusableBlockModule extends FLBuilderModule {
  */
 FLBuilder::register_module( 'FLReusableBlockModule', array(
 	'general' => array(
-		'title'    => __( 'General', 'fl-builder' ),
+		'title'    => __( 'General', 'satori-studio' ),
 		'sections' => array(
 			'general' => array(
 				'title'  => '',
 				'fields' => array(
 					'block_id' => array(
 						'type'    => 'select',
-						'label'   => __( 'WordPress Pattern', 'fl-builder' ),
+						'label'   => __( 'WordPress Pattern', 'satori-studio' ),
 						'options' => 'FLReusableBlockModule::get_options',
 					),
 				),
@@ -93,9 +93,9 @@ function fl_register_reusable_block_aliases() {
 		FLBuilder::register_module_alias( 'fl-reusable-block-' . $post->ID, array(
 			'module'      => 'reusable-block',
 			'name'        => $post->post_title,
-			'description' => __( 'Display a WordPress Pattern.', 'fl-builder' ),
-			'group'       => __( 'WordPress Patterns', 'fl-builder' ),
-			'category'    => __( 'WordPress Patterns', 'fl-builder' ),
+			'description' => __( 'Display a WordPress Pattern.', 'satori-studio' ),
+			'group'       => __( 'WordPress Patterns', 'satori-studio' ),
+			'category'    => __( 'WordPress Patterns', 'satori-studio' ),
 			'icon'        => 'layout.svg',
 			'settings'    => array(
 				'block_id' => "block-{$post->ID}",

@@ -44,39 +44,39 @@ const fieldConfig = name => ( {
 #>
 <div class="fl-builder-field-grid fl-builder-size-field-grid">
 	<label>
-		<?php _e( 'Min Width', 'fl-builder' ); ?>
+		<?php _e( 'Min Width', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		{{{ wp.template( 'fl-builder-field-unit' )( fieldConfig( 'min_width' ) ) }}}
 	</div>
 	<label>
-		<?php _e( 'Min Height', 'fl-builder' ); ?>
+		<?php _e( 'Min Height', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		{{{ wp.template( 'fl-builder-field-unit' )( fieldConfig( 'min_height' ) ) }}}
 	</div>
 
 	<label>
-		<?php _e( 'Width', 'fl-builder' ); ?>
+		<?php _e( 'Width', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		{{{ wp.template( 'fl-builder-field-unit' )( fieldConfig( 'width' ) ) }}}
 	</div>
 	<label>
-		<?php _e( 'Height', 'fl-builder' ); ?>
+		<?php _e( 'Height', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		{{{ wp.template( 'fl-builder-field-unit' )( fieldConfig( 'height' ) ) }}}
 	</div>
 
 	<label>
-		<?php _e( 'Max Width', 'fl-builder' ); ?>
+		<?php _e( 'Max Width', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		{{{ wp.template( 'fl-builder-field-unit' )( fieldConfig( 'max_width' ) ) }}}
 	</div>
 	<label>
-		<?php _e( 'Max Height', 'fl-builder' ); ?>
+		<?php _e( 'Max Height', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		{{{ wp.template( 'fl-builder-field-unit' )( fieldConfig( 'max_height' ) ) }}}

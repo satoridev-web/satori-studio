@@ -40,7 +40,7 @@ final class FLBuilderAdminPosts {
 		if ( in_array( $post_type, FLBuilderModel::get_post_types() ) && ( current_user_can( 'delete_others_posts' ) || FLBuilderModel::user_has_unfiltered_html() ) ) {
 				add_meta_box(
 					'fl_css_js',
-					__( 'Builder CSS/JS', 'fl-builder' ),
+					__( 'Builder CSS/JS', 'satori-studio' ),
 					array( __CLASS__, 'render_meta_box_content' ),
 					$post_type,
 					'advanced',
@@ -73,12 +73,12 @@ final class FLBuilderAdminPosts {
 		}
 		?>
 			<label for="fl_css">
-					<?php _e( 'CSS', 'fl-builder' ); ?>
+					<?php _e( 'CSS', 'satori-studio' ); ?>
 			</label><br />
 			<textarea style="width:100%" rows=10 id="fl_css" name="fl_css" value="<?php echo esc_attr( $css ); ?>"><?php echo esc_attr( $css ); ?></textarea><br />
 
 			<label for="fl_js">
-					<?php _e( 'JS', 'fl-builder' ); ?>
+					<?php _e( 'JS', 'satori-studio' ); ?>
 			</label><br />
 			<textarea style="width:100%" rows=10 id="fl_js" name="fl_js" value="<?php echo esc_attr( $js ); ?>"><?php echo esc_attr( $js ); ?></textarea>
 			<?php
@@ -358,9 +358,9 @@ final class FLBuilderAdminPosts {
 						'duplicate_nonce'  => wp_create_nonce( 'duplicate_nonce' ),
 					), admin_url() );
 					/* translators: %s: post type being duplicated */
-					$duplicate_text = sprintf( __( 'Duplicate %s', 'fl-builder' ), $singular_name );
+					$duplicate_text = sprintf( __( 'Duplicate %s', 'satori-studio' ), $singular_name );
 					/* translators: %1$s: post type being duplicated: %2$s: Branding name */
-					$duplicate_alt                   = esc_attr( sprintf( __( 'Duplicate %1$s with %2$s', 'fl-builder' ), $singular_name, FLBuilderModel::get_branding() ) );
+					$duplicate_alt                   = esc_attr( sprintf( __( 'Duplicate %1$s with %2$s', 'satori-studio' ), $singular_name, FLBuilderModel::get_branding() ) );
 					$actions['fl-builder-duplicate'] = sprintf( '<a title="%s" href="%s">%s%s</a>', $duplicate_alt, $url, $duplicate_text, $dot );
 				}
 			}

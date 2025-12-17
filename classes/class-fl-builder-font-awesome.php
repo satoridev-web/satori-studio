@@ -144,7 +144,7 @@ final class FLBuilderFontAwesome {
 	 */
 	public static function register_plugin() {
 		$args = apply_filters( 'fl_builder_font_awesome_register_args', array(
-			'name'       => __( 'SATORI Studio', 'fl-builder' ),
+			'name'       => __( 'SATORI Studio', 'satori-studio' ),
 			'technology' => 'webfont',
 		) );
 		fa()->register( $args );
@@ -219,7 +219,7 @@ final class FLBuilderFontAwesome {
 	 * Error text used in wp-admin and modal popup in buildef UI
 	 */
 	public static function error_text() {
-		return __( 'You appear to have the font awesome plugin configured to use svg icons, this currently is incompatible with SATORI Studio. You must switch to a webfont set/kit.', 'fl-builder' );
+		return __( 'You appear to have the font awesome plugin configured to use svg icons, this currently is incompatible with SATORI Studio. You must switch to a webfont set/kit.', 'satori-studio' );
 	}
 
 	/**
@@ -274,38 +274,38 @@ final class FLBuilderFontAwesome {
 
 		$data = array(
 			'pro'        => array(
-				'name'  => __( 'Pro Icons', 'fl-builder' ),
-				'value' => ( fa()->pro() ) ? __( 'Yes', 'fl-builder' ) : __( 'No', 'fl-builder' ),
+				'name'  => __( 'Pro Icons', 'satori-studio' ),
+				'value' => ( fa()->pro() ) ? __( 'Yes', 'satori-studio' ) : __( 'No', 'satori-studio' ),
 			),
 			'technology' => array(
-				'name'  => __( 'Technology', 'fl-builder' ),
+				'name'  => __( 'Technology', 'satori-studio' ),
 				'value' => fa()->technology(),
 			),
 			'version'    => array(
-				'name'  => __( 'Version', 'fl-builder' ),
+				'name'  => __( 'Version', 'satori-studio' ),
 				'value' => fa()->version(),
 			),
 			'version4'   => array(
-				'name'  => __( 'V4 Compatibility Mode', 'fl-builder' ),
-				'value' => ( fa()->v4_compatibility() ) ? __( 'Enabled', 'fl-builder' ) : __( 'Disabled', 'fl-builder' ),
+				'name'  => __( 'V4 Compatibility Mode', 'satori-studio' ),
+				'value' => ( fa()->v4_compatibility() ) ? __( 'Enabled', 'satori-studio' ) : __( 'Disabled', 'satori-studio' ),
 			),
 		);
 
 		if ( ! $kit ) {
 			$data['cdn'] = array(
-				'name'  => __( 'Using CDN', 'fl-builder' ),
-				'value' => __( 'Yes', 'fl-builder' ),
+				'name'  => __( 'Using CDN', 'satori-studio' ),
+				'value' => __( 'Yes', 'satori-studio' ),
 			);
 		} else {
 			$data['kit'] = array(
-				'name'  => __( 'Using Kit', 'fl-builder' ),
+				'name'  => __( 'Using Kit', 'satori-studio' ),
 				'value' => $kit->data->me->kit->name,
 			);
 
 			// translators: %s, number of icons
-			$number           = sprintf( _n( '%s custom icon', '%s custom icons', count( self::get_kit_icons() ), 'fl-builder' ), number_format_i18n( count( self::get_kit_icons() ) ) );
+			$number           = sprintf( _n( '%s custom icon', '%s custom icons', count( self::get_kit_icons() ), 'satori-studio' ), number_format_i18n( count( self::get_kit_icons() ) ) );
 			$data['kitcount'] = array(
-				'name'  => __( 'Custom Icons', 'fl-builder' ),
+				'name'  => __( 'Custom Icons', 'satori-studio' ),
 				'value' => sprintf( 'Kit contains %s', $number ),
 			);
 
@@ -321,9 +321,9 @@ final class FLBuilderFontAwesome {
 
 			if ( is_array( $result ) && 403 === $result['response']['code'] ) {
 				$data['kit403'] = array(
-					'name'  => __( 'Issue Detected', 'fl-builder' ),
+					'name'  => __( 'Issue Detected', 'satori-studio' ),
 					/* translators: %s: kit name */
-					'value' => sprintf( __( 'This domain appears to be blocked for kit %s', 'fl-builder' ), $kit->data->me->kit->name ),
+					'value' => sprintf( __( 'This domain appears to be blocked for kit %s', 'satori-studio' ), $kit->data->me->kit->name ),
 				);
 			}
 		}

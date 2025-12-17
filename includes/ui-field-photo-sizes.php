@@ -5,5 +5,5 @@
 		?>
 	<option value="<?php echo $size; ?>"<# if ( data.value === '<?php echo $size; ?>' ) { #> selected="selected"<# } #>><?php echo $label; ?></option>
 	<?php endforeach; ?>
-	<option value="full"<# if ( data.value === 'full' ) { #> selected="selected"<# } #>><?php _e( 'Full Size', 'fl-builder' ); ?></option>
+	<option value="full"<# if ( data.value === 'full' ) { #> selected="selected"<# } #>><?php _e( 'Full Size', 'satori-studio' ); ?></option>
 </select>

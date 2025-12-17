@@ -10,9 +10,9 @@ class FLRichTextModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Text Editor', 'fl-builder' ),
-			'description'     => __( 'A WYSIWYG text editor.', 'fl-builder' ),
-			'category'        => __( 'Basic', 'fl-builder' ),
+			'name'            => __( 'Text Editor', 'satori-studio' ),
+			'description'     => __( 'A WYSIWYG text editor.', 'satori-studio' ),
+			'category'        => __( 'Basic', 'satori-studio' ),
 			'icon'            => 'text.svg',
 			'partial_refresh' => true,
 			'include_wrapper' => false,
@@ -26,7 +26,7 @@ class FLRichTextModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLRichTextModule', array(
 	'general' => array( // Tab
-		'title'    => __( 'General', 'fl-builder' ), // Tab title
+		'title'    => __( 'General', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'general' => array( // Section
 				'title'  => '', // Section Title
@@ -47,7 +47,7 @@ FLBuilder::register_module('FLRichTextModule', array(
 		),
 	),
 	'style'   => array( // Tab
-		'title'    => __( 'Style', 'fl-builder' ), // Tab title
+		'title'    => __( 'Style', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'style' => array( // Section
 				'title'  => '', // Section Title
@@ -55,7 +55,7 @@ FLBuilder::register_module('FLRichTextModule', array(
 					'color'      => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Color', 'fl-builder' ),
+						'label'       => __( 'Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -66,7 +66,7 @@ FLBuilder::register_module('FLRichTextModule', array(
 					),
 					'typography' => array(
 						'type'       => 'typography',
-						'label'      => __( 'Typography', 'fl-builder' ),
+						'label'      => __( 'Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',

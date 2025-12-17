@@ -83,7 +83,7 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 
 		// Make sure both API and Secret Keys are provided.
 		if ( empty( $fields['api_key'] ) || empty( $fields['secret_key'] ) ) {
-			$response['error'] = __( 'Error: Both Mailjet API and Secret Keys are required.', 'fl-builder' );
+			$response['error'] = __( 'Error: Both Mailjet API and Secret Keys are required.', 'satori-studio' );
 			return $response;
 		}
 
@@ -114,11 +114,11 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 				$mj_status = $mj_response->getStatus();
 
 				/* translators: %s: Mailjet Error Code */
-				$response['error'] = sprintf( __( 'Error Code %s: Could not connect to Mailerjet.', 'fl-builder' ), $mj_status );
+				$response['error'] = sprintf( __( 'Error Code %s: Could not connect to Mailerjet.', 'satori-studio' ), $mj_status );
 
 				if ( 401 == $mj_status ) {
 					/* translators: %s: Mailjet Error Code */
-					$response['error'] = sprintf( __( 'Error Code %s: You have specified an incorrect API Key / API Secret Key pair.', 'fl-builder' ), $mj_status );
+					$response['error'] = sprintf( __( 'Error Code %s: You have specified an incorrect API Key / API Secret Key pair.', 'satori-studio' ), $mj_status );
 				}
 			}
 		} catch ( ConnectException $e ) {
@@ -143,9 +143,9 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'API Key', 'fl-builder' ),
-			'help'        => __( 'Found in your Mailjet account under Account Settings > Rest API > Master API Key & Sub API Key Management.', 'fl-builder' ),
-			'description' => sprintf( '<a target="_blank" href="https://app.mailjet.com/account/apikeys">%s</a>', __( 'Mailjet API settings', 'fl-builder' ) ),
+			'label'       => __( 'API Key', 'satori-studio' ),
+			'help'        => __( 'Found in your Mailjet account under Account Settings > Rest API > Master API Key & Sub API Key Management.', 'satori-studio' ),
+			'description' => sprintf( '<a target="_blank" href="https://app.mailjet.com/account/apikeys">%s</a>', __( 'Mailjet API settings', 'satori-studio' ) ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -155,8 +155,8 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Secret Key', 'fl-builder' ),
-			'help'      => __( 'Found in your Mailjet account under Account Settings > Rest API > Master API Key & Sub API Key Management.', 'fl-builder' ),
+			'label'     => __( 'Secret Key', 'satori-studio' ),
+			'help'      => __( 'Found in your Mailjet account under Account Settings > Rest API > Master API Key & Sub API Key Management.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -230,7 +230,7 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		if ( $lists ) {
@@ -243,7 +243,7 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -279,7 +279,7 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 		$account_data = $this->get_account_data( $settings->service_account );
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Mailerjet. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Mailerjet. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $account_data['api_key'], $account_data['secret_key'] );
@@ -328,7 +328,7 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 
 				if ( $exists && $exists_subscribed ) {
 					/* translators: %1$s for email address %2$s for list_id */
-					$response['error'] = sprintf( __( 'Email address (%1$s) already exists and subscribed to the list (%2$s).', 'fl-builder' ), $data['email'], $data['list_id'] );
+					$response['error'] = sprintf( __( 'Email address (%1$s) already exists and subscribed to the list (%2$s).', 'satori-studio' ), $data['email'], $data['list_id'] );
 				} else {
 
 					if ( class_exists( '\MailjetWp\Mailjet\Client' ) ) {
@@ -355,7 +355,7 @@ final class FLBuilderServiceMailjet extends FLBuilderService {
 
 					if ( ! $mj_response->success() ) {
 						/* translators: %1$s for email address %2$s for list_id */
-						$response['error'] = sprintf( __( 'Mailjet subscription failed. Email address = %1$s; List ID = %2$s. ', 'fl-builder' ), $data['email'], $data['list_id'] );
+						$response['error'] = sprintf( __( 'Mailjet subscription failed. Email address = %1$s; List ID = %2$s. ', 'satori-studio' ), $data['email'], $data['list_id'] );
 					}
 				}
 			} catch ( ConnectException $e ) {

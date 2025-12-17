@@ -5,9 +5,9 @@ class FLBuilderBoxModule extends FLBuilderModule {
 	public function __construct() {
 		global $wp_version;
 		parent::__construct( [
-			'name'            => __( 'Box', 'fl-builder' ),
-			'description'     => __( 'A simple layout container', 'fl-builder' ),
-			'category'        => __( 'Box', 'fl-builder' ),
+			'name'            => __( 'Box', 'satori-studio' ),
+			'description'     => __( 'A simple layout container', 'satori-studio' ),
+			'category'        => __( 'Box', 'satori-studio' ),
 			'icon'            => 'layout.svg',
 			'partial_refresh' => true,
 			'include_wrapper' => false,
@@ -136,29 +136,29 @@ class FLBuilderBoxModule extends FLBuilderModule {
 	static public function get_aspect_ratio_options() {
 		return [
 			'basics' => [
-				'label'   => __( 'Basics', 'fl-builder' ),
+				'label'   => __( 'Basics', 'satori-studio' ),
 				'options' => [
-					''     => __( '--', 'fl-builder' ),
-					'auto' => __( 'Auto', 'fl-builder' ),
-					'1/1'  => __( 'Square', 'fl-builder' ),
+					''     => __( '--', 'satori-studio' ),
+					'auto' => __( 'Auto', 'satori-studio' ),
+					'1/1'  => __( 'Square', 'satori-studio' ),
 				],
 			],
 			'wide'   => [
-				'label'   => __( 'Wide', 'fl-builder' ),
+				'label'   => __( 'Wide', 'satori-studio' ),
 				'options' => [
-					'5/4'  => __( 'Wide (5:4)', 'fl-builder' ),
-					'3/2'  => __( 'Wide (3:2)', 'fl-builder' ),
-					'16/9' => __( 'Video (16:9)', 'fl-builder' ),
-					'21/9' => __( 'Ultra-wide Video (21:9)', 'fl-builder' ),
+					'5/4'  => __( 'Wide (5:4)', 'satori-studio' ),
+					'3/2'  => __( 'Wide (3:2)', 'satori-studio' ),
+					'16/9' => __( 'Video (16:9)', 'satori-studio' ),
+					'21/9' => __( 'Ultra-wide Video (21:9)', 'satori-studio' ),
 				],
 			],
 			'tall'   => [
-				'label'   => __( 'Tall', 'fl-builder' ),
+				'label'   => __( 'Tall', 'satori-studio' ),
 				'options' => [
-					'4/5'  => __( 'Tall (4:5)', 'fl-builder' ),
-					'2/3'  => __( 'Tall (2:3)', 'fl-builder' ),
-					'3/4'  => __( 'Poster (3:4)', 'fl-builder' ),
-					'9/16' => __( 'Portrait Video (9:16)', 'fl-builder' ),
+					'4/5'  => __( 'Tall (4:5)', 'satori-studio' ),
+					'2/3'  => __( 'Tall (2:3)', 'satori-studio' ),
+					'3/4'  => __( 'Poster (3:4)', 'satori-studio' ),
+					'9/16' => __( 'Portrait Video (9:16)', 'satori-studio' ),
 				],
 			],
 		];
@@ -170,12 +170,12 @@ class FLBuilderBoxModule extends FLBuilderModule {
  */
 FLBuilder::register_module( 'FLBuilderBoxModule', [
 	'general'  => [
-		'title'    => __( 'Container', 'fl-builder' ),
+		'title'    => __( 'Container', 'satori-studio' ),
 		'sections' => [
 			'general' => [
 				'fields' => [
 					'layout'         => [
-						'label'       => __( 'Display', 'fl-builder' ),
+						'label'       => __( 'Display', 'satori-studio' ),
 						'type'        => 'button-group',
 						'responsive'  => [
 							'default' => [
@@ -188,9 +188,9 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						'fill_space'  => true,
 						'appearance'  => 'padded', // Vertical flexbox is default
 						'options'     => [
-							'flex'    => __( 'Flex', 'fl-builder' ),
-							'grid'    => __( 'Grid', 'fl-builder' ),
-							'z_stack' => __( 'Layers', 'fl-builder' ),
+							'flex'    => __( 'Flex', 'satori-studio' ),
+							'grid'    => __( 'Grid', 'satori-studio' ),
+							'z_stack' => __( 'Layers', 'satori-studio' ),
 						],
 						'icons'       => [
 							'flex'    => '<svg width="24" height="10"><use href="#fl-h-stack-icon" /></svg>',
@@ -324,10 +324,10 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'flex_direction' => [
-						'label'      => __( 'Direction', 'fl-builder' ),
+						'label'      => __( 'Direction', 'satori-studio' ),
 						'type'       => 'button-group',
 						'fill_space' => true,
-						'help'       => __( 'Controls how items inside the box line up. Either horizontally in a row or vertically in a column.', 'fl-builder' ),
+						'help'       => __( 'Controls how items inside the box line up. Either horizontally in a row or vertically in a column.', 'satori-studio' ),
 						'responsive' => [
 							'default' => [
 								'default'    => 'row',
@@ -337,10 +337,10 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 							],
 						],
 						'options'    => [
-							'row'            => __( 'Row', 'fl-builder' ),
-							'column'         => __( 'Column', 'fl-builder' ),
-							'row-reverse'    => __( 'Reversed Row', 'fl-builder' ),
-							'column-reverse' => __( 'Reversed Column', 'fl-builder' ),
+							'row'            => __( 'Row', 'satori-studio' ),
+							'column'         => __( 'Column', 'satori-studio' ),
+							'row-reverse'    => __( 'Reversed Row', 'satori-studio' ),
+							'column-reverse' => __( 'Reversed Column', 'satori-studio' ),
 						],
 						'preview'    => [
 							'type'     => 'css',
@@ -349,13 +349,13 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'grid_auto_flow' => [
-						'label'      => __( 'Flow Direction', 'fl-builder' ),
-						'help'       => __( 'Controls how items are placed into the grid. Either filling rows first or columns first.', 'fl-builder' ),
+						'label'      => __( 'Flow Direction', 'satori-studio' ),
+						'help'       => __( 'Controls how items are placed into the grid. Either filling rows first or columns first.', 'satori-studio' ),
 						'type'       => 'button-group',
 						'fill_space' => true,
 						'options'    => [
-							'row'    => __( 'Row', 'fl-builder' ),
-							'column' => __( 'Column', 'fl-builder' ),
+							'row'    => __( 'Row', 'satori-studio' ),
+							'column' => __( 'Column', 'satori-studio' ),
 						],
 						'icons'      => [
 							'row'    => '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -384,11 +384,11 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'place_content'  => [
-						'label'      => __( 'Align', 'fl-builder' ),
+						'label'      => __( 'Align', 'satori-studio' ),
 						'type'       => 'justify',
 						'preset'     => 'v_flex',
 						'responsive' => true,
-						'help'       => __( 'Controls the vertical (top row) and horizontal (bottom row) alignment of items within the box.', 'fl-builder' ),
+						'help'       => __( 'Controls the vertical (top row) and horizontal (bottom row) alignment of items within the box.', 'satori-studio' ),
 						'preview'    => [
 							'type'  => 'css',
 							'auto'  => true,
@@ -449,17 +449,17 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'flex_wrap'      => [
-						'label'       => __( 'Wrap', 'fl-builder' ),
+						'label'       => __( 'Wrap', 'satori-studio' ),
 						'type'        => 'button-group',
 						'responsive'  => true,
 						'allow_empty' => false,
 						'fill_space'  => true,
-						'help'        => __( "Controls if items should all stay on one line or wrap onto additional lines when there isn't enough space.", 'fl-builder' ),
+						'help'        => __( "Controls if items should all stay on one line or wrap onto additional lines when there isn't enough space.", 'satori-studio' ),
 						'options'     => [
-							''             => __( 'Normal', 'fl-builder' ),
-							'nowrap'       => __( 'None', 'fl-builder' ),
-							'wrap'         => __( 'Wrap', 'fl-builder' ),
-							'wrap-reverse' => __( 'Reversed', 'fl-builder' ),
+							''             => __( 'Normal', 'satori-studio' ),
+							'nowrap'       => __( 'None', 'satori-studio' ),
+							'wrap'         => __( 'Wrap', 'satori-studio' ),
+							'wrap-reverse' => __( 'Reversed', 'satori-studio' ),
 						],
 						'preview'     => [
 							'type'     => 'css',
@@ -475,12 +475,12 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 				],
 			],
 			'spacing' => [
-				'title'     => __( 'Spacing', 'fl-builder' ),
+				'title'     => __( 'Spacing', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => [
 					'gap'      => [
-						'label'      => __( 'Gap', 'fl-builder' ),
-						'help'       => __( 'Controls the space between items in the box.', 'fl-builder' ),
+						'label'      => __( 'Gap', 'satori-studio' ),
+						'help'       => __( 'Controls the space between items in the box.', 'satori-studio' ),
 						'type'       => 'unit',
 						'default'    => '10',
 						'responsive' => true,
@@ -501,11 +501,11 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'grid_gap' => [
-						'label'      => __( 'Gap', 'fl-builder' ),
+						'label'      => __( 'Gap', 'satori-studio' ),
 						'type'       => 'dimension',
 						'keys'       => [
-							'row'    => __( 'Row', 'fl-builder' ),
-							'column' => __( 'Column', 'fl-builder' ),
+							'row'    => __( 'Row', 'satori-studio' ),
+							'column' => __( 'Column', 'satori-studio' ),
 						],
 						'responsive' => [
 							'default'      => [
@@ -532,7 +532,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'padding'  => [
-						'label'      => __( 'Padding', 'fl-builder' ),
+						'label'      => __( 'Padding', 'satori-studio' ),
 						'type'       => 'dimension',
 						'responsive' => true,
 						'slider'     => true,
@@ -546,10 +546,10 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 				],
 			],
 			'style'   => [
-				'title'  => __( 'Appearance', 'fl-builder' ),
+				'title'  => __( 'Appearance', 'satori-studio' ),
 				'fields' => [
 					'color'      => [
-						'label'       => __( 'Text Color', 'fl-builder' ),
+						'label'       => __( 'Text Color', 'satori-studio' ),
 						'type'        => 'color',
 						'responsive'  => true,
 						'show_reset'  => true,
@@ -562,14 +562,14 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'bg_type'    => [
-						'label'       => __( 'Background Type', 'fl-builder' ),
+						'label'       => __( 'Background Type', 'satori-studio' ),
 						'type'        => 'button-group',
 						'fill_space'  => true,
 						'allow_empty' => false,
 						'default'     => 'basic',
 						'options'     => [
-							'basic'    => __( 'Color', 'fl-builder' ),
-							'advanced' => __( 'Advanced', 'fl-builder' ),
+							'basic'    => __( 'Color', 'satori-studio' ),
+							'advanced' => __( 'Advanced', 'satori-studio' ),
 						],
 						'toggle'      => [
 							'basic'    => [
@@ -581,7 +581,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'background' => [
-						'label'      => __( 'Background Layers', 'fl-builder' ),
+						'label'      => __( 'Background Layers', 'satori-studio' ),
 						'type'       => 'background',
 						'responsive' => [
 							'default' => [
@@ -609,7 +609,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'bg_color'   => [
-						'label'       => __( 'Background Color', 'fl-builder' ),
+						'label'       => __( 'Background Color', 'satori-studio' ),
 						'type'        => 'color',
 						'responsive'  => true,
 						'show_reset'  => true,
@@ -625,7 +625,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'border'     => [
-						'label'      => __( 'Border', 'fl-builder' ),
+						'label'      => __( 'Border', 'satori-studio' ),
 						'type'       => 'border',
 						'responsive' => true,
 						'preview'    => [
@@ -637,13 +637,13 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 				],
 			],
 			'sizing'  => [
-				'title'       => __( 'Sizing & Placement', 'fl-builder' ),
-				'description' => __( 'These settings allow you to control how this box renders within its parent container.', 'fl-builder' ),
+				'title'       => __( 'Sizing & Placement', 'satori-studio' ),
+				'description' => __( 'These settings allow you to control how this box renders within its parent container.', 'satori-studio' ),
 				'collapsed'   => true,
 				'fields'      => [
 
 					'aspect_ratio'  => [
-						'label'      => __( 'Aspect Ratio', 'fl-builder' ),
+						'label'      => __( 'Aspect Ratio', 'satori-studio' ),
 						'type'       => 'select',
 						'options'    => FLBuilderBoxModule::get_aspect_ratio_options(),
 						'default'    => '',
@@ -655,7 +655,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'flex'          => [
-						'label'      => __( 'Flex', 'fl-builder' ),
+						'label'      => __( 'Flex', 'satori-studio' ),
 						'type'       => 'flex',
 						'responsive' => true,
 						'preview'    => [
@@ -696,7 +696,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'grid_col'      => [
-						'label'      => __( 'Grid Column', 'fl-builder' ),
+						'label'      => __( 'Grid Column', 'satori-studio' ),
 						'type'       => 'grid-area',
 						'responsive' => true,
 						'preview'    => [
@@ -708,7 +708,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'grid_row'      => [
-						'label'      => __( 'Grid Row', 'fl-builder' ),
+						'label'      => __( 'Grid Row', 'satori-studio' ),
 						'type'       => 'grid-area',
 						'responsive' => true,
 						'preview'    => [
@@ -720,7 +720,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'size'          => [
-						'label'      => __( 'Width & Height', 'fl-builder' ),
+						'label'      => __( 'Width & Height', 'satori-studio' ),
 						'type'       => 'size',
 						'responsive' => true,
 						'preview'    => [
@@ -773,15 +773,15 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'margin_inline' => [
-						'label'      => __( 'Alignment', 'fl-builder' ),
+						'label'      => __( 'Alignment', 'satori-studio' ),
 						'type'       => 'button-group',
 						'default'    => '',
 						'responsive' => true,
 						'fill_space' => true,
 						'options'    => [
-							'0 auto' => __( 'Left', 'fl-builder' ),
-							'auto'   => __( 'Center', 'fl-builder' ),
-							'auto 0' => __( 'Right', 'fl-builder' ),
+							'0 auto' => __( 'Left', 'satori-studio' ),
+							'auto'   => __( 'Center', 'satori-studio' ),
+							'auto 0' => __( 'Right', 'satori-studio' ),
 						],
 						'preview'    => [
 							'type'         => 'css',
@@ -791,8 +791,8 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'order'         => [
-						'label'      => __( 'Order', 'fl-builder' ),
-						'help'       => __( 'Affects the order of this box when placed in a flex or grid parent.', 'fl-builder' ),
+						'label'      => __( 'Order', 'satori-studio' ),
+						'help'       => __( 'Affects the order of this box when placed in a flex or grid parent.', 'satori-studio' ),
 						'type'       => 'unit',
 						'default'    => '',
 						'responsive' => true,
@@ -805,11 +805,11 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 				],
 			],
 			'link'    => [
-				'title'     => __( 'Linking', 'fl-builder' ),
+				'title'     => __( 'Linking', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => [
 					'link' => [
-						'label'         => __( 'Link', 'fl-builder' ),
+						'label'         => __( 'Link', 'satori-studio' ),
 						'type'          => 'link',
 						'placeholder'   => 'https://www.example.com',
 						'show_target'   => true,
@@ -826,15 +826,15 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 		],
 	],
 	'children' => [
-		'title'       => __( 'Children', 'fl-builder' ),
-		'description' => __( 'These settings apply to all direct children of this container.', 'fl-builder' ),
+		'title'       => __( 'Children', 'satori-studio' ),
+		'description' => __( 'These settings apply to all direct children of this container.', 'satori-studio' ),
 		'sections'    => [
 			'child_placement'  => [
 				'fields' => [
 					'child_flex'     => [
-						'label'      => __( 'Grow & Shrink', 'fl-builder' ),
+						'label'      => __( 'Grow & Shrink', 'satori-studio' ),
 						'type'       => 'flex',
-						'help'       => __( 'Children of flex containers can allow themselves to grow or shrink. Zero indicates they cannot grow or shrink beyond their inherent size. 1 or greater determines what portion of the available space (or lack of it) will be allocated to this item.', 'fl-builder' ),
+						'help'       => __( 'Children of flex containers can allow themselves to grow or shrink. Zero indicates they cannot grow or shrink beyond their inherent size. 1 or greater determines what portion of the available space (or lack of it) will be allocated to this item.', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => [
 							'type'  => 'css',
@@ -877,7 +877,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_grid_col' => [
-						'label'      => __( 'Grid Column', 'fl-builder' ),
+						'label'      => __( 'Grid Column', 'satori-studio' ),
 						'type'       => 'grid-area',
 						'responsive' => true,
 						'preview'    => [
@@ -894,7 +894,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_grid_row' => [
-						'label'      => __( 'Grid Row', 'fl-builder' ),
+						'label'      => __( 'Grid Row', 'satori-studio' ),
 						'type'       => 'grid-area',
 						'responsive' => true,
 						'preview'    => [
@@ -927,7 +927,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_padding'  => [
-						'label'      => __( 'Padding', 'fl-builder' ),
+						'label'      => __( 'Padding', 'satori-studio' ),
 						'type'       => 'dimension',
 						'slider'     => true,
 						'responsive' => true,
@@ -942,11 +942,11 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 				],
 			],
 			'child_sizing'     => [
-				'title'     => __( 'Sizing', 'fl-builder' ),
+				'title'     => __( 'Sizing', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => [
 					'child_size'         => [
-						'label'      => __( 'Width & Height', 'fl-builder' ),
+						'label'      => __( 'Width & Height', 'satori-studio' ),
 						'type'       => 'size',
 						'responsive' => true,
 						'preview'    => [
@@ -1005,7 +1005,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_aspect_ratio' => [
-						'label'      => __( 'Aspect Ratio', 'fl-builder' ),
+						'label'      => __( 'Aspect Ratio', 'satori-studio' ),
 						'type'       => 'select',
 						'options'    => FLBuilderBoxModule::get_aspect_ratio_options(),
 						'default'    => '',
@@ -1020,11 +1020,11 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 				],
 			],
 			'child_appearance' => [
-				'title'     => __( 'Appearance', 'fl-builder' ),
+				'title'     => __( 'Appearance', 'satori-studio' ),
 				'collapsed' => true,
 				'fields'    => [
 					'child_color'      => [
-						'label'       => __( 'Text Color', 'fl-builder' ),
+						'label'       => __( 'Text Color', 'satori-studio' ),
 						'type'        => 'color',
 						'responsive'  => true,
 						'show_reset'  => true,
@@ -1038,14 +1038,14 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_bg_type'    => [
-						'label'       => __( 'Background Type', 'fl-builder' ),
+						'label'       => __( 'Background Type', 'satori-studio' ),
 						'type'        => 'button-group',
 						'fill_space'  => true,
 						'allow_empty' => false,
 						'default'     => 'basic',
 						'options'     => [
-							'basic'    => __( 'Color', 'fl-builder' ),
-							'advanced' => __( 'Advanced', 'fl-builder' ),
+							'basic'    => __( 'Color', 'satori-studio' ),
+							'advanced' => __( 'Advanced', 'satori-studio' ),
 						],
 						'toggle'      => [
 							'basic'    => [
@@ -1057,7 +1057,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_background' => [
-						'label'      => __( 'Background', 'fl-builder' ),
+						'label'      => __( 'Background', 'satori-studio' ),
 						'type'       => 'background',
 						'responsive' => true,
 						'preview'    => [
@@ -1074,7 +1074,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_bg_color'   => [
-						'label'       => __( 'Background Color', 'fl-builder' ),
+						'label'       => __( 'Background Color', 'satori-studio' ),
 						'type'        => 'color',
 						'responsive'  => true,
 						'show_reset'  => true,
@@ -1091,7 +1091,7 @@ FLBuilder::register_module( 'FLBuilderBoxModule', [
 						],
 					],
 					'child_border'     => [
-						'label'      => __( 'Border', 'fl-builder' ),
+						'label'      => __( 'Border', 'satori-studio' ),
 						'type'       => 'border',
 						'responsive' => true,
 						'preview'    => [

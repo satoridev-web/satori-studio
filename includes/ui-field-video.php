@@ -20,7 +20,7 @@ if ( ! data.value || ! video ) {
 
 #>
 <div class="fl-video-field fl-builder-custom-field{{className}}">
-	<a class="fl-video-select" href="javascript:void(0);" onclick="return false;"><?php _e( 'Select Video', 'fl-builder' ); ?></a>
+	<a class="fl-video-select" href="javascript:void(0);" onclick="return false;"><?php _e( 'Select Video', 'satori-studio' ); ?></a>
 	<div class="fl-video-preview">
 		<# if ( data.value && video ) { #>
 		<div class="fl-video-preview-img">
@@ -34,9 +34,9 @@ if ( ! data.value || ! video ) {
 		<span class="fl-video-preview-filename"></span>
 		<# } #>
 		<br />
-		<a class="fl-video-replace" href="javascript:void(0);" onclick="return false;"><?php _e( 'Replace Video', 'fl-builder' ); ?></a>
+		<a class="fl-video-replace" href="javascript:void(0);" onclick="return false;"><?php _e( 'Replace Video', 'satori-studio' ); ?></a>
 		<# if ( data.field.show_remove ) { #>
-		<a class="fl-video-remove" href="javascript:void(0);" onclick="return false;"><?php _e( 'Remove Video', 'fl-builder' ); ?></a>
+		<a class="fl-video-remove" href="javascript:void(0);" onclick="return false;"><?php _e( 'Remove Video', 'satori-studio' ); ?></a>
 		<# } #>
 		<div class="fl-clear"></div>
 	</div>

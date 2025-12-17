@@ -1,8 +1,8 @@
 <?php $raw_settings = FLBuilderUserAccess::get_raw_settings(); ?>
 <div id="fl-user-access-form" class="fl-settings-form">
 
-	<h3 class="fl-settings-form-header"><?php _e( 'User Access Settings', 'fl-builder' ); ?></h3>
-	<p><?php _e( 'Use these settings to limit which builder features users can access.', 'fl-builder' ); ?></p>
+	<h3 class="fl-settings-form-header"><?php _e( 'User Access Settings', 'satori-studio' ); ?></h3>
+	<p><?php _e( 'Use these settings to limit which builder features users can access.', 'satori-studio' ); ?></p>
 
 	<form id="editing-form" action="<?php FLBuilderAdminSettings::render_form_action( 'user-access' ); ?>" method="post">
 		<div class="fl-settings-form-content">
@@ -19,7 +19,7 @@
 							<?php if ( FLBuilderAdminSettings::multisite_support() && ! is_network_admin() ) : ?>
 							<label class="fl-ua-override-ms-label">
 								<input class="fl-ua-override-ms-cb" type="checkbox" name="fl_ua_override_ms[<?php echo $cap; ?>]" value="1" <?php echo ( isset( $raw_settings[ $cap ] ) ) ? 'checked' : ''; ?> />
-								<?php _e( 'Override network settings?', 'fl-builder' ); ?>
+								<?php _e( 'Override network settings?', 'satori-studio' ); ?>
 							</label>
 							<?php endif; ?>
 							<select name="fl_user_access[<?php echo $cap; ?>][]" class="fl-user-access-select" multiple></select>
@@ -36,7 +36,7 @@
 			<?php endforeach; ?>
 		</div>
 		<p class="submit">
-			<input type="submit" name="update" class="button-primary" value="<?php esc_attr_e( 'Save User Access Settings', 'fl-builder' ); ?>" />
+			<input type="submit" name="update" class="button-primary" value="<?php esc_attr_e( 'Save User Access Settings', 'satori-studio' ); ?>" />
 			<?php wp_nonce_field( 'user-access', 'fl-user-access-nonce' ); ?>
 		</p>
 	</form>

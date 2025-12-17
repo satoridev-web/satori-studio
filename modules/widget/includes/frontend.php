@@ -42,7 +42,7 @@ if ( isset( $widget_class ) && class_exists( $widget_class ) ) {
 
 	// Widget doesn't exist!
 	/* translators: %s: widget title */
-	printf( _x( '%s no longer exists.', '%s stands for widget slug.', 'fl-builder' ), isset( $settings->widget_title ) ? $settings->widget_title : $widget_class );
+	printf( _x( '%s no longer exists.', '%s stands for widget slug.', 'satori-studio' ), isset( $settings->widget_title ) ? $settings->widget_title : $widget_class );
 
 }
 

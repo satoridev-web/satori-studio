@@ -82,18 +82,18 @@ final class FLBuilderWPBlocks {
 			),
 			'strings' => array(
 				/* translators: 1: branded builder name: 2: post type name */
-				'active'      => sprintf( _x( '%1$s is currently active for this %2$s.', '%1$s branded builder name. %2$s post type name.', 'fl-builder' ), $branding, strtolower( $post_type_name ) ),
+				'active'      => sprintf( _x( '%1$s is currently active for this %2$s.', '%1$s branded builder name. %2$s post type name.', 'satori-studio' ), $branding, strtolower( $post_type_name ) ),
 				/* translators: %s: post type name */
-				'convert'     => sprintf( _x( 'Convert to %s', '%s branded builder name.', 'fl-builder' ), $branding ),
+				'convert'     => sprintf( _x( 'Convert to %s', '%s branded builder name.', 'satori-studio' ), $branding ),
 				/* translators: %s: branded builder name */
-				'description' => sprintf( _x( '%s lets you drag and drop your layout on the frontend.', '%s branded builder name.', 'fl-builder' ), $branding ),
-				'editor'      => __( 'Use Standard Editor', 'fl-builder' ),
+				'description' => sprintf( _x( '%s lets you drag and drop your layout on the frontend.', '%s branded builder name.', 'satori-studio' ), $branding ),
+				'editor'      => __( 'Use Standard Editor', 'satori-studio' ),
 				/* translators: %s: branded builder name */
-				'launch'      => sprintf( _x( 'Launch %s', '%s branded builder name.', 'fl-builder' ), $branding ),
+				'launch'      => sprintf( _x( 'Launch %s', '%s branded builder name.', 'satori-studio' ), $branding ),
 				'title'       => $branding,
 				/* translators: %s: post type name */
-				'view'        => sprintf( _x( 'View %s', '%s post type name.', 'fl-builder' ), $post_type_name ),
-				'warning'     => __( 'Switching to the native WordPress editor will disable your SATORI Studio layout until it is enabled again. Any edits made in the WordPress editor will not be converted to your Page Builder layout. Do you want to continue?', 'fl-builder' ),
+				'view'        => sprintf( _x( 'View %s', '%s post type name.', 'satori-studio' ), $post_type_name ),
+				'warning'     => __( 'Switching to the native WordPress editor will disable your SATORI Studio layout until it is enabled again. Any edits made in the WordPress editor will not be converted to your Page Builder layout. Do you want to continue?', 'satori-studio' ),
 			),
 			'urls'    => array(
 				'edit' => FLBuilderModel::get_edit_url( $post->ID ),

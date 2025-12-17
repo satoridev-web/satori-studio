@@ -45,20 +45,20 @@ if ( FLBuilder::is_module_disable_enabled() ) {
 
 ?>
 <div id="fl-modules-form" class="fl-settings-form">
-	<h3 class="fl-settings-form-header"><?php _e( 'Enabled Modules', 'fl-builder' ); ?></h3>
+	<h3 class="fl-settings-form-header"><?php _e( 'Enabled Modules', 'satori-studio' ); ?></h3>
 
 	<form id="modules-form" action="<?php FLBuilderAdminSettings::render_form_action( 'modules' ); ?>" method="post">
 
 		<?php if ( FLBuilderAdminSettings::multisite_support() && ! is_network_admin() ) : ?>
 		<label>
 			<input class="fl-override-ms-cb" type="checkbox" name="fl-override-ms" value="1" <?php echo ( get_option( '_fl_builder_enabled_modules' ) ) ? 'checked="checked"' : ''; ?> />
-			<?php _e( 'Override network settings?', 'fl-builder' ); ?>
+			<?php _e( 'Override network settings?', 'satori-studio' ); ?>
 		</label>
 		<?php endif; ?>
 
 		<div class="fl-settings-form-content">
 
-			<p><?php _e( 'Check or uncheck modules below to enable or disable them.', 'fl-builder' ); ?></p>
+			<p><?php _e( 'Check or uncheck modules below to enable or disable them.', 'satori-studio' ); ?></p>
 			<?php
 
 
@@ -70,13 +70,13 @@ if ( FLBuilder::is_module_disable_enabled() ) {
 			?>
 			<label>
 				<input class="fl-module-all-cb" type="checkbox" name="fl-modules[]" value="all" <?php echo $checked; ?> />
-				<?php _ex( 'All', 'Plugin setup page: Modules.', 'fl-builder' ); ?>
+				<?php _ex( 'All', 'Plugin setup page: Modules.', 'satori-studio' ); ?>
 			</label>
 			<?php foreach ( $categories as $title => $modules ) : ?>
 			<h3><?php echo $title; ?></h3>
 				<?php
 
-				if ( __( 'WordPress Widgets', 'fl-builder' ) == $title ) :
+				if ( __( 'WordPress Widgets', 'satori-studio' ) == $title ) :
 
 					$checked = in_array( 'widget', $enabled_modules ) ? 'checked' : '';
 
@@ -111,7 +111,7 @@ if ( FLBuilder::is_module_disable_enabled() ) {
 							}
 							$text = implode( ', ', $txt );
 						}
-						$module_name = in_array( $module->slug, $deprecated ) ? $module->name . sprintf( ' (%s)', __( 'Deprecated', 'fl-builder' ) ) : $module->name;
+						$module_name = in_array( $module->slug, $deprecated ) ? $module->name . sprintf( ' (%s)', __( 'Deprecated', 'satori-studio' ) ) : $module->name;
 						?>
 						<?php echo ( FLBuilder::is_module_disable_enabled() ) ? sprintf( '%s ( %s )', $module_name, $text ) : $module_name; ?>
 					</label>
@@ -120,7 +120,7 @@ if ( FLBuilder::is_module_disable_enabled() ) {
 			<?php endforeach; ?>
 		</div>
 		<p class="submit">
-			<input type="submit" name="update" class="button-primary" value="<?php esc_attr_e( 'Save Module Settings', 'fl-builder' ); ?>" />
+			<input type="submit" name="update" class="button-primary" value="<?php esc_attr_e( 'Save Module Settings', 'satori-studio' ); ?>" />
 			<?php wp_nonce_field( 'modules', 'fl-modules-nonce' ); ?>
 		</p>
 	</form>
