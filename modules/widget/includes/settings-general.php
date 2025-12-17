@@ -24,16 +24,16 @@ if ( isset( $widget_class ) && class_exists( $widget_class ) ) {
 
 } else {
 
-	$widget_class = ( isset( $widget_class ) ) ? $widget_class : __( 'Widget', 'fl-builder' );
+	$widget_class = ( isset( $widget_class ) ) ? $widget_class : __( 'Widget', 'satori-studio' );
 
 	// Widget doesn't exist!
-	$widget_title = isset( $settings->widget_title ) ? $settings->widget_title : __( 'Widget', 'fl-builder' );
+	$widget_title = isset( $settings->widget_title ) ? $settings->widget_title : __( 'Widget', 'satori-studio' );
 
 	// Widget form
 	ob_start();
 	echo '<div class="fl-builder-widget-missing">';
 	/* translators: %s: widget title */
-	printf( _x( '%s no longer exists.', '%s stands for widget slug.', 'fl-builder' ), isset( $settings->widget_title ) ? $settings->widget_title : $widget_class );
+	printf( _x( '%s no longer exists.', '%s stands for widget slug.', 'satori-studio' ), isset( $settings->widget_title ) ? $settings->widget_title : $widget_class );
 	echo '</div>';
 	$widget_form = ob_get_clean();
 }

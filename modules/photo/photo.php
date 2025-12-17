@@ -21,9 +21,9 @@ class FLPhotoModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Photo', 'fl-builder' ),
-			'description'     => __( 'Upload a photo or display one from the media library.', 'fl-builder' ),
-			'category'        => __( 'Basic', 'fl-builder' ),
+			'name'            => __( 'Photo', 'satori-studio' ),
+			'description'     => __( 'Upload a photo or display one from the media library.', 'satori-studio' ),
+			'category'        => __( 'Basic', 'satori-studio' ),
 			'icon'            => 'format-image.svg',
 			'partial_refresh' => true,
 			'include_wrapper' => false,
@@ -584,18 +584,18 @@ class FLPhotoModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLPhotoModule', array(
 	'general' => array( // Tab
-		'title'    => __( 'General', 'fl-builder' ), // Tab title
+		'title'    => __( 'General', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'general' => array( // Section
 				'title'  => '', // Section Title
 				'fields' => array( // Section Fields
 					'photo_source' => array(
 						'type'    => 'select',
-						'label'   => __( 'Photo Source', 'fl-builder' ),
+						'label'   => __( 'Photo Source', 'satori-studio' ),
 						'default' => 'library',
 						'options' => array(
-							'library' => __( 'Media Library', 'fl-builder' ),
-							'url'     => __( 'URL', 'fl-builder' ),
+							'library' => __( 'Media Library', 'satori-studio' ),
+							'url'     => __( 'URL', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'library' => array(
@@ -611,7 +611,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'photo'        => array(
 						'type'        => 'photo',
-						'label'       => __( 'Photo', 'fl-builder' ),
+						'label'       => __( 'Photo', 'satori-studio' ),
 						'connections' => array( 'photo' ),
 						'show_remove' => true,
 						'preview'     => array(
@@ -620,7 +620,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'photo_url'    => array(
 						'type'        => 'text',
-						'label'       => __( 'Photo URL', 'fl-builder' ),
+						'label'       => __( 'Photo URL', 'satori-studio' ),
 						'placeholder' => 'https://www.example.com/my-photo.jpg',
 						'preview'     => array(
 							'type' => 'none',
@@ -628,32 +628,32 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'title_hover'  => array(
 						'type'    => 'select',
-						'label'   => __( 'Show title attribute on mouse hover', 'fl-builder' ),
+						'label'   => __( 'Show title attribute on mouse hover', 'satori-studio' ),
 						'default' => 'no',
 						'options' => array(
-							'no'  => __( 'No', 'fl-builder' ),
-							'yes' => __( 'Yes', 'fl-builder' ),
+							'no'  => __( 'No', 'satori-studio' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
 						),
 					),
 					'url_title'    => array(
 						'type'        => 'text',
-						'label'       => __( 'Image title attribute', 'fl-builder' ),
+						'label'       => __( 'Image title attribute', 'satori-studio' ),
 						'default'     => '',
-						'placeholder' => __( 'Use image filename if left blank', 'fl-builder' ),
+						'placeholder' => __( 'Use image filename if left blank', 'satori-studio' ),
 					),
 				),
 			),
 			'caption' => array(
-				'title'  => __( 'Caption', 'fl-builder' ),
+				'title'  => __( 'Caption', 'satori-studio' ),
 				'fields' => array(
 					'show_caption' => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Caption', 'fl-builder' ),
+						'label'   => __( 'Show Caption', 'satori-studio' ),
 						'default' => '0',
 						'options' => array(
-							'0'     => __( 'Never', 'fl-builder' ),
-							'hover' => __( 'On Hover', 'fl-builder' ),
-							'below' => __( 'Below Photo', 'fl-builder' ),
+							'0'     => __( 'Never', 'satori-studio' ),
+							'hover' => __( 'On Hover', 'satori-studio' ),
+							'below' => __( 'Below Photo', 'satori-studio' ),
 						),
 
 						'toggle'  => array(
@@ -672,7 +672,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'caption'      => array(
 						'type'    => 'text',
-						'label'   => __( 'Caption', 'fl-builder' ),
+						'label'   => __( 'Caption', 'satori-studio' ),
 						'preview' => array(
 							'type' => 'none',
 						),
@@ -680,17 +680,17 @@ FLBuilder::register_module('FLPhotoModule', array(
 				),
 			),
 			'link'    => array(
-				'title'  => __( 'Link', 'fl-builder' ),
+				'title'  => __( 'Link', 'satori-studio' ),
 				'fields' => array(
 					'link_type' => array(
 						'type'    => 'select',
-						'label'   => __( 'Link Type', 'fl-builder' ),
+						'label'   => __( 'Link Type', 'satori-studio' ),
 						'options' => array(
-							''         => _x( 'None', 'Link type.', 'fl-builder' ),
-							'url'      => __( 'URL', 'fl-builder' ),
-							'lightbox' => __( 'Lightbox', 'fl-builder' ),
-							'file'     => __( 'Photo File', 'fl-builder' ),
-							'page'     => __( 'Photo Page', 'fl-builder' ),
+							''         => _x( 'None', 'Link type.', 'satori-studio' ),
+							'url'      => __( 'URL', 'satori-studio' ),
+							'lightbox' => __( 'Lightbox', 'satori-studio' ),
+							'file'     => __( 'Photo File', 'satori-studio' ),
+							'page'     => __( 'Photo Page', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							''     => array(),
@@ -700,14 +700,14 @@ FLBuilder::register_module('FLPhotoModule', array(
 							'file' => array(),
 							'page' => array(),
 						),
-						'help'    => __( 'Link type applies to how the image should be linked on click. You can choose a specific URL, the individual photo or a separate page with the photo.', 'fl-builder' ),
+						'help'    => __( 'Link type applies to how the image should be linked on click. You can choose a specific URL, the individual photo or a separate page with the photo.', 'satori-studio' ),
 						'preview' => array(
 							'type' => 'none',
 						),
 					),
 					'link_url'  => array(
 						'type'          => 'link',
-						'label'         => __( 'Link URL', 'fl-builder' ),
+						'label'         => __( 'Link URL', 'satori-studio' ),
 						'show_target'   => true,
 						'show_nofollow' => true,
 						'show_download' => true,
@@ -721,27 +721,27 @@ FLBuilder::register_module('FLPhotoModule', array(
 		),
 	),
 	'style'   => array( // Tab
-		'title'    => __( 'Style', 'fl-builder' ), // Tab title
+		'title'    => __( 'Style', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'general' => array( // Section
 				'title'  => '', // Section Title
 				'fields' => array( // Section Fields
 					'crop'               => array(
 						'type'    => 'select',
-						'label'   => __( 'Crop', 'fl-builder' ),
+						'label'   => __( 'Crop', 'satori-studio' ),
 						'default' => '',
 						'options' => array(
-							''          => _x( 'None', 'Photo Crop.', 'fl-builder' ),
-							'landscape' => __( 'Landscape', 'fl-builder' ),
-							'panorama'  => __( 'Panorama', 'fl-builder' ),
-							'portrait'  => __( 'Portrait', 'fl-builder' ),
-							'square'    => __( 'Square', 'fl-builder' ),
-							'circle'    => __( 'Circle', 'fl-builder' ),
+							''          => _x( 'None', 'Photo Crop.', 'satori-studio' ),
+							'landscape' => __( 'Landscape', 'satori-studio' ),
+							'panorama'  => __( 'Panorama', 'satori-studio' ),
+							'portrait'  => __( 'Portrait', 'satori-studio' ),
+							'square'    => __( 'Square', 'satori-studio' ),
+							'circle'    => __( 'Circle', 'satori-studio' ),
 						),
 					),
 					'width'              => array(
 						'type'       => 'unit',
-						'label'      => __( 'Width', 'fl-builder' ),
+						'label'      => __( 'Width', 'satori-studio' ),
 						'responsive' => true,
 						'units'      => array(
 							'px',
@@ -764,7 +764,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'align'              => array(
 						'type'       => 'align',
-						'label'      => __( 'Align', 'fl-builder' ),
+						'label'      => __( 'Align', 'satori-studio' ),
 						'default'    => 'center',
 						'responsive' => true,
 						'preview'    => array(
@@ -776,7 +776,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'border'             => array(
 						'type'       => 'border',
-						'label'      => __( 'Border', 'fl-builder' ),
+						'label'      => __( 'Border', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',
@@ -785,7 +785,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'caption_typography' => array(
 						'type'       => 'typography',
-						'label'      => __( 'Caption Typography', 'fl-builder' ),
+						'label'      => __( 'Caption Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'      => 'css',
@@ -795,7 +795,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 					),
 					'fill_container'     => array(
 						'type'    => 'object-fit',
-						'label'   => __( 'Fill Container', 'fl-builder' ),
+						'label'   => __( 'Fill Container', 'satori-studio' ),
 						'preview' => [
 							'type'  => 'css',
 							'auto'  => true,

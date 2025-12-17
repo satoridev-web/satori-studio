@@ -27,7 +27,7 @@ class FLBuilderSettingsPresets {
 	static public function register( $type = '', $args = array() ) {
 		$defaults                        = array(
 			'name'     => '',
-			'label'    => __( 'Untitled Preset', 'fl-builder' ),
+			'label'    => __( 'Untitled Preset', 'satori-studio' ),
 			'type'     => $type,
 			'settings' => array(), /* the settings to set when preset is selected */
 			'data'     => array(), /* arbitrary data to pass along to the frontend */
@@ -54,7 +54,7 @@ class FLBuilderSettingsPresets {
 	*/
 	static public function get_preset_options( $type ) {
 		$options = array(
-			'' => __( 'Select A Preset', 'fl-builder' ),
+			'' => __( 'Select A Preset', 'satori-studio' ),
 		);
 		if ( $type ) {
 			$presets = self::$presets[ $type ];

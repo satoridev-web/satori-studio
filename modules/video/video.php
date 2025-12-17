@@ -15,9 +15,9 @@ class FLVideoModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Video', 'fl-builder' ),
-			'description'     => __( 'Render a WordPress or embedable video.', 'fl-builder' ),
-			'category'        => __( 'Basic', 'fl-builder' ),
+			'name'            => __( 'Video', 'satori-studio' ),
+			'description'     => __( 'Render a WordPress or embedable video.', 'satori-studio' ),
+			'category'        => __( 'Basic', 'satori-studio' ),
 			'icon'            => 'format-video.svg',
 			'partial_refresh' => true,
 			'include_wrapper' => false,
@@ -109,7 +109,7 @@ class FLVideoModule extends FLBuilderModule {
 
 			$video_html = $video_meta;
 
-			$video_sc = sprintf( '%s', __( 'Video not specified. Please select one to display.', 'fl-builder' ) );
+			$video_sc = sprintf( '%s', __( 'Video not specified. Please select one to display.', 'satori-studio' ) );
 
 			if ( ! empty( $vid_data->url ) ) {
 				$video_sc = '[video src="' . preg_replace( '/\/?\?.*/', '', $vid_data->url ) . '" ' . $vid_data->extension . '="' . preg_replace( '/\/?\?.*/', '', $vid_data->url ) . '"' . $vid_data->video_webm . ' poster="' . $video_poster . '" ' . $vid_data->autoplay . $vid_data->loop . $preload . '][/video]';
@@ -129,7 +129,7 @@ class FLVideoModule extends FLBuilderModule {
 			if ( ! empty( $this->settings->embed_code ) ) {
 				$video_embed = $wp_embed->autoembed( do_shortcode( $this->settings->embed_code ) );
 			} elseif ( ! isset( $this->settings->connections ) ) {
-				$video_embed = sprintf( '%s', __( 'Video embed code not specified.', 'fl-builder' ) );
+				$video_embed = sprintf( '%s', __( 'Video embed code not specified.', 'satori-studio' ) );
 			}
 
 			if ( 'yes' == $this->settings->video_lightbox ) {
@@ -154,7 +154,7 @@ class FLVideoModule extends FLBuilderModule {
 			$poster_url = $this->get_poster_url();
 			if ( empty( $poster_url ) ) {
 				$poster_html .= '<div class="fl-video-poster">';
-				$poster_html .= sprintf( '%s', __( 'Please specify a poster image if Video Lightbox is enabled.', 'fl-builder' ) );
+				$poster_html .= sprintf( '%s', __( 'Please specify a poster image if Video Lightbox is enabled.', 'satori-studio' ) );
 				$poster_html .= '</div>';
 			} else {
 				$video_url    = esc_url( $this->get_video_url() );
@@ -162,7 +162,7 @@ class FLVideoModule extends FLBuilderModule {
 				$poster_html .= '<div class="fl-video-poster" ';
 				$poster_html .= 'role="button" ';
 				$poster_html .= 'tabindex="0" ';
-				$poster_html .= 'aria-label="' . esc_attr__( 'Play Video', 'fl-builder' ) . '" ';
+				$poster_html .= 'aria-label="' . esc_attr__( 'Play Video', 'satori-studio' ) . '" ';
 				$poster_html .= 'data-mfp-src="' . $video_url . '">';
 				$poster_html .= wp_get_attachment_image( $this->settings->poster, $size, '', array( 'class' => 'img-responsive' ) );
 				$poster_html .= '</div>';
@@ -349,18 +349,18 @@ class FLVideoModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLVideoModule', array(
 	'general' => array(
-		'title'    => __( 'General', 'fl-builder' ),
+		'title'    => __( 'General', 'satori-studio' ),
 		'sections' => array(
 			'general'                => array(
 				'title'  => '',
 				'fields' => array(
 					'video_type'       => array(
 						'type'    => 'select',
-						'label'   => __( 'Video Type', 'fl-builder' ),
+						'label'   => __( 'Video Type', 'satori-studio' ),
 						'default' => 'wordpress',
 						'options' => array(
-							'media_library' => __( 'Media Library', 'fl-builder' ),
-							'embed'         => __( 'Embed', 'fl-builder' ),
+							'media_library' => __( 'Media Library', 'satori-studio' ),
+							'embed'         => __( 'Embed', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'media_library' => array(
@@ -374,17 +374,17 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'video'            => array(
 						'type'        => 'video',
-						'label'       => __( 'Main Video (MP4)', 'fl-builder' ),
+						'label'       => __( 'Main Video (MP4)', 'satori-studio' ),
 						'connections' => array( 'custom_field' ),
-						'help'        => __( 'Main video, which could be in mp4, m4v, webm, ogv, or wmv format. Most modern browsers support this format.', 'fl-builder' ),
+						'help'        => __( 'Main video, which could be in mp4, m4v, webm, ogv, or wmv format. Most modern browsers support this format.', 'satori-studio' ),
 						'show_remove' => true,
 					),
 					'video_webm'       => array(
 						'type'        => 'video',
 						'show_remove' => true,
-						'label'       => __( 'Fallback Video (WebM)', 'fl-builder' ),
+						'label'       => __( 'Fallback Video (WebM)', 'satori-studio' ),
 						'connections' => array( 'custom_field' ),
-						'help'        => __( 'A video in the WebM format to use as fallback. This format is required to support browsers such as FireFox and Opera.', 'fl-builder' ),
+						'help'        => __( 'A video in the WebM format to use as fallback. This format is required to support browsers such as FireFox and Opera.', 'satori-studio' ),
 						'preview'     => array(
 							'type' => 'none',
 						),
@@ -399,27 +399,27 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'video_lightbox'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Video on Lightbox', 'fl-builder' ),
+						'label'   => __( 'Show Video on Lightbox', 'satori-studio' ),
 						'default' => 'no',
 						'options' => array(
-							'yes' => __( 'Yes', 'fl-builder' ),
-							'no'  => __( 'No', 'fl-builder' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
+							'no'  => __( 'No', 'satori-studio' ),
 						),
-						'help'    => __( 'Poster Image must be specified for the Lightbox to work.', 'fl-builder' ),
+						'help'    => __( 'Poster Image must be specified for the Lightbox to work.', 'satori-studio' ),
 					),
 					'poster'           => array(
 						'type'        => 'photo',
 						'show_remove' => true,
-						'label'       => _x( 'Poster', 'Video preview/fallback image.', 'fl-builder' ),
-						'help'        => __( 'An image must be specified for the Lightbox to work.', 'fl-builder' ),
+						'label'       => _x( 'Poster', 'Video preview/fallback image.', 'satori-studio' ),
+						'help'        => __( 'An image must be specified for the Lightbox to work.', 'satori-studio' ),
 					),
 					'autoplay'         => array(
 						'type'    => 'select',
-						'label'   => __( 'Auto Play', 'fl-builder' ),
+						'label'   => __( 'Auto Play', 'satori-studio' ),
 						'default' => '0',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -427,11 +427,11 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'loop'             => array(
 						'type'    => 'select',
-						'label'   => __( 'Loop', 'fl-builder' ),
+						'label'   => __( 'Loop', 'satori-studio' ),
 						'default' => '0',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -439,11 +439,11 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'sticky_on_scroll' => array(
 						'type'    => 'select',
-						'label'   => __( 'Sticky on Scroll', 'fl-builder' ),
+						'label'   => __( 'Sticky on Scroll', 'satori-studio' ),
 						'default' => 'no',
 						'options' => array(
-							'no'  => __( 'No', 'fl-builder' ),
-							'yes' => __( 'Yes', 'fl-builder' ),
+							'no'  => __( 'No', 'satori-studio' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -456,56 +456,56 @@ FLBuilder::register_module('FLVideoModule', array(
 				'fields' => array(
 					'play_pause'  => array(
 						'type'    => 'select',
-						'label'   => __( 'Play/Pause', 'fl-builder' ),
+						'label'   => __( 'Play/Pause', 'satori-studio' ),
 						'default' => 'show',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 					),
 					'timer'       => array(
 						'type'    => 'select',
-						'label'   => __( 'Timer', 'fl-builder' ),
+						'label'   => __( 'Timer', 'satori-studio' ),
 						'default' => 'show',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 					),
 					'time_rail'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Time Rail', 'fl-builder' ),
+						'label'   => __( 'Time Rail', 'satori-studio' ),
 						'default' => 'show',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 					),
 					'duration'    => array(
 						'type'    => 'select',
-						'label'   => __( 'Duration', 'fl-builder' ),
+						'label'   => __( 'Duration', 'satori-studio' ),
 						'default' => 'show',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 					),
 					'volume'      => array(
 						'type'    => 'select',
-						'label'   => __( 'Volume', 'fl-builder' ),
+						'label'   => __( 'Volume', 'satori-studio' ),
 						'default' => 'show',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 					),
 					'full_screen' => array(
 						'type'    => 'select',
-						'label'   => __( 'Fullscreen', 'fl-builder' ),
+						'label'   => __( 'Fullscreen', 'satori-studio' ),
 						'default' => 'show',
 						'options' => array(
-							'show' => __( 'Show', 'fl-builder' ),
-							'hide' => __( 'Hide', 'fl-builder' ),
+							'show' => __( 'Show', 'satori-studio' ),
+							'hide' => __( 'Hide', 'satori-studio' ),
 						),
 					),
 				),
@@ -519,7 +519,7 @@ FLBuilder::register_module('FLVideoModule', array(
 				'fields' => array(
 					'schema_enabled' => array(
 						'type'    => 'select',
-						'label'   => __( 'Enable Structured Data?', 'fl-builder' ),
+						'label'   => __( 'Enable Structured Data?', 'satori-studio' ),
 						'default' => 'no',
 						'preview' => array(
 							'type' => 'none',
@@ -530,13 +530,13 @@ FLBuilder::register_module('FLVideoModule', array(
 							),
 						),
 						'options' => array(
-							'yes' => __( 'Yes', 'fl-builder' ),
-							'no'  => __( 'No', 'fl-builder' ),
+							'yes' => __( 'Yes', 'satori-studio' ),
+							'no'  => __( 'No', 'satori-studio' ),
 						),
 					),
 					'name'           => array(
 						'type'        => 'text',
-						'label'       => __( 'Video Name', 'fl-builder' ),
+						'label'       => __( 'Video Name', 'satori-studio' ),
 						'connections' => array( 'string' ),
 						'preview'     => array(
 							'type' => 'none',
@@ -544,7 +544,7 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'description'    => array(
 						'type'        => 'text',
-						'label'       => __( 'Video Description', 'fl-builder' ),
+						'label'       => __( 'Video Description', 'satori-studio' ),
 						'connections' => array( 'string' ),
 						'preview'     => array(
 							'type' => 'none',
@@ -552,7 +552,7 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'content_url'    => array(
 						'type'        => 'text',
-						'label'       => __( 'Content URL', 'fl-builder' ),
+						'label'       => __( 'Content URL', 'satori-studio' ),
 						'connections' => array( 'url' ),
 						'preview'     => array(
 							'type' => 'none',
@@ -560,7 +560,7 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'embed_url'      => array(
 						'type'        => 'text',
-						'label'       => __( 'Embed URL', 'fl-builder' ),
+						'label'       => __( 'Embed URL', 'satori-studio' ),
 						'connections' => array( 'url' ),
 						'preview'     => array(
 							'type' => 'none',
@@ -568,7 +568,7 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'thumbnail'      => array(
 						'type'        => 'photo',
-						'label'       => __( 'Video Thumbnail', 'fl-builder' ),
+						'label'       => __( 'Video Thumbnail', 'satori-studio' ),
 						'connections' => array( 'photo', 'url' ),
 						'show_remove' => true,
 						'preview'     => array(
@@ -577,7 +577,7 @@ FLBuilder::register_module('FLVideoModule', array(
 					),
 					'up_date'        => array(
 						'type'        => 'date',
-						'label'       => __( 'Upload Date', 'fl-builder' ),
+						'label'       => __( 'Upload Date', 'satori-studio' ),
 						'connections' => array( 'string' ),
 						'preview'     => array(
 							'type' => 'none',

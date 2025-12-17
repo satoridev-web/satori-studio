@@ -3,9 +3,9 @@ $img_path = FL_BUILDER_URL . 'img/placeholders/box-module-aliases/';
 
 FLBuilder::register_module_alias( 'horizontal-stack', [
 	'module'      => 'box',
-	'name'        => __( 'Flex Columns', 'fl-builder' ),
-	'description' => __( 'A simple flex column', 'fl-builder' ),
-	'category'    => __( 'Box', 'fl-builder' ),
+	'name'        => __( 'Flex Columns', 'satori-studio' ),
+	'description' => __( 'A simple flex column', 'satori-studio' ),
+	'category'    => __( 'Box', 'satori-studio' ),
 	'icon'        => 'layout.svg',
 	'settings'    => [
 		'layout'         => 'flex',
@@ -21,9 +21,9 @@ FLBuilder::register_module_alias( 'horizontal-stack', [
 
 FLBuilder::register_module_alias( 'box-three-x-two-grid', [
 	'module'      => 'box',
-	'name'        => __( '3x2 Grid', 'fl-builder' ),
-	'description' => __( 'A 3-column grid', 'fl-builder' ),
-	'category'    => __( 'Box', 'fl-builder' ),
+	'name'        => __( '3x2 Grid', 'satori-studio' ),
+	'description' => __( 'A 3-column grid', 'satori-studio' ),
+	'category'    => __( 'Box', 'satori-studio' ),
 	'icon'        => 'layout.svg',
 	'settings'    => [
 		'layout'          => 'grid',
@@ -59,9 +59,9 @@ FLBuilder::register_module_alias( 'box-three-x-two-grid', [
 
 FLBuilder::register_module_alias( 'box-four-x-two-grid', [
 	'module'      => 'box',
-	'name'        => __( '4x2 Grid', 'fl-builder' ),
-	'description' => __( 'A 3-column grid', 'fl-builder' ),
-	'category'    => __( 'Box', 'fl-builder' ),
+	'name'        => __( '4x2 Grid', 'satori-studio' ),
+	'description' => __( 'A 3-column grid', 'satori-studio' ),
+	'category'    => __( 'Box', 'satori-studio' ),
 	'icon'        => 'layout.svg',
 	'settings'    => [
 		'layout'                   => 'grid',
@@ -110,9 +110,9 @@ FLBuilder::register_module_alias( 'box-four-x-two-grid', [
 
 FLBuilder::register_module_alias( 'split-header', [
 	'module'      => 'box',
-	'name'        => __( 'Split Header', 'fl-builder' ),
-	'description' => __( 'A divided header with a center logo cell', 'fl-builder' ),
-	'category'    => __( 'Box', 'fl-builder' ),
+	'name'        => __( 'Split Header', 'satori-studio' ),
+	'description' => __( 'A divided header with a center logo cell', 'satori-studio' ),
+	'category'    => __( 'Box', 'satori-studio' ),
 	'icon'        => 'layout.svg',
 	'settings'    => [
 		'layout'                   => 'grid',
@@ -184,9 +184,9 @@ FLBuilder::register_module_alias( 'split-header', [
 
 FLBuilder::register_module_alias( 'photo-grid', [
 	'module'      => 'box',
-	'name'        => __( 'Photo Grid', 'fl-builder' ),
-	'description' => __( 'A grid of photos with some featured', 'fl-builder' ),
-	'category'    => __( 'Box', 'fl-builder' ),
+	'name'        => __( 'Photo Grid', 'satori-studio' ),
+	'description' => __( 'A grid of photos with some featured', 'satori-studio' ),
+	'category'    => __( 'Box', 'satori-studio' ),
 	'icon'        => 'layout.svg',
 	'settings'    => [
 		'layout'                   => 'grid',

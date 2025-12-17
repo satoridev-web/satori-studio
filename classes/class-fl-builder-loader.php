@@ -174,7 +174,7 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 		 * @return void
 		 */
 		static public function permissions_admin_notice() {
-			$message = __( 'SATORI Studio may not be functioning correctly as it does not have permission to write files to the WordPress uploads directory on your server. Please update the WordPress uploads directory permissions before continuing or contact your host for assistance.', 'fl-builder' );
+			$message = __( 'SATORI Studio may not be functioning correctly as it does not have permission to write files to the WordPress uploads directory on your server. Please update the WordPress uploads directory permissions before continuing or contact your host for assistance.', 'satori-studio' );
 
 			self::render_admin_notice( $message, 'error' );
 		}
@@ -188,7 +188,7 @@ if ( ! class_exists( 'FLBuilderLoader' ) ) {
 		 */
 		static public function double_install_admin_notice() {
 			/* translators: %s: plugins page link */
-			$message = __( 'You currently have two versions of SATORI Studio active on this site. Please <a href="%s">deactivate one</a> before continuing.', 'fl-builder' );
+			$message = __( 'You currently have two versions of SATORI Studio active on this site. Please <a href="%s">deactivate one</a> before continuing.', 'satori-studio' );
 
 			self::render_admin_notice( sprintf( $message, admin_url( 'plugins.php' ) ), 'error' );
 		}

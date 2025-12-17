@@ -15,9 +15,9 @@ class FLAudioModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Audio', 'fl-builder' ),
-			'description'     => __( 'Render a WordPress audio shortcode.', 'fl-builder' ),
-			'category'        => __( 'Basic', 'fl-builder' ),
+			'name'            => __( 'Audio', 'satori-studio' ),
+			'description'     => __( 'Render a WordPress audio shortcode.', 'satori-studio' ),
+			'category'        => __( 'Basic', 'satori-studio' ),
 			'icon'            => 'format-audio.svg',
 			'partial_refresh' => true,
 			'include_wrapper' => false,
@@ -71,18 +71,18 @@ class FLAudioModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLAudioModule', array(
 	'general' => array(
-		'title'    => __( 'General', 'fl-builder' ),
+		'title'    => __( 'General', 'satori-studio' ),
 		'sections' => array(
 			'general' => array(
 				'title'  => '',
 				'fields' => array(
 					'audio_type'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Audio Type', 'fl-builder' ),
+						'label'   => __( 'Audio Type', 'satori-studio' ),
 						'default' => 'wordpress',
 						'options' => array(
-							'media_library' => __( 'Media Library', 'fl-builder' ),
-							'link'          => __( 'Link', 'fl-builder' ),
+							'media_library' => __( 'Media Library', 'satori-studio' ),
+							'link'          => __( 'Link', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'link'          => array(
@@ -95,7 +95,7 @@ FLBuilder::register_module('FLAudioModule', array(
 					),
 					'audios'       => array(
 						'type'   => 'multiple-audios',
-						'label'  => __( 'Audio', 'fl-builder' ),
+						'label'  => __( 'Audio', 'satori-studio' ),
 						'toggle' => array(
 							'playlist'     => array(
 								'fields' => array( 'style', 'tracklist', 'tracknumbers', 'images', 'artists' ),
@@ -107,7 +107,7 @@ FLBuilder::register_module('FLAudioModule', array(
 					),
 					'link'         => array(
 						'type'        => 'text',
-						'label'       => __( 'Link', 'fl-builder' ),
+						'label'       => __( 'Link', 'satori-studio' ),
 						'connections' => array( 'url' ),
 					),
 
@@ -116,11 +116,11 @@ FLBuilder::register_module('FLAudioModule', array(
 					 */
 					'autoplay'     => array(
 						'type'    => 'select',
-						'label'   => __( 'Auto Play', 'fl-builder' ),
+						'label'   => __( 'Auto Play', 'satori-studio' ),
 						'default' => '0',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -128,11 +128,11 @@ FLBuilder::register_module('FLAudioModule', array(
 					),
 					'loop'         => array(
 						'type'    => 'select',
-						'label'   => __( 'Loop', 'fl-builder' ),
+						'label'   => __( 'Loop', 'satori-studio' ),
 						'default' => '0',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -144,20 +144,20 @@ FLBuilder::register_module('FLAudioModule', array(
 					 */
 					'style'        => array(
 						'type'    => 'select',
-						'label'   => __( 'Style', 'fl-builder' ),
+						'label'   => __( 'Style', 'satori-studio' ),
 						'default' => 'light',
 						'options' => array(
-							'light' => __( 'Light', 'fl-builder' ),
-							'dark'  => __( 'Dark', 'fl-builder' ),
+							'light' => __( 'Light', 'satori-studio' ),
+							'dark'  => __( 'Dark', 'satori-studio' ),
 						),
 					),
 					'tracklist'    => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Playlist', 'fl-builder' ),
+						'label'   => __( 'Show Playlist', 'satori-studio' ),
 						'default' => '1',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'1' => array(
@@ -167,11 +167,11 @@ FLBuilder::register_module('FLAudioModule', array(
 					),
 					'tracknumbers' => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Track Numbers', 'fl-builder' ),
+						'label'   => __( 'Show Track Numbers', 'satori-studio' ),
 						'default' => '1',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -179,20 +179,20 @@ FLBuilder::register_module('FLAudioModule', array(
 					),
 					'images'       => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Thumbnail', 'fl-builder' ),
+						'label'   => __( 'Show Thumbnail', 'satori-studio' ),
 						'default' => '1',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 					),
 					'artists'      => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Artist Name', 'fl-builder' ),
+						'label'   => __( 'Show Artist Name', 'satori-studio' ),
 						'default' => '1',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 					),
 				),

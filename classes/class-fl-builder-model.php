@@ -1755,17 +1755,17 @@ final class FLBuilderModel {
 	 */
 	static public function get_node_breakpoint_tooltips() {
 		$tooltips = [
-			'desktop' => __( 'Extra Large', 'fl-builder' ),
-			'large'   => __( 'Large', 'fl-builder' ),
-			'medium'  => __( 'Medium', 'fl-builder' ),
-			'mobile'  => __( 'Mobile', 'fl-builder' ),
+			'desktop' => __( 'Extra Large', 'satori-studio' ),
+			'large'   => __( 'Large', 'satori-studio' ),
+			'medium'  => __( 'Medium', 'satori-studio' ),
+			'mobile'  => __( 'Mobile', 'satori-studio' ),
 		];
 
 		if ( FLBuilderModuleBlocks::is_block_editor_loading_config() ) {
 			$tooltips = [
-				'desktop' => __( 'Desktop', 'fl-builder' ),
-				'medium'  => __( 'Tablet', 'fl-builder' ),
-				'mobile'  => __( 'Mobile', 'fl-builder' ),
+				'desktop' => __( 'Desktop', 'satori-studio' ),
+				'medium'  => __( 'Tablet', 'satori-studio' ),
+				'mobile'  => __( 'Mobile', 'satori-studio' ),
 			];
 		}
 
@@ -3166,7 +3166,7 @@ final class FLBuilderModel {
 		// Log an error if a module with this slug already exists.
 		if ( isset( self::$modules[ $instance->slug ] ) ) {
 			/* translators: %s: module filename */
-			error_log( sprintf( _x( 'A module with the filename %s.php already exists! Please namespace your module filenames to ensure compatibility with SATORI Studio.', '%s stands for the module filename', 'fl-builder' ), $instance->slug ) );
+			error_log( sprintf( _x( 'A module with the filename %s.php already exists! Please namespace your module filenames to ensure compatibility with SATORI Studio.', '%s stands for the module filename', 'satori-studio' ), $instance->slug ) );
 			return;
 		}
 
@@ -3214,7 +3214,7 @@ final class FLBuilderModel {
 	static public function register_module_alias( $alias, $config ) {
 		if ( isset( self::$module_aliases[ $alias ] ) ) {
 			/* translators: %s: module alias key */
-			_doing_it_wrong( __CLASS__ . '::register_module_alias', sprintf( _x( 'The module alias %s already exists! Please namespace your module aliases to ensure compatibility with SATORI Studio.', '%s stands for the module alias key', 'fl-builder' ), $alias ), '1.10' );
+			_doing_it_wrong( __CLASS__ . '::register_module_alias', sprintf( _x( 'The module alias %s already exists! Please namespace your module aliases to ensure compatibility with SATORI Studio.', '%s stands for the module alias key', 'satori-studio' ), $alias ), '1.10' );
 			return;
 		}
 		if ( ! $config['module'] || ! isset( self::$modules[ $config['module'] ] ) ) {
@@ -3489,15 +3489,15 @@ final class FLBuilderModel {
 		}
 
 		// Build the default category arrays.
-		$categories[ __( 'Basic', 'fl-builder' ) ]    = array();
-		$categories[ __( 'Box', 'fl-builder' ) ]      = array();
-		$categories[ __( 'Media', 'fl-builder' ) ]    = array();
-		$categories[ __( 'Actions', 'fl-builder' ) ]  = array();
-		$categories[ __( 'Layout', 'fl-builder' ) ]   = array();
-		$categories[ __( 'Info', 'fl-builder' ) ]     = array();
-		$categories[ __( 'Posts', 'fl-builder' ) ]    = array();
-		$categories[ __( 'Advanced', 'fl-builder' ) ] = array();
-		$categories[ __( 'Other', 'fl-builder' ) ]    = array();
+		$categories[ __( 'Basic', 'satori-studio' ) ]    = array();
+		$categories[ __( 'Box', 'satori-studio' ) ]      = array();
+		$categories[ __( 'Media', 'satori-studio' ) ]    = array();
+		$categories[ __( 'Actions', 'satori-studio' ) ]  = array();
+		$categories[ __( 'Layout', 'satori-studio' ) ]   = array();
+		$categories[ __( 'Info', 'satori-studio' ) ]     = array();
+		$categories[ __( 'Posts', 'satori-studio' ) ]    = array();
+		$categories[ __( 'Advanced', 'satori-studio' ) ] = array();
+		$categories[ __( 'Other', 'satori-studio' ) ]    = array();
 
 		return $categories;
 	}
@@ -3513,8 +3513,8 @@ final class FLBuilderModel {
 		$enabled_modules = self::get_enabled_modules();
 		$widgets         = null;
 		$categories      = self::get_module_categories();
-		$other_key       = __( 'Other', 'fl-builder' );
-		$widgets_key     = __( 'WordPress Widgets', 'fl-builder' );
+		$other_key       = __( 'Other', 'satori-studio' );
+		$widgets_key     = __( 'WordPress Widgets', 'satori-studio' );
 
 		// Build the categories array.
 		foreach ( self::$modules as $module ) {
@@ -3647,7 +3647,7 @@ final class FLBuilderModel {
 				$data->isAlias = false; // @codingStandardsIgnoreLine
 				$data->description = isset( $widget->widget_options['description'] ) ? $widget->widget_options['description'] : '';
 
-				$data->group = array( sanitize_key( __( 'WordPress Widgets', 'fl-builder' ) ) );
+				$data->group = array( sanitize_key( __( 'WordPress Widgets', 'satori-studio' ) ) );
 
 				if ( ! isset( $widget->icon ) ) {
 					$data->icon = FLBuilderModule::get_widget_icon();
@@ -4149,7 +4149,7 @@ final class FLBuilderModel {
 			}
 			$widget->class                     = $class;
 			$widget->isWidget         = true; // @codingStandardsIgnoreLine
-			$widget->fl_category               = __( 'WordPress Widgets', 'fl-builder' );
+			$widget->fl_category               = __( 'WordPress Widgets', 'satori-studio' );
 			$widgets[ (string) $widget->name ] = $widget;
 		}
 
@@ -4187,47 +4187,47 @@ final class FLBuilderModel {
 	static public function get_column_groups() {
 		$cols = array(
 			array(
-				'name'  => __( '1 Column', 'fl-builder' ),
+				'name'  => __( '1 Column', 'satori-studio' ),
 				'id'    => '1-col',
 				'count' => 1,
 			),
 			array(
-				'name'  => __( '2 Columns', 'fl-builder' ),
+				'name'  => __( '2 Columns', 'satori-studio' ),
 				'id'    => '2-cols',
 				'count' => 2,
 			),
 			array(
-				'name'  => __( '3 Columns', 'fl-builder' ),
+				'name'  => __( '3 Columns', 'satori-studio' ),
 				'id'    => '3-cols',
 				'count' => 3,
 			),
 			array(
-				'name'  => __( '4 Columns', 'fl-builder' ),
+				'name'  => __( '4 Columns', 'satori-studio' ),
 				'id'    => '4-cols',
 				'count' => 4,
 			),
 			array(
-				'name'  => __( '5 Columns', 'fl-builder' ),
+				'name'  => __( '5 Columns', 'satori-studio' ),
 				'id'    => '5-cols',
 				'count' => 5,
 			),
 			array(
-				'name'  => __( '6 Columns', 'fl-builder' ),
+				'name'  => __( '6 Columns', 'satori-studio' ),
 				'id'    => '6-cols',
 				'count' => 6,
 			),
 			array(
-				'name'  => __( 'Left Sidebar', 'fl-builder' ),
+				'name'  => __( 'Left Sidebar', 'satori-studio' ),
 				'id'    => 'left-sidebar',
 				'count' => 2,
 			),
 			array(
-				'name'  => __( 'Right Sidebar', 'fl-builder' ),
+				'name'  => __( 'Right Sidebar', 'satori-studio' ),
 				'id'    => 'right-sidebar',
 				'count' => 2,
 			),
 			array(
-				'name'  => __( 'Left & Right Sidebar', 'fl-builder' ),
+				'name'  => __( 'Left & Right Sidebar', 'satori-studio' ),
 				'id'    => 'left-right-sidebar',
 				'count' => 3,
 			),
@@ -4844,7 +4844,7 @@ final class FLBuilderModel {
 			'post_password'  => $post->post_password,
 			'post_status'    => 'draft',
 			/* translators: %s: post/page title */
-			'post_title'     => sprintf( _x( 'Copy of %s', '%s stands for post/page title.', 'fl-builder' ), $post->post_title ),
+			'post_title'     => sprintf( _x( 'Copy of %s', '%s stands for post/page title.', 'satori-studio' ), $post->post_title ),
 			'post_type'      => $post->post_type,
 			'to_ping'        => $post->to_ping,
 			'menu_order'     => $post->menu_order,
@@ -5641,7 +5641,7 @@ final class FLBuilderModel {
 		// Add category
 		$cat       = isset( $settings['category'] ) ? $settings['category'] : '';
 		$cat_added = '';
-		if ( __( 'Uncategorized', 'fl-builder' ) !== $cat && 'uncategorized' !== $cat ) {
+		if ( __( 'Uncategorized', 'satori-studio' ) !== $cat && 'uncategorized' !== $cat ) {
 			$cat_added = wp_set_object_terms( $post_id, $cat, 'fl-builder-template-category' );
 		}
 
@@ -5682,7 +5682,7 @@ final class FLBuilderModel {
 			$term                                = get_term( $cat_added[0] );
 			$response['category'][ $term->slug ] = $term->name;
 		} else {
-			$response['category']['uncategorized'] = __( 'Uncategorized', 'fl-builder' );
+			$response['category']['uncategorized'] = __( 'Uncategorized', 'satori-studio' );
 		}
 
 		return $response;
@@ -5703,7 +5703,7 @@ final class FLBuilderModel {
 		}
 		$categorized = array(
 			'uncategorized' => array(
-				'name'      => _x( 'Uncategorized', 'Default user template category.', 'fl-builder' ),
+				'name'      => _x( 'Uncategorized', 'Default user template category.', 'satori-studio' ),
 				'templates' => array(),
 			),
 		);
@@ -5770,7 +5770,7 @@ final class FLBuilderModel {
 
 			if ( 0 === count( $cats ) || is_wp_error( $cats ) ) {
 				$template['category']                        = array(
-					'uncategorized' => __( 'Uncategorized', 'fl-builder' ),
+					'uncategorized' => __( 'Uncategorized', 'satori-studio' ),
 				);
 				$categorized['uncategorized']['templates'][] = $template;
 			} else {
@@ -6088,19 +6088,19 @@ final class FLBuilderModel {
 		switch ( $rule ) {
 
 			case 'logged_in':
-				$text = __( 'Logged In', 'fl-builder' );
+				$text = __( 'Logged In', 'satori-studio' );
 				break;
 
 			case 'logged_out':
-				$text = __( 'Logged Out', 'fl-builder' );
+				$text = __( 'Logged Out', 'satori-studio' );
 				break;
 
 			case 'logic':
-				$text = __( 'Logic', 'fl-builder' );
+				$text = __( 'Logic', 'satori-studio' );
 				break;
 
 			default:
-				$text = __( 'Breakpoint', 'fl-builder' );
+				$text = __( 'Breakpoint', 'satori-studio' );
 		}
 
 		return array(
@@ -7088,7 +7088,7 @@ final class FLBuilderModel {
 			// Make sure we have a template category and it's an array.
 			if ( ! isset( $template['category'] ) ) {
 				$template['category'] = array(
-					'uncategorized' => __( 'Uncategorized', 'fl-builder' ),
+					'uncategorized' => __( 'Uncategorized', 'satori-studio' ),
 				);
 			} elseif ( is_string( $template['category'] ) ) {
 				$template['category'] = array(
@@ -7102,7 +7102,7 @@ final class FLBuilderModel {
 			if ( ! $template['group'] ) {
 				// If we don't have a group, use categories as groups.
 				foreach ( $template['category'] as $cat_name ) {
-					$template_groups[] = __( $cat_name, 'fl-builder' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+					$template_groups[] = __( $cat_name, 'satori-studio' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
 				}
 				// Clear the categories since we're using groups instead.
 				$template['category'] = array(
@@ -7319,7 +7319,7 @@ final class FLBuilderModel {
 			return FLBuilderWhiteLabel::get_branding();
 		}
 
-		return __( 'SATORI Studio', 'fl-builder' );
+		return __( 'SATORI Studio', 'satori-studio' );
 	}
 
 	/**

@@ -1142,8 +1142,8 @@ final class FLBuilder {
 				}
 			}
 
-			$kb_link   = sprintf( "<a class='link' target='_blank' href='https://docs.wpbeaverbuilder.com/beaver-builder/troubleshooting/debugging/known-beaver-builder-incompatibilities'>%s</a>", __( 'Knowledge Base', 'fl-builder' ) );
-			$support   = sprintf( "<a class='link' target='_blank' href='https://www.wpbeaverbuilder.com/beaver-builder-support/'>%s</a>", __( 'Support ticket', 'fl-builder' ) );
+			$kb_link   = sprintf( "<a class='link' target='_blank' href='https://docs.wpbeaverbuilder.com/beaver-builder/troubleshooting/debugging/known-beaver-builder-incompatibilities'>%s</a>", __( 'Knowledge Base', 'satori-studio' ) );
+			$support   = sprintf( "<a class='link' target='_blank' href='https://www.wpbeaverbuilder.com/beaver-builder-support/'>%s</a>", __( 'Support ticket', 'satori-studio' ) );
 			$updates   = self::get_available_updates();
 			$revisions = wp_count_posts( 'revision' );
 			$revisions = $revisions->inherit;
@@ -1173,26 +1173,26 @@ final class FLBuilder {
 					'modsecfix'        => FLBuilderUtils::is_modsec_fix_enabled() ? 'Enabled' : 'Disabled',
 				),
 				'strings'     => array(
-					'intro'        => __( 'has detected a plugin conflict that is preventing the page from saving.', 'fl-builder' ),
-					'try'          => __( 'Try to fix it yourself now', 'fl-builder' ),
+					'intro'        => __( 'has detected a plugin conflict that is preventing the page from saving.', 'satori-studio' ),
+					'try'          => __( 'Try to fix it yourself now', 'satori-studio' ),
 					/* translators: %s: link to documentation */
-					'troubleshoot' => sprintf( __( 'If you want to troubleshoot further, you can check our %s for plugins we know to be incompatible. Then deactivate your plugins one by one while you try to save the page in the SATORI Studio editor.<br />When the page saves normally, you have identified the plugin causing the conflict.', 'fl-builder' ), $kb_link ),
-					'contact'      => __( 'If you contact SATORI Studio Support, we need to know what the error is in the JavaScript console in your browser.', 'fl-builder' ),
-					'step_one'     => __( 'Step One', 'fl-builder' ),
-					'step_two'     => __( 'Step Two', 'fl-builder' ),
-					'if_contact'   => __( 'If you contact SATORI Studio Support, we need to know what the error is in the JavaScript console in your browser.', 'fl-builder' ),
+					'troubleshoot' => sprintf( __( 'If you want to troubleshoot further, you can check our %s for plugins we know to be incompatible. Then deactivate your plugins one by one while you try to save the page in the SATORI Studio editor.<br />When the page saves normally, you have identified the plugin causing the conflict.', 'satori-studio' ), $kb_link ),
+					'contact'      => __( 'If you contact SATORI Studio Support, we need to know what the error is in the JavaScript console in your browser.', 'satori-studio' ),
+					'step_one'     => __( 'Step One', 'satori-studio' ),
+					'step_two'     => __( 'Step Two', 'satori-studio' ),
+					'if_contact'   => __( 'If you contact SATORI Studio Support, we need to know what the error is in the JavaScript console in your browser.', 'satori-studio' ),
 					/* translators: %s: link to support form */
-					'contact'      => sprintf( __( 'Copy the errors you find there and submit them with your %s. It saves us having to ask you that as a second step.', 'fl-builder' ), $support ),
-					'hand'         => __( 'Need a helping hand?', 'fl-builder' ),
+					'contact'      => sprintf( __( 'Copy the errors you find there and submit them with your %s. It saves us having to ask you that as a second step.', 'satori-studio' ), $support ),
+					'hand'         => __( 'Need a helping hand?', 'satori-studio' ),
 
 					'fatal'        => array(
-						'heading' => __( 'PHP Fatal Error Detected', 'fl-builder' ),
+						'heading' => __( 'PHP Fatal Error Detected', 'satori-studio' ),
 						/* translators: [MEM]: Do not translate word [mem] */
-						'content' => __( 'Memory exhausted ([MEM]Mb) unable to continue', 'fl-builder' ),
+						'content' => __( 'Memory exhausted ([MEM]Mb) unable to continue', 'satori-studio' ),
 						/* translators: %s: link to support form */
-						'footer'  => sprintf( __( 'Please see %s for more information', 'fl-builder' ),
+						'footer'  => sprintf( __( 'Please see %s for more information', 'satori-studio' ),
 							sprintf( '<a style="color: #428bca;font-size:inherit" target="_blank" href="https://docs.wpbeaverbuilder.com">%s</a>',
-								__( 'Documentation', 'fl-builder' )
+								__( 'Documentation', 'satori-studio' )
 							)
 						),
 					),
@@ -1207,7 +1207,7 @@ final class FLBuilder {
 
 	static private function get_available_updates() {
 		$updates   = get_option( '_site_transient_update_plugins' );
-		$updatetxt = sprintf( ' ( %s )', __( 'An update is available', 'fl-builder' ) );
+		$updatetxt = sprintf( ' ( %s )', __( 'An update is available', 'satori-studio' ) );
 		$available = array(
 			'builder' => '',
 			'theme'   => '',
@@ -1385,10 +1385,10 @@ final class FLBuilder {
 					'parent' => 'fl-builder-frontend-edit-link',
 					'id'     => 'fl-builder-frontend-duplicate-link',
 					// translators: %s: post type
-					'title'  => sprintf( __( 'Duplicate %s', 'fl-builder' ), $singular_name ),
+					'title'  => sprintf( __( 'Duplicate %s', 'satori-studio' ), $singular_name ),
 					'href'   => $url,
 					'meta'   => array(
-						'onclick' => sprintf( 'if(!confirm("%s")){event.preventDefault();}', esc_attr( __( 'Are you sure?', 'fl-builder' ) ) ),
+						'onclick' => sprintf( 'if(!confirm("%s")){event.preventDefault();}', esc_attr( __( 'Are you sure?', 'satori-studio' ) ) ),
 					),
 				));
 			}
@@ -1503,7 +1503,7 @@ final class FLBuilder {
                 $help              = FLBuilderModel::get_help_button_settings();
 		$notifications     = FLBuilderNotifications::is_notications_enabled();
                 $default_view      = array(
-                        'name'       => __( 'Unnamed Menu', 'fl-builder' ),
+                        'name'       => __( 'Unnamed Menu', 'satori-studio' ),
                         'isShowing'  => false,
                         'isRootView' => false,
                         'items'      => array(),
@@ -1511,14 +1511,14 @@ final class FLBuilder {
 
                 // Tools
                 $tools_view = array(
-                        'name'       => __( 'Tools', 'fl-builder' ) . ( $is_lite && $show_upgrade_ui ? '<button class="fl-builder-upgrade-button fl-builder-button" onclick="FLBuilder._upgradeClicked()">Upgrade</button>' : '' ),
+                        'name'       => __( 'Tools', 'satori-studio' ) . ( $is_lite && $show_upgrade_ui ? '<button class="fl-builder-upgrade-button fl-builder-button" onclick="FLBuilder._upgradeClicked()">Upgrade</button>' : '' ),
                         'isShowing'  => true,
                         'isRootView' => true,
                         'items'      => array(),
                 );
 
 		$tools_view['items'][04] = array(
-			'label'     => __( 'Publish Layout', 'fl-builder' ),
+			'label'     => __( 'Publish Layout', 'satori-studio' ),
 			'type'      => 'event',
 			'eventName' => 'publishAndRemain',
 			'accessory' => isset( $key_shortcuts['publishAndRemain'] ) ? $key_shortcuts['publishAndRemain']['keyLabel'] : null,
@@ -1530,7 +1530,7 @@ final class FLBuilder {
 
 		if ( ! $is_user_template && ( 'enabled' == $enabled_templates || 'user' == $enabled_templates ) ) {
 			$tools_view['items'][10] = array(
-				'label'     => __( 'Save Template', 'fl-builder' ) . ( $is_lite ? '<span class="fl-builder-pro-badge">PRO</span>' : '' ),
+				'label'     => __( 'Save Template', 'satori-studio' ) . ( $is_lite ? '<span class="fl-builder-pro-badge">PRO</span>' : '' ),
 				'type'      => 'event',
 				'eventName' => 'saveTemplate',
 				'accessory' => isset( $key_shortcuts['saveTemplate'] ) ? $key_shortcuts['saveTemplate']['keyLabel'] : null,
@@ -1538,27 +1538,27 @@ final class FLBuilder {
 		}
 
 		$tools_view['items'][20] = array(
-			'label'     => __( 'Duplicate Layout', 'fl-builder' ),
+			'label'     => __( 'Duplicate Layout', 'satori-studio' ),
 			'type'      => 'event',
 			'eventName' => 'duplicateLayout',
 		);
 
 		$tools_view['items'][30] = array(
-			'label'     => __( 'Preview Layout', 'fl-builder' ),
+			'label'     => __( 'Preview Layout', 'satori-studio' ),
 			'type'      => 'event',
 			'eventName' => 'previewLayout',
 			'accessory' => isset( $key_shortcuts['previewLayout'] ) ? $key_shortcuts['previewLayout']['keyLabel'] : null,
 		);
 
 		$tools_view['items'][31] = array(
-			'label'     => __( 'Responsive Editing', 'fl-builder' ),
+			'label'     => __( 'Responsive Editing', 'satori-studio' ),
 			'type'      => 'event',
 			'eventName' => 'responsiveEditing',
 			'accessory' => isset( $key_shortcuts['responsiveEditing'] ) ? $key_shortcuts['responsiveEditing']['keyLabel'] : null,
 		);
 
 		$tools_view['items'][32] = array(
-			'label'     => __( 'Reverse Responsive Editing', 'fl-builder' ),
+			'label'     => __( 'Reverse Responsive Editing', 'satori-studio' ),
 			'type'      => 'event',
 			'eventName' => 'revResponsiveEditing',
 			'accessory' => isset( $key_shortcuts['revResponsiveEditing'] ) ? $key_shortcuts['revResponsiveEditing']['keyLabel'] : null,
@@ -1570,7 +1570,7 @@ final class FLBuilder {
 			);
 
 			$tools_view['items'][50] = array(
-				'label'     => __( 'Layout CSS & Javascript', 'fl-builder' ),
+				'label'     => __( 'Layout CSS & Javascript', 'satori-studio' ),
 				'type'      => 'event',
 				'eventName' => 'showLayoutSettings',
 				'accessory' => isset( $key_shortcuts['showLayoutSettings'] ) ? $key_shortcuts['showLayoutSettings']['keyLabel'] : null,
@@ -1578,7 +1578,7 @@ final class FLBuilder {
 		}
 		if ( current_user_can( 'delete_others_posts' ) ) {
 			$tools_view['items'][60] = array(
-				'label'     => __( 'Global Settings', 'fl-builder' ),
+				'label'     => __( 'Global Settings', 'satori-studio' ),
 				'type'      => 'event',
 				'eventName' => 'showGlobalSettings',
 				'accessory' => isset( $key_shortcuts['showGlobalSettings'] ) ? $key_shortcuts['showGlobalSettings']['keyLabel'] : null,
@@ -1586,7 +1586,7 @@ final class FLBuilder {
 			// Global styles
 			if ( $is_lite ) {
 				$tools_view['items'][61] = array(
-					'label'     => __( 'Global Styles', 'fl-builder' ) . '<span class="fl-builder-pro-badge">PRO</span>',
+					'label'     => __( 'Global Styles', 'satori-studio' ) . '<span class="fl-builder-pro-badge">PRO</span>',
 					'type'      => 'event',
 					'eventName' => 'showGlobalStyles',
 					'accessory' => isset( $key_shortcuts['showGlobalStyles'] ) ? $key_shortcuts['showGlobalStyles']['keyLabel'] : null,
@@ -1594,7 +1594,7 @@ final class FLBuilder {
 			} else {
 				if ( defined( 'FL_BUILDER_GLOBAL_STYLES_DIR' ) ) {
 					$tools_view['items'][61] = array(
-						'label'     => __( 'Global Styles', 'fl-builder' ),
+						'label'     => __( 'Global Styles', 'satori-studio' ),
 						'type'      => 'event',
 						'eventName' => 'showGlobalStyles',
 						'accessory' => isset( $key_shortcuts['showGlobalStyles'] ) ? $key_shortcuts['showGlobalStyles']['keyLabel'] : null,
@@ -1605,7 +1605,7 @@ final class FLBuilder {
 
 		if ( $is_lite || defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 			$tools_view['items'][65] = array(
-				'label'     => __( 'Themer Layouts', 'fl-builder' ) . ( $is_lite ? '<span class="fl-builder-pro-badge">PRO</span>' : '' ),
+				'label'     => __( 'Themer Layouts', 'satori-studio' ) . ( $is_lite ? '<span class="fl-builder-pro-badge">PRO</span>' : '' ),
 				'type'      => 'event',
 				'eventName' => 'launchThemerLayouts',
 			);
@@ -1616,26 +1616,26 @@ final class FLBuilder {
 		);
 
 		$tools_view['items'][80] = array(
-			'label'     => __( 'Change UI Brightness', 'fl-builder' ) . '&nbsp;<span class="current-mode">(' . FLBuilderUserSettings::get_color_scheme() . ')</span>',
+			'label'     => __( 'Change UI Brightness', 'satori-studio' ) . '&nbsp;<span class="current-mode">(' . FLBuilderUserSettings::get_color_scheme() . ')</span>',
 			'type'      => 'event',
 			'eventName' => 'toggleUISkin',
 		);
 
 		$tools_view['items'][90] = array(
-			'label'     => __( 'Media Library', 'fl-builder' ),
+			'label'     => __( 'Media Library', 'satori-studio' ),
 			'type'      => 'event',
 			'eventName' => 'toggleMediaLibrary',
 		);
 
 		$tools_view['items'][100] = array(
-			'label' => __( 'WordPress Admin', 'fl-builder' ),
+			'label' => __( 'WordPress Admin', 'satori-studio' ),
 			'type'  => 'view',
 			'view'  => 'admin',
 		);
 
 		if ( $help['enabled'] && ! $is_simple_ui ) {
 			$tools_view['items'][110] = array(
-				'label' => __( 'Help', 'fl-builder' ),
+				'label' => __( 'Help', 'satori-studio' ),
 				'type'  => 'view',
 				'view'  => 'help',
 			);
@@ -1643,14 +1643,14 @@ final class FLBuilder {
 
 		if ( $notifications ) {
 			$tools_view['items'][120] = array(
-				'label'     => __( "What's New", 'fl-builder' ),
+				'label'     => __( "What's New", 'satori-studio' ),
 				'type'      => 'event',
 				'eventName' => 'showNotifications',
 			);
 		}
 
 		$tools_view['items'][130] = array(
-			'label'     => __( 'Keyboard Shortcuts', 'fl-builder' ),
+			'label'     => __( 'Keyboard Shortcuts', 'satori-studio' ),
 			'type'      => 'event',
 			'eventName' => 'showKeyboardShortcuts',
 		);
@@ -1659,7 +1659,7 @@ final class FLBuilder {
 
 		// Admin
 		$admin_view = array(
-			'name'  => __( 'WordPress Admin', 'fl-builder' ),
+			'name'  => __( 'WordPress Admin', 'satori-studio' ),
 			'items' => array(),
 		);
 
@@ -1679,7 +1679,7 @@ final class FLBuilder {
 
 		// Dashboard
 		$admin_view['items'][17] = array(
-			'label' => _x( 'Dashboard', 'label for the WordPress Dashboard link', 'fl-builder' ),
+			'label' => _x( 'Dashboard', 'label for the WordPress Dashboard link', 'satori-studio' ),
 			'type'  => 'link',
 			'url'   => admin_url( 'index.php' ),
 		);
@@ -1688,7 +1688,7 @@ final class FLBuilder {
 
 		if ( $templates_enabled ) {
 			$admin_view['items'][20] = array(
-				'label' => __( 'Manage Templates', 'fl-builder' ),
+				'label' => __( 'Manage Templates', 'satori-studio' ),
 				'type'  => 'link',
 				'url'   => admin_url( 'edit.php?post_type=fl-builder-template' ),
 			);
@@ -1702,7 +1702,7 @@ final class FLBuilder {
 				$url = admin_url( 'customize.php' );
 			}
 			$admin_view['items'][30] = array(
-				'label' => __( 'Customize Theme', 'fl-builder' ),
+				'label' => __( 'Customize Theme', 'satori-studio' ),
 				'type'  => 'link',
 				'url'   => $url,
 			);
@@ -1713,7 +1713,7 @@ final class FLBuilder {
 		// Help
 		if ( $help['enabled'] && ! $is_simple_ui ) {
 			$help_view = array(
-				'name'  => __( 'Help', 'fl-builder' ),
+				'name'  => __( 'Help', 'satori-studio' ),
 				'items' => array(),
 			);
 
@@ -1732,7 +1732,7 @@ final class FLBuilder {
 
 			if ( FLBuilder::is_tour_enabled() ) {
 				$help_view['items'][20] = array(
-					'label'     => __( 'Take A Tour', 'fl-builder' ),
+					'label'     => __( 'Take A Tour', 'satori-studio' ),
 					'type'      => 'event',
 					'eventName' => 'beginTour',
 				);
@@ -1740,7 +1740,7 @@ final class FLBuilder {
 
 			if ( $help['knowledge_base'] && isset( $help['knowledge_base_url'] ) ) {
 				$help_view['items'][30] = array(
-					'label' => __( 'View Knowledge Base', 'fl-builder' ),
+					'label' => __( 'View Knowledge Base', 'satori-studio' ),
 					'type'  => 'link',
 					'url'   => $help['knowledge_base_url'],
 				);
@@ -1748,7 +1748,7 @@ final class FLBuilder {
 
 			if ( $help['forums'] && isset( $help['forums_url'] ) ) {
 				$help_view['items'][40] = array(
-					'label' => __( 'Contact Support', 'fl-builder' ),
+					'label' => __( 'Contact Support', 'satori-studio' ),
 					'type'  => 'link',
 					'url'   => $help['forums_url'],
 				);
@@ -1769,7 +1769,7 @@ final class FLBuilder {
 	 */
 	public static function get_keyboard_shortcuts() {
 		$default_action = array(
-			'label'    => _x( 'Untitled Shortcut', 'A keyboard shortcut with no label given', 'fl-builder' ),
+			'label'    => _x( 'Untitled Shortcut', 'A keyboard shortcut with no label given', 'satori-studio' ),
 			'keyCode'  => '',
 			'keyLabel' => '',
 			'isGlobal' => false,
@@ -1777,86 +1777,86 @@ final class FLBuilder {
 		);
 		$data           = array(
 			'showModules'             => array(
-				'label'   => _x( 'Open Modules Tab', 'Keyboard action to show modules tab', 'fl-builder' ),
+				'label'   => _x( 'Open Modules Tab', 'Keyboard action to show modules tab', 'satori-studio' ),
 				'keyCode' => 'j',
 			),
 			'showRows'                => array(
-				'label'   => _x( 'Open Rows Tab', 'Keyboard action to show rows tab', 'fl-builder' ),
+				'label'   => _x( 'Open Rows Tab', 'Keyboard action to show rows tab', 'satori-studio' ),
 				'keyCode' => 'k',
 			),
 			'showTemplates'           => array(
-				'label'   => _x( 'Open Templates Tab', 'Keyboard action to show templates tab', 'fl-builder' ),
+				'label'   => _x( 'Open Templates Tab', 'Keyboard action to show templates tab', 'satori-studio' ),
 				'keyCode' => 'l',
 			),
 			'showSaved'               => array(
-				'label'   => _x( 'Open Saved Tab', 'Keyboard action to show saved tab', 'fl-builder' ),
+				'label'   => _x( 'Open Saved Tab', 'Keyboard action to show saved tab', 'satori-studio' ),
 				'keyCode' => ';',
 				'enabled' => true !== FL_BUILDER_LITE,
 			),
 			'saveTemplate'            => array(
-				'label'   => _x( 'Save New Template', 'Keyboard action to open save template form', 'fl-builder' ),
+				'label'   => _x( 'Save New Template', 'Keyboard action to open save template form', 'satori-studio' ),
 				'keyCode' => 'mod+j',
 				'enabled' => true !== FL_BUILDER_LITE,
 			),
 			'previewLayout'           => array(
-				'label'   => _x( 'Toggle Preview Mode', 'Keyboard action to toggle preview mode', 'fl-builder' ),
+				'label'   => _x( 'Toggle Preview Mode', 'Keyboard action to toggle preview mode', 'satori-studio' ),
 				'keyCode' => 'p',
 			),
 			'responsiveEditing'       => array(
-				'label'   => _x( 'Toggle Responsive Editing Mode', 'Keyboard action to toggle responsive editing', 'fl-builder' ),
+				'label'   => _x( 'Toggle Responsive Editing Mode', 'Keyboard action to toggle responsive editing', 'satori-studio' ),
 				'keyCode' => 'r',
 			),
 			'revResponsiveEditing'    => array(
-				'label'   => _x( 'Toggle Responsive Editing Mode in Reverse', 'Keyboard action to toggle responsive editing', 'fl-builder' ),
+				'label'   => _x( 'Toggle Responsive Editing Mode in Reverse', 'Keyboard action to toggle responsive editing', 'satori-studio' ),
 				'keyCode' => 'shift+r',
 			),
 			'showGlobalSettings'      => array(
-				'label'   => _x( 'Open Global Settings', 'Keyboard action to open the global settings panel', 'fl-builder' ),
+				'label'   => _x( 'Open Global Settings', 'Keyboard action to open the global settings panel', 'satori-studio' ),
 				'keyCode' => 'mod+u',
 			),
 			'showGlobalStyles'        => array(
-				'label'   => _x( 'Open Global Style Settings', 'Keyboard action to open the global style settings panel', 'fl-builder' ),
+				'label'   => _x( 'Open Global Style Settings', 'Keyboard action to open the global style settings panel', 'satori-studio' ),
 				'keyCode' => 'mod+g',
 				'enabled' => defined( 'FL_BUILDER_GLOBAL_STYLES_DIR' ),
 			),
 			'showLayoutSettings'      => array(
-				'label'   => _x( 'Open Layout Settings', 'Keyboard action to open the layout settings panel', 'fl-builder' ),
+				'label'   => _x( 'Open Layout Settings', 'Keyboard action to open the layout settings panel', 'satori-studio' ),
 				'keyCode' => 'mod+y',
 			),
 			'showSearch'              => array(
-				'label'   => _x( 'Display Module Search', 'Keyboard action to open the module search panel', 'fl-builder' ),
+				'label'   => _x( 'Display Module Search', 'Keyboard action to open the module search panel', 'satori-studio' ),
 				'keyCode' => 'mod+i',
 				'enabled' => true !== FL_BUILDER_LITE,
 			),
 			'showSavedMessage'        => array(
-				'label'    => _x( 'Save Layout', 'Keyboard action to save changes', 'fl-builder' ),
+				'label'    => _x( 'Save Layout', 'Keyboard action to save changes', 'satori-studio' ),
 				'keyCode'  => 'mod+s',
 				'isGlobal' => true,
 			),
 			'publishAndRemain'        => array(
-				'label'    => _x( 'Publish changes without leaving builder', 'Keyboard action to publish any pending changes', 'fl-builder' ),
+				'label'    => _x( 'Publish changes without leaving builder', 'Keyboard action to publish any pending changes', 'satori-studio' ),
 				'keyCode'  => 'mod+p',
 				'isGlobal' => true,
 			),
 			'cancelTask'              => array(
-				'label'    => _x( 'Dismiss Active Panel', 'Keyboard action to dismiss the current task or panel', 'fl-builder' ),
+				'label'    => _x( 'Dismiss Active Panel', 'Keyboard action to dismiss the current task or panel', 'satori-studio' ),
 				'keyCode'  => 'esc',
 				'isGlobal' => true,
 			),
 			'undo'                    => array(
-				'label'   => _x( 'Undo', 'Keyboard action to undo changes', 'fl-builder' ),
+				'label'   => _x( 'Undo', 'Keyboard action to undo changes', 'satori-studio' ),
 				'keyCode' => 'mod+z',
 			),
 			'redo'                    => array(
-				'label'   => _x( 'Redo', 'Keyboard action to redo changes', 'fl-builder' ),
+				'label'   => _x( 'Redo', 'Keyboard action to redo changes', 'satori-studio' ),
 				'keyCode' => 'shift+mod+z',
 			),
 			'toggleOutlinePanel'      => array(
-				'label'   => _x( 'Toggle Outline Panel', 'Keyboard action to toggle outline panel', 'fl-builder' ),
+				'label'   => _x( 'Toggle Outline Panel', 'Keyboard action to toggle outline panel', 'satori-studio' ),
 				'keyCode' => 'shift+o',
 			),
 			'toggleOutlinePanelItems' => array(
-				'label'   => _x( 'Toggle Outline Panel Tree', 'Keyboard action to toggle outline panel tree', 'fl-builder' ),
+				'label'   => _x( 'Toggle Outline Panel Tree', 'Keyboard action to toggle outline panel tree', 'satori-studio' ),
 				'keyCode' => 'shift+t',
 			),
 		);
@@ -1944,13 +1944,13 @@ final class FLBuilder {
 		if ( $type && 'layout' !== $type ) {
 			switch ( $type ) {
 				case 'module':
-					$edited_object_label = __( 'Module', 'fl-builder' );
+					$edited_object_label = __( 'Module', 'satori-studio' );
 					break;
 				case 'column':
-					$edited_object_label = __( 'Column', 'fl-builder' );
+					$edited_object_label = __( 'Column', 'satori-studio' );
 					break;
 				case 'row':
-					$edited_object_label = __( 'Row', 'fl-builder' );
+					$edited_object_label = __( 'Row', 'satori-studio' );
 					break;
 				default:
 					$edited_object_label = ucfirst( $type );
@@ -1960,7 +1960,7 @@ final class FLBuilder {
 		}
 
 		/* translators: %s: post label */
-		$pretitle = sprintf( _x( 'Currently Editing %s', 'Currently editing message', 'fl-builder' ), $edited_object_label );
+		$pretitle = sprintf( _x( 'Currently Editing %s', 'Currently editing message', 'satori-studio' ), $edited_object_label );
 		$pretitle = apply_filters( 'fl_builder_ui_bar_pretitle', $pretitle );
 
 		// Render the bar title.
@@ -1979,7 +1979,7 @@ final class FLBuilder {
 		$should_display_search = ! FLBuilderModel::is_post_user_template( 'module' ) && ! $simple_ui;
 		$add_btn_svg           = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24"><rect x="0" fill="none" width="24" height="24" /><g><path d="M17 9v2h-6v6H9v-6H3V9h6V3h2v6h6z"/></g></svg>';
 		$notifications         = FLBuilderNotifications::get_notifications();
-		$feedback_label        = __( 'Dev Feedback', 'fl-builder' );
+		$feedback_label        = __( 'Dev Feedback', 'satori-studio' );
 		$show_feedback         = false;
 
 		$show_notifications = ! $simple_ui &&
@@ -1990,10 +1990,10 @@ final class FLBuilder {
 		if ( strstr( FL_BUILDER_VERSION, '-dev' ) ) {
 			$show_feedback = true;
 		} elseif ( strstr( FL_BUILDER_VERSION, '-alpha' ) ) {
-			$feedback_label = __( 'Alpha Feedback', 'fl-builder' );
+			$feedback_label = __( 'Alpha Feedback', 'satori-studio' );
 			$show_feedback  = true;
 		} elseif ( strstr( FL_BUILDER_VERSION, '-beta' ) ) {
-			$feedback_label = __( 'Beta Feedback', 'fl-builder' );
+			$feedback_label = __( 'Beta Feedback', 'satori-studio' );
 			$show_feedback  = true;
 		}
 
@@ -2009,11 +2009,11 @@ final class FLBuilder {
 				) ) . "');",
 			),
 			'buy'           => array(
-				'label' => __( 'Buy Now', 'fl-builder' ) . ' <i class="fas fa-external-link-alt"></i>',
+				'label' => __( 'Buy Now', 'satori-studio' ) . ' <i class="fas fa-external-link-alt"></i>',
 				'show'  => stristr( home_url(), 'demo.wpbeaverbuilder.com' ),
 			),
 			'done'          => array(
-				'label' => __( 'Done', 'fl-builder' ),
+				'label' => __( 'Done', 'satori-studio' ),
 			),
 			'content-panel' => array(
 				'label' => $add_btn_svg,
@@ -4649,7 +4649,7 @@ final class FLBuilder {
 
 		if ( ! preg_match( $regex[ $type ], $ext ) ) {
 			/* translators: %s: extension type */
-			$file['error'] = sprintf( __( 'The uploaded file is not a valid %s extension.', 'fl-builder' ), $type );
+			$file['error'] = sprintf( __( 'The uploaded file is not a valid %s extension.', 'satori-studio' ), $type );
 		}
 
 		return $file;
@@ -4805,7 +4805,7 @@ final class FLBuilder {
 
 		if ( ! did_action( 'fl_did_render_content_filter' ) ) {
 			// we need to do a popup
-			$content = __( 'You must call the_content in the current theme template in order for SATORI Studio to work on this layout.', 'fl-builder' );
+			$content = __( 'You must call the_content in the current theme template in order for SATORI Studio to work on this layout.', 'satori-studio' );
 			?>
 			<script>
 				if ( FLBuilder ) {

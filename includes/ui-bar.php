@@ -2,15 +2,15 @@
 /**
  * Button texts
  */
-$discard     = apply_filters( 'fl_builder_ui_bar_discard', __( 'Discard', 'fl-builder' ) );
-$discard_alt = apply_filters( 'fl_builder_ui_bar_discard_alt', __( 'Discard changes and exit', 'fl-builder' ) );
-$draft       = apply_filters( 'fl_builder_ui_bar_draft', __( 'Save Draft', 'fl-builder' ) );
-$draft_alt   = apply_filters( 'fl_builder_ui_bar_draft_alt', __( 'Keep changes drafted and exit', 'fl-builder' ) );
-$review      = apply_filters( 'fl_builder_ui_bar_review', __( 'Submit for Review', 'fl-builder' ) );
-$review_alt  = apply_filters( 'fl_builder_ui_bar_review_alt', __( 'Submit changes for review and exit', 'fl-builder' ) );
-$publish     = apply_filters( 'fl_builder_ui_bar_publish', __( 'Publish', 'fl-builder' ) );
-$publish_alt = apply_filters( 'fl_builder_ui_bar_publish_alt', __( 'Publish changes and exit', 'fl-builder' ) );
-$cancel      = apply_filters( 'fl_builder_ui_bar_cancel', __( 'Cancel', 'fl-builder' ) );
+$discard     = apply_filters( 'fl_builder_ui_bar_discard', __( 'Discard', 'satori-studio' ) );
+$discard_alt = apply_filters( 'fl_builder_ui_bar_discard_alt', __( 'Discard changes and exit', 'satori-studio' ) );
+$draft       = apply_filters( 'fl_builder_ui_bar_draft', __( 'Save Draft', 'satori-studio' ) );
+$draft_alt   = apply_filters( 'fl_builder_ui_bar_draft_alt', __( 'Keep changes drafted and exit', 'satori-studio' ) );
+$review      = apply_filters( 'fl_builder_ui_bar_review', __( 'Submit for Review', 'satori-studio' ) );
+$review_alt  = apply_filters( 'fl_builder_ui_bar_review_alt', __( 'Submit changes for review and exit', 'satori-studio' ) );
+$publish     = apply_filters( 'fl_builder_ui_bar_publish', __( 'Publish', 'satori-studio' ) );
+$publish_alt = apply_filters( 'fl_builder_ui_bar_publish_alt', __( 'Publish changes and exit', 'satori-studio' ) );
+$cancel      = apply_filters( 'fl_builder_ui_bar_cancel', __( 'Cancel', 'satori-studio' ) );
 ?>
 <div class="fl-builder-bar">
 	<div class="fl-builder-bar-content">
@@ -39,11 +39,11 @@ $cancel      = apply_filters( 'fl_builder_ui_bar_cancel', __( 'Cancel', 'fl-buil
 		<i class="dashicons dashicons-laptop" data-mode="large"></i>
 		<i class="dashicons dashicons-desktop" data-mode="default"></i>
 	</span>
-	<button class="fl-builder-button fl-builder-button-primary end-preview-btn"><?php _e( 'Continue Editing', 'fl-builder' ); ?></button>
+	<button class="fl-builder-button fl-builder-button-primary end-preview-btn"><?php _e( 'Continue Editing', 'satori-studio' ); ?></button>
 	<span class="size"></span>
 </div>
 <div class="fl-builder--revision-actions">
 	<select></select>
-	<button class="fl-builder-button fl-cancel-revision-preview"><?php _e( 'Cancel', 'fl-builder' ); ?></button>
-	<button class="fl-builder-button fl-builder-button-primary fl-apply-revision-preview"><?php _e( 'Apply', 'fl-builder' ); ?></button>
+	<button class="fl-builder-button fl-cancel-revision-preview"><?php _e( 'Cancel', 'satori-studio' ); ?></button>
+	<button class="fl-builder-button fl-builder-button-primary fl-apply-revision-preview"><?php _e( 'Apply', 'satori-studio' ); ?></button>
 </div>

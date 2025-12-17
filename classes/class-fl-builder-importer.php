@@ -24,7 +24,7 @@ class FLBuilderImporter extends WP_Import {
 				return $result;
 			}
 		} else {
-			$result = new WP_Error( 'no_xml', __( 'The xml PHP extension is not installed.', 'fl-builder' ) );
+			$result = new WP_Error( 'no_xml', __( 'The xml PHP extension is not installed.', 'satori-studio' ) );
 		}
 
 		// We have a malformed XML file, so display the error and fallthrough to regex
@@ -42,11 +42,11 @@ class FLBuilderImporter extends WP_Import {
 			$data = file_get_contents( $file );
 			$bad  = preg_match( '#[^\x00-\x7F]#', $data );
 		if ( $bad ) {
-				echo __( 'Some bad characters were found in the xml file', 'fl-builder' );
+				echo __( 'Some bad characters were found in the xml file', 'satori-studio' );
 		}
 			echo '</pre>';
-			echo '<p><strong>' . __( 'There was an error when reading this WXR file', 'fl-builder' ) . '</strong><br />';
-			echo '<p>' . __( 'Details are shown above. The importer will now try again with a different parser...', 'fl-builder' ) . '</p>';
+			echo '<p><strong>' . __( 'There was an error when reading this WXR file', 'satori-studio' ) . '</strong><br />';
+			echo '<p>' . __( 'Details are shown above. The importer will now try again with a different parser...', 'satori-studio' ) . '</p>';
 		$parser = new FLBuilderImportParserRegex();
 		return $parser->parse( $file );
 	}
@@ -249,7 +249,7 @@ class FLBuilderImportParserRegex extends WXR_Parser_Regex {
 		}
 
 		if ( ! $wxr_version ) {
-			return new WP_Error( 'WXR_parse_error', __( 'This does not appear to be a WXR file, missing/invalid WXR version number', 'fl-builder' ) );
+			return new WP_Error( 'WXR_parse_error', __( 'This does not appear to be a WXR file, missing/invalid WXR version number', 'satori-studio' ) );
 		}
 
 		return array(

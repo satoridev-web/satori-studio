@@ -1,7 +1,7 @@
 <script type="text/html" id="tmpl-fl-alert-lightbox">
 	<div class="fl-lightbox-message">{{{data.message}}}</div>
 	<div class="fl-lightbox-footer">
-		<span class="fl-builder-alert-close fl-builder-button fl-builder-button-large fl-builder-button-primary" href="javascript:void(0);"><?php _e( 'OK', 'fl-builder' ); ?></span>
+		<span class="fl-builder-alert-close fl-builder-button fl-builder-button-large fl-builder-button-primary" href="javascript:void(0);"><?php _e( 'OK', 'satori-studio' ); ?></span>
 	</div>
 </script>
 <!-- #tmpl-fl-alert-lightbox -->
@@ -21,7 +21,7 @@
 		<# for( var i in data.buttons ) { #>
 		<span class="fl-builder-{{data.buttons[ i ].key}}-button fl-builder-button fl-builder-button-large">{{data.buttons[ i ].label}}</span>
 		<# } #>
-		<span class="fl-builder-cancel-button fl-builder-button fl-builder-button-primary fl-builder-button-large"><?php _e( 'Cancel', 'fl-builder' ); ?></span>
+		<span class="fl-builder-cancel-button fl-builder-button fl-builder-button-primary fl-builder-button-large"><?php _e( 'Cancel', 'satori-studio' ); ?></span>
 	</div>
 </script>
 <!-- #tmpl-fl-actions-lightbox -->

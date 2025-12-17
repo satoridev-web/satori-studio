@@ -42,7 +42,7 @@ final class FLBuilderAdmin {
 
 		// Check for WordPress 3.5 and above.
 		if ( ! version_compare( $wp_version, '5.2', '>=' ) ) {
-                        self::show_activate_error( __( 'The <strong>SATORI Studio</strong> plugin requires WordPress version 5.2 or greater. Please update WordPress before activating the plugin.', 'fl-builder' ) );
+                        self::show_activate_error( __( 'The <strong>SATORI Studio</strong> plugin requires WordPress version 5.2 or greater. Please update WordPress before activating the plugin.', 'satori-studio' ) );
 		}
 
 		/**
@@ -62,7 +62,7 @@ final class FLBuilderAdmin {
 					'utm_campaign' => 'no-multisite-support',
 				) );
 				/* translators: %s: upgrade url */
-                                self::show_activate_error( sprintf( __( 'This version of the <strong>SATORI Studio</strong> plugin is not compatible with WordPress Multisite. <a%s>Please upgrade</a> to the Multisite version of this plugin.', 'fl-builder' ), ' href="' . $url . '" target="_blank"' ) );
+                                self::show_activate_error( sprintf( __( 'This version of the <strong>SATORI Studio</strong> plugin is not compatible with WordPress Multisite. <a%s>Please upgrade</a> to the Multisite version of this plugin.', 'satori-studio' ), ' href="' . $url . '" target="_blank"' ) );
 			}
 
 			// Success! Run the install.
@@ -131,7 +131,7 @@ final class FLBuilderAdmin {
 
 			if ( 'bb-plugin' != $folder ) {
 				/* translators: %s: folder path */
-                                $error = sprintf( __( 'Install Error! We detected that SATORI Studio appears to be installed in a folder called <kbd>%s</kbd>.<br />For automatic updates to work the plugin must be installed in the folder <kbd>bb-plugin</kbd>.', 'fl-builder' ), $folder );
+                                $error = sprintf( __( 'Install Error! We detected that SATORI Studio appears to be installed in a folder called <kbd>%s</kbd>.<br />For automatic updates to work the plugin must be installed in the folder <kbd>bb-plugin</kbd>.', 'satori-studio' ), $folder );
 				FLBuilderAdminSettings::add_error( $error );
 			}
 		}
@@ -144,7 +144,7 @@ final class FLBuilderAdmin {
 			if ( false !== strpos( $htaccess, 'Block javascript except for visualcomposer (VC) plugin' ) ) {
 				FLBuilderAdminSettings::add_error(
 				/* translators: %s formatted .htaccess */
-				sprintf( __( 'Install Error! You appear to have a %s file in your uploads folder that will block all javascript files resulting in 403 errors. If you did not add this file please consult your host.', 'fl-builder' ), '<code>.htaccess</code>' ) );
+				sprintf( __( 'Install Error! You appear to have a %s file in your uploads folder that will block all javascript files resulting in 403 errors. If you did not add this file please consult your host.', 'satori-studio' ), '<code>.htaccess</code>' ) );
 			}
 		}
 
@@ -202,11 +202,11 @@ final class FLBuilderAdmin {
 		if ( FL_BUILDER_LITE !== true ) {
 			$hash = '#license';
 			/* translators: %s: link to licence page */
-                    $message = __( 'SATORI Studio activated! <a%s>Click here</a> to enable remote updates.', 'fl-builder' );
+                    $message = __( 'SATORI Studio activated! <a%s>Click here</a> to enable remote updates.', 'satori-studio' );
 		} else {
 			$hash = '#welcome';
 			/* translators: %s: link to welcome page */
-                    $message = __( 'SATORI Studio activated! <a%s>Click here</a> to get started.', 'fl-builder' );
+                    $message = __( 'SATORI Studio activated! <a%s>Click here</a> to get started.', 'satori-studio' );
 		}
 
 		/**
@@ -263,7 +263,7 @@ final class FLBuilderAdmin {
                                 'utm_source'   => 'plugins-admin-page',
                                 'utm_campaign' => 'plugins-admin-upgrade',
                         ) );
-			$actions[] = '<a href="' . $url . '" style="color:#3db634;" target="_blank">' . _x( 'Upgrade', 'Plugin action link label.', 'fl-builder' ) . '</a>';
+			$actions[] = '<a href="' . $url . '" style="color:#3db634;" target="_blank">' . _x( 'Upgrade', 'Plugin action link label.', 'satori-studio' ) . '</a>';
 		}
 
 		if ( is_network_admin() ) {
@@ -272,7 +272,7 @@ final class FLBuilderAdmin {
 			$url = admin_url( '/options-general.php?page=fl-builder-settings' );
 		}
 
-		$actions[] = '<a href="' . $url . '">' . __( 'Settings', 'fl-builder' ) . '</a>';
+		$actions[] = '<a href="' . $url . '">' . __( 'Settings', 'satori-studio' ) . '</a>';
 
 		return $actions;
 	}
@@ -292,7 +292,7 @@ final class FLBuilderAdmin {
 				'utm_source'   => 'plugins-admin-page',
 				'utm_campaign' => 'plugins-admin-changelog',
 			) );
-			$plugin_meta[] = '<a href="' . $url . '" target="_blank">' . _x( 'Change Log', 'Plugin action link label.', 'fl-builder' ) . '</a>';
+			$plugin_meta[] = '<a href="' . $url . '" target="_blank">' . _x( 'Change Log', 'Plugin action link label.', 'satori-studio' ) . '</a>';
 		}
 
 		return $plugin_meta;
@@ -307,9 +307,9 @@ final class FLBuilderAdmin {
 		$curl = ( function_exists( 'curl_version' ) ) ? true : false;
 
 		if ( ! $curl ) {
-			$text     = __( "We've detected that your server does not have the PHP cURL extension installed. Ask your hosting provider to install it so you'll be able to perform automatic updates without error.", 'fl-builder' );
+			$text     = __( "We've detected that your server does not have the PHP cURL extension installed. Ask your hosting provider to install it so you'll be able to perform automatic updates without error.", 'satori-studio' );
 			$link     = 'https://docs.wpbeaverbuilder.com/beaver-builder/troubleshooting/common-issues/error-when-trying-to-install-update';
-			$link_txt = __( 'See our Knowledge Base for more info.', 'fl-builder' );
+			$link_txt = __( 'See our Knowledge Base for more info.', 'satori-studio' );
 			printf( '<div class="curl-alert"><p>%s</p><p><a target="_blank" href="%s">%s</a></p></div>', $text, $link, $link_txt );
 		}
 	}
@@ -322,23 +322,23 @@ final class FLBuilderAdmin {
                 $plugin_slug       = 'satori-studio-pro/satori-studio-pro.php';
 		$installed_plugins = get_plugins();
 		$installed         = array_key_exists( $plugin_slug, $installed_plugins ) || in_array( $plugin_slug, $installed_plugins, true );
-		$plugins_link      = sprintf( "<a href='%s'>%s</a>", admin_url( 'plugins.php' ), __( 'Plugins Page', 'fl-builder' ) );
-		$docs_link         = sprintf( "<a target='_blank' href='%s'>%s</a>", 'https://docs.wpbeaverbuilder.com/beaver-builder/getting-started/install/', __( 'Documentation', 'fl-builder' ) );
+		$plugins_link      = sprintf( "<a href='%s'>%s</a>", admin_url( 'plugins.php' ), __( 'Plugins Page', 'satori-studio' ) );
+		$docs_link         = sprintf( "<a target='_blank' href='%s'>%s</a>", 'https://docs.wpbeaverbuilder.com/beaver-builder/getting-started/install/', __( 'Documentation', 'satori-studio' ) );
 		?>
 		<div id="fl-upgrade-lite-form" class="fl-upgrade-page-content">
 
-                        <h3 class="fl-settings-form-header"><?php _e( 'SATORI Studio (Lite version)', 'fl-builder' ); ?></h3>
+                        <h3 class="fl-settings-form-header"><?php _e( 'SATORI Studio (Lite version)', 'satori-studio' ); ?></h3>
                         <?php if ( $installed ) : ?>
-                                <p><?php _e( "We have detected that a premium version of SATORI Studio plugin is installed but not activated, so you're still using the free version of SATORI Studio.", 'fl-builder' ); ?></p>
+                                <p><?php _e( "We have detected that a premium version of SATORI Studio plugin is installed but not activated, so you're still using the free version of SATORI Studio.", 'satori-studio' ); ?></p>
                                 <?php // translators: %s: Link to plugins page ?>
-                                <p><?php printf( __( 'You can activate the premium version on the %s.', 'fl-builder' ), $plugins_link ); ?></p>
+                                <p><?php printf( __( 'You can activate the premium version on the %s.', 'satori-studio' ), $plugins_link ); ?></p>
                                 <?php // translators: %s: Link to docs page ?>
-                                <p><?php printf( __( 'For detailed instructions to activate and license the premium version, see the %s.', 'fl-builder' ), $docs_link ); ?></p>
+                                <p><?php printf( __( 'For detailed instructions to activate and license the premium version, see the %s.', 'satori-studio' ), $docs_link ); ?></p>
 
                         <?php else : ?>
-                        <p><?php _e( 'You currently have the free SATORI Studio plugin activated, no license is required.', 'fl-builder' ); ?></p>
+                        <p><?php _e( 'You currently have the free SATORI Studio plugin activated, no license is required.', 'satori-studio' ); ?></p>
                                 <?php // translators: %s: Link to docs page ?>
-                        <p><?php printf( __( 'If you have purchased a premium version of SATORI Studio, see our %s for step-by-step upgrade instructions.', 'fl-builder' ), $docs_link ); ?></p>
+                        <p><?php printf( __( 'If you have purchased a premium version of SATORI Studio, see our %s for step-by-step upgrade instructions.', 'satori-studio' ), $docs_link ); ?></p>
                 <?php endif; ?>
 		</div>
 			<?php

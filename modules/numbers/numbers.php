@@ -10,9 +10,9 @@ class FLNumbersModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Number Counter', 'fl-builder' ),
-			'description'     => __( 'Renders an animated number counter.', 'fl-builder' ),
-			'category'        => __( 'Info', 'fl-builder' ),
+			'name'            => __( 'Number Counter', 'satori-studio' ),
+			'description'     => __( 'Renders an animated number counter.', 'satori-studio' ),
+			'category'        => __( 'Info', 'satori-studio' ),
 			'partial_refresh' => true,
 			'icon'            => 'chart-bar.svg',
 			'block_editor'    => true,
@@ -155,19 +155,19 @@ class FLNumbersModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLNumbersModule', array(
 	'general' => array( // Tab
-		'title'    => __( 'General', 'fl-builder' ), // Tab title
+		'title'    => __( 'General', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'general' => array( // Section
 				'title'  => '', // Section Title
 				'fields' => array( // Section Fields
 					'layout'             => array(
 						'type'    => 'select',
-						'label'   => __( 'Layout', 'fl-builder' ),
+						'label'   => __( 'Layout', 'satori-studio' ),
 						'default' => 'default',
 						'options' => array(
-							'default' => __( 'Only Numbers', 'fl-builder' ),
-							'circle'  => __( 'Circle Counter', 'fl-builder' ),
-							'bars'    => __( 'Bars Counter', 'fl-builder' ),
+							'default' => __( 'Only Numbers', 'satori-studio' ),
+							'circle'  => __( 'Circle Counter', 'satori-studio' ),
+							'bars'    => __( 'Bars Counter', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'circle' => array(
@@ -181,23 +181,23 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'number_position'    => array(
 						'type'    => 'select',
-						'label'   => __( 'Number Position', 'fl-builder' ),
+						'label'   => __( 'Number Position', 'satori-studio' ),
 						'size'    => '5',
-						'help'    => __( 'Where to display the number in relation to the bar.', 'fl-builder' ),
+						'help'    => __( 'Where to display the number in relation to the bar.', 'satori-studio' ),
 						'options' => array(
-							'default' => __( 'Inside Bar', 'fl-builder' ),
-							'above'   => __( 'Above Bar', 'fl-builder' ),
-							'below'   => __( 'Below Bar', 'fl-builder' ),
-							'hidden'  => __( 'Hidden', 'fl-builder' ),
+							'default' => __( 'Inside Bar', 'satori-studio' ),
+							'above'   => __( 'Above Bar', 'satori-studio' ),
+							'below'   => __( 'Below Bar', 'satori-studio' ),
+							'hidden'  => __( 'Hidden', 'satori-studio' ),
 						),
 					),
 					'number_type'        => array(
 						'type'    => 'select',
-						'label'   => __( 'Number Type', 'fl-builder' ),
+						'label'   => __( 'Number Type', 'satori-studio' ),
 						'default' => 'percent',
 						'options' => array(
-							'percent'  => __( 'Percent', 'fl-builder' ),
-							'standard' => __( 'Standard', 'fl-builder' ),
+							'percent'  => __( 'Percent', 'satori-studio' ),
+							'standard' => __( 'Standard', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'standard' => array(
@@ -207,7 +207,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'start_number'       => array(
 						'type'        => 'unit',
-						'label'       => __( 'Start Counter', 'fl-builder' ),
+						'label'       => __( 'Start Counter', 'satori-studio' ),
 						'size'        => '5',
 						'default'     => '0',
 						'placeholder' => '0',
@@ -223,7 +223,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'number'             => array(
 						'type'        => 'unit',
-						'label'       => __( 'End Counter', 'fl-builder' ),
+						'label'       => __( 'End Counter', 'satori-studio' ),
 						'size'        => '5',
 						'default'     => '100',
 						'placeholder' => '100',
@@ -239,7 +239,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'max_number'         => array(
 						'type'        => 'unit',
-						'label'       => __( 'Total Units', 'fl-builder' ),
+						'label'       => __( 'Total Units', 'satori-studio' ),
 						'size'        => '5',
 						'default'     => '100',
 						'placeholder' => '100',
@@ -249,12 +249,12 @@ FLBuilder::register_module('FLNumbersModule', array(
 							'max'  => 1000,
 							'step' => 10,
 						),
-						'help'        => __( 'The total number of units for this counter. For example, if the Number is set to 250 and the Total is set to 500, the counter will animate to 50%. Total should not be less than either Start Counter or End Counter.', 'fl-builder' ),
+						'help'        => __( 'The total number of units for this counter. For example, if the Number is set to 250 and the Total is set to 500, the counter will animate to 50%. Total should not be less than either Start Counter or End Counter.', 'satori-studio' ),
 					),
 					'before_number_text' => array(
 						'type'        => 'text',
-						'label'       => __( 'Text Before Number', 'fl-builder' ),
-						'help'        => __( 'Text to appear above the number. Leave it empty for none.', 'fl-builder' ),
+						'label'       => __( 'Text Before Number', 'satori-studio' ),
+						'help'        => __( 'Text to appear above the number. Leave it empty for none.', 'satori-studio' ),
 						'connections' => array( 'custom_field' ),
 						'preview'     => array(
 							'type'     => 'text',
@@ -263,8 +263,8 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'after_number_text'  => array(
 						'type'        => 'text',
-						'label'       => __( 'Text After Number', 'fl-builder' ),
-						'help'        => __( 'Text to appear after the number. Leave it empty for none.', 'fl-builder' ),
+						'label'       => __( 'Text After Number', 'satori-studio' ),
+						'help'        => __( 'Text to appear after the number. Leave it empty for none.', 'satori-studio' ),
 						'connections' => array( 'custom_field' ),
 						'preview'     => array(
 							'type'     => 'text',
@@ -273,17 +273,17 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'number_prefix'      => array(
 						'type'  => 'text',
-						'label' => __( 'Number Prefix', 'fl-builder' ),
-						'help'  => __( 'For example, if your number is US$ 10, your prefix would be "US$ ".', 'fl-builder' ),
+						'label' => __( 'Number Prefix', 'satori-studio' ),
+						'help'  => __( 'For example, if your number is US$ 10, your prefix would be "US$ ".', 'satori-studio' ),
 					),
 					'number_suffix'      => array(
 						'type'  => 'text',
-						'label' => __( 'Number Suffix', 'fl-builder' ),
-						'help'  => __( 'For example, if your number is 10%, your suffix would be "%".', 'fl-builder' ),
+						'label' => __( 'Number Suffix', 'satori-studio' ),
+						'help'  => __( 'For example, if your number is 10%, your suffix would be "%".', 'satori-studio' ),
 					),
 					'animation_speed'    => array(
 						'type'        => 'unit',
-						'label'       => __( 'Animation Speed', 'fl-builder' ),
+						'label'       => __( 'Animation Speed', 'satori-studio' ),
 						'default'     => '1',
 						'placeholder' => '1',
 						'units'       => array( 'seconds' ),
@@ -291,11 +291,11 @@ FLBuilder::register_module('FLNumbersModule', array(
 							'step' => .5,
 							'max'  => 5,
 						),
-						'help'        => __( 'Number of seconds to complete the animation.', 'fl-builder' ),
+						'help'        => __( 'Number of seconds to complete the animation.', 'satori-studio' ),
 					),
 					'delay'              => array(
 						'type'        => 'unit',
-						'label'       => __( 'Animation Delay', 'fl-builder' ),
+						'label'       => __( 'Animation Delay', 'satori-studio' ),
 						'default'     => '1',
 						'placeholder' => '1',
 						'units'       => array( 'seconds' ),
@@ -309,14 +309,14 @@ FLBuilder::register_module('FLNumbersModule', array(
 		),
 	),
 	'style'   => array( // Tab
-		'title'    => __( 'Style', 'fl-builder' ), // Tab title
+		'title'    => __( 'Style', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'text_style'       => array(
 				'fields' => array(
 					'text_color'        => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Text Color', 'fl-builder' ),
+						'label'       => __( 'Text Color', 'satori-studio' ),
 						'show_alpha'  => true,
 						'show_reset'  => true,
 						'preview'     => array(
@@ -327,7 +327,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'text_typography'   => array(
 						'type'       => 'typography',
-						'label'      => __( 'Text Typography', 'fl-builder' ),
+						'label'      => __( 'Text Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',
@@ -337,7 +337,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					'number_color'      => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Number Color', 'fl-builder' ),
+						'label'       => __( 'Number Color', 'satori-studio' ),
 						'show_alpha'  => true,
 						'show_reset'  => true,
 						'preview'     => array(
@@ -348,7 +348,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'number_typography' => array(
 						'type'       => 'typography',
-						'label'      => __( 'Number Typography', 'fl-builder' ),
+						'label'      => __( 'Number Typography', 'satori-studio' ),
 						'responsive' => true,
 						'default'    => array(
 							'font_size' => array(
@@ -364,11 +364,11 @@ FLBuilder::register_module('FLNumbersModule', array(
 				),
 			),
 			'circle_bar_style' => array(
-				'title'  => __( 'Circle Bar Styles', 'fl-builder' ),
+				'title'  => __( 'Circle Bar Styles', 'satori-studio' ),
 				'fields' => array(
 					'circle_width'      => array(
 						'type'    => 'unit',
-						'label'   => __( 'Circle Size', 'fl-builder' ),
+						'label'   => __( 'Circle Size', 'satori-studio' ),
 						'default' => '200',
 						'units'   => array( 'px' ),
 						'slider'  => array(
@@ -393,7 +393,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'circle_dash_width' => array(
 						'type'    => 'unit',
-						'label'   => __( 'Circle Stroke Size', 'fl-builder' ),
+						'label'   => __( 'Circle Stroke Size', 'satori-studio' ),
 						'default' => '10',
 						'units'   => array( 'px' ),
 						'slider'  => true,
@@ -407,7 +407,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					'circle_color'      => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Circle Foreground Color', 'fl-builder' ),
+						'label'       => __( 'Circle Foreground Color', 'satori-studio' ),
 						'default'     => 'f7951e',
 						'show_alpha'  => true,
 						'show_reset'  => true,
@@ -420,7 +420,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					'circle_bg_color'   => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Circle Background Color', 'fl-builder' ),
+						'label'       => __( 'Circle Background Color', 'satori-studio' ),
 						'default'     => 'eaeaea',
 						'show_alpha'  => true,
 						'show_reset'  => true,
@@ -433,12 +433,12 @@ FLBuilder::register_module('FLNumbersModule', array(
 				),
 			),
 			'bar_style'        => array(
-				'title'  => __( 'Bar Styles', 'fl-builder' ),
+				'title'  => __( 'Bar Styles', 'satori-studio' ),
 				'fields' => array(
 					'bar_color'    => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Bar Foreground Color', 'fl-builder' ),
+						'label'       => __( 'Bar Foreground Color', 'satori-studio' ),
 						'default'     => 'f7951e',
 						'show_alpha'  => true,
 						'show_reset'  => true,
@@ -451,7 +451,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					'bar_bg_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Bar Background Color', 'fl-builder' ),
+						'label'       => __( 'Bar Background Color', 'satori-studio' ),
 						'default'     => 'eaeaea',
 						'show_alpha'  => true,
 						'show_reset'  => true,
@@ -463,7 +463,7 @@ FLBuilder::register_module('FLNumbersModule', array(
 					),
 					'bar_height'   => array(
 						'type'       => 'unit',
-						'label'      => __( 'Bar Height', 'fl-builder' ),
+						'label'      => __( 'Bar Height', 'satori-studio' ),
 						'units'      => array( 'px' ),
 						'default'    => '42',
 						'slider'     => true,

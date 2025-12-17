@@ -29,54 +29,54 @@ final class FLBuilderHistoryManager {
 	static public function ui_js_config( $config ) {
 		$labels = array(
 			// Layout
-			'draft_created'           => __( 'Draft Created', 'fl-builder' ),
-			'changes_discarded'       => __( 'Changes Discarded', 'fl-builder' ),
-			'revision_restored'       => __( 'Revision Restored', 'fl-builder' ),
+			'draft_created'           => __( 'Draft Created', 'satori-studio' ),
+			'changes_discarded'       => __( 'Changes Discarded', 'satori-studio' ),
+			'revision_restored'       => __( 'Revision Restored', 'satori-studio' ),
 
 			// Save settings
-			'row_edited'              => esc_attr__( 'Row Edited', 'fl-builder' ),
-			'column_edited'           => esc_attr__( 'Column Edited', 'fl-builder' ),
+			'row_edited'              => esc_attr__( 'Row Edited', 'satori-studio' ),
+			'column_edited'           => esc_attr__( 'Column Edited', 'satori-studio' ),
 			/* translators: %s: Module name */
-			'module_edited'           => esc_attr_x( '%s Edited', 'Module name', 'fl-builder' ),
-			'global_settings_edited'  => esc_attr__( 'Global Settings Edited', 'fl-builder' ),
-			'layout_settings_edited'  => esc_attr__( 'Layout Settings Edited', 'fl-builder' ),
+			'module_edited'           => esc_attr_x( '%s Edited', 'Module name', 'satori-studio' ),
+			'global_settings_edited'  => esc_attr__( 'Global Settings Edited', 'satori-studio' ),
+			'layout_settings_edited'  => esc_attr__( 'Layout Settings Edited', 'satori-studio' ),
 
 			// Add nodes
-			'row_added'               => esc_attr__( 'Row Added', 'fl-builder' ),
-			'columns_added'           => esc_attr__( 'Columns Added', 'fl-builder' ),
-			'column_added'            => esc_attr__( 'Column Added', 'fl-builder' ),
+			'row_added'               => esc_attr__( 'Row Added', 'satori-studio' ),
+			'columns_added'           => esc_attr__( 'Columns Added', 'satori-studio' ),
+			'column_added'            => esc_attr__( 'Column Added', 'satori-studio' ),
 			/* translators: %s: Module name */
-			'module_added'            => esc_attr_x( '%s Added', 'Module name', 'fl-builder' ),
+			'module_added'            => esc_attr_x( '%s Added', 'Module name', 'satori-studio' ),
 
 			// Delete nodes
-			'row_deleted'             => esc_attr__( 'Row Deleted', 'fl-builder' ),
-			'column_deleted'          => esc_attr__( 'Column Deleted', 'fl-builder' ),
+			'row_deleted'             => esc_attr__( 'Row Deleted', 'satori-studio' ),
+			'column_deleted'          => esc_attr__( 'Column Deleted', 'satori-studio' ),
 			/* translators: %s: Module name */
-			'module_deleted'          => esc_attr_x( '%s Deleted', 'Module name', 'fl-builder' ),
+			'module_deleted'          => esc_attr_x( '%s Deleted', 'Module name', 'satori-studio' ),
 
 			// Duplicate nodes
-			'row_duplicated'          => esc_attr__( 'Row Duplicated', 'fl-builder' ),
-			'column_duplicated'       => esc_attr__( 'Column Duplicated', 'fl-builder' ),
+			'row_duplicated'          => esc_attr__( 'Row Duplicated', 'satori-studio' ),
+			'column_duplicated'       => esc_attr__( 'Column Duplicated', 'satori-studio' ),
 			/* translators: %s: Module name */
-			'module_duplicated'       => esc_attr_x( '%s Duplicated', 'Module name', 'fl-builder' ),
+			'module_duplicated'       => esc_attr_x( '%s Duplicated', 'Module name', 'satori-studio' ),
 
 			// Move nodes
-			'row_moved'               => esc_attr__( 'Row Moved', 'fl-builder' ),
-			'column_moved'            => esc_attr__( 'Column Moved', 'fl-builder' ),
+			'row_moved'               => esc_attr__( 'Row Moved', 'satori-studio' ),
+			'column_moved'            => esc_attr__( 'Column Moved', 'satori-studio' ),
 			/* translators: %s: Module name */
-			'module_moved'            => esc_attr_x( '%s Moved', 'Module name', 'fl-builder' ),
+			'module_moved'            => esc_attr_x( '%s Moved', 'Module name', 'satori-studio' ),
 
 			// Resize nodes
-			'row_resized'             => esc_attr__( 'Row Resized', 'fl-builder' ),
-			'columns_resized'         => esc_attr__( 'Columns Resized', 'fl-builder' ),
-			'column_resized'          => esc_attr__( 'Column Resized', 'fl-builder' ),
+			'row_resized'             => esc_attr__( 'Row Resized', 'satori-studio' ),
+			'columns_resized'         => esc_attr__( 'Columns Resized', 'satori-studio' ),
+			'column_resized'          => esc_attr__( 'Column Resized', 'satori-studio' ),
 
 			// Templates
-			'template_applied'        => esc_attr__( 'Template Applied', 'fl-builder' ),
-			'row_template_applied'    => esc_attr__( 'Row Template Added', 'fl-builder' ),
-			'column_template_applied' => esc_attr__( 'Column Template Added', 'fl-builder' ),
-			'module_template_applied' => esc_attr__( 'Module Template Added', 'fl-builder' ),
-			'history_disabled'        => __( 'Undo/Redo history is currently disabled.', 'fl-builder' ),
+			'template_applied'        => esc_attr__( 'Template Applied', 'satori-studio' ),
+			'row_template_applied'    => esc_attr__( 'Row Template Added', 'satori-studio' ),
+			'column_template_applied' => esc_attr__( 'Column Template Added', 'satori-studio' ),
+			'module_template_applied' => esc_attr__( 'Module Template Added', 'satori-studio' ),
+			'history_disabled'        => __( 'Undo/Redo history is currently disabled.', 'satori-studio' ),
 		);
 
 		$hooks = array(
@@ -146,13 +146,13 @@ final class FLBuilderHistoryManager {
 	 */
 	static public function main_menu_config( $config ) {
 		$config['main']['items'][36] = array(
-			'label' => __( 'History', 'fl-builder' ),
+			'label' => __( 'History', 'satori-studio' ),
 			'type'  => 'view',
 			'view'  => 'history',
 		);
 
 		$config['history'] = array(
-			'name'       => __( 'History', 'fl-builder' ),
+			'name'       => __( 'History', 'satori-studio' ),
 			'isShowing'  => false,
 			'isRootView' => false,
 			'items'      => array(),
@@ -171,7 +171,7 @@ final class FLBuilderHistoryManager {
 			'exclude_from_search' => true,
 			'show_in_rest'        => false,
 			'can_export'          => false,
-			'label'               => __( 'Builder History', 'fl-builder' ),
+			'label'               => __( 'Builder History', 'satori-studio' ),
 		] );
 	}
 

@@ -74,9 +74,9 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 
 		// Make sure we have the Host.
 		if ( ! isset( $fields['api_host'] ) || empty( $fields['api_host'] ) ) {
-			$response['error'] = __( 'Error: You must provide a Host.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a Host.', 'satori-studio' );
 		} elseif ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$result = $this->get_api_response( $fields['api_host'], array(
@@ -93,7 +93,7 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 				);
 			} else {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to Mailrelay. %s', 'fl-builder' ), $result['error'] );
+				$response['error'] = sprintf( __( 'Error: Could not connect to Mailrelay. %s', 'satori-studio' ), $result['error'] );
 			}
 		}
 
@@ -113,8 +113,8 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Host', 'fl-builder' ),
-			'help'      => __( 'The host you chose when you signed up for your account. Check your welcome email if you forgot it. Please enter it without the initial http:// (e.g. demo.ip-zone.com).', 'fl-builder' ),
+			'label'     => __( 'Host', 'satori-studio' ),
+			'help'      => __( 'The host you chose when you signed up for your account. Check your welcome email if you forgot it. Please enter it without the initial http:// (e.g. demo.ip-zone.com).', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -124,8 +124,8 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your Mailrelay account under Menu > Settings > API access.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your Mailrelay account under Menu > Settings > API access.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -159,7 +159,7 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 
 		if ( isset( $result['error'] ) ) {
 			/* translators: %s: error */
-			$response['error'] = sprintf( __( 'Error: Please check your API key. %s', 'fl-builder' ), $result['error'] );
+			$response['error'] = sprintf( __( 'Error: Please check your API key. %s', 'satori-studio' ), $result['error'] );
 		} else {
 			$response['html'] = $this->render_list_field( $result['data'], $settings );
 		}
@@ -180,7 +180,7 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $groups as $group ) {
@@ -192,7 +192,7 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 			'class'        => 'fl-builder-service-list-select',
 			'type'         => 'select',
 			'multi-select' => true,
-			'label'        => _x( 'Group', 'A list of subscribers group from a Mailrelay account.', 'fl-builder' ),
+			'label'        => _x( 'Group', 'A list of subscribers group from a Mailrelay account.', 'satori-studio' ),
 			'options'      => $options,
 			'preview'      => array(
 				'type' => 'none',
@@ -220,7 +220,7 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Mailrelay. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Mailrelay. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$result = $this->get_api_response( $account_data['api_host'], array(
@@ -233,7 +233,7 @@ final class FLBuilderServiceMailrelay extends FLBuilderService {
 
 			if ( isset( $result['error'] ) ) {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'There was an error subscribing to Mailrelay. %s', 'fl-builder' ), $result['error'] );
+				$response['error'] = sprintf( __( 'There was an error subscribing to Mailrelay. %s', 'satori-studio' ), $result['error'] );
 			}
 		}
 

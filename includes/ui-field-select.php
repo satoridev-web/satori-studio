@@ -108,16 +108,16 @@ if ( field.saved_data ) {
 	}
 	if ( dataOption.length === 0 ) {
 		if ( 'row' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Rows Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Rows Found', 'satori-studio' ); ?>';
 		}
 		if ( 'column' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Columns Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Columns Found', 'satori-studio' ); ?>';
 		}
 		if ( 'module' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Modules Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Modules Found', 'satori-studio' ); ?>';
 		}
 		if ( 'layout' === field.saved_data ) {
-			dataOption[''] = '<?php _e( 'No Layout Templates Found', 'fl-builder' ); ?>';
+			dataOption[''] = '<?php _e( 'No Layout Templates Found', 'satori-studio' ); ?>';
 		}
 	}
 	field.options = dataOption;

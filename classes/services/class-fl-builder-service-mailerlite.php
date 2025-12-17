@@ -69,7 +69,7 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 
 		// Make sure we have an API token.
 		if ( ! isset( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API token.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API token.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $fields['api_key'] );
@@ -81,7 +81,7 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 					'api_key' => $fields['api_key'],
 				);
 			} else {
-				$response['error'] = __( 'Error: Could not connect to MailerLite.', 'fl-builder' );
+				$response['error'] = __( 'Error: Could not connect to MailerLite.', 'satori-studio' );
 			}
 		}
 
@@ -101,8 +101,8 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Found in your MailerLite account under Integrations > Developer API.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Found in your MailerLite account under Integrations > Developer API.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -153,7 +153,7 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 		if ( $lists ) {
 			foreach ( $lists as $list ) {
@@ -165,7 +165,7 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'Group', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'Group', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -193,7 +193,7 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to MailerLite. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to MailerLite. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $account_data['api_key'] );
@@ -229,7 +229,7 @@ final class FLBuilderServiceMailerLite extends FLBuilderService {
 			$result = $api->groups()->addSubscriber( $settings->list_id, $data );
 
 			if ( ! is_object( $result ) || ! isset( $result->id ) ) {
-				$response['error'] = __( 'There was an error subscribing to MailerLite.', 'fl-builder' );
+				$response['error'] = __( 'There was an error subscribing to MailerLite.', 'satori-studio' );
 			}
 		}
 

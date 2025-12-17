@@ -62,19 +62,19 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 
 		// Make sure we have an access key.
 		if ( ! isset( $fields['access_key'] ) || empty( $fields['access_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API Key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API Key.', 'satori-studio' );
 		} elseif ( ! strstr( $fields['access_key'], 'xkeysib-' ) ) {
-			$response['error'] = __( 'Error: API key needs to be upgraded to v3.', 'fl-builder' );
+			$response['error'] = __( 'Error: API key needs to be upgraded to v3.', 'satori-studio' );
 		} else {
 
 			$api    = $this->get_api( $fields['access_key'] );
 			$result = $api->get_account();
 
 			if ( ! is_array( $result ) ) {
-				$response['error'] = __( 'There was an error connecting to Brevo. Please try again.', 'fl-builder' );
+				$response['error'] = __( 'There was an error connecting to Brevo. Please try again.', 'satori-studio' );
 			} elseif ( isset( $result['code'] ) && 'unauthorized' == $result['code'] ) {
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to Brevo. %s', 'fl-builder' ), $result['message'] );
+				$response['error'] = sprintf( __( 'Error: Could not connect to Brevo. %s', 'satori-studio' ), $result['message'] );
 			} else {
 				$response['data'] = array(
 					'access_key' => $fields['access_key'],
@@ -98,8 +98,8 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API Key can be found in your Brevo account under SMTP & API > API Keys.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API Key can be found in your Brevo account under SMTP & API > API Keys.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -130,10 +130,10 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 		$result = $api->get_lists( 50 );
 
 		if ( ! is_array( $result ) ) {
-			$response['error'] = __( 'There was an error connecting to Brevo. Please try again.', 'fl-builder' );
+			$response['error'] = __( 'There was an error connecting to Brevo. Please try again.', 'satori-studio' );
 		} elseif ( isset( $result['code'] ) && 'unauthorized' == $result['code'] ) {
 			/* translators: %s: error */
-			$response['error'] = sprintf( __( 'Error: Could not connect to Brevo. %s', 'fl-builder' ), $result['message'] );
+			$response['error'] = sprintf( __( 'Error: Could not connect to Brevo. %s', 'satori-studio' ), $result['message'] );
 		} else {
 			$response['html'] = $this->render_list_field( $result['lists'], $settings );
 		}
@@ -154,7 +154,7 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $list ) {
@@ -165,7 +165,7 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -193,7 +193,7 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Brevo. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Brevo. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api  = $this->get_api( $account_data['access_key'] );
@@ -226,7 +226,7 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 					$response['error'] = 'Error: API key needs to be upgraded to v3.';
 				} else {
 					/* translators: %s: error */
-					$response['error'] = sprintf( __( 'Error: Could not subscribe to Brevo. %s', 'fl-builder' ), $result['message'] );
+					$response['error'] = sprintf( __( 'Error: Could not subscribe to Brevo. %s', 'satori-studio' ), $result['message'] );
 				}
 			}
 		}

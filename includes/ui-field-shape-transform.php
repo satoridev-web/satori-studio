@@ -14,23 +14,23 @@ var value = '' === data.value ? defaults : data.value;
 
 var dimensions = {
 	skewX: {
-		label: '<?php _e( 'Skew X', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Skew X', 'satori-studio' ); ?>',
 		min: -60,
 		max: 60,
 	},
 	skewY: {
-		label: '<?php _e( 'Skew Y', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Skew Y', 'satori-studio' ); ?>',
 		min: -60,
 		max: 60,
 	},
 	scaleX: {
-		label: '<?php _e( 'Scale X', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Scale X', 'satori-studio' ); ?>',
 		min: 1,
 		max: 10,
 		step: .1,
 	},
 	rotate: {
-		label: '<?php _e( 'Rotate', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Rotate', 'satori-studio' ); ?>',
 		min: 0,
 		max: 360,
 	},
@@ -40,7 +40,7 @@ var xOrientation = wp.template( 'fl-builder-field-button-group' )( {
 	name: data.name + '[][scaleXSign]',
 	value: value.scaleXSign,
 	field: {
-		label: '<?php _e( 'Horizontal Orientation', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Horizontal Orientation', 'satori-studio' ); ?>',
 		options: {
 			'invert': '<i class="dashicons dashicons-image-flip-horizontal"></i>',
 		},
@@ -51,7 +51,7 @@ var yOrientation = wp.template( 'fl-builder-field-button-group' )( {
 	name: data.name + '[][scaleYSign]',
 	value: value.scaleYSign,
 	field: {
-		label: '<?php _e( 'Vertical Orientation', 'fl-builder' ); ?>',
+		label: '<?php _e( 'Vertical Orientation', 'satori-studio' ); ?>',
 		options: {
 			'invert': '<i class="dashicons dashicons-image-flip-vertical"></i>',
 		},
@@ -67,7 +67,7 @@ var yOrientation = wp.template( 'fl-builder-field-button-group' )( {
 					{{{xOrientation}}}
 					{{{yOrientation}}}
 				</span>
-				<label><?php _e( 'Orientation', 'fl-builder' ); ?></label>
+				<label><?php _e( 'Orientation', 'satori-studio' ); ?></label>
 			</span>
 			<span class="fl-compound-field-cell">
 				<div class="fl-dimension-field-units">

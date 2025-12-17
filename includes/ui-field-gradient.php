@@ -20,8 +20,8 @@ var type = wp.template( 'fl-builder-field-select' )( {
 	field: {
 		className: 'fl-gradient-picker-type-select',
 		options: {
-			'linear': '<?php esc_attr_e( 'Linear', 'fl-builder' ); ?>',
-			'radial': '<?php esc_attr_e( 'Radial', 'fl-builder' ); ?>',
+			'linear': '<?php esc_attr_e( 'Linear', 'satori-studio' ); ?>',
+			'radial': '<?php esc_attr_e( 'Radial', 'satori-studio' ); ?>',
 		},
 	},
 } );
@@ -41,15 +41,15 @@ var position = wp.template( 'fl-builder-field-select' )( {
 	field: {
 		className: 'fl-gradient-picker-position',
 		options: {
-			'left top': '<?php esc_attr_e( 'Left Top', 'fl-builder' ); ?>',
-			'left center': '<?php esc_attr_e( 'Left Center', 'fl-builder' ); ?>',
-			'left bottom': '<?php esc_attr_e( 'Left Bottom', 'fl-builder' ); ?>',
-			'right top': '<?php esc_attr_e( 'Right Top', 'fl-builder' ); ?>',
-			'right center': '<?php esc_attr_e( 'Right Center', 'fl-builder' ); ?>',
-			'right bottom': '<?php esc_attr_e( 'Right Bottom', 'fl-builder' ); ?>',
-			'center top': '<?php esc_attr_e( 'Center Top', 'fl-builder' ); ?>',
-			'center center': '<?php esc_attr_e( 'Center Center', 'fl-builder' ); ?>',
-			'center bottom': '<?php esc_attr_e( 'Center Bottom', 'fl-builder' ); ?>',
+			'left top': '<?php esc_attr_e( 'Left Top', 'satori-studio' ); ?>',
+			'left center': '<?php esc_attr_e( 'Left Center', 'satori-studio' ); ?>',
+			'left bottom': '<?php esc_attr_e( 'Left Bottom', 'satori-studio' ); ?>',
+			'right top': '<?php esc_attr_e( 'Right Top', 'satori-studio' ); ?>',
+			'right center': '<?php esc_attr_e( 'Right Center', 'satori-studio' ); ?>',
+			'right bottom': '<?php esc_attr_e( 'Right Bottom', 'satori-studio' ); ?>',
+			'center top': '<?php esc_attr_e( 'Center Top', 'satori-studio' ); ?>',
+			'center center': '<?php esc_attr_e( 'Center Center', 'satori-studio' ); ?>',
+			'center bottom': '<?php esc_attr_e( 'Center Bottom', 'satori-studio' ); ?>',
 		},
 	},
 } );

@@ -100,14 +100,14 @@ final class FLBuilderUsage {
 		}
 
 		$btn = sprintf( '<div class="buttons"><span class="button button-primary enable-stats">%s</span>&nbsp;<span class="button disable-stats">%s</span>%s</div>',
-			__( "Sure, I'll help", 'fl-builder' ),
-			__( 'No, Thank You', 'fl-builder' ),
+			__( "Sure, I'll help", 'satori-studio' ),
+			__( 'No, Thank You', 'satori-studio' ),
 			wp_nonce_field( 'fl-usage', '_wpnonce', false )
 		);
 
 		$message = sprintf(
 			/* translators: %s: branded builder name */
-			__( 'Would you like to help us improve %s by sending anonymous usage data?', 'fl-builder' ),
+			__( 'Would you like to help us improve %s by sending anonymous usage data?', 'satori-studio' ),
 			FLBuilderModel::get_branding()
 		);
 
@@ -194,36 +194,36 @@ final class FLBuilderUsage {
 		$txt      = '';
 		$settings = array(
 			'server'   => array(
-				'name' => __( 'Server Type', 'fl-builder' ),
+				'name' => __( 'Server Type', 'satori-studio' ),
 				'data' => $data['data']['server'],
 			),
 			'php'      => array(
-				'name' => __( 'PHP Version', 'fl-builder' ),
+				'name' => __( 'PHP Version', 'satori-studio' ),
 				'data' => $data['data']['php'],
 			),
 			'wp'       => array(
-				'name' => __( 'WP Version', 'fl-builder' ),
+				'name' => __( 'WP Version', 'satori-studio' ),
 				'data' => $data['data']['wp'],
 			),
 			'mu'       => array(
-				'name' => __( 'WP Multisite', 'fl-builder' ),
+				'name' => __( 'WP Multisite', 'satori-studio' ),
 				'data' => $data['data']['multisite'],
 			),
 			'locale'   => array(
-				'name' => __( 'Locale', 'fl-builder' ),
+				'name' => __( 'Locale', 'satori-studio' ),
 				'data' => $data['data']['locale'],
 			),
 			'plugins'  => array(
-				'name' => __( 'Plugins Count', 'fl-builder' ),
+				'name' => __( 'Plugins Count', 'satori-studio' ),
 				'data' => $data['data']['plugins'],
 			),
 			'modules'  => array(
-				'name' => __( 'Modules Used', 'fl-builder' ),
-				'data' => __( 'Which modules are used and how many times.', 'fl-builder' ),
+				'name' => __( 'Modules Used', 'satori-studio' ),
+				'data' => __( 'Which modules are used and how many times.', 'satori-studio' ),
 			),
 			'settings' => array(
-				'name' => __( 'Builder Settings', 'fl-builder' ),
-				'data' => __( 'UI theme, pinned settings etc.', 'fl-builder' ),
+				'name' => __( 'Builder Settings', 'satori-studio' ),
+				'data' => __( 'UI theme, pinned settings etc.', 'satori-studio' ),
 			),
 		);
 
@@ -232,9 +232,9 @@ final class FLBuilderUsage {
 		}
 
 		$output = sprintf( '<div class="usage-demo"><a class="stats-info" href="#">%s</a><div class="stats-info-data"><p>%s</p><p><em>%s</em></p></div></div>',
-			__( 'What kind of info will we collect?', 'fl-builder' ),
+			__( 'What kind of info will we collect?', 'satori-studio' ),
 			$txt,
-			__( 'We will never collect any private data such as IP, email addresses or usernames.', 'fl-builder' )
+			__( 'We will never collect any private data such as IP, email addresses or usernames.', 'satori-studio' )
 		);
 
 		return $output;

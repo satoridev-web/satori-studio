@@ -44,7 +44,7 @@ final class FLBuilderServiceHatchbuck extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else {
 
 			$result = wp_remote_post( $this->api_url . 'search?api_key=' . $fields['api_key'], array(
@@ -57,7 +57,7 @@ final class FLBuilderServiceHatchbuck extends FLBuilderService {
 			) );
 
 			if ( 401 == $result['response']['code'] ) {
-				$response['error'] = __( 'Error: Please check your API key.', 'fl-builder' );
+				$response['error'] = __( 'Error: Please check your API key.', 'satori-studio' );
 			} else {
 				$response['data'] = array(
 					'api_key' => $fields['api_key'],
@@ -81,8 +81,8 @@ final class FLBuilderServiceHatchbuck extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your Hatchbuck account under Account Settings > Web API.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your Hatchbuck account under Account Settings > Web API.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -126,7 +126,7 @@ final class FLBuilderServiceHatchbuck extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'text',
-			'label'     => _x( 'Tag', 'A tag to add to contacts in Hatchbuck when they subscribe.', 'fl-builder' ),
+			'label'     => _x( 'Tag', 'A tag to add to contacts in Hatchbuck when they subscribe.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -154,7 +154,7 @@ final class FLBuilderServiceHatchbuck extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to Hatchbuck. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to Hatchbuck. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			// Build the data array.
@@ -182,13 +182,13 @@ final class FLBuilderServiceHatchbuck extends FLBuilderService {
 
 			// Return if we have an API key error.
 			if ( 401 == $result['response']['code'] ) {
-				$response['error'] = __( 'There was an error subscribing to Hatchbuck. The API key is invalid.', 'fl-builder' );
+				$response['error'] = __( 'There was an error subscribing to Hatchbuck. The API key is invalid.', 'satori-studio' );
 				return $response; // Invalid API key.
 			} elseif ( 200 == $result['response']['code'] ) {
 				$result_data = json_decode( $result['body'] );
 				$contact_id  = $result_data[0]->contactId;
 			} elseif ( 400 != $result['response']['code'] ) { // Generic error. Contact not found should be 400.
-				$response['error'] = __( 'There was an error subscribing to Hatchbuck.', 'fl-builder' );
+				$response['error'] = __( 'There was an error subscribing to Hatchbuck.', 'satori-studio' );
 				return $response;
 			}
 
@@ -220,7 +220,7 @@ final class FLBuilderServiceHatchbuck extends FLBuilderService {
 
 				// Return if we have an error.
 				if ( 200 != $result['response']['code'] ) {
-					$response['error'] = __( 'There was an error subscribing to Hatchbuck.', 'fl-builder' );
+					$response['error'] = __( 'There was an error subscribing to Hatchbuck.', 'satori-studio' );
 					return $response;
 				}
 

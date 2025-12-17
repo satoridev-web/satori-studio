@@ -627,7 +627,7 @@ final class FLBuilderCompatibility {
 	public static function render_module_content_filter( $contents, $module ) {
 		$postdata = FLBuilderModel::get_post_data();
 		if ( isset( $_GET['safemode'] ) && FLBuilderModel::is_builder_active() || ( isset( $postdata['safemode'] ) && 'true' === $postdata['safemode'] ) ) {
-			return sprintf( '<h3>[%1$s] %2$s %3$s</h3>', __( 'SAFEMODE', 'fl-builder' ), $module->name, __( 'module', 'fl-builder' ) );
+			return sprintf( '<h3>[%1$s] %2$s %3$s</h3>', __( 'SAFEMODE', 'satori-studio' ), $module->name, __( 'module', 'satori-studio' ) );
 		} else {
 			return $contents;
 		}
@@ -1084,7 +1084,7 @@ final class FLBuilderCompatibility {
 	public static function fix_builder_on_empty_product_description( $tabs ) {
 		if ( empty( $tabs['description'] ) && FLBuilderModel::is_builder_active() ) {
 			$tabs['description'] = array(
-				'title'    => __( 'Description', 'fl-builder' ),
+				'title'    => __( 'Description', 'satori-studio' ),
 				'priority' => 10,
 				'callback' => 'woocommerce_product_description_tab',
 			);

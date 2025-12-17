@@ -74,15 +74,15 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 
 		// Make sure we have a username.
 		if ( ! isset( $fields['username'] ) || empty( $fields['username'] ) ) {
-			$response['error'] = __( 'Error: You must provide a username.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a username.', 'satori-studio' );
 		} elseif ( ! isset( $fields['app_id'] ) || empty( $fields['app_id'] ) ) {
-			$response['error'] = __( 'Error: You must provide an app ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an app ID.', 'satori-studio' );
 		} elseif ( ! isset( $fields['app_password'] ) || empty( $fields['app_password'] ) ) { // Make sure we have an app password.
-			$response['error'] = __( 'Error: You must provide an app password.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an app password.', 'satori-studio' );
 		} elseif ( ! isset( $fields['company_id'] ) || empty( $fields['company_id'] ) ) { // Make sure we have a company ID
-			$response['error'] = __( 'Error: You must provide a company ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a company ID.', 'satori-studio' );
 		} elseif ( ! isset( $fields['profile_id'] ) || empty( $fields['profile_id'] ) ) { // Make sure we have a profile ID
-			$response['error'] = __( 'Error: You must provide a profile ID.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide a profile ID.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$api = $this->get_api( array(
@@ -105,7 +105,7 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			} catch ( Exception $e ) {
 				$errors = $api->getErrors();
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'Error: Could not connect to iContact Pro. %s', 'fl-builder' ), $errors[0] );
+				$response['error'] = sprintf( __( 'Error: Could not connect to iContact Pro. %s', 'satori-studio' ), $errors[0] );
 			}
 		}
 
@@ -125,8 +125,8 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Username', 'fl-builder' ),
-			'help'      => __( 'Your iContact Pro username.', 'fl-builder' ),
+			'label'     => __( 'Username', 'satori-studio' ),
+			'help'      => __( 'Your iContact Pro username.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -136,8 +136,8 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'App ID', 'fl-builder' ),
-			'help'      => __( 'Your iContact Pro app ID.', 'fl-builder' ),
+			'label'     => __( 'App ID', 'satori-studio' ),
+			'help'      => __( 'Your iContact Pro app ID.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -147,10 +147,10 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'App Password', 'fl-builder' ),
-			'help'        => __( 'Your iContact Pro app password.', 'fl-builder' ),
+			'label'       => __( 'App Password', 'satori-studio' ),
+			'help'        => __( 'Your iContact Pro app password.', 'satori-studio' ),
 			/* translators: 1: create app url: 2: register url */
-			'description' => sprintf( __( 'You must <a%1$s>create an app</a> in iContact Pro to obtain an app ID and password. Please see <a%2$s>the iContact docs</a> for complete instructions.', 'fl-builder' ), ' href="https://app.icontactpro.com/MKT/Settings/Api?returnUrl=/MKT/Settings" target="_blank"', ' href="http://www.icontact.com/developerportal/api-documentation/vocus-register-your-app/" target="_blank"' ),
+			'description' => sprintf( __( 'You must <a%1$s>create an app</a> in iContact Pro to obtain an app ID and password. Please see <a%2$s>the iContact docs</a> for complete instructions.', 'satori-studio' ), ' href="https://app.icontactpro.com/MKT/Settings/Api?returnUrl=/MKT/Settings" target="_blank"', ' href="http://www.icontact.com/developerportal/api-documentation/vocus-register-your-app/" target="_blank"' ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -160,8 +160,8 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'Company ID', 'fl-builder' ),
-			'help'      => __( 'Your iContact Pro Company ID.', 'fl-builder' ),
+			'label'     => __( 'Company ID', 'satori-studio' ),
+			'help'      => __( 'Your iContact Pro Company ID.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -171,10 +171,10 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'Profile ID', 'fl-builder' ),
-			'help'        => __( 'Your iContact Pro Profile ID.', 'fl-builder' ),
+			'label'       => __( 'Profile ID', 'satori-studio' ),
+			'help'        => __( 'Your iContact Pro Profile ID.', 'satori-studio' ),
 			/* translators: 1: api link */
-			'description' => sprintf( __( 'Your Company and Profile ID can also be found in the <a%1$s>iContact Pro API settings</a> under Account Information.', 'fl-builder' ), ' href="https://app.icontactpro.com/MKT/Settings/Api?returnUrl=/MKT/Settings" target="_blank"' ),
+			'description' => sprintf( __( 'Your Company and Profile ID can also be found in the <a%1$s>iContact Pro API settings</a> under Account Information.', 'satori-studio' ), ' href="https://app.icontactpro.com/MKT/Settings/Api?returnUrl=/MKT/Settings" target="_blank"' ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -214,7 +214,7 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 		} catch ( Exception $e ) {
 			$errors = $api->getErrors();
 			/* translators: %s: error */
-			$response['error'] = sprintf( __( 'Error: Could not connect to iContact Pro. %s', 'fl-builder' ), $errors[0] );
+			$response['error'] = sprintf( __( 'Error: Could not connect to iContact Pro. %s', 'satori-studio' ), $errors[0] );
 		}
 
 		return $response;
@@ -233,7 +233,7 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $id => $list ) {
@@ -244,7 +244,7 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -272,7 +272,7 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to iContact. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to iContact. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$data = array(
@@ -310,7 +310,7 @@ final class FLBuilderServiceIContactPro extends FLBuilderService {
 			} catch ( Exception $e ) {
 				$errors = $api->getErrors();
 				/* translators: %s: error */
-				$response['error'] = sprintf( __( 'There was an error subscribing to iContact Pro. %s', 'fl-builder' ), $errors[0] );
+				$response['error'] = sprintf( __( 'There was an error subscribing to iContact Pro. %s', 'satori-studio' ), $errors[0] );
 			}
 		}
 

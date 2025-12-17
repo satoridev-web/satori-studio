@@ -62,14 +62,14 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else {
 
 			$api  = $this->get_api( $fields['api_key'] );
 			$ping = $api->ping();
 
 			if ( ! $ping ) {
-				$response['error'] = __( 'Error: Please check your API key.', 'fl-builder' );
+				$response['error'] = __( 'Error: Please check your API key.', 'satori-studio' );
 			} else {
 				$response['data'] = array(
 					'api_key' => $fields['api_key'],
@@ -93,8 +93,8 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your GetResponse account under My Account > API & OAuth.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your GetResponse account under My Account > API & OAuth.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -124,7 +124,7 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 		);
 
 		if ( ! $lists ) {
-			$response['error'] = __( 'Error: Please check your API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: Please check your API key.', 'satori-studio' );
 		} else {
 			$response['html'] = $this->render_list_field( $lists, $settings );
 		}
@@ -145,7 +145,7 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( $lists as $id => $data ) {
@@ -157,7 +157,7 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -168,8 +168,8 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-cycleday-select',
 			'type'      => 'select',
-			'label'     => _x( 'Cycle Day', 'Day of autoresponder cycle.', 'fl-builder' ),
-			'help'      => __( 'This should match the cycle day settings for the selected list\'s Autoresponder.', 'fl-builder' ),
+			'label'     => _x( 'Cycle Day', 'Day of autoresponder cycle.', 'satori-studio' ),
+			'help'      => __( 'This should match the cycle day settings for the selected list\'s Autoresponder.', 'satori-studio' ),
 			'options'   => range( 0, 30 ),
 			'preview'   => array(
 				'type' => 'none',
@@ -197,7 +197,7 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to GetResponse. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to GetResponse. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $account_data['api_key'] );
@@ -244,7 +244,7 @@ final class FLBuilderServiceGetResponse extends FLBuilderService {
 			} catch ( Exception $e ) {
 				$response['error'] = sprintf(
 					/* translators: %s: error */
-					__( 'There was an error subscribing to GetResponse. %s', 'fl-builder' ),
+					__( 'There was an error subscribing to GetResponse. %s', 'satori-studio' ),
 					$e->getMessage()
 				);
 			}

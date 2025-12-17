@@ -10,9 +10,9 @@ class FLCtaModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Call to Action', 'fl-builder' ),
-			'description'     => __( 'Display a heading, subheading and a button.', 'fl-builder' ),
-			'category'        => __( 'Actions', 'fl-builder' ),
+			'name'            => __( 'Call to Action', 'satori-studio' ),
+			'description'     => __( 'Display a heading, subheading and a button.', 'satori-studio' ),
+			'category'        => __( 'Actions', 'satori-studio' ),
 			'partial_refresh' => true,
 			'icon'            => 'megaphone.svg',
 		));
@@ -138,15 +138,15 @@ class FLCtaModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLCtaModule', array(
 	'general' => array(
-		'title'    => __( 'General', 'fl-builder' ),
+		'title'    => __( 'General', 'satori-studio' ),
 		'sections' => array(
 			'title' => array(
 				'title'  => '',
 				'fields' => array(
 					'title'     => array(
 						'type'        => 'text',
-						'label'       => __( 'Heading', 'fl-builder' ),
-						'default'     => __( 'Ready to find out more?', 'fl-builder' ),
+						'label'       => __( 'Heading', 'satori-studio' ),
+						'default'     => __( 'Ready to find out more?', 'satori-studio' ),
 						'preview'     => array(
 							'type'     => 'text',
 							'selector' => '.fl-cta-title',
@@ -155,7 +155,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'title_tag' => array(
 						'type'     => 'select',
-						'label'    => __( 'Heading Tag', 'fl-builder' ),
+						'label'    => __( 'Heading Tag', 'satori-studio' ),
 						'default'  => 'h3',
 						'sanitize' => array( 'FLBuilderUtils::esc_tags', 'h3' ),
 						'options'  => array(
@@ -170,14 +170,14 @@ FLBuilder::register_module('FLCtaModule', array(
 				),
 			),
 			'text'  => array(
-				'title'  => __( 'Text', 'fl-builder' ),
+				'title'  => __( 'Text', 'satori-studio' ),
 				'fields' => array(
 					'text' => array(
 						'type'          => 'editor',
 						'label'         => '',
 						'media_buttons' => false,
 						'wpautop'       => false,
-						'default'       => __( 'Drop us a line today for a free quote!', 'fl-builder' ),
+						'default'       => __( 'Drop us a line today for a free quote!', 'satori-studio' ),
 						'preview'       => array(
 							'type'     => 'text',
 							'selector' => '.fl-cta-text-content',
@@ -189,18 +189,18 @@ FLBuilder::register_module('FLCtaModule', array(
 		),
 	),
 	'style'   => array(
-		'title'    => __( 'Style', 'fl-builder' ),
+		'title'    => __( 'Style', 'satori-studio' ),
 		'sections' => array(
 			'structure'       => array(
 				'title'  => '',
 				'fields' => array(
 					'layout'       => array(
 						'type'    => 'select',
-						'label'   => __( 'Layout', 'fl-builder' ),
+						'label'   => __( 'Layout', 'satori-studio' ),
 						'default' => 'inline',
 						'options' => array(
-							'inline'  => __( 'Inline', 'fl-builder' ),
-							'stacked' => __( 'Stacked', 'fl-builder' ),
+							'inline'  => __( 'Inline', 'satori-studio' ),
+							'stacked' => __( 'Stacked', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'stacked' => array(
@@ -214,7 +214,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					'bg_color'     => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Background Color', 'fl-builder' ),
+						'label'       => __( 'Background Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -226,7 +226,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'border'       => array(
 						'type'       => 'border',
-						'label'      => __( 'Border', 'fl-builder' ),
+						'label'      => __( 'Border', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',
@@ -235,7 +235,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'alignment'    => array(
 						'type'    => 'align',
-						'label'   => __( 'Alignment', 'fl-builder' ),
+						'label'   => __( 'Alignment', 'satori-studio' ),
 						'default' => 'center',
 						'preview' => array(
 							'type'      => 'css',
@@ -246,7 +246,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'wrap_padding' => array(
 						'type'       => 'dimension',
-						'label'      => __( 'Padding', 'fl-builder' ),
+						'label'      => __( 'Padding', 'satori-studio' ),
 						'default'    => '0',
 						'responsive' => true,
 						'slider'     => true,
@@ -264,12 +264,12 @@ FLBuilder::register_module('FLCtaModule', array(
 				),
 			),
 			'title_structure' => array(
-				'title'  => __( 'Heading', 'fl-builder' ),
+				'title'  => __( 'Heading', 'satori-studio' ),
 				'fields' => array(
 					'title_color'      => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Heading Color', 'fl-builder' ),
+						'label'       => __( 'Heading Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -281,7 +281,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'title_typography' => array(
 						'type'       => 'typography',
-						'label'      => __( 'Heading Typography', 'fl-builder' ),
+						'label'      => __( 'Heading Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'      => 'css',
@@ -292,12 +292,12 @@ FLBuilder::register_module('FLCtaModule', array(
 				),
 			),
 			'content'         => array(
-				'title'  => __( 'Text', 'fl-builder' ),
+				'title'  => __( 'Text', 'satori-studio' ),
 				'fields' => array(
 					'text_color'      => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Text Color', 'fl-builder' ),
+						'label'       => __( 'Text Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -310,7 +310,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'text_typography' => array(
 						'type'       => 'typography',
-						'label'      => __( 'Text Typography', 'fl-builder' ),
+						'label'      => __( 'Text Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',
@@ -322,15 +322,15 @@ FLBuilder::register_module('FLCtaModule', array(
 		),
 	),
 	'button'  => array(
-		'title'    => __( 'Button', 'fl-builder' ),
+		'title'    => __( 'Button', 'satori-studio' ),
 		'sections' => array(
 			'btn_text'        => array(
 				'title'  => '',
 				'fields' => array(
 					'btn_text' => array(
 						'type'        => 'text',
-						'label'       => __( 'Button Text', 'fl-builder' ),
-						'default'     => __( 'Click Here', 'fl-builder' ),
+						'label'       => __( 'Button Text', 'satori-studio' ),
+						'default'     => __( 'Click Here', 'satori-studio' ),
 						'preview'     => array(
 							'type'     => 'text',
 							'selector' => '.fl-button-text',
@@ -339,7 +339,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'btn_link' => array(
 						'type'          => 'link',
-						'label'         => __( 'Button Link', 'fl-builder' ),
+						'label'         => __( 'Button Link', 'satori-studio' ),
 						'show_target'   => true,
 						'show_nofollow' => true,
 						'preview'       => array(
@@ -350,18 +350,18 @@ FLBuilder::register_module('FLCtaModule', array(
 				),
 			),
 			'btn_icon'        => array(
-				'title'  => __( 'Button Icon', 'fl-builder' ),
+				'title'  => __( 'Button Icon', 'satori-studio' ),
 				'fields' => array(
 					'btn_icon'           => array(
 						'type'        => 'icon',
-						'label'       => __( 'Button Icon', 'fl-builder' ),
+						'label'       => __( 'Button Icon', 'satori-studio' ),
 						'show_remove' => true,
 						'show'        => array(
 							'fields' => array( 'btn_icon_position', 'btn_icon_animation' ),
 						),
 					),
 					'btn_duo_color1'     => array(
-						'label'       => __( 'DuoTone Primary Color', 'fl-builder' ),
+						'label'       => __( 'DuoTone Primary Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'default'     => '',
@@ -375,7 +375,7 @@ FLBuilder::register_module('FLCtaModule', array(
 						),
 					),
 					'btn_duo_color2'     => array(
-						'label'       => __( 'DuoTone Secondary Color', 'fl-builder' ),
+						'label'       => __( 'DuoTone Secondary Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'default'     => '',
@@ -390,30 +390,30 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'btn_icon_position'  => array(
 						'type'    => 'select',
-						'label'   => __( 'Button Icon Position', 'fl-builder' ),
+						'label'   => __( 'Button Icon Position', 'satori-studio' ),
 						'default' => 'before',
 						'options' => array(
-							'before' => __( 'Before Text', 'fl-builder' ),
-							'after'  => __( 'After Text', 'fl-builder' ),
+							'before' => __( 'Before Text', 'satori-studio' ),
+							'after'  => __( 'After Text', 'satori-studio' ),
 						),
 					),
 					'btn_icon_animation' => array(
 						'type'    => 'select',
-						'label'   => __( 'Button Icon Visibility', 'fl-builder' ),
+						'label'   => __( 'Button Icon Visibility', 'satori-studio' ),
 						'default' => 'disable',
 						'options' => array(
-							'disable' => __( 'Always Visible', 'fl-builder' ),
-							'enable'  => __( 'Fade In On Hover', 'fl-builder' ),
+							'disable' => __( 'Always Visible', 'satori-studio' ),
+							'enable'  => __( 'Fade In On Hover', 'satori-studio' ),
 						),
 					),
 				),
 			),
 			'btn_style'       => array(
-				'title'  => __( 'Button Style', 'fl-builder' ),
+				'title'  => __( 'Button Style', 'satori-studio' ),
 				'fields' => array(
 					'btn_padding' => array(
 						'type'       => 'dimension',
-						'label'      => __( 'Button Padding', 'fl-builder' ),
+						'label'      => __( 'Button Padding', 'satori-studio' ),
 						'responsive' => true,
 						'slider'     => true,
 						'units'      => array( 'px' ),
@@ -426,12 +426,12 @@ FLBuilder::register_module('FLCtaModule', array(
 				),
 			),
 			'btn_text_colors' => array(
-				'title'  => __( 'Button Text', 'fl-builder' ),
+				'title'  => __( 'Button Text', 'satori-studio' ),
 				'fields' => array(
 					'btn_text_color'       => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Button Text Color', 'fl-builder' ),
+						'label'       => __( 'Button Text Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -445,7 +445,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					'btn_text_hover_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Button Text Hover Color', 'fl-builder' ),
+						'label'       => __( 'Button Text Hover Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -458,7 +458,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'btn_typography'       => array(
 						'type'       => 'typography',
-						'label'      => __( 'Button Typography', 'fl-builder' ),
+						'label'      => __( 'Button Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',
@@ -468,16 +468,16 @@ FLBuilder::register_module('FLCtaModule', array(
 				),
 			),
 			'btn_colors'      => array(
-				'title'  => __( 'Button Background', 'fl-builder' ),
+				'title'  => __( 'Button Background', 'satori-studio' ),
 				'fields' => array(
 					'btn_style'             => array(
 						'type'    => 'select',
-						'label'   => __( 'Button Background Style', 'fl-builder' ),
+						'label'   => __( 'Button Background Style', 'satori-studio' ),
 						'default' => 'flat',
 						'options' => array(
-							'flat'         => __( 'Flat', 'fl-builder' ),
-							'gradient'     => __( 'Auto Gradient', 'fl-builder' ),
-							'adv-gradient' => __( 'Advanced Gradient', 'fl-builder' ),
+							'flat'         => __( 'Flat', 'satori-studio' ),
+							'gradient'     => __( 'Auto Gradient', 'satori-studio' ),
+							'adv-gradient' => __( 'Advanced Gradient', 'satori-studio' ),
 						),
 						'toggle'  => array(
 							'flat'         => array(
@@ -496,7 +496,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					'btn_bg_color'          => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Button Background Color', 'fl-builder' ),
+						'label'       => __( 'Button Background Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -507,7 +507,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					'btn_bg_hover_color'    => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Button Background Hover Color', 'fl-builder' ),
+						'label'       => __( 'Button Background Hover Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,
@@ -517,7 +517,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'btn_bg_gradient'       => array(
 						'type'    => 'gradient',
-						'label'   => __( 'Background Gradient', 'fl-builder' ),
+						'label'   => __( 'Background Gradient', 'satori-studio' ),
 						'preview' => array(
 							'type'     => 'css',
 							'selector' => 'a.fl-button',
@@ -526,7 +526,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'btn_bg_gradient_hover' => array(
 						'type'    => 'gradient',
-						'label'   => __( 'Background Hover Gradient', 'fl-builder' ),
+						'label'   => __( 'Background Hover Gradient', 'satori-studio' ),
 						'preview' => array(
 							'type'     => 'css',
 							'selector' => 'a.fl-button:hover',
@@ -535,11 +535,11 @@ FLBuilder::register_module('FLCtaModule', array(
 					),
 					'btn_button_transition' => array(
 						'type'    => 'select',
-						'label'   => __( 'Button Background Animation', 'fl-builder' ),
+						'label'   => __( 'Button Background Animation', 'satori-studio' ),
 						'default' => 'disable',
 						'options' => array(
-							'disable' => __( 'Disabled', 'fl-builder' ),
-							'enable'  => __( 'Enabled', 'fl-builder' ),
+							'disable' => __( 'Disabled', 'satori-studio' ),
+							'enable'  => __( 'Enabled', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type' => 'none',
@@ -548,11 +548,11 @@ FLBuilder::register_module('FLCtaModule', array(
 				),
 			),
 			'btn_border'      => array(
-				'title'  => __( 'Button Border', 'fl-builder' ),
+				'title'  => __( 'Button Border', 'satori-studio' ),
 				'fields' => array(
 					'btn_border'             => array(
 						'type'       => 'border',
-						'label'      => __( 'Button Border', 'fl-builder' ),
+						'label'      => __( 'Button Border', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'      => 'css',
@@ -563,7 +563,7 @@ FLBuilder::register_module('FLCtaModule', array(
 					'btn_border_hover_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Button Border Hover Color', 'fl-builder' ),
+						'label'       => __( 'Button Border Hover Color', 'satori-studio' ),
 						'default'     => '',
 						'show_reset'  => true,
 						'show_alpha'  => true,

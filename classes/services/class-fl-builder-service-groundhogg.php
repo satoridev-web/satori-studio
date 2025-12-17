@@ -52,7 +52,7 @@ final class FLBuilderServiceGroundhogg extends FLBuilderService {
 				'row_class' => 'fl-builder-service-connect-row',
 				'class'     => 'fl-builder-service-connect-input',
 				'type'      => 'raw',
-				'content'   => sprintf( '<p><strong>%s</strong></p><p>%s</p>', __( 'Groundhogg plugin must be installed and active to use this service.', 'fl-builder' ), '<a href="https://wordpress.org/plugins/groundhogg/">https://wordpress.org/plugins/groundhogg/</a>' ),
+				'content'   => sprintf( '<p><strong>%s</strong></p><p>%s</p>', __( 'Groundhogg plugin must be installed and active to use this service.', 'satori-studio' ), '<a href="https://wordpress.org/plugins/groundhogg/">https://wordpress.org/plugins/groundhogg/</a>' ),
 				'preview'   => array(
 					'type' => 'none',
 				),
@@ -103,7 +103,7 @@ final class FLBuilderServiceGroundhogg extends FLBuilderService {
 				'row_class'    => 'fl-builder-service-field-row',
 				'class'        => 'fl-builder-service-list-select',
 				'type'         => 'select',
-				'label'        => __( 'Apply Tag', 'fl-builder' ),
+				'label'        => __( 'Apply Tag', 'satori-studio' ),
 				'multi-select' => true,
 				'options'      => get_db( 'tags' )->get_tags_select(),
 
@@ -131,7 +131,7 @@ final class FLBuilderServiceGroundhogg extends FLBuilderService {
 	public function subscribe( $settings, $email, $name = false ) {
 
 		if ( ! $this->groundhogg_is_active() ) {
-			$response['error'] = __( 'There was an error subscribing. Groundhogg is not active.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing. Groundhogg is not active.', 'satori-studio' );
 
 			return $response;
 		}
@@ -148,7 +148,7 @@ final class FLBuilderServiceGroundhogg extends FLBuilderService {
 		$contact = generate_contact_with_map( $_POST, $field_map );
 
 		if ( ! $contact || is_wp_error( $contact ) ) {
-			$response['error'] = __( 'There was an error subscribing.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing.', 'satori-studio' );
 			return $response;
 		}
 

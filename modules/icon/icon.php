@@ -10,9 +10,9 @@ class FLIconModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Icon', 'fl-builder' ),
-			'description'     => __( 'Display an icon and optional title.', 'fl-builder' ),
-			'category'        => true === FL_BUILDER_LITE ? __( 'Basic', 'fl-builder' ) : __( 'Media', 'fl-builder' ),
+			'name'            => __( 'Icon', 'satori-studio' ),
+			'description'     => __( 'Display an icon and optional title.', 'satori-studio' ),
+			'category'        => true === FL_BUILDER_LITE ? __( 'Basic', 'satori-studio' ) : __( 'Media', 'satori-studio' ),
 			'editor_export'   => false,
 			'partial_refresh' => true,
 			'icon'            => 'star-filled.svg',
@@ -63,14 +63,14 @@ class FLIconModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLIconModule', array(
 	'general' => array( // Tab
-		'title'    => __( 'General', 'fl-builder' ), // Tab title
+		'title'    => __( 'General', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'general' => array( // Section
 				'title'  => '', // Section Title
 				'fields' => array( // Section Fields
 					'icon'    => array(
 						'type'    => 'icon',
-						'label'   => __( 'Icon', 'fl-builder' ),
+						'label'   => __( 'Icon', 'satori-studio' ),
 						'default' => 'dashicons dashicons-before dashicons-wordpress-alt',
 						'preview' => array(
 							'type' => 'none',
@@ -79,7 +79,7 @@ FLBuilder::register_module('FLIconModule', array(
 
 					'link'    => array(
 						'type'          => 'link',
-						'label'         => __( 'Link', 'fl-builder' ),
+						'label'         => __( 'Link', 'satori-studio' ),
 						'show_target'   => true,
 						'show_nofollow' => true,
 						'show_download' => true,
@@ -87,13 +87,13 @@ FLBuilder::register_module('FLIconModule', array(
 					),
 					'sr_text' => array(
 						'type'    => 'text',
-						'label'   => __( 'Screen Reader Text', 'fl-builder' ),
+						'label'   => __( 'Screen Reader Text', 'satori-studio' ),
 						'default' => '',
 					),
 				),
 			),
 			'text'    => array(
-				'title'  => __( 'Text', 'fl-builder' ),
+				'title'  => __( 'Text', 'satori-studio' ),
 				'fields' => array(
 					'text' => array(
 						'type'          => 'editor',
@@ -111,14 +111,14 @@ FLBuilder::register_module('FLIconModule', array(
 		),
 	),
 	'style'   => array( // Tab
-		'title'    => __( 'Style', 'fl-builder' ), // Tab title
+		'title'    => __( 'Style', 'satori-studio' ), // Tab title
 		'sections' => array( // Tab Sections
 			'structure' => array( // Section
-				'title'  => __( 'Icon', 'fl-builder' ), // Section Title
+				'title'  => __( 'Icon', 'satori-studio' ), // Section Title
 				'fields' => array( // Section Fields
 					'size'  => array(
 						'type'       => 'unit',
-						'label'      => __( 'Size', 'fl-builder' ),
+						'label'      => __( 'Size', 'satori-studio' ),
 						'default'    => '30',
 						'sanitize'   => 'floatval',
 						'responsive' => true,
@@ -130,7 +130,7 @@ FLBuilder::register_module('FLIconModule', array(
 					),
 					'align' => array(
 						'type'       => 'align',
-						'label'      => __( 'Alignment', 'fl-builder' ),
+						'label'      => __( 'Alignment', 'satori-studio' ),
 						'default'    => 'left',
 						'responsive' => true,
 						'preview'    => array(
@@ -142,12 +142,12 @@ FLBuilder::register_module('FLIconModule', array(
 				),
 			),
 			'colors'    => array( // Section
-				'title'  => __( 'Icon Colors', 'fl-builder' ), // Section Title
+				'title'  => __( 'Icon Colors', 'satori-studio' ), // Section Title
 				'fields' => array( // Section Fields
 					'color'          => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Color', 'fl-builder' ),
+						'label'       => __( 'Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -160,7 +160,7 @@ FLBuilder::register_module('FLIconModule', array(
 					'hover_color'    => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Hover Color', 'fl-builder' ),
+						'label'       => __( 'Hover Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -171,7 +171,7 @@ FLBuilder::register_module('FLIconModule', array(
 						),
 					),
 					'duo_color1'     => array(
-						'label'       => __( 'DuoTone Icon Primary Color', 'fl-builder' ),
+						'label'       => __( 'DuoTone Icon Primary Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'default'     => '',
@@ -185,7 +185,7 @@ FLBuilder::register_module('FLIconModule', array(
 						),
 					),
 					'duo_color2'     => array(
-						'label'       => __( 'DuoTone Icon Secondary Color', 'fl-builder' ),
+						'label'       => __( 'DuoTone Icon Secondary Color', 'satori-studio' ),
 						'type'        => 'color',
 						'connections' => array( 'color' ),
 						'default'     => '',
@@ -201,14 +201,14 @@ FLBuilder::register_module('FLIconModule', array(
 					'bg_color'       => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Background Color', 'fl-builder' ),
+						'label'       => __( 'Background Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 					),
 					'bg_hover_color' => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Background Hover Color', 'fl-builder' ),
+						'label'       => __( 'Background Hover Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -217,21 +217,21 @@ FLBuilder::register_module('FLIconModule', array(
 					),
 					'three_d'        => array(
 						'type'    => 'select',
-						'label'   => __( 'Gradient', 'fl-builder' ),
+						'label'   => __( 'Gradient', 'satori-studio' ),
 						'default' => '0',
 						'options' => array(
-							'0' => __( 'No', 'fl-builder' ),
-							'1' => __( 'Yes', 'fl-builder' ),
+							'0' => __( 'No', 'satori-studio' ),
+							'1' => __( 'Yes', 'satori-studio' ),
 						),
 					),
 				),
 			),
 			'text'      => array(
-				'title'  => __( 'Text', 'fl-builder' ),
+				'title'  => __( 'Text', 'satori-studio' ),
 				'fields' => array(
 					'text_spacing'    => array(
 						'type'    => 'unit',
-						'label'   => __( 'Text Spacing', 'fl-builder' ),
+						'label'   => __( 'Text Spacing', 'satori-studio' ),
 						'slider'  => true,
 						'units'   => array( 'px' ),
 						'preview' => array(
@@ -245,7 +245,7 @@ FLBuilder::register_module('FLIconModule', array(
 					'text_color'      => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Text Color', 'fl-builder' ),
+						'label'       => __( 'Text Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'preview'     => array(
@@ -257,7 +257,7 @@ FLBuilder::register_module('FLIconModule', array(
 					),
 					'text_typography' => array(
 						'type'       => 'typography',
-						'label'      => __( 'Text Typography', 'fl-builder' ),
+						'label'      => __( 'Text Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',

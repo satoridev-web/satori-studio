@@ -1,44 +1,44 @@
 <?php
 
 FLBuilder::register_settings_form('global', array(
-	'title' => __( 'Global Settings', 'fl-builder' ),
+	'title' => __( 'Global Settings', 'satori-studio' ),
 	'tabs'  => array(
 		'general' => array(
-			'title'       => __( 'General', 'fl-builder' ),
-			'description' => __( '<strong>Note</strong>: These settings apply to all posts and pages.', 'fl-builder' ),
+			'title'       => __( 'General', 'satori-studio' ),
+			'description' => __( '<strong>Note</strong>: These settings apply to all posts and pages.', 'satori-studio' ),
 			'sections'    => array(
 				'page_heading' => array(
-					'title'  => __( 'Default Page Heading', 'fl-builder' ),
+					'title'  => __( 'Default Page Heading', 'satori-studio' ),
 					'fields' => array(
 						'show_default_heading'     => array(
 							'type'    => 'select',
-							'label'   => _x( 'Show', 'General settings form field label. Intended meaning: "Show page heading?"', 'fl-builder' ),
+							'label'   => _x( 'Show', 'General settings form field label. Intended meaning: "Show page heading?"', 'satori-studio' ),
 							'default' => '0',
 							'options' => array(
-								'0' => __( 'No', 'fl-builder' ),
-								'1' => __( 'Yes', 'fl-builder' ),
+								'0' => __( 'No', 'satori-studio' ),
+								'1' => __( 'Yes', 'satori-studio' ),
 							),
 							'toggle'  => array(
 								'0' => array(
 									'fields' => array( 'default_heading_selector' ),
 								),
 							),
-							'help'    => __( 'Choosing no will hide the default theme heading for the "Page" post type. You will also be required to enter some basic CSS for this to work if you choose no.', 'fl-builder' ),
+							'help'    => __( 'Choosing no will hide the default theme heading for the "Page" post type. You will also be required to enter some basic CSS for this to work if you choose no.', 'satori-studio' ),
 						),
 						'default_heading_selector' => array(
 							'type'    => 'text',
-							'label'   => __( 'CSS Selector', 'fl-builder' ),
+							'label'   => __( 'CSS Selector', 'satori-studio' ),
 							'default' => '.fl-post-header',
-							'help'    => __( 'Enter a CSS selector for the default page heading to hide it.', 'fl-builder' ),
+							'help'    => __( 'Enter a CSS selector for the default page heading to hide it.', 'satori-studio' ),
 						),
 					),
 				),
 				'rows'         => array(
-					'title'  => __( 'Rows', 'fl-builder' ),
+					'title'  => __( 'Rows', 'satori-studio' ),
 					'fields' => array(
 						'row_margins'               => array(
 							'type'       => 'dimension',
-							'label'      => __( 'Margins', 'fl-builder' ),
+							'label'      => __( 'Margins', 'satori-studio' ),
 							'slider'     => true,
 							'default'    => '0',
 							'units'      => array(
@@ -88,7 +88,7 @@ FLBuilder::register_settings_form('global', array(
 						),
 						'row_padding'               => array(
 							'type'       => 'dimension',
-							'label'      => __( 'Padding', 'fl-builder' ),
+							'label'      => __( 'Padding', 'satori-studio' ),
 							'slider'     => true,
 							'default'    => '20',
 							'units'      => array(
@@ -141,11 +141,11 @@ FLBuilder::register_settings_form('global', array(
 						),
 						'row_width'                 => array(
 							'type'       => 'unit',
-							'label'      => __( 'Max Width', 'fl-builder' ),
+							'label'      => __( 'Max Width', 'satori-studio' ),
 							'maxlength'  => '4',
 							'size'       => '5',
 							'sanitize'   => 'absint',
-							'help'       => __( 'All rows will default to this width. You can override this and make a row full width in the settings for each row.', 'fl-builder' ),
+							'help'       => __( 'All rows will default to this width. You can override this and make a row full width in the settings for each row.', 'satori-studio' ),
 							'units'      => array(
 								'px',
 								'vw',
@@ -162,11 +162,11 @@ FLBuilder::register_settings_form('global', array(
 						),
 						'row_width_default'         => array(
 							'type'    => 'select',
-							'label'   => __( 'Default Row Width', 'fl-builder' ),
+							'label'   => __( 'Default Row Width', 'satori-studio' ),
 							'default' => 'fixed',
 							'options' => array(
-								'fixed' => __( 'Fixed', 'fl-builder' ),
-								'full'  => __( 'Full Width', 'fl-builder' ),
+								'fixed' => __( 'Fixed', 'satori-studio' ),
+								'full'  => __( 'Full Width', 'satori-studio' ),
 							),
 							'toggle'  => array(
 								'full' => array(
@@ -176,21 +176,21 @@ FLBuilder::register_settings_form('global', array(
 						),
 						'row_content_width_default' => array(
 							'type'    => 'select',
-							'label'   => __( 'Default Row Content Width', 'fl-builder' ),
+							'label'   => __( 'Default Row Content Width', 'satori-studio' ),
 							'default' => 'fixed',
 							'options' => array(
-								'fixed' => __( 'Fixed', 'fl-builder' ),
-								'full'  => __( 'Full Width', 'fl-builder' ),
+								'fixed' => __( 'Fixed', 'satori-studio' ),
+								'full'  => __( 'Full Width', 'satori-studio' ),
 							),
 						),
 					),
 				),
 				'columns'      => array(
-					'title'  => __( 'Columns', 'fl-builder' ),
+					'title'  => __( 'Columns', 'satori-studio' ),
 					'fields' => array(
 						'column_margins' => array(
 							'type'       => 'dimension',
-							'label'      => __( 'Margins', 'fl-builder' ),
+							'label'      => __( 'Margins', 'satori-studio' ),
 							'slider'     => true,
 							'default'    => '',
 							'units'      => array(
@@ -239,7 +239,7 @@ FLBuilder::register_settings_form('global', array(
 						),
 						'column_padding' => array(
 							'type'       => 'dimension',
-							'label'      => __( 'Padding', 'fl-builder' ),
+							'label'      => __( 'Padding', 'satori-studio' ),
 							'slider'     => true,
 							'default'    => '',
 							'units'      => array(
@@ -291,11 +291,11 @@ FLBuilder::register_settings_form('global', array(
 					),
 				),
 				'modules'      => array(
-					'title'  => __( 'Modules', 'fl-builder' ),
+					'title'  => __( 'Modules', 'satori-studio' ),
 					'fields' => array(
 						'module_margins' => array(
 							'type'       => 'dimension',
-							'label'      => __( 'Margins', 'fl-builder' ),
+							'label'      => __( 'Margins', 'satori-studio' ),
 							'slider'     => true,
 							'default'    => '20',
 							'units'      => array(
@@ -347,15 +347,15 @@ FLBuilder::register_settings_form('global', array(
 					),
 				),
 				'responsive'   => array(
-					'title'  => __( 'Responsive Layout', 'fl-builder' ),
+					'title'  => __( 'Responsive Layout', 'satori-studio' ),
 					'fields' => array(
 						'responsive_enabled'       => array(
 							'type'    => 'select',
-							'label'   => _x( 'Enabled', 'General settings form field label. Intended meaning: "Responsive layout enabled?"', 'fl-builder' ),
+							'label'   => _x( 'Enabled', 'General settings form field label. Intended meaning: "Responsive layout enabled?"', 'satori-studio' ),
 							'default' => '1',
 							'options' => array(
-								'0' => __( 'No', 'fl-builder' ),
-								'1' => __( 'Yes', 'fl-builder' ),
+								'0' => __( 'No', 'satori-studio' ),
+								'1' => __( 'Yes', 'satori-studio' ),
 							),
 							'toggle'  => array(
 								'1' => array(
@@ -366,80 +366,80 @@ FLBuilder::register_settings_form('global', array(
 						),
 						'auto_spacing'             => array(
 							'type'    => 'select',
-							'label'   => _x( 'Enable Auto Spacing', 'General settings form field label. Intended meaning: "Enable auto spacing for responsive layouts?"', 'fl-builder' ),
+							'label'   => _x( 'Enable Auto Spacing', 'General settings form field label. Intended meaning: "Enable auto spacing for responsive layouts?"', 'satori-studio' ),
 							'default' => '1',
 							'options' => array(
-								'0' => __( 'No', 'fl-builder' ),
-								'1' => __( 'Yes', 'fl-builder' ),
+								'0' => __( 'No', 'satori-studio' ),
+								'1' => __( 'Yes', 'satori-studio' ),
 							),
-							'help'    => __( 'When auto spacing is enabled, the builder will automatically adjust the margins and padding in your layout once the small device breakpoint is reached. Most users will want to leave this enabled.', 'fl-builder' ),
+							'help'    => __( 'When auto spacing is enabled, the builder will automatically adjust the margins and padding in your layout once the small device breakpoint is reached. Most users will want to leave this enabled.', 'satori-studio' ),
 						),
 						'large_breakpoint'         => array(
 							'type'        => 'text',
-							'label'       => __( 'Large Device Breakpoint', 'fl-builder' ),
+							'label'       => __( 'Large Device Breakpoint', 'satori-studio' ),
 							'default'     => '1200',
 							'maxlength'   => '4',
 							'size'        => '5',
 							'description' => 'px',
 							'sanitize'    => 'absint',
-							'help'        => __( 'The browser width at which the layout will adjust for large devices.', 'fl-builder' ),
+							'help'        => __( 'The browser width at which the layout will adjust for large devices.', 'satori-studio' ),
 						),
 						'medium_breakpoint'        => array(
 							'type'        => 'text',
-							'label'       => __( 'Medium Device Breakpoint', 'fl-builder' ),
+							'label'       => __( 'Medium Device Breakpoint', 'satori-studio' ),
 							'default'     => '992',
 							'maxlength'   => '4',
 							'size'        => '5',
 							'description' => 'px',
 							'sanitize'    => 'absint',
-							'help'        => __( 'The browser width at which the layout will adjust for medium devices such as tablets.', 'fl-builder' ),
+							'help'        => __( 'The browser width at which the layout will adjust for medium devices such as tablets.', 'satori-studio' ),
 						),
 						'responsive_breakpoint'    => array(
 							'type'        => 'text',
-							'label'       => __( 'Small Device Breakpoint', 'fl-builder' ),
+							'label'       => __( 'Small Device Breakpoint', 'satori-studio' ),
 							'default'     => '768',
 							'maxlength'   => '4',
 							'size'        => '5',
 							'description' => 'px',
 							'sanitize'    => 'absint',
-							'help'        => __( 'The browser width at which the layout will adjust for small devices such as phones.', 'fl-builder' ),
+							'help'        => __( 'The browser width at which the layout will adjust for small devices such as phones.', 'satori-studio' ),
 						),
 						'responsive_preview'       => array(
 							'type'    => 'select',
-							'label'   => __( 'Use responsive settings in previews?', 'fl-builder' ),
+							'label'   => __( 'Use responsive settings in previews?', 'satori-studio' ),
 							'default' => '0',
 							'options' => array(
-								'0' => __( 'No', 'fl-builder' ),
-								'1' => __( 'Yes', 'fl-builder' ),
+								'0' => __( 'No', 'satori-studio' ),
+								'1' => __( 'Yes', 'satori-studio' ),
 							),
-							'help'    => __( 'Preview and responsive editing will use these values when enabled.', 'fl-builder' ),
+							'help'    => __( 'Preview and responsive editing will use these values when enabled.', 'satori-studio' ),
 						),
 						'responsive_col_max_width' => array(
 							'type'    => 'select',
-							'label'   => __( 'Enable Column Max Width', 'fl-builder' ),
+							'label'   => __( 'Enable Column Max Width', 'satori-studio' ),
 							'default' => '1',
 							'options' => array(
-								'0' => __( 'No', 'fl-builder' ),
-								'1' => __( 'Yes', 'fl-builder' ),
+								'0' => __( 'No', 'satori-studio' ),
+								'1' => __( 'Yes', 'satori-studio' ),
 							),
-							'help'    => __( 'When enabled, columns assigned 50% width or less are limited to max width 400px when screen width reaches or goes below the small device breakpoint.', 'fl-builder' ),
+							'help'    => __( 'When enabled, columns assigned 50% width or less are limited to max width 400px when screen width reaches or goes below the small device breakpoint.', 'satori-studio' ),
 						),
 						'responsive_base_fontsize' => array(
 							'type'        => 'text',
-							'label'       => __( 'Base Font Size', 'fl-builder' ),
+							'label'       => __( 'Base Font Size', 'satori-studio' ),
 							'default'     => '16',
 							'maxlength'   => '4',
 							'size'        => '5',
 							'description' => 'px',
 							'sanitize'    => 'absint',
-							'help'        => __( 'When typography unit is set to vh/vw this unit will be used to calculate the font size.', 'fl-builder' ),
+							'help'        => __( 'When typography unit is set to vh/vw this unit will be used to calculate the font size.', 'satori-studio' ),
 						),
 					),
 				),
 			),
 		),
 		'css'     => array(
-			'title'    => __( 'CSS', 'fl-builder' ),
+			'title'    => __( 'CSS', 'satori-studio' ),
 			'sections' => array(
 				'css' => array(
 					'title'  => '',
@@ -458,7 +458,7 @@ FLBuilder::register_settings_form('global', array(
 			),
 		),
 		'js'      => array(
-			'title'    => __( 'JavaScript', 'fl-builder' ),
+			'title'    => __( 'JavaScript', 'satori-studio' ),
 			'sections' => array(
 				'js' => array(
 					'title'  => '',

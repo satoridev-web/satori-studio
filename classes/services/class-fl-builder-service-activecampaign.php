@@ -64,15 +64,15 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 
 		// Make sure we have an API url.
 		if ( ! isset( $fields['api_url'] ) || empty( $fields['api_url'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API URL.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API URL.', 'satori-studio' );
 		} elseif ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$api = $this->get_api( $fields['api_url'], $fields['api_key'] );
 
 			if ( ! (int) $api->credentials_test() ) {
-				$response['error'] = __( 'Error: Please check your API URL and API key.', 'fl-builder' );
+				$response['error'] = __( 'Error: Please check your API URL and API key.', 'satori-studio' );
 			} else {
 				$response['data'] = array(
 					'api_url' => $fields['api_url'],
@@ -97,8 +97,8 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API URL', 'fl-builder' ),
-			'help'      => __( 'Your API URL can be found in your ActiveCampaign account under My Settings > Developer > API.', 'fl-builder' ),
+			'label'     => __( 'API URL', 'satori-studio' ),
+			'help'      => __( 'Your API URL can be found in your ActiveCampaign account under My Settings > Developer > API.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -108,8 +108,8 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your ActiveCampaign account under My Settings > Developer > API.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your ActiveCampaign account under My Settings > Developer > API.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -178,11 +178,11 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-activecampaign-list_type-select',
 			'type'      => 'select',
-			'label'     => _x( 'Type', 'Select the list type.', 'fl-builder' ),
+			'label'     => _x( 'Type', 'Select the list type.', 'satori-studio' ),
 			'default'   => 'list',
 			'options'   => array(
-				'list' => __( 'List', 'fl-builder' ),
-				'form' => __( 'Form', 'fl-builder' ),
+				'list' => __( 'List', 'satori-studio' ),
+				'form' => __( 'Form', 'satori-studio' ),
 			),
 			'preview'   => array(
 				'type' => 'none',
@@ -203,7 +203,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 	private function render_form_field( $forms, $settings ) {
 		ob_start();
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( (array) $forms as $form ) {
@@ -215,7 +215,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'Form', 'Select a form a ActiveCampaign.', 'fl-builder' ),
+			'label'     => _x( 'Form', 'Select a form a ActiveCampaign.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -237,7 +237,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		foreach ( (array) $lists as $list ) {
@@ -250,7 +250,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from ActiveCampaign.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from ActiveCampaign.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -272,7 +272,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		// make sure backwards compatible
@@ -291,7 +291,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 			'class'        => 'fl-builder-service-connect-input',
 			'type'         => 'select',
 			'default'      => '',
-			'label'        => _x( 'Tags', 'fl-builder' ),
+			'label'        => _x( 'Tags', 'satori-studio' ),
 			'options'      => $options,
 			'multi-select' => true,
 			'preview'      => array(
@@ -321,7 +321,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to ActiveCampaign. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to ActiveCampaign. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api = $this->get_api( $account_data['api_url'], $account_data['api_key'] );
@@ -390,7 +390,7 @@ final class FLBuilderServiceActiveCampaign extends FLBuilderService {
 			if ( ! $result->success && isset( $result->error ) ) {
 
 				if ( stristr( $result->error, 'access' ) ) {
-					$response['error'] = __( 'Error: Invalid API data.', 'fl-builder' );
+					$response['error'] = __( 'Error: Invalid API data.', 'satori-studio' );
 				} else {
 					$response['error'] = $result->error;
 				}

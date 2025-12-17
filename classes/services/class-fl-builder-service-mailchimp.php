@@ -69,7 +69,7 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 
 		// Make sure we have an API key.
 		if ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else {
 
 			try {
@@ -104,8 +104,8 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Key', 'fl-builder' ),
-			'help'      => __( 'Your API key can be found in your MailChimp account under Account > Extras > API Keys.', 'fl-builder' ),
+			'label'     => __( 'API Key', 'satori-studio' ),
+			'help'      => __( 'Your API key can be found in your MailChimp account under Account > Extras > API Keys.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -178,7 +178,7 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		if ( is_array( $lists ) && count( $lists ) > 0 ) {
@@ -191,7 +191,7 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select fl-builder-mailchimp-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'List', 'An email list from a third party provider.', 'fl-builder' ),
+			'label'     => _x( 'List', 'An email list from a third party provider.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -219,7 +219,7 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'No Group', 'fl-builder' ),
+			'' => __( 'No Group', 'satori-studio' ),
 		);
 
 		foreach ( $groups as $group ) {
@@ -232,7 +232,7 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 			'row_class'    => 'fl-builder-service-field-row',
 			'class'        => 'fl-builder-mailchimp-group-select',
 			'type'         => 'select',
-			'label'        => _x( 'Groups', 'MailChimp list group.', 'fl-builder' ),
+			'label'        => _x( 'Groups', 'MailChimp list group.', 'satori-studio' ),
 			'multi-select' => true,
 			'options'      => $options,
 			'preview'      => array(
@@ -261,7 +261,7 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to MailChimp. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to MailChimp. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			try {
@@ -352,7 +352,7 @@ final class FLBuilderServiceMailChimp extends FLBuilderService {
 				if ( $api->getLastError() ) {
 					$response['error'] = sprintf(
 						/* translators: %s: error */
-						__( 'There was an error subscribing to MailChimp. %s', 'fl-builder' ),
+						__( 'There was an error subscribing to MailChimp. %s', 'satori-studio' ),
 						$api->getLastError()
 					);
 				}

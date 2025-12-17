@@ -125,7 +125,7 @@ final class FLBuilderFonts {
 			}
 		}
 
-		echo '<option value="Default" ' . selected( 'Default', $font, false ) . '>' . __( 'Default', 'fl-builder' ) . '</option>';
+		echo '<option value="Default" ' . selected( 'Default', $font, false ) . '>' . __( 'Default', 'satori-studio' ) . '</option>';
 
 		if ( is_array( $recent_fonts ) && ! empty( $recent_fonts ) ) {
 			echo '<optgroup label="Recently Used" class="recent-fonts">';
@@ -160,7 +160,7 @@ final class FLBuilderFonts {
 	 */
 	static public function display_select_weight( $font, $weight ) {
 		if ( 'Default' == $font ) {
-			echo '<option value="default" selected="selected">' . __( 'Default', 'fl-builder' ) . '</option>';
+			echo '<option value="default" selected="selected">' . __( 'Default', 'satori-studio' ) . '</option>';
 		} else {
 			$system_fonts = apply_filters( 'fl_builder_font_families_system', FLBuilderFontFamilies::$system );
 			$google_fonts = apply_filters( 'fl_builder_font_families_google', FLBuilderFontFamilies::google() );
@@ -200,36 +200,36 @@ final class FLBuilderFonts {
 		 * @see fl_builder_font_weight_strings
 		 */
 		return apply_filters( 'fl_builder_font_weight_strings', array(
-			'default'   => __( 'Default', 'fl-builder' ),
-			'regular'   => __( 'Regular', 'fl-builder' ),
-			'italic'    => __( 'Italic', 'fl-builder' ),
-			'100'       => __( 'Thin', 'fl-builder' ),
-			'100i'      => __( 'Thin Italic', 'fl-builder' ),
-			'100italic' => __( 'Thin Italic', 'fl-builder' ),
-			'200'       => __( 'Extra-Light', 'fl-builder' ),
-			'200i'      => __( 'Extra-Light Italic', 'fl-builder' ),
-			'200italic' => __( 'Extra-Light Italic', 'fl-builder' ),
-			'300'       => __( 'Light', 'fl-builder' ),
-			'300i'      => __( 'Light Italic', 'fl-builder' ),
-			'300italic' => __( 'Light Italic', 'fl-builder' ),
-			'400'       => __( 'Normal', 'fl-builder' ),
-			'400i'      => __( 'Normal Italic', 'fl-builder' ),
-			'400italic' => __( 'Normal Italic', 'fl-builder' ),
-			'500'       => __( 'Medium', 'fl-builder' ),
-			'500i'      => __( 'Medium Italic', 'fl-builder' ),
-			'500italic' => __( 'Medium Italic', 'fl-builder' ),
-			'600'       => __( 'Semi-Bold', 'fl-builder' ),
-			'600i'      => __( 'Semi-Bold Italic', 'fl-builder' ),
-			'600italic' => __( 'Semi-Bold Italic', 'fl-builder' ),
-			'700'       => __( 'Bold', 'fl-builder' ),
-			'700i'      => __( 'Bold Italic', 'fl-builder' ),
-			'700italic' => __( 'Bold Italic', 'fl-builder' ),
-			'800'       => __( 'Extra-Bold', 'fl-builder' ),
-			'800i'      => __( 'Extra-Bold Italic', 'fl-builder' ),
-			'800italic' => __( 'Extra-Bold Italic', 'fl-builder' ),
-			'900'       => __( 'Ultra-Bold', 'fl-builder' ),
-			'900i'      => __( 'Ultra-Bold Italic', 'fl-builder' ),
-			'900italic' => __( 'Ultra-Bold Italic', 'fl-builder' ),
+			'default'   => __( 'Default', 'satori-studio' ),
+			'regular'   => __( 'Regular', 'satori-studio' ),
+			'italic'    => __( 'Italic', 'satori-studio' ),
+			'100'       => __( 'Thin', 'satori-studio' ),
+			'100i'      => __( 'Thin Italic', 'satori-studio' ),
+			'100italic' => __( 'Thin Italic', 'satori-studio' ),
+			'200'       => __( 'Extra-Light', 'satori-studio' ),
+			'200i'      => __( 'Extra-Light Italic', 'satori-studio' ),
+			'200italic' => __( 'Extra-Light Italic', 'satori-studio' ),
+			'300'       => __( 'Light', 'satori-studio' ),
+			'300i'      => __( 'Light Italic', 'satori-studio' ),
+			'300italic' => __( 'Light Italic', 'satori-studio' ),
+			'400'       => __( 'Normal', 'satori-studio' ),
+			'400i'      => __( 'Normal Italic', 'satori-studio' ),
+			'400italic' => __( 'Normal Italic', 'satori-studio' ),
+			'500'       => __( 'Medium', 'satori-studio' ),
+			'500i'      => __( 'Medium Italic', 'satori-studio' ),
+			'500italic' => __( 'Medium Italic', 'satori-studio' ),
+			'600'       => __( 'Semi-Bold', 'satori-studio' ),
+			'600i'      => __( 'Semi-Bold Italic', 'satori-studio' ),
+			'600italic' => __( 'Semi-Bold Italic', 'satori-studio' ),
+			'700'       => __( 'Bold', 'satori-studio' ),
+			'700i'      => __( 'Bold Italic', 'satori-studio' ),
+			'700italic' => __( 'Bold Italic', 'satori-studio' ),
+			'800'       => __( 'Extra-Bold', 'satori-studio' ),
+			'800i'      => __( 'Extra-Bold Italic', 'satori-studio' ),
+			'800italic' => __( 'Extra-Bold Italic', 'satori-studio' ),
+			'900'       => __( 'Ultra-Bold', 'satori-studio' ),
+			'900i'      => __( 'Ultra-Bold Italic', 'satori-studio' ),
+			'900italic' => __( 'Ultra-Bold Italic', 'satori-studio' ),
 		) );
 	}
 

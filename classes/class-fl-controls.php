@@ -97,7 +97,7 @@ class FLControls {
 		$sets = [
 			'bb_global' => [
 				'slug'   => 'bb_global',
-				'name'   => __( 'Global Colors', 'fl-builder' ),
+				'name'   => __( 'Global Colors', 'satori-studio' ),
 				'colors' => self::format_colors( $bb_global_colors ),
 			],
 		];

@@ -64,15 +64,15 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 
 		// Make sure we have an email address.
 		if ( ! isset( $fields['api_username'] ) || empty( $fields['api_username'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API username.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API username.', 'satori-studio' );
 		} elseif ( ! isset( $fields['api_key'] ) || empty( $fields['api_key'] ) ) {
-			$response['error'] = __( 'Error: You must provide an API key.', 'fl-builder' );
+			$response['error'] = __( 'Error: You must provide an API key.', 'satori-studio' );
 		} else { // Try to connect and store the connection data.
 
 			$api = $this->get_api( $fields['api_username'], $fields['api_key'] );
 
 			if ( ! $api::is_account_ok() ) {
-				$response['error'] = __( 'Unable to connect to GoDaddy Email Marketing. Please check your credentials.', 'fl-builder' );
+				$response['error'] = __( 'Unable to connect to GoDaddy Email Marketing. Please check your credentials.', 'satori-studio' );
 			} else {
 				$response['data'] = array(
 					'api_username' => $fields['api_username'],
@@ -97,8 +97,8 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 			'row_class' => 'fl-builder-service-connect-row',
 			'class'     => 'fl-builder-service-connect-input',
 			'type'      => 'text',
-			'label'     => __( 'API Username', 'fl-builder' ),
-			'help'      => __( 'The username associated with your GoDaddy Email Marketing account.', 'fl-builder' ),
+			'label'     => __( 'API Username', 'satori-studio' ),
+			'help'      => __( 'The username associated with your GoDaddy Email Marketing account.', 'satori-studio' ),
 			'preview'   => array(
 				'type' => 'none',
 			),
@@ -108,10 +108,10 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 			'row_class'   => 'fl-builder-service-connect-row',
 			'class'       => 'fl-builder-service-connect-input',
 			'type'        => 'text',
-			'label'       => __( 'API Key', 'fl-builder' ),
-			'help'        => __( 'Your API key from your GoDaddy Email Marketing account.', 'fl-builder' ),
+			'label'       => __( 'API Key', 'satori-studio' ),
+			'help'        => __( 'Your API key from your GoDaddy Email Marketing account.', 'satori-studio' ),
 			/* translators: 1: Godaddy account page: 2: Godaddy signup page */
-			'description' => sprintf( __( '<a%1$s>Sign in</a> to get your username and API key. <a%2$s>Signup</a> if you don\'t have a GoDaddy Email Marketing account.', 'fl-builder' ), ' href="https://gem.godaddy.com/mwp/accounts" target="_blank"', ' href="https://sso.godaddy.com/account/create?path=/wordpress_plugin&app=gem&realm=idp&ssoreturnpath=/%3Fpath%3D%2Fwordpress_plugin%26app%3Dgem%26realm%3Didp" target="_blank"' ),
+			'description' => sprintf( __( '<a%1$s>Sign in</a> to get your username and API key. <a%2$s>Signup</a> if you don\'t have a GoDaddy Email Marketing account.', 'satori-studio' ), ' href="https://gem.godaddy.com/mwp/accounts" target="_blank"', ' href="https://sso.godaddy.com/account/create?path=/wordpress_plugin&app=gem&realm=idp&ssoreturnpath=/%3Fpath%3D%2Fwordpress_plugin%26app%3Dgem%26realm%3Didp" target="_blank"' ),
 			'preview'     => array(
 				'type' => 'none',
 			),
@@ -142,7 +142,7 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 		$result = $api::get_forms();
 
 		if ( ! $result ) {
-			$response['error'] = __( 'There was a problem retrieving your lists. Please check your API credentials.', 'fl-builder' );
+			$response['error'] = __( 'There was a problem retrieving your lists. Please check your API credentials.', 'satori-studio' );
 		} else {
 			$response['html'] = $this->render_list_field( $result, $settings );
 		}
@@ -163,7 +163,7 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 		ob_start();
 
 		$options = array(
-			'' => __( 'Choose...', 'fl-builder' ),
+			'' => __( 'Choose...', 'satori-studio' ),
 		);
 
 		if ( ! empty( $forms->signups ) ) {
@@ -176,7 +176,7 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 			'row_class' => 'fl-builder-service-field-row',
 			'class'     => 'fl-builder-service-list-select',
 			'type'      => 'select',
-			'label'     => _x( 'Form', 'A signup form from your GoDaddy Email Marketing account.', 'fl-builder' ),
+			'label'     => _x( 'Form', 'A signup form from your GoDaddy Email Marketing account.', 'satori-studio' ),
 			'options'   => $options,
 			'preview'   => array(
 				'type' => 'none',
@@ -204,7 +204,7 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 		);
 
 		if ( ! $account_data ) {
-			$response['error'] = __( 'There was an error subscribing to GoDaddy Email Marketing. The account is no longer connected.', 'fl-builder' );
+			$response['error'] = __( 'There was an error subscribing to GoDaddy Email Marketing. The account is no longer connected.', 'satori-studio' );
 		} else {
 
 			$api  = $this->get_api( $account_data['api_username'], $account_data['api_key'] );
@@ -228,7 +228,7 @@ final class FLBuilderServiceGoDaddyEmailMarketing extends FLBuilderService {
 			$result = $api->add_subscriber( $data );
 
 			if ( ! $result ) {
-				$response['error'] = __( 'There was an error subscribing to GoDaddy Email Marketing. The account is no longer connected.', 'fl-builder' );
+				$response['error'] = __( 'There was an error subscribing to GoDaddy Email Marketing. The account is no longer connected.', 'satori-studio' );
 			}
 		}
 

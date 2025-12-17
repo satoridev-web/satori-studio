@@ -96,7 +96,7 @@ final class FLBuilderShortcodes {
 	 */
 	static public function safe_shortcode( $atts, $content ) {
 		$atts = shortcode_atts( array(
-			'msg' => __( 'Content not rendered while builder is active', 'fl-builder' ),
+			'msg' => __( 'Content not rendered while builder is active', 'satori-studio' ),
 		), $atts, 'fl-safe' );
 
 		if ( $content ) {

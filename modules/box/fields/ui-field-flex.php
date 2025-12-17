@@ -26,7 +26,7 @@ var basis = wp.template( 'fl-builder-field-unit' )( {
 #>
 <div class="fl-builder-field-grid">
 	<label>
-		<?php _e( 'Grow', 'fl-builder' ); ?>
+		<?php _e( 'Grow', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		<fl-stepper data-name="{{{data.name}}}[grow]" min="0">
@@ -34,7 +34,7 @@ var basis = wp.template( 'fl-builder-field-unit' )( {
 		</fl-stepper>
 	</div>
 	<label>
-		<?php _e( 'Shrink', 'fl-builder' ); ?>
+		<?php _e( 'Shrink', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		<fl-stepper data-name="{{{data.name}}}[shrink]" min="0">
@@ -42,7 +42,7 @@ var basis = wp.template( 'fl-builder-field-unit' )( {
 		</fl-stepper>
 	</div>
 	<label>
-		<?php _e( 'Basis', 'fl-builder' ); ?>
+		<?php _e( 'Basis', 'satori-studio' ); ?>
 	</label>
 	<div class="fl-compound-field-setting">
 		{{{ basis }}}

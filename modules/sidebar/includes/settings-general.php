@@ -2,7 +2,7 @@
 	<table class="fl-form-table">
 		<tr id="fl-field-sidebar" class="fl-field" data-type="select" data-preview='{"type":"refresh"}'>
 			<th>
-				<label for="sidebar"><?php _e( 'Sidebar', 'fl-builder' ); ?></label>
+				<label for="sidebar"><?php _e( 'Sidebar', 'satori-studio' ); ?></label>
 			</th>
 			<td>
 				<select name="sidebar">

@@ -47,7 +47,7 @@ class FLBuilderArt {
 		$art_dir = FL_BUILDER_DIR . 'includes/shapes/';
 
 		self::register_shape(array(
-			'label'  => __( 'Slanted Edge', 'fl-builder' ),
+			'label'  => __( 'Slanted Edge', 'satori-studio' ),
 			'name'   => 'edge-slant',
 			'width'  => 422,
 			'height' => 33.98,
@@ -55,7 +55,7 @@ class FLBuilderArt {
 		));
 
 		self::register_shape(array(
-			'label'  => __( 'Waves', 'fl-builder' ),
+			'label'  => __( 'Waves', 'satori-studio' ),
 			'name'   => 'wavy',
 			'width'  => 800,
 			'height' => 102,
@@ -63,7 +63,7 @@ class FLBuilderArt {
 		));
 
 		self::register_shape( array(
-			'label'  => __( 'Midpoint', 'fl-builder' ),
+			'label'  => __( 'Midpoint', 'satori-studio' ),
 			'name'   => 'midpoint',
 			'width'  => 800,
 			'height' => 50,
@@ -71,42 +71,42 @@ class FLBuilderArt {
 		));
 
 		self::register_shape( array(
-			'label'  => __( 'Triangle', 'fl-builder' ),
+			'label'  => __( 'Triangle', 'satori-studio' ),
 			'name'   => 'triangle',
 			'width'  => 50,
 			'height' => 34,
 			'render' => $art_dir . 'triangle.svg.php',
 		));
 		self::register_shape( array(
-			'label'  => __( 'Circle', 'fl-builder' ),
+			'label'  => __( 'Circle', 'satori-studio' ),
 			'name'   => 'circle',
 			'width'  => 100,
 			'height' => 100,
 			'render' => $art_dir . 'circle.svg.php',
 		));
 		self::register_shape( array(
-			'label'  => __( 'Concave', 'fl-builder' ),
+			'label'  => __( 'Concave', 'satori-studio' ),
 			'name'   => 'concave',
 			'width'  => 800,
 			'height' => 50,
 			'render' => $art_dir . 'concave.svg.php',
 		));
 		self::register_shape( array(
-			'label'  => __( 'Spots', 'fl-builder' ),
+			'label'  => __( 'Spots', 'satori-studio' ),
 			'name'   => 'dot-cluster',
 			'width'  => 800,
 			'height' => 315,
 			'render' => $art_dir . 'dot-cluster.svg.php',
 		));
 		self::register_shape( array(
-			'label'  => __( 'Topography', 'fl-builder' ),
+			'label'  => __( 'Topography', 'satori-studio' ),
 			'name'   => 'topography',
 			'width'  => 600,
 			'height' => 600,
 			'render' => $art_dir . 'topography.svg.php',
 		));
 		self::register_shape( array(
-			'label'  => __( 'Rectangle', 'fl-builder' ),
+			'label'  => __( 'Rectangle', 'satori-studio' ),
 			'name'   => 'rect',
 			'width'  => 800,
 			'height' => 450,
@@ -129,7 +129,7 @@ class FLBuilderArt {
 	 */
 	static public function register_shape( $args = array() ) {
 		$defaults = array(
-			'label'                 => __( 'Untitled Shape', 'fl-builder' ),
+			'label'                 => __( 'Untitled Shape', 'satori-studio' ),
 			'name'                  => 'untitled-shape',
 			'x'                     => 0,
 			'y'                     => 0,
@@ -205,7 +205,7 @@ class FLBuilderArt {
 		$art = self::get_art();
 
 		$option_sets['shapes'] = array(
-			'' => __( 'None', 'fl-builder' ),
+			'' => __( 'None', 'satori-studio' ),
 		);
 
 		foreach ( $art as $handle => $shape ) {
@@ -264,7 +264,7 @@ class FLBuilderArt {
 
 			if ( ! empty( $settings->{'top_edge_shape'} ) ) {
 				$layers['top'] = array(
-					'label'    => __( 'Top Shape Layer', 'fl-builder' ),
+					'label'    => __( 'Top Shape Layer', 'satori-studio' ),
 					'type'     => 'shape',
 					'prefix'   => 'top_edge_',
 					'position' => 'top',
@@ -272,7 +272,7 @@ class FLBuilderArt {
 			}
 			if ( ! empty( $settings->{'bottom_edge_shape'} ) ) {
 				$layers['bottom'] = array(
-					'label'    => __( 'Bottom Shape Layer', 'fl-builder' ),
+					'label'    => __( 'Bottom Shape Layer', 'satori-studio' ),
 					'type'     => 'shape',
 					'prefix'   => 'bottom_edge_',
 					'position' => 'bottom',
@@ -356,8 +356,8 @@ class FLBuilderArt {
 	static public function get_shape_settings_sections() {
 		$sections = array();
 		$layers   = array(
-			'top'    => __( 'Top', 'fl-builder' ),
-			'bottom' => __( 'Bottom', 'fl-builder' ),
+			'top'    => __( 'Top', 'satori-studio' ),
+			'bottom' => __( 'Bottom', 'satori-studio' ),
 		);
 
 		foreach ( $layers as $position => $position_label ) {
@@ -366,11 +366,11 @@ class FLBuilderArt {
 			// Preset & Shape Section
 			$sections[ $prefix . 'shape' ] = array(
 				/* translators: %s: position label */
-				'title'  => sprintf( __( '%s Shape', 'fl-builder' ), $position_label ),
+				'title'  => sprintf( __( '%s Shape', 'satori-studio' ), $position_label ),
 				'fields' => array(
 					$prefix . 'shape' => array(
 						'type'    => 'select',
-						'label'   => __( 'Shape', 'fl-builder' ),
+						'label'   => __( 'Shape', 'satori-studio' ),
 						'options' => 'shapes',
 						'hide'    => array(
 							'' => array(
@@ -393,7 +393,7 @@ class FLBuilderArt {
 					),
 					$prefix . 'size'  => array(
 						'type'    => 'dimension',
-						'label'   => __( 'Size', 'fl-builder' ),
+						'label'   => __( 'Size', 'satori-studio' ),
 						'units'   => array( 'px', 'vw', 'vh', '%' ),
 						'slider'  => array(
 							'width'  => array(
@@ -454,9 +454,9 @@ class FLBuilderArt {
 							),
 						),
 						'keys'    => array(
-							'width'  => __( 'Width', 'fl-builder' ),
-							'height' => __( 'Height', 'fl-builder' ),
-							'top'    => __( 'Y Offset', 'fl-builder' ),
+							'width'  => __( 'Width', 'satori-studio' ),
+							'height' => __( 'Height', 'satori-studio' ),
+							'top'    => __( 'Y Offset', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type'     => 'callback',
@@ -467,18 +467,18 @@ class FLBuilderArt {
 					),
 					$prefix . 'align' => array(
 						'type'    => 'select',
-						'label'   => __( 'Align', 'fl-builder' ),
+						'label'   => __( 'Align', 'satori-studio' ),
 						'default' => $position . ' center',
 						'options' => array(
-							'top left'      => __( 'Top Left', 'fl-builder' ),
-							'top center'    => __( 'Top Center', 'fl-builder' ),
-							'top right'     => __( 'Top Right', 'fl-builder' ),
-							'center left'   => __( 'Center Left', 'fl-builder' ),
-							'center center' => __( 'Center', 'fl-builder' ),
-							'center right'  => __( 'Center Right', 'fl-builder' ),
-							'bottom left'   => __( 'Bottom Left', 'fl-builder' ),
-							'bottom center' => __( 'Bottom Center', 'fl-builder' ),
-							'bottom right'  => __( 'Bottom Right', 'fl-builder' ),
+							'top left'      => __( 'Top Left', 'satori-studio' ),
+							'top center'    => __( 'Top Center', 'satori-studio' ),
+							'top right'     => __( 'Top Right', 'satori-studio' ),
+							'center left'   => __( 'Center Left', 'satori-studio' ),
+							'center center' => __( 'Center', 'satori-studio' ),
+							'center right'  => __( 'Center Right', 'satori-studio' ),
+							'bottom left'   => __( 'Bottom Left', 'satori-studio' ),
+							'bottom center' => __( 'Bottom Center', 'satori-studio' ),
+							'bottom right'  => __( 'Bottom Right', 'satori-studio' ),
 						),
 						'preview' => array(
 							'type'     => 'callback',
@@ -493,13 +493,13 @@ class FLBuilderArt {
 			// Shape Styles
 			$sections[ $prefix . 'style' ] = array(
 				/* translators: %s: position label */
-				'title'  => sprintf( __( '%s Shape Style', 'fl-builder' ), $position_label ),
+				'title'  => sprintf( __( '%s Shape Style', 'satori-studio' ), $position_label ),
 				'fields' => array(
 					$prefix . 'fill_style'    => array(
 						'type'    => 'button-group',
 						'options' => array(
-							'color'    => __( 'Color Fill', 'fl-builder' ),
-							'gradient' => __( 'Gradient Fill', 'fl-builder' ),
+							'color'    => __( 'Color Fill', 'satori-studio' ),
+							'gradient' => __( 'Gradient Fill', 'satori-studio' ),
 						),
 						'default' => 'color',
 						'preview' => array(
@@ -525,7 +525,7 @@ class FLBuilderArt {
 					$prefix . 'fill_color'    => array(
 						'type'        => 'color',
 						'connections' => array( 'color' ),
-						'label'       => __( 'Color', 'fl-builder' ),
+						'label'       => __( 'Color', 'satori-studio' ),
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'responsive'  => true,
@@ -538,7 +538,7 @@ class FLBuilderArt {
 					),
 					$prefix . 'fill_gradient' => array(
 						'type'    => 'gradient',
-						'label'   => __( 'Gradient', 'fl-builder' ),
+						'label'   => __( 'Gradient', 'satori-studio' ),
 						'default' => '',
 						'preview' => array(
 							'type'     => 'callback',
@@ -550,7 +550,7 @@ class FLBuilderArt {
 
 					$prefix . 'transform'     => array(
 						'type'    => 'shape-transform',
-						'label'   => __( 'Transform', 'fl-builder' ),
+						'label'   => __( 'Transform', 'satori-studio' ),
 						'preview' => array(
 							'type'     => 'callback',
 							'callback' => 'previewShapeTransform',
@@ -563,14 +563,14 @@ class FLBuilderArt {
 		}
 
 		$sections['shapes_container'] = array(
-			'title'  => __( 'Shape Container', 'fl-builder' ),
+			'title'  => __( 'Shape Container', 'satori-studio' ),
 			'fields' => array(
 				'container_overflow' => array(
 					'type'    => 'select',
-					'label'   => __( 'Clip Within Container', 'fl-builder' ),
+					'label'   => __( 'Clip Within Container', 'satori-studio' ),
 					'options' => array(
-						''       => __( 'No Clip', 'fl-builder' ),
-						'hidden' => __( 'Clip Contents', 'fl-builder' ),
+						''       => __( 'No Clip', 'satori-studio' ),
+						'hidden' => __( 'Clip Contents', 'satori-studio' ),
 					),
 					'preview' => array(
 						'type'     => 'css',
@@ -910,10 +910,10 @@ class FLBuilderArt {
 
 	public static function register_global_form() {
 		FLBuilder::register_settings_form('global_shapes_form', array(
-			'title' => __( 'Add Shape', 'fl-builder' ),
+			'title' => __( 'Add Shape', 'satori-studio' ),
 			'tabs'  => array(
 				'general' => array(
-					'title'    => __( 'General', 'fl-builder' ), // Tab title
+					'title'    => __( 'General', 'satori-studio' ), // Tab title
 					'sections' => array(
 						'general' => array(
 							'title'  => '',

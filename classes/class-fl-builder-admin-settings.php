@@ -98,14 +98,14 @@ final class FLBuilderAdminSettings {
 			$body     = $response['body'];
 			if ( '1' === $body ) {
 				$args = array(
-					'message' => __( 'Thank you!', 'fl-builder' ),
+					'message' => __( 'Thank you!', 'satori-studio' ),
 				);
 				update_user_meta( get_current_user_id(), '_fl_welcome_subscribed', '1' );
 				wp_send_json_success( $args );
 			}
 		} else {
 			$args = array(
-				'message' => __( 'Error submitting.', 'fl-builder' ),
+				'message' => __( 'Error submitting.', 'satori-studio' ),
 			);
 			wp_send_json_error( $args );
 		}
@@ -260,7 +260,7 @@ final class FLBuilderAdminSettings {
 			echo '<img role="presentation" src="' . $icon . '" />';
 		}
 		/* translators: %s: builder branded name */
-		echo '<span>' . sprintf( __( '%s Settings', 'fl-builder' ), FLBuilderModel::get_branding() ) . '</span>';
+		echo '<span>' . sprintf( __( '%s Settings', 'satori-studio' ), FLBuilderModel::get_branding() ) . '</span>';
 	}
 
 	/**
@@ -275,7 +275,7 @@ final class FLBuilderAdminSettings {
 				echo '<div class="error"><p>' . $message . '</p></div>';
 			}
 		} elseif ( ! empty( $_POST ) && ! isset( $_POST['email'] ) ) {
-			echo '<div class="updated"><p>' . __( 'Settings updated!', 'fl-builder' ) . '</p></div>';
+			echo '<div class="updated"><p>' . __( 'Settings updated!', 'satori-studio' ) . '</p></div>';
 		}
 	}
 
@@ -295,57 +295,57 @@ final class FLBuilderAdminSettings {
 
                 $item_data = apply_filters( 'fl_builder_admin_settings_nav_items', array(
                         'welcome'       => array(
-                                'title'    => __( 'Welcome', 'fl-builder' ),
+                                'title'    => __( 'Welcome', 'satori-studio' ),
                                 'show'     => ! FLBuilderModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ),
                                 'priority' => 50,
                         ),
                         'license'       => array(
-                                'title'    => __( 'License', 'fl-builder' ),
+                                'title'    => __( 'License', 'satori-studio' ),
                                 'show'     => ( is_network_admin() || ! self::multisite_support() ) && $show_license_screen,
                                 'priority' => 100,
                         ),
                         'upgrade'       => array(
-                                'title'    => __( 'Upgrade', 'fl-builder' ),
+                                'title'    => __( 'Upgrade', 'satori-studio' ),
                                 'show'     => FL_BUILDER_LITE === true && $show_upgrade_screen,
                                 'priority' => 200,
                         ),
                         'modules'       => array(
-                                'title'    => __( 'Modules', 'fl-builder' ),
+                                'title'    => __( 'Modules', 'satori-studio' ),
                                 'show'     => true,
 				'priority' => 300,
 			),
 			'blocks'        => array(
-				'title'    => __( 'Blocks', 'fl-builder' ),
+				'title'    => __( 'Blocks', 'satori-studio' ),
 				'show'     => true,
 				'priority' => 310,
 			),
 			'post-types'    => array(
-				'title'    => __( 'Post Types', 'fl-builder' ),
+				'title'    => __( 'Post Types', 'satori-studio' ),
 				'show'     => true,
 				'priority' => 400,
 			),
 			'user-access'   => array(
-				'title'    => __( 'User Access', 'fl-builder' ),
+				'title'    => __( 'User Access', 'satori-studio' ),
 				'show'     => true,
 				'priority' => 500,
 			),
 			'icons'         => array(
-				'title'    => __( 'Icons', 'fl-builder' ),
+				'title'    => __( 'Icons', 'satori-studio' ),
 				'show'     => FL_BUILDER_LITE !== true,
 				'priority' => 600,
 			),
 			'tools'         => array(
-				'title'    => __( 'Tools', 'fl-builder' ),
+				'title'    => __( 'Tools', 'satori-studio' ),
 				'show'     => true,
 				'priority' => 700,
 			),
 			'advanced'      => array(
-				'title'    => __( 'Advanced', 'fl-builder' ),
+				'title'    => __( 'Advanced', 'satori-studio' ),
 				'show'     => true,
 				'priority' => 750,
 			),
 			'import-export' => array(
-				'title'    => __( 'Import / Export', 'fl-builder' ),
+				'title'    => __( 'Import / Export', 'satori-studio' ),
 				'show'     => true,
 				'priority' => 800,
 			),
@@ -568,7 +568,7 @@ final class FLBuilderAdminSettings {
 			}
 
 			if ( empty( $modules ) ) {
-				self::add_error( __( 'Error! You must have at least one module enabled.', 'fl-builder' ) );
+				self::add_error( __( 'Error! You must have at least one module enabled.', 'satori-studio' ) );
 				return;
 			}
 
@@ -635,7 +635,7 @@ final class FLBuilderAdminSettings {
 
 			// Make sure we have at least one enabled icon set.
 			if ( ! isset( $_POST['fl-enabled-icons'] ) && empty( $_POST['fl-new-icon-set'] ) ) {
-				self::add_error( __( 'Error! You must have at least one icon set enabled.', 'fl-builder' ) );
+				self::add_error( __( 'Error! You must have at least one icon set enabled.', 'satori-studio' ) );
 				return;
 			}
 
@@ -666,7 +666,7 @@ final class FLBuilderAdminSettings {
 					update_option( '_fl_builder_kit_fa_pro', '', true );
 				} else {
 					/* translators: %s: KIT url */
-					self::add_error( sprintf( __( 'Invalid Kit Url: we were unable to determine the URL, code entered was %s', 'fl-builder' ), '<code>' . esc_html( $kit_url ) . '</code>' ) );
+					self::add_error( sprintf( __( 'Invalid Kit Url: we were unable to determine the URL, code entered was %s', 'satori-studio' ), '<code>' . esc_html( $kit_url ) . '</code>' ) );
 				}
 			}
 
@@ -719,13 +719,13 @@ final class FLBuilderAdminSettings {
 				// unzip returned a WP_Error
 				if ( is_wp_error( $unzipped ) ) {
 					/* translators: %s: unzip error message */
-					self::add_error( sprintf( __( 'Unzip Error: %s', 'fl-builder' ), $unzipped->get_error_message() ) );
+					self::add_error( sprintf( __( 'Unzip Error: %s', 'satori-studio' ), $unzipped->get_error_message() ) );
 					return;
 				}
 
 				// Unzip failed.
 				if ( ! $unzipped ) {
-					self::add_error( __( 'Error! Could not unzip file.', 'fl-builder' ) );
+					self::add_error( __( 'Error! Could not unzip file.', 'satori-studio' ) );
 					return;
 				}
 
@@ -783,7 +783,7 @@ final class FLBuilderAdminSettings {
 				// Show an error if we don't have a supported icon set.
 				if ( ! $is_icomoon && ! $is_fontello && ! $is_awesome ) {
 					fl_builder_filesystem()->rmdir( $new_path, true );
-					self::add_error( __( 'Error! Please upload an icon set from either Icomoon, Fontello or Font Awesome Pro Subset.', 'fl-builder' ) );
+					self::add_error( __( 'Error! Please upload an icon set from either Icomoon, Fontello or Font Awesome Pro Subset.', 'satori-studio' ) );
 					return;
 				}
 
@@ -792,7 +792,7 @@ final class FLBuilderAdminSettings {
 					$data = json_decode( fl_builder_filesystem()->file_get_contents( $check_path . 'selection.json' ) );
 					if ( ! isset( $data->metadata ) ) {
 						fl_builder_filesystem()->rmdir( $new_path, true );
-						self::add_error( __( 'Error! When downloading from Icomoon, be sure to click the Download Font button and not Generate SVG.', 'fl-builder' ) );
+						self::add_error( __( 'Error! When downloading from Icomoon, be sure to click the Download Font button and not Generate SVG.', 'satori-studio' ) );
 						return;
 					}
 				}
@@ -1064,7 +1064,7 @@ final class FLBuilderAdminSettings {
 		$wporg = '<a target="_blank" href="https://wordpress.org/plugins/beaver-builder-lite-version/">wordpress.org</a>';
 
 		/* translators: 1: stars link: 2: link to wporg page */
-		return sprintf( __( 'Add your %1$s on %2$s to spread the love.', 'fl-builder' ), $stars, $wporg );
+		return sprintf( __( 'Add your %1$s on %2$s to spread the love.', 'satori-studio' ), $stars, $wporg );
 	}
 }
 

@@ -33,19 +33,19 @@ var color = wp.template( 'fl-builder-field-color' )({
 <div class="fl-global-color-field">
 	<div class="fl-global-color-row">
 		<div class="fl-global-color-field-wrapper">
-			<label for="{{names.label}}" class="fl-global-color-field-label"><?php _e( 'Name', 'fl-builder' ); ?></label>
+			<label for="{{names.label}}" class="fl-global-color-field-label"><?php _e( 'Name', 'satori-studio' ); ?></label>
 			<input type="text" name="{{names.label}}" id="{{names.label}}" class="fl-global-color-field-input text text-full" value="{{data.value.label}}" placeholder="" />
 		</div>
 	</div>
 	<div class="fl-global-color-row">
 		<div class="fl-global-color-field-wrapper">
-			<label class="fl-global-color-field-label"><?php _e( 'Color', 'fl-builder' ); ?></label>
+			<label class="fl-global-color-field-label"><?php _e( 'Color', 'satori-studio' ); ?></label>
 			{{{color}}}
 		</div>
 	</div>
 	<div class="fl-global-color-row">
 		<div class="fl-global-color-field-controls">
-			<i class="fl-global-color-copy far fa-clipboard" title="<?php _e( 'Copy Color Code', 'fl-builder' ); ?>"></i>
+			<i class="fl-global-color-copy far fa-clipboard" title="<?php _e( 'Copy Color Code', 'satori-studio' ); ?>"></i>
 		</div>
 	</div>
 	<input type="hidden" class="fl-global-color-field-uid" name="{{names.uid}}" value="{{data.value.uid}}" />

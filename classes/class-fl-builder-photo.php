@@ -88,14 +88,14 @@ final class FLBuilderPhoto {
 	 */
 	static public function get_src_options( $selected, $photo ) {
 		if ( ! isset( $photo->sizes ) ) {
-			echo '<option value="' . $photo->url . '" selected="selected">' . _x( 'Full Size', 'Image size.', 'fl-builder' ) . '</option>';
+			echo '<option value="' . $photo->url . '" selected="selected">' . _x( 'Full Size', 'Image size.', 'satori-studio' ) . '</option>';
 		} else {
 
 			$titles = array(
-				'full'      => _x( 'Full Size', 'Image size.', 'fl-builder' ),
-				'large'     => _x( 'Large', 'Image size.', 'fl-builder' ),
-				'medium'    => _x( 'Medium', 'Image size.', 'fl-builder' ),
-				'thumbnail' => _x( 'Thumbnail', 'Image size.', 'fl-builder' ),
+				'full'      => _x( 'Full Size', 'Image size.', 'satori-studio' ),
+				'large'     => _x( 'Large', 'Image size.', 'satori-studio' ),
+				'medium'    => _x( 'Medium', 'Image size.', 'satori-studio' ),
+				'thumbnail' => _x( 'Thumbnail', 'Image size.', 'satori-studio' ),
 			);
 
 			foreach ( $photo->sizes as $key => $val ) {

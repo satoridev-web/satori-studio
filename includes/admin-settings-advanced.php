@@ -3,7 +3,7 @@ $settings = FLBuilderAdminAdvanced::get_settings();
 $groups   = FLBuilderAdminAdvanced::get_groups();
 ?>
 <div id="fl-advanced-form" class="fl-settings-form">
-	<h3 class="fl-settings-form-header"><?php _e( 'Advanced Settings', 'fl-builder' ); ?></h3>
+	<h3 class="fl-settings-form-header"><?php _e( 'Advanced Settings', 'satori-studio' ); ?></h3>
 	<?php if ( FLBuilderUserAccess::current_user_can( 'fl_builder_advanced_options' ) ) : ?>
 	<form id="advanced-form" action="<?php FLBuilderAdminSettings::render_form_action( 'advanced' ); ?>" method="post">
 
@@ -21,13 +21,13 @@ $groups   = FLBuilderAdminAdvanced::get_groups();
 						continue;
 					}
 					$description = isset( $setting['description'] ) ? sprintf( '&nbsp;<i class="dashicons dashicons-editor-help" title="%s"></i>', $setting['description'] ) : '';
-					$link        = isset( $setting['link'] ) && ! FLBuilderModel::is_white_labeled() ? sprintf( '&nbsp;<a target="_blank" href="%s"><i class="dashicons dashicons-external" title="%s"></i></a>', $setting['link'], __( 'Documentation', 'fl-builder' ) ) : '';
+					$link        = isset( $setting['link'] ) && ! FLBuilderModel::is_white_labeled() ? sprintf( '&nbsp;<a target="_blank" href="%s"><i class="dashicons dashicons-external" title="%s"></i></a>', $setting['link'], __( 'Documentation', 'satori-studio' ) ) : '';
 					$value       = get_option( "_fl_builder_{$key}", $setting['default'] );
 					printf( '<div class="advanced-option"><span class="title">%s%s%s</span><div class="text-option"><div class="save-button"><button class="button button-small button-primary" data-id="%s">Update</button></div><input class="text" type="text" id="%s" name="%s" value="%s"></div></div>', $setting['label'], $description, $link, $key, $key, $key, $value );
 				} else {
 					$hasdepend   = isset( $setting['hasdepend'] ) ? ' data-depend="true"' : '';
 					$description = isset( $setting['description'] ) ? sprintf( '&nbsp;<i class="dashicons dashicons-editor-help" title="%s"></i>', $setting['description'] ) : '';
-					$link        = isset( $setting['link'] ) && ! FLBuilderModel::is_white_labeled() ? sprintf( '&nbsp;<a target="_blank" href="%s"><i class="dashicons dashicons-external" title="%s"></i></a>', $setting['link'], __( 'Documentation', 'fl-builder' ) ) : '';
+					$link        = isset( $setting['link'] ) && ! FLBuilderModel::is_white_labeled() ? sprintf( '&nbsp;<a target="_blank" href="%s"><i class="dashicons dashicons-external" title="%s"></i></a>', $setting['link'], __( 'Documentation', 'satori-studio' ) ) : '';
 					$checked     = checked( get_option( "_fl_builder_{$key}", $setting['default'] ), 1, false );
 					printf( '<div class="advanced-option"><span class="title">%s%s%s</span><div class="toggleWrapper"><input class="mobileToggle" type="checkbox" id="%s" name="%s" value="%s"%s%s><label for="%s"></label></div></div>', $setting['label'], $description, $link, $key, $key, $setting['default'], $checked, $hasdepend, $key );
 				}
@@ -40,6 +40,6 @@ $groups   = FLBuilderAdminAdvanced::get_groups();
 	</p>
 	</form>
 <?php else : ?>
-	<?php printf( '<p>%s</p>', __( 'You do not have permission to view this page.', 'fl-builder' ) ); ?>
+	<?php printf( '<p>%s</p>', __( 'You do not have permission to view this page.', 'satori-studio' ) ); ?>
 <?php endif; ?>
 </div>

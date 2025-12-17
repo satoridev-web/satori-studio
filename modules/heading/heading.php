@@ -11,9 +11,9 @@ class FLHeadingModule extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct(array(
-			'name'            => __( 'Heading', 'fl-builder' ),
-			'description'     => __( 'Display a title/page heading.', 'fl-builder' ),
-			'category'        => __( 'Basic', 'fl-builder' ),
+			'name'            => __( 'Heading', 'satori-studio' ),
+			'description'     => __( 'Display a title/page heading.', 'satori-studio' ),
+			'category'        => __( 'Basic', 'satori-studio' ),
 			'icon'            => 'text.svg',
 			'partial_refresh' => true,
 			'include_wrapper' => false,
@@ -144,14 +144,14 @@ class FLHeadingModule extends FLBuilderModule {
  */
 FLBuilder::register_module('FLHeadingModule', array(
 	'general' => array(
-		'title'    => __( 'General', 'fl-builder' ),
+		'title'    => __( 'General', 'satori-studio' ),
 		'sections' => array(
 			'general' => array(
 				'title'  => '',
 				'fields' => array(
 					'heading' => array(
 						'type'        => 'text',
-						'label'       => __( 'Heading', 'fl-builder' ),
+						'label'       => __( 'Heading', 'satori-studio' ),
 						'default'     => '',
 						'preview'     => array(
 							'type'     => 'text',
@@ -161,7 +161,7 @@ FLBuilder::register_module('FLHeadingModule', array(
 					),
 					'tag'     => array(
 						'type'     => 'select',
-						'label'    => __( 'HTML Tag', 'fl-builder' ),
+						'label'    => __( 'HTML Tag', 'satori-studio' ),
 						'default'  => 'h2',
 						'sanitize' => array( 'FLBuilderUtils::esc_tags', 'h2' ),
 						'options'  => array(
@@ -178,7 +178,7 @@ FLBuilder::register_module('FLHeadingModule', array(
 					),
 					'link'    => array(
 						'type'          => 'link',
-						'label'         => __( 'Link', 'fl-builder' ),
+						'label'         => __( 'Link', 'satori-studio' ),
 						'show_target'   => true,
 						'show_nofollow' => true,
 						'show_download' => true,
@@ -192,7 +192,7 @@ FLBuilder::register_module('FLHeadingModule', array(
 		),
 	),
 	'style'   => array(
-		'title'    => __( 'Style', 'fl-builder' ),
+		'title'    => __( 'Style', 'satori-studio' ),
 		'sections' => array(
 			'colors' => array(
 				'title'  => '',
@@ -203,7 +203,7 @@ FLBuilder::register_module('FLHeadingModule', array(
 						'show_reset'  => true,
 						'show_alpha'  => true,
 						'responsive'  => true,
-						'label'       => __( 'Color', 'fl-builder' ),
+						'label'       => __( 'Color', 'satori-studio' ),
 						'preview'     => array(
 							'type'      => 'css',
 							'selector'  => '{node}.fl-module-heading, {node}.fl-module-heading :not(.fl-block-overlay *)',
@@ -213,7 +213,7 @@ FLBuilder::register_module('FLHeadingModule', array(
 					),
 					'typography' => array(
 						'type'       => 'typography',
-						'label'      => __( 'Typography', 'fl-builder' ),
+						'label'      => __( 'Typography', 'satori-studio' ),
 						'responsive' => true,
 						'preview'    => array(
 							'type'     => 'css',
