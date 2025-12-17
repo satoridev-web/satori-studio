@@ -27,7 +27,7 @@ Placeholder:
 
 == Acknowledgements / Fork Origin ==
 
-SATORI Studio is a fork of Beaver Builder Lite by The Beaver Builder Team, used and modified under the terms of the GPL v2+ license.
+SATORI Studio is the SATORI-branded fork of Beaver Builder Lite by The Beaver Builder Team, used and modified under the terms of the GPL v2+ license.
 Original copyright © 2014-2024 The Beaver Builder Team (FastLine Media LLC).
 Modifications © 2024 Satori Graphics Pty Ltd.
 
@@ -172,7 +172,7 @@ Before upgrading SATORI Studio on production sites, please:
 
 == Credits ==
 
-SATORI Studio is a fork and ongoing evolution of the open source Beaver Builder
-Lite plugin, originally developed by the Beaver Builder team. The SATORI
-Graphics team acknowledges and appreciates the original authors and
+SATORI Studio remains a fork and ongoing evolution of the open source Beaver
+Builder Lite plugin, originally developed by the Beaver Builder team. The
+SATORI Graphics team acknowledges and appreciates the original authors and
 contributors whose work made this project possible.
