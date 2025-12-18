@@ -772,7 +772,7 @@ class Global_Settings {
          *
          * @return void
          */
-        private function redirect_hidden_tab() {
+        public function redirect_hidden_tab() {
                 if ( $this->should_expose_ui() ) {
                         return;
                 }
