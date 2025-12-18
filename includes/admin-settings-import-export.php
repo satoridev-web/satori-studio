@@ -5,7 +5,9 @@
 		<input class='global_all' type='checkbox' checked name='global_all' /> <?php _e( 'All Settings', 'satori-studio' ); ?>
 		<p class='extra' style='display:none'>
 			<input class='admin' type='checkbox' checked name='admin' /> <?php _e( 'Admin Settings', 'satori-studio' ); ?><br />
-			<input class='global' type='checkbox' checked name='global' /> <?php _e( 'Global Settings', 'satori-studio' ); ?><br />
+			<span class="satori-admin-import-global-settings" style="display:none" aria-hidden="true">
+				<input class='global' type='checkbox' checked name='global' /> <?php _e( 'Global Settings', 'satori-studio' ); ?><br />
+			</span>
 			<input class='styles' type='checkbox' checked name='styles' /> <?php _e( 'Global Styles', 'satori-studio' ); ?><br />
 			<input class='colors' type='checkbox' checked name='colors' /> <?php _e( 'Global Colors', 'satori-studio' ); ?><br />
 		</p>
