@@ -44,7 +44,7 @@
 .fl-settings-nav ul li a.fl-active {
 	background: #fff;
 	box-shadow: none;
-	color: #EE521F;
+	color: #1D4ED8;
 	outline: none;
 }
 .fl-settings-nav ul li:first-child a {
@@ -72,11 +72,11 @@
 }
 
 .settings_page_fl-builder-settings a {
-  color: #EE521F;
+  color: #1D4ED8;
   text-decoration: none;
 }
 .settings_page_fl-builder-settings a:hover {
-  color: #1a7497;
+  color: #0EA5E9;
 }
 
 .fl-settings-content {

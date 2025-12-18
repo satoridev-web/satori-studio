@@ -291,7 +291,7 @@ button.fl-builder-button:focus-visible {
 	top:auto;
 	outline:none;
 	background: #E4E7EA;
-	border:2px solid #00A0D0 !important;
+	border:2px solid #0EA5E9 !important;
 }
 button.fl-builder-button-primary,
 .fl-builder-button-primary,
@@ -303,17 +303,17 @@ body.fl-builder--layout-has-drafted-changes .fl-builder-done-button {
 }
 .fl-builder-button.fl-builder-button-primary:focus-visible,
 body.fl-builder--layout-has-drafted-changes .fl-builder-button.fl-builder-done-button:focus-visible {
-	background-color: #00A0D2;
-	border:2px solid #ffc217 !important;
+	background-color: var(--fl-builder-accent-color-hover);
+	border:2px solid #0EA5E9 !important;
 }
 .fl-builder-button-primary:hover,
 body.fl-builder--layout-has-drafted-changes .fl-builder-done-button:hover {
-	background-color: #0197C6;
+	background-color: var(--fl-builder-accent-color-hover);
 	color: #fff !important;
 }
 .fl-builder-button-primary:active,
 body.fl-builder--layout-has-drafted-changes .fl-builder-done-button:active {
-	background-color: #0484AC;
+	background-color: var(--fl-builder-accent-color);
 }
 
 .fl-builder-button-large {
@@ -339,7 +339,7 @@ body.fl-builder--layout-has-drafted-changes .fl-builder-done-button:active {
 }
 button.fl-builder-content-panel-button,
 button.fl-builder-content-panel-button:hover {
-	fill: #00A0D2 !important;
+	fill: var(--fl-builder-accent-color) !important;
 	font-size: 30px !important;
 	padding: 2px 4px !important;
 }
@@ -394,7 +394,7 @@ button.fl-builder-content-panel-button:hover {
 	vertical-align: middle;
 }
 .fl-builder-badge-global {
-	background: #ff9600;
+	background: var(--fl-builder-accent-color);
 }
 .fl-builder-blocks-node-template .fl-builder-badge-global {
 	position: absolute;
@@ -710,14 +710,14 @@ body .fl-theme-builder-preview-select-item-child:hover {
 .fl-builder-button.fl-builder-buy-button,
 .fl-builder-button.fl-builder-upgrade-button,
 .fl-builder-button.fl-builder-feedback-button {
-	background: #F7A407;
+	background: var(--fl-builder-accent-color);
 	color: #fff !important;
 	text-decoration: none;
 }
 .fl-builder-buy-button i.fa-external-link-alt,
 .fl-builder-upgrade-button i.fa-external-link-alt,
 .fl-builder-feedback-button i.fa-external-link-alt {
-	color: #FFC733;
+	color: #fff;
 	margin: 0 0 0 6px;
 }
 .fl-builder-buy-button:hover,
@@ -726,7 +726,7 @@ body .fl-theme-builder-preview-select-item-child:hover {
 .fl-builder-buy-button:focus,
 .fl-builder-upgrade-button:focus,
 .fl-builder-feedback-button:focus {
-	background: #EE8E0D !important;
+	background: var(--fl-builder-accent-color-hover) !important;
 	color: #fff !important;
 }
 
@@ -905,7 +905,7 @@ body .fl-theme-builder-preview-select-item-child:hover {
 }
 .fl-builder-content-panel-pin-zone .fl-builder-content-panel-button {
 	display: flex !important;
-	background: rgba(0, 160, 210, .5) !important;
+	background: rgba(14, 165, 233, .5) !important;
     padding: 2px 4px;
     width: 80px;
 	animation: fl-builder-ui-pin-zone-pulse 2s infinite;
@@ -920,7 +920,7 @@ body .fl-theme-builder-preview-select-item-child:hover {
 	display: none !important;
 	width: 100%;
 	transform: none !important;
-	fill: #00A0D2 !important;
+	fill: var(--fl-builder-accent-color) !important;
 	border-radius: 3px;
 }
 .fl-builder-content-panel-pin-zone .fl-builder-done-button {
@@ -1018,7 +1018,7 @@ body .fl-theme-builder-preview-select-item-child:hover {
 	background:transparent;
 	border: 2px solid transparent;
 	outline:none;
-	fill: #00A0D2;
+	fill: var(--fl-builder-accent-color);
 }
 .fl-builder-ui-pinned-collapse:focus {
 	background: #E4E7EA;
@@ -1255,7 +1255,7 @@ body .fl-theme-builder-preview-select-item-child:hover {
 }
 .fl-builder--panel-controls .fl-builder-panel-search button:focus svg .filled-shape,
 .fl-builder--panel-controls .fl-builder-panel-search button:active svg .filled-shape {
-	fill: #00A0D2;
+	fill: var(--fl-builder-accent-color);
 }
 .fl-builder-panel-search .fl-builder-panel-search-input {
 	display: none;
@@ -1281,7 +1281,7 @@ body .fl-theme-builder-preview-select-item-child:hover {
 	color: #333;
 }
 .fl-builder-panel-search-input input:focus {
-	border-color: #0197C6;
+	border-color: var(--fl-builder-accent-color-hover);
 	outline: none;
 }
 
@@ -1669,10 +1669,10 @@ body .fl-theme-builder-preview-select-item-child:hover {
 	right: 20px;
 }
 .fl-builder-block-module:hover .fl-builder-pro-badge {
-	background: #F7A407;
+	background: var(--fl-builder-accent-color);
 }
 .fl-builder--template-thumbnail .fl-builder-pro-badge {
-	background: #F7A407;
+	background: var(--fl-builder-accent-color);
 	position: absolute;
 	right: 8px;
 	top: 8px;
@@ -1752,7 +1752,7 @@ body .fl-theme-builder-preview-select-item-child:hover {
 	color: #333;
 }
 .fl-builder-panel-saved-search input.saved-search-term:focus {
-	border-color: #0197C6;
+	border-color: var(--fl-builder-accent-color-hover);
 	outline: none;
 }
 
@@ -4569,7 +4569,7 @@ body > .fl-builder-tour-dimmed {
 	transition-duration: .15s;
 }
 .fl-builder--search.is-expanded {
-	border: 2px solid #00A0D0;
+	border: 2px solid #0EA5E9;
 }
 .fl-builder--search input[type="text"],
 .fl-builder--search input[type="text"]:focus {
