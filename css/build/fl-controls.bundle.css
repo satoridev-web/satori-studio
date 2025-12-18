@@ -405,7 +405,7 @@ body div.fl-color-picker-toolbar .picker-input-wrap > input {
   color: var(--fg-color);
   outline: none !important;
   border: none !important;
-  box-shadow: inset 0 0 0 2px #00A0D0 !important;
+  box-shadow: inset 0 0 0 2px #0EA5E9 !important;
 }
 
 .fl-controls-swatch-group {
@@ -1232,4 +1232,3 @@ body div.fl-color-picker-toolbar .picker-input-wrap > input {
   --fl-controls-checker-color-a: hsl(var(--fl-controls-hue), 0%, 35%);
   --fl-controls-checker-color-b: hsl(var(--fl-controls-hue), 0%, 25%);
 }
-

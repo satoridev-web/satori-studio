@@ -226,10 +226,10 @@
 	background-color: var(--fl-builder-accent-color);
 }
 .fl-lightbox-footer .fl-builder-button.fl-builder-button-primary:hover {
-	background-color: #0197C6;
+	background-color: #0EA5E9;
 }
 .fl-lightbox-footer .fl-builder-button.fl-builder-button-primary:active {
-	background-color: #0484AC;
+	background-color: #1D4ED8;
 }
 .fl-lightbox-width-slim .fl-lightbox-footer {
 	justify-content: stretch;
