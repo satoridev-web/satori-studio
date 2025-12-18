@@ -154,9 +154,9 @@ final class FLUpdater {
 					$transient->response[ $plugin ]->icons        = apply_filters(
 						'fl_updater_icon',
 						array(
-							'1x'      => FLBuilder::plugin_url() . 'img/beaver-128.png',
-							'2x'      => FLBuilder::plugin_url() . 'img/beaver-256.png',
-							'default' => FLBuilder::plugin_url() . 'img/beaver-256.png',
+							'1x'      => FLBuilder::plugin_url() . 'assets/branding/satori-plugin-icon.png',
+							'2x'      => FLBuilder::plugin_url() . 'assets/branding/satori-plugin-icon.png',
+							'default' => FLBuilder::plugin_url() . 'assets/branding/satori-plugin-icon.png',
 						),
 						$response,
 						$this->settings

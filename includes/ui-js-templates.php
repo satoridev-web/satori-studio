@@ -550,7 +550,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 		</svg>
 	</button>
 	<div class="fl-builder--panel-cta">
-		<img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
+		<img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
 		<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
 			<?php _e( 'Get more time-saving features, modules, and expert support.', 'satori-studio' ); ?>
 		</a>
@@ -591,7 +591,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 
 		<# if (FLBuilderConfig.lite) { #>
 		<div class="fl-builder--panel-cta">
-			<img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
+			<img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
 			<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
 				<?php _e( 'Get more time-saving features, modules, and expert support.', 'satori-studio' ); ?>
 			</a>
@@ -668,7 +668,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
         <?php if ( $fl_builder_show_legacy_promos ) : ?>
         <# if (FLBuilderConfig.lite) { #>
         <div class="fl-builder--panel-cta">
-                <img src="<?php echo FLBuilder::plugin_url(); ?>img/beaver.png" />
+                <img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
                 <a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
                         <?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'satori-studio' ); ?>
                 </a>

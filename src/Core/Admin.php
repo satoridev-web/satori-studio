@@ -190,14 +190,14 @@ class Admin {
                global $admin_page_hooks;
 
                 if ( ! isset( $admin_page_hooks[ $settings_slug ] ) ) {
-                        add_menu_page(
-                                __( 'SATORI Studio Settings', 'satori-studio' ),
-                                __( 'SATORI Studio', 'satori-studio' ),
-                                $capability,
-                                $settings_slug,
-                                array( '\\FLBuilderAdminSettings', 'render' ),
-                                'dashicons-admin-customizer'
-                        );
+                       add_menu_page(
+                               __( 'SATORI Studio Settings', 'satori-studio' ),
+                               __( 'SATORI Studio', 'satori-studio' ),
+                               $capability,
+                               $settings_slug,
+                               array( '\\FLBuilderAdminSettings', 'render' ),
+                               $this->environment->get_plugin_url() . 'assets/branding/satori-menu-icon.svg'
+                       );
                 }
 
                add_submenu_page(
