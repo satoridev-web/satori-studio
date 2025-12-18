@@ -124,9 +124,13 @@ class Global_Settings {
                 $this->initialized = true;
 
                 add_action( 'admin_init', array( $this, 'register_settings' ) );
-                add_action( 'fl_builder_admin_settings_nav_after', array( $this, 'render_settings_nav_link' ) );
                 add_action( 'admin_init', array( $this, 'redirect_legacy_page' ) );
-                add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
+                add_action( 'admin_init', array( $this, 'redirect_hidden_tab' ) );
+
+                if ( $this->should_expose_ui() ) {
+                        add_action( 'fl_builder_admin_settings_nav_after', array( $this, 'render_settings_nav_link' ) );
+                        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
+                }
         }
 
         /**
@@ -265,6 +269,10 @@ class Global_Settings {
          * @return void
          */
         public function enqueue_admin_assets() {
+                if ( ! $this->should_expose_ui() ) {
+                        return;
+                }
+
                 if ( ! $this->is_global_settings_screen() ) {
                         return;
                 }
@@ -296,6 +304,11 @@ class Global_Settings {
          * @return void
          */
         public function render_settings_page() {
+                if ( ! $this->should_expose_ui() ) {
+                        $this->redirect_hidden_tab();
+                        return;
+                }
+
                 $capability = $this->get_capability();
 
                 if ( ! current_user_can( $capability ) ) {
@@ -619,6 +632,10 @@ class Global_Settings {
          * @return void
          */
         public function render_settings_nav_link() {
+                if ( ! $this->should_expose_ui() ) {
+                        return;
+                }
+
                 if ( ! $this->is_builder_settings_screen() ) {
                         return;
                 }
@@ -646,20 +663,11 @@ class Global_Settings {
                         return;
                 }
 
-                $capability = $this->get_capability();
-
-                if ( ! current_user_can( $capability ) ) {
+                if ( ! current_user_can( $this->get_capability() ) ) {
                         return;
                 }
 
-                $redirect_url = add_query_arg(
-                        array(
-                                'page' => self::PARENT_SLUG,
-                        ),
-                        admin_url( 'admin.php' )
-                );
-
-                wp_safe_redirect( $redirect_url . '#' . self::TAB_SLUG );
+                wp_safe_redirect( $this->get_settings_redirect_url() );
                 exit;
         }
 
@@ -741,6 +749,78 @@ class Global_Settings {
                 }
 
                 return false;
+        }
+
+        /**
+         * Determine whether the Global Settings UI should be exposed.
+         *
+         * @return bool
+         */
+        private function should_expose_ui() {
+                $visible = false;
+
+                /**
+                 * Filter whether the Global Settings admin UI should be exposed.
+                 *
+                 * @param bool $visible Whether to render the Global Settings UI.
+                 */
+                return (bool) apply_filters( 'satori_studio_show_global_settings_ui', $visible );
+        }
+
+        /**
+         * Redirect attempts to access the hidden Global Settings tab.
+         *
+         * @return void
+         */
+        private function redirect_hidden_tab() {
+                if ( $this->should_expose_ui() ) {
+                        return;
+                }
+
+                if ( ! isset( $_GET['page'] ) ) {
+                        return;
+                }
+
+                $page = sanitize_key( wp_unslash( $_GET['page'] ) );
+
+                if ( self::PARENT_SLUG !== $page ) {
+                        return;
+                }
+
+                $tab = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : '';
+
+                if ( self::TAB_SLUG !== $tab ) {
+                        return;
+                }
+
+                $capability = $this->get_capability();
+
+                if ( ! current_user_can( $capability ) ) {
+                        return;
+                }
+
+                wp_safe_redirect( $this->get_settings_redirect_url() );
+                exit;
+        }
+
+        /**
+         * Retrieve the redirect target for settings requests.
+         *
+         * @return string
+         */
+        private function get_settings_redirect_url() {
+                $redirect_url = add_query_arg(
+                        array(
+                                'page' => self::PARENT_SLUG,
+                        ),
+                        admin_url( 'admin.php' )
+                );
+
+                if ( $this->should_expose_ui() ) {
+                        $redirect_url .= '#' . self::TAB_SLUG;
+                }
+
+                return $redirect_url;
         }
 
         /**
