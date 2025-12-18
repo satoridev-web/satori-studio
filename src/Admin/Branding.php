@@ -409,7 +409,7 @@ class Branding {
          * @return string
          */
         private function get_placeholder_brand_mark() {
-                return $this->environment->get_plugin_url() . 'img/beaver.png';
+                return $this->environment->get_plugin_url() . 'assets/branding/satori-logo.svg';
         }
 
         /**

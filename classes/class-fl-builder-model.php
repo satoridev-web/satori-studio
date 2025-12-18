@@ -7333,7 +7333,7 @@ final class FLBuilderModel {
 			return FLBuilderWhiteLabel::get_branding_icon();
 		}
 
-		return FLBuilder::plugin_url() . 'img/beaver.png';
+		return FLBuilder::plugin_url() . 'assets/branding/satori-icon.svg';
 	}
 
 	/**
