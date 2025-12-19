@@ -290,30 +290,17 @@ final class FLBuilderAdminSettings {
                  * Builder admin nav items
                  * @see fl_builder_admin_settings_nav_items
                  */
-                $show_upgrade_screen = self::is_feature_enabled( 'ui-legacy-upgrade-screen' );
-                $show_license_screen = self::is_feature_enabled( 'ui-legacy-license-screen' );
-
                 $item_data = apply_filters( 'fl_builder_admin_settings_nav_items', array(
                         'welcome'       => array(
                                 'title'    => __( 'Welcome', 'satori-studio' ),
                                 'show'     => ! FLBuilderModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ),
                                 'priority' => 50,
                         ),
-                        'license'       => array(
-                                'title'    => __( 'License', 'satori-studio' ),
-                                'show'     => ( is_network_admin() || ! self::multisite_support() ) && $show_license_screen,
-                                'priority' => 100,
-                        ),
-                        'upgrade'       => array(
-                                'title'    => __( 'Upgrade', 'satori-studio' ),
-                                'show'     => FL_BUILDER_LITE === true && $show_upgrade_screen,
-                                'priority' => 200,
-                        ),
                         'modules'       => array(
                                 'title'    => __( 'Modules', 'satori-studio' ),
                                 'show'     => true,
-				'priority' => 300,
-			),
+                                'priority' => 300,
+                        ),
 			'blocks'        => array(
 				'title'    => __( 'Blocks', 'satori-studio' ),
 				'show'     => true,
@@ -389,23 +376,13 @@ final class FLBuilderAdminSettings {
 	 * @return void
 	 */
 	static public function render_forms() {
-		// Welcome
-		if ( ! FLBuilderModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ) ) {
-			self::render_form( 'welcome' );
-		}
-
-                // License
-                if ( ( is_network_admin() || ! self::multisite_support() ) && self::is_feature_enabled( 'ui-legacy-license-screen' ) ) {
-                        self::render_form( 'license' );
+                // Welcome
+                if ( ! FLBuilderModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ) ) {
+                        self::render_form( 'welcome' );
                 }
 
-                // Upgrade
-                if ( FL_BUILDER_LITE === true && self::is_feature_enabled( 'ui-legacy-upgrade-screen' ) ) {
-                        self::render_form( 'upgrade' );
-                }
-
-		// Modules
-		self::render_form( 'modules' );
+                // Modules
+                self::render_form( 'modules' );
 
 		// Blocks
 		self::render_form( 'blocks' );
