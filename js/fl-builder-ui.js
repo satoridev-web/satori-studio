@@ -1131,10 +1131,7 @@
 
             /* "Add Content" Button */
             var $addContentBtn = this.$el.find('.fl-builder-content-panel-button');
-			$addContentBtn.on('click', FLBuilder._togglePanel );
-
-            this.$el.find('.fl-builder-buy-button').on('click', FLBuilder._upgradeClicked);
-			this.$el.find('.fl-builder-upgrade-button').on('click', FLBuilder._upgradeClicked);
+            $addContentBtn.on('click', FLBuilder._togglePanel );
 
             this.$el.find('#fl-builder-toggle-notifications').on('click', this.onNotificationsButtonClicked.bind(this) );
 
