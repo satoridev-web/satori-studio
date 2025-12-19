@@ -814,8 +814,12 @@
 			/* Unload Warning */
 			$(window.parent).on('beforeunload', FLBuilder._warnBeforeUnload);
 
-                        /* Panel */
-                        $('.fl-builder-panel-actions .fl-builder-panel-close', window.parent.document).on('click', FLBuilder._closePanel);
+			/* Lite Version */
+			$('body', window.parent.document).on( 'click', '.fl-builder-blocks-pro-expand', FLBuilder._toggleProModules);
+			$('body', window.parent.document).on( 'click', '.fl-builder-upgrade-button', FLBuilder._upgradeClicked);
+
+			/* Panel */
+			$('.fl-builder-panel-actions .fl-builder-panel-close', window.parent.document).on('click', FLBuilder._closePanel);
 			$('body', window.parent.document).on( 'mousedown', '.fl-builder-node-template-actions', FLBuilder._stopPropagation);
 			$('body', window.parent.document).on( 'mousedown', '.fl-builder-node-template-edit', FLBuilder._stopPropagation);
 			$('body', window.parent.document).on( 'mousedown', '.fl-builder-node-template-delete', FLBuilder._stopPropagation);
@@ -1026,19 +1030,63 @@
 			}
 		},
 
-                /**
-                 * Shows the the pro message lightbox.
-                 *
-                 * @since 2.4
-                 */
-                _showProMessage: function( feature )
-                {
-                        if ( ! FLBuilderConfig.lite ) {
-                                return;
-                        }
+		/* Lite Version
+		----------------------------------------------------------*/
 
-                        window.console && console.info && console.info( feature + ' is not available in this SATORI Studio build.' );
-                },
+		/**
+		 * Opens a new window with the upgrade URL when the
+		 * upgrade button is clicked.
+		 *
+		 * @since 1.0
+		 * @access private
+		 * @method _upgradeClicked
+		 */
+		_upgradeClicked: function()
+		{
+			window.parent.open(FLBuilderConfig.upgradeUrl);
+		},
+
+		/**
+		 * Toggles the pro module section in lite.
+		 *
+		 * @since 2.4
+		 */
+		_toggleProModules: function()
+		{
+			var button = $( '.fl-builder-blocks-pro-expand', window.parent.document ),
+				closed = $( '.fl-builder-blocks-pro-closed', window.parent.document ),
+				open = $( '.fl-builder-blocks-pro-open', window.parent.document );
+
+			button.toggleClass( 'fl-builder-blocks-pro-expand-rotate' );
+
+			if ( closed.length ) {
+				closed.removeClass( 'fl-builder-blocks-pro-closed' );
+				closed.addClass( 'fl-builder-blocks-pro-open' );
+			} else {
+				open.removeClass( 'fl-builder-blocks-pro-open' );
+				open.addClass( 'fl-builder-blocks-pro-closed' );
+			}
+		},
+
+		/**
+		 * Shows the the pro message lightbox.
+		 *
+		 * @since 2.4
+		 */
+		_showProMessage: function( feature )
+		{
+			if ( ! FLBuilderConfig.lite ) {
+				return
+			}
+
+			var alert = new FLLightbox({
+					className: 'fl-builder-pro-lightbox',
+					destroyOnClose: true
+				}),
+				template = wp.template( 'fl-pro-lightbox' );
+
+			alert.open( template( { feature : feature } ) );
+		},
 
 		/* TipTips
 		----------------------------------------------------------*/
