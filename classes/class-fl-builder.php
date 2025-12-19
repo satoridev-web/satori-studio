@@ -1509,13 +1509,13 @@ final class FLBuilder {
                         'items'      => array(),
                 );
 
-// Tools
-$tools_view = array(
-'name'       => __( 'Tools', 'satori-studio' ),
-'isShowing'  => true,
-'isRootView' => true,
-'items'      => array(),
-);
+                // Tools
+                $tools_view = array(
+                        'name'       => __( 'Tools', 'satori-studio' ) . ( $is_lite && $show_upgrade_ui ? '<button class="fl-builder-upgrade-button fl-builder-button" onclick="FLBuilder._upgradeClicked()">Upgrade</button>' : '' ),
+                        'isShowing'  => true,
+                        'isRootView' => true,
+                        'items'      => array(),
+                );
 
 		$tools_view['items'][04] = array(
 			'label'     => __( 'Publish Layout', 'satori-studio' ),
