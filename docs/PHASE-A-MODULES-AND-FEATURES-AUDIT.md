@@ -52,3 +52,6 @@
 - Disable or remove legacy upgrade/promotional screens and builder UI banners tied to Beaver Builder Pro, Assistant Pro, and Themer unless explicitly required in roadmap.
 - Review frontend assets (e.g., Font Awesome Pro toggles) to ensure they do not expose Pro-only dependencies or messaging on Lite installs.
 - Consolidate upgrade URL handling to SATORI-specific destinations before any behavior changes in later phases.
+
+## Executed Phase A Actions
+- Unregistered `acf-block` and `reusable-block` modules in Lite via the feature registry so they no longer load or surface in the builder palette, while keeping their definitions intact for future ACF/pattern integrations.

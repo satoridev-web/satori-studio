@@ -65,7 +65,7 @@ class Features {
         $features = array(
             // Core modules.
             'module-acf-block'     => array(
-                'enabled'     => true,
+                'enabled'     => false,
                 'type'        => 'module',
                 'labels'      => array(
                     'name'  => 'ACF Block',
@@ -208,7 +208,7 @@ class Features {
                 'description' => 'Image display module.',
             ),
             'module-reusable-block' => array(
-                'enabled'     => true,
+                'enabled'     => false,
                 'type'        => 'module',
                 'labels'      => array(
                     'name'  => 'Reusable Block',
