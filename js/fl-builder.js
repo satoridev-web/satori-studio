@@ -1073,10 +1073,10 @@
 		 *
 		 * @since 2.4
 		 */
-_showProMessage: function( feature )
-{
-return;
-},
+			_showProMessage: function( feature )
+			{
+				return;
+			},
 
 		/* TipTips
 		----------------------------------------------------------*/

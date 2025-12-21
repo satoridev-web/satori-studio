@@ -491,15 +491,15 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 					</span>
 					<# } #>
 				</div>
-			</div>
-			<#
-		}
+		</div>
+		<#
 	}
-	if ( FLBuilderConfig.lite ) {
+}
 
 	#>
-<# /* Lite: upsell removed */ #>
-<# } #>
+	<# if ( FLBuilderConfig.lite ) { #>
+		<# /* Lite: upsell removed */ #>
+	<# } #>
 </script>
 <!-- #tmpl-fl-content-panel-modules-view -->
 

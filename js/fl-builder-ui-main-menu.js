@@ -446,9 +446,9 @@
 			$('.current-mode').html( '(' + newColorScheme + ')' );
 		},
 
-        /**
-        * @return void
-        */
+		/**
+		 * @return void
+		 */
 		launchThemerLayouts: function() {
 			if ( FLBuilderConfig.lite ) {
 				MainMenuPanel.hide();
