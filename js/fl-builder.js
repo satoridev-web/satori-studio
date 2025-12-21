@@ -1073,20 +1073,10 @@
 		 *
 		 * @since 2.4
 		 */
-		_showProMessage: function( feature )
-		{
-			if ( ! FLBuilderConfig.lite ) {
-				return
-			}
-
-			var alert = new FLLightbox({
-					className: 'fl-builder-pro-lightbox',
-					destroyOnClose: true
-				}),
-				template = wp.template( 'fl-pro-lightbox' );
-
-			alert.open( template( { feature : feature } ) );
-		},
+_showProMessage: function( feature )
+{
+return;
+},
 
 		/* TipTips
 		----------------------------------------------------------*/

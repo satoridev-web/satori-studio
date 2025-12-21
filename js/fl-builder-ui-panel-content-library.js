@@ -500,12 +500,12 @@
                 type = $item.data('type'),
                 premium = $item.data('premium');
 
-			if ( FLBuilderConfig.lite && premium ) {
-				FLBuilder._showProMessage( $item.find( '.fl-builder--template-name' ).text() );
-			} else {
-				FLBuilder._requestTemplateInsert(id, type);
-			}
-        },
+if ( FLBuilderConfig.lite && premium ) {
+return;
+}
+
+FLBuilder._requestTemplateInsert(id, type);
+},
     });
 
     /**

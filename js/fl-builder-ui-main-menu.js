@@ -449,12 +449,13 @@
         /**
         * @return void
         */
-        launchThemerLayouts: function() {
+		launchThemerLayouts: function() {
 			if ( FLBuilderConfig.lite ) {
-				FLBuilder._showProMessage( 'Themer Layouts' );
-			} else {
-				window.open( FLBuilderConfig.themerLayoutsUrl );
+				MainMenuPanel.hide();
+				return;
 			}
+
+			window.open( FLBuilderConfig.themerLayoutsUrl );
 			MainMenuPanel.hide();
 		},
 
