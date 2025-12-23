@@ -508,7 +508,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 			<#
 		}
 	}
-	if ( FLBuilderConfig.lite ) {
+        if ( ! FLBuilderConfig.lite ) {
 
 	#>
 	<div id="fl-builder-blocks-pro" class="fl-builder-blocks-section fl-builder-blocks-pro-closed">
@@ -589,7 +589,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 		</div>
 		<# } #>
 
-		<# if (FLBuilderConfig.lite) { #>
+                <# if ( ! FLBuilderConfig.lite ) { #>
 		<div class="fl-builder--panel-cta">
 			<img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
 			<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
@@ -666,7 +666,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 		#>
 	</div>
         <?php if ( $fl_builder_show_legacy_promos ) : ?>
-        <# if (FLBuilderConfig.lite) { #>
+        <# if ( ! FLBuilderConfig.lite ) { #>
         <div class="fl-builder--panel-cta">
                 <img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
                 <a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
