@@ -450,13 +450,14 @@
         * @return void
         */
         launchThemerLayouts: function() {
-			if ( FLBuilderConfig.lite ) {
-				FLBuilder._showProMessage( 'Themer Layouts' );
-			} else {
-				window.open( FLBuilderConfig.themerLayoutsUrl );
-			}
-			MainMenuPanel.hide();
-		},
+            if ( FLBuilderConfig.lite ) {
+                MainMenuPanel.hide();
+                return;
+            }
+
+            window.open( FLBuilderConfig.themerLayoutsUrl );
+            MainMenuPanel.hide();
+        },
 
 		/**
 		 * @return void

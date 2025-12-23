@@ -1495,7 +1495,6 @@ final class FLBuilder {
 
                 $views             = array();
                 $is_lite = true === FL_BUILDER_LITE; // @codingStandardsIgnoreLine
-                $show_upgrade_ui   = function_exists( 'satori_studio_feature_enabled' ) ? satori_studio_feature_enabled( 'ui-legacy-upgrade-promos' ) : false;
                 $is_user_template  = FLBuilderModel::is_post_user_template();
                 $enabled_templates = FLBuilderModel::get_enabled_templates();
                 $is_simple_ui      = ! FLBuilderUserAccess::current_user_can( 'unrestricted_editing' );
@@ -1511,7 +1510,7 @@ final class FLBuilder {
 
                 // Tools
                 $tools_view = array(
-                        'name'       => __( 'Tools', 'satori-studio' ) . ( $is_lite && $show_upgrade_ui ? '<button class="fl-builder-upgrade-button fl-builder-button" onclick="FLBuilder._upgradeClicked()">Upgrade</button>' : '' ),
+                        'name'       => __( 'Tools', 'satori-studio' ),
                         'isShowing'  => true,
                         'isRootView' => true,
                         'items'      => array(),
@@ -1530,7 +1529,7 @@ final class FLBuilder {
 
 		if ( ! $is_user_template && ( 'enabled' == $enabled_templates || 'user' == $enabled_templates ) ) {
 			$tools_view['items'][10] = array(
-				'label'     => __( 'Save Template', 'satori-studio' ) . ( $is_lite ? '<span class="fl-builder-pro-badge">PRO</span>' : '' ),
+                                'label'     => __( 'Save Template', 'satori-studio' ),
 				'type'      => 'event',
 				'eventName' => 'saveTemplate',
 				'accessory' => isset( $key_shortcuts['saveTemplate'] ) ? $key_shortcuts['saveTemplate']['keyLabel'] : null,
@@ -1584,14 +1583,14 @@ final class FLBuilder {
 				'accessory' => isset( $key_shortcuts['showGlobalSettings'] ) ? $key_shortcuts['showGlobalSettings']['keyLabel'] : null,
 			);
 			// Global styles
-			if ( $is_lite ) {
-				$tools_view['items'][61] = array(
-					'label'     => __( 'Global Styles', 'satori-studio' ) . '<span class="fl-builder-pro-badge">PRO</span>',
-					'type'      => 'event',
-					'eventName' => 'showGlobalStyles',
-					'accessory' => isset( $key_shortcuts['showGlobalStyles'] ) ? $key_shortcuts['showGlobalStyles']['keyLabel'] : null,
-				);
-			} else {
+                                if ( $is_lite ) {
+                                        $tools_view['items'][61] = array(
+                                                'label'     => __( 'Global Styles', 'satori-studio' ),
+                                                'type'      => 'event',
+                                                'eventName' => 'showGlobalStyles',
+                                                'accessory' => isset( $key_shortcuts['showGlobalStyles'] ) ? $key_shortcuts['showGlobalStyles']['keyLabel'] : null,
+                                        );
+                                } else {
 				if ( defined( 'FL_BUILDER_GLOBAL_STYLES_DIR' ) ) {
 					$tools_view['items'][61] = array(
 						'label'     => __( 'Global Styles', 'satori-studio' ),
@@ -1605,7 +1604,7 @@ final class FLBuilder {
 
 		if ( $is_lite || defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 			$tools_view['items'][65] = array(
-				'label'     => __( 'Themer Layouts', 'satori-studio' ) . ( $is_lite ? '<span class="fl-builder-pro-badge">PRO</span>' : '' ),
+                                'label'     => __( 'Themer Layouts', 'satori-studio' ),
 				'type'      => 'event',
 				'eventName' => 'launchThemerLayouts',
 			);

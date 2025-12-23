@@ -342,19 +342,30 @@
 		 * @access private
 		 * @method _init
 		 */
-		_init: function()
-		{
+                _init: function()
+                {
 			/**
 			 * Don't init inside the block editor. We just need the
 			 * builder's functions available there. Eventually, this
 			 * code should be refactored so we can load less of the
 			 * builder's JS in that environment.
 			 */
-			if ( FL.Builder.utils.isBlockEditor() ) {
-				return;
-			}
+                        if ( FL.Builder.utils.isBlockEditor() ) {
+                                return;
+                        }
 
-			FLBuilder.UIIFrame.init();
+                        if ( 'undefined' === typeof FLBuilder.UIIFrame ) {
+                                FLBuilder.UIIFrame = {
+                                        isEnabled: function() { return false; },
+                                        init: function() {},
+                                        exitResponsiveEditing: function() {},
+                                        getIFrameWindow: function() { return window; },
+                                        isUIWindow: function() { return false; },
+                                        isIFrameWindow: function() { return false; },
+                                };
+                        }
+
+                        FLBuilder.UIIFrame.init();
 			FLBuilder._initJQueryReadyFix();
 			FLBuilder._initGlobalErrorHandling();
 			FLBuilder._initPostLock();
@@ -1041,10 +1052,10 @@
 		 * @access private
 		 * @method _upgradeClicked
 		 */
-		_upgradeClicked: function()
-		{
-			window.parent.open(FLBuilderConfig.upgradeUrl);
-		},
+                _upgradeClicked: function()
+                {
+                        return;
+                },
 
 		/**
 		 * Toggles the pro module section in lite.
@@ -1073,20 +1084,10 @@
 		 *
 		 * @since 2.4
 		 */
-		_showProMessage: function( feature )
-		{
-			if ( ! FLBuilderConfig.lite ) {
-				return
-			}
-
-			var alert = new FLLightbox({
-					className: 'fl-builder-pro-lightbox',
-					destroyOnClose: true
-				}),
-				template = wp.template( 'fl-pro-lightbox' );
-
-			alert.open( template( { feature : feature } ) );
-		},
+                _showProMessage: function( feature )
+                {
+                        return;
+                },
 
 		/* TipTips
 		----------------------------------------------------------*/
@@ -1854,14 +1855,14 @@
 		 *
 		 * @since 2.8
 		 */
-		_globalStylesClicked: function()
-		{
-			if ( FLBuilderConfig.lite ) {
-				FLBuilder._showProMessage( 'Global Styles' );
-			} else if ( 'undefined' !== typeof FLBuilderGlobalStyles ) {
-				FLBuilderGlobalStyles._showPanel();
-			}
-		},
+                _globalStylesClicked: function()
+                {
+                        if ( FLBuilderConfig.lite ) {
+                                return;
+                        } else if ( 'undefined' !== typeof FLBuilderGlobalStyles ) {
+                                FLBuilderGlobalStyles._showPanel();
+                        }
+                },
 
 		/* Template Selector
 		----------------------------------------------------------*/
@@ -2061,12 +2062,11 @@
 		 * @access private
 		 * @method _saveUserTemplateClicked
 		 */
-		_saveUserTemplateClicked: function()
-		{
-			if ( FLBuilderConfig.lite ) {
-				FLBuilder._showProMessage( 'Saving Templates' );
-				return;
-			}
+                _saveUserTemplateClicked: function()
+                {
+                        if ( FLBuilderConfig.lite ) {
+                                return;
+                        }
 
 			FLBuilderSettingsForms.render( {
 				id        : 'user_template',
