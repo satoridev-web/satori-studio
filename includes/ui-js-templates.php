@@ -511,53 +511,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 	if ( FLBuilderConfig.lite ) {
 
 	#>
-	<div id="fl-builder-blocks-pro" class="fl-builder-blocks-section fl-builder-blocks-pro-closed">
-		<div class="fl-builder-blocks-section-header">
-			<span class="fl-builder-blocks-section-title">Pro</span>
-		</div>
-		<div class="fl-builder-blocks-section-content fl-builder-modules">
-			<#
-
-			var modules = FLBuilderConfig.contentItems.module;
-			var moduleSlugs = [];
-			var proModules = FLBuilderConfig.contentItems.pro;
-
-			for ( var i in modules ) {
-				moduleSlugs.push( modules[i].slug );
-			}
-
-			for( var slug in proModules ) {
-				var module 	= proModules[ slug ];
-
-				if ( jQuery.inArray( slug, moduleSlugs ) >= 0 ) {
-					continue;
-				}
-			#>
-			<span class="fl-builder-block fl-builder-block-module fl-builder-block-disabled" data-type="{{slug}}" onclick="FLBuilder._showProMessage('{{module.name}}')">
-				<span class="fl-builder-block-content">
-					<span class="fl-builder-block-icon">{{{module.icon}}}</span>
-					<span class="fl-builder-block-title">{{module.name}}</span>
-					<span class="fl-builder-pro-badge">PRO</span>
-				</span>
-			</span>
-			<# } #>
-		</div>
-		<div class="fl-builder-blocks-pro-overlay"></div>
-	</div>
-	<button class="fl-builder-button fl-builder-button-silent fl-builder-blocks-pro-expand">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20px" width="20px">
-			<path d="M5 6l5 5 5-5 2 1-7 7-7-7z"></path>
-		</svg>
-	</button>
-	<div class="fl-builder--panel-cta">
-		<img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
-		<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
-			<?php _e( 'Get more time-saving features, modules, and expert support.', 'satori-studio' ); ?>
-		</a>
-		<button class="fl-builder-upgrade-button fl-builder-button">
-			<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?>
-		</button>
-	</div>
+	<# /* Lite: pro modules and CTA removed. */ #>
 	<# } #>
 </script>
 <!-- #tmpl-fl-content-panel-modules-view -->
@@ -590,15 +544,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 		<# } #>
 
 		<# if (FLBuilderConfig.lite) { #>
-		<div class="fl-builder--panel-cta">
-			<img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
-			<a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
-				<?php _e( 'Get more time-saving features, modules, and expert support.', 'satori-studio' ); ?>
-			</a>
-			<button class="fl-builder-upgrade-button fl-builder-button">
-				<?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?>
-			</button>
-		</div>
+		<# /* Lite: panel CTA removed. */ #>
 		<# } #>
 	</div>
 </script>
@@ -636,11 +582,12 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 							var template = templates[i];
 							var background = template.image;
 							var id = _.isNumber( template.postId ) ? template.postId : template.id;
+							if ( FLBuilderConfig.lite && template.premium ) { continue; }
 						#>
 						<div class="fl-builder--template-collection-item" data-id="{{id}}" data-type="{{template.type}}" data-subtype="{{template.subtype}}" data-premium="{{template.premium}}">
 							<div class="fl-builder--template-thumbnail" style="background-image:url({{background}})">
 								<# if ( FLBuilderConfig.lite && template.premium ) { #>
-								<span class="fl-builder-pro-badge">PRO</span>
+								<# /* Lite: premium template badge removed. */ #>
 								<# } #>
 							</div>
 							<div class="fl-builder--template-name">{{template.name}}</div>
@@ -662,22 +609,14 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 			</div>
 			<#
 			}
-		}
-		#>
+	}
+	#>
 	</div>
-        <?php if ( $fl_builder_show_legacy_promos ) : ?>
-        <# if (FLBuilderConfig.lite) { #>
-        <div class="fl-builder--panel-cta">
-                <img src="<?php echo FLBuilder::plugin_url(); ?>assets/branding/satori-icon.svg" />
-                <a href="https://www.wpbeaverbuilder.com/?utm_medium=bb-lite&amp;utm_source=builder-ui&amp;utm_campaign=modules-panel-cta" target="_blank">
-                        <?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'satori-studio' ); ?>
-                </a>
-                <button class="fl-builder-upgrade-button fl-builder-button">
-                        <?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?>
-                </button>
-        </div>
-        <# } #>
-        <?php endif; ?>
+	<?php if ( $fl_builder_show_legacy_promos ) : ?>
+	<# if (FLBuilderConfig.lite) { #>
+	<# /* Lite: templates panel CTA removed. */ #>
+	<# } #>
+	<?php endif; ?>
 </script>
 <!-- #tmpl-fl-content-panel-templates-view -->
 
@@ -713,20 +652,16 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 								image = template.image,
 								id = _.isNumber( template.postId ) ? template.postId : template.id,
 								hasImage = image && !image.endsWith('blank.jpg'),
-								hasImageClass = hasImage ? 'fl-builder-block-has-thumbnail' : '',
-								isPremium = FLBuilderConfig.lite && template.premium,
-								disabledClass = isPremium ? 'fl-builder-block-disabled' : '';
+								hasImageClass = hasImage ? 'fl-builder-block-has-thumbnail' : '';
+							if ( FLBuilderConfig.lite && template.premium ) { continue; }
 						#>
-						<span onclick="FLBuilder._showProMessage('{{template.name}}')" class="fl-builder-block fl-builder-block-template fl-builder-block-row-template {{hasImageClass}} {{disabledClass}}" data-id="{{id}}" data-type="{{template.type}}">
+						<span class="fl-builder-block fl-builder-block-template fl-builder-block-row-template {{hasImageClass}}" data-id="{{id}}" data-type="{{template.type}}">
 							<span class="fl-builder-block-content">
 								<# if (hasImage) { #>
 								<div class="fl-builder-block-thumbnail" style="background-image:url({{image}})"></div>
 								<# } #>
 								<span class="fl-builder-block-title">{{template.name}}</span>
 							</span>
-							<# if ( FLBuilderConfig.lite && template.premium ) { #>
-							<span class="fl-builder-pro-badge">PRO</span>
-							<# } #>
 						</span>
 						<# } #>
 					</div>
@@ -808,8 +743,7 @@ $fl_builder_show_legacy_promos = function_exists( 'satori_studio_feature_enabled
 <script type="text/html" id="tmpl-fl-content-lite-templates-upgrade-view">
         <div class="fl-builder--panel-message">
                 <?php if ( $fl_builder_show_legacy_promos ) : ?>
-                        <p><?php _ex( 'Save and reuse your layouts or kick-start your creativity with dozens of professionally designed templates.', 'Upgrade message that displays in the templates tab in lite installs.', 'satori-studio' ); ?></p>
-                        <a class="fl-builder-submenu-link fl-builder-upgrade-button fl-builder-button" href="{{FLBuilderConfig.upgradeUrl}}" target="_blank"><?php _ex( 'Learn More', 'Link to learn more about premium SATORI Studio', 'satori-studio' ); ?> <i class="fas fa-external-link-alt"></i></a>
+                        <p><?php _ex( 'Premium templates are not available in this SATORI Studio build.', 'Message that displays when upgrade prompts are hidden.', 'satori-studio' ); ?></p>
                 <?php else : ?>
                         <p><?php _ex( 'Premium templates are not available in this SATORI Studio build.', 'Message that displays when upgrade prompts are hidden.', 'satori-studio' ); ?></p>
                 <?php endif; ?>
