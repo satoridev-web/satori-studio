@@ -1075,17 +1075,9 @@
 		 */
 		_showProMessage: function( feature )
 		{
-			if ( ! FLBuilderConfig.lite ) {
-				return
+			if ( FLBuilderConfig.lite ) {
+				return;
 			}
-
-			var alert = new FLLightbox({
-					className: 'fl-builder-pro-lightbox',
-					destroyOnClose: true
-				}),
-				template = wp.template( 'fl-pro-lightbox' );
-
-			alert.open( template( { feature : feature } ) );
 		},
 
 		/* TipTips
