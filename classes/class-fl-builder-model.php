@@ -3405,6 +3405,10 @@ final class FLBuilderModel {
 			$setting[] = 'all';
 		}
 
+		if ( true === FL_BUILDER_LITE ) {
+			$setting = array_values( array_unique( array_merge( $setting, array( 'heading', 'icon' ) ) ) );
+		}
+
 		foreach ( self::$modules as $module_slug => $module ) {
 			if ( ! $module->enabled && in_array( $module_slug, $setting ) ) {
 				$key = array_search( $module_slug, $setting );

@@ -621,6 +621,8 @@ final class FLBuilderUpdate {
 			$enabled[] = 'button-group';
 			$enabled[] = 'callout';
 			$enabled[] = 'cta';
+			$enabled[] = 'heading';
+			$enabled[] = 'icon';
 			$enabled[] = 'menu';
 			$enabled[] = 'numbers';
 		}
