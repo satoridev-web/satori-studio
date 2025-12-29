@@ -759,6 +759,11 @@
         isShowing: false,
 
         /**
+        * Session storage key for the last opened panel tab.
+        */
+        lastPanelStorageKey: 'satori.builder.lastPanel',
+
+        /**
         * Initialize and render the panel.
         *
         * @return void
@@ -789,6 +794,8 @@
                     this.activeTab = tab;
                 }
             }
+
+            this.restoreLastPanelTab();
 
             // Render panel
             this.template = wp.template(this.templateName);
@@ -857,6 +864,145 @@
             FLBuilder.addHook('toggleContentPanel', toggle );
 
             FLBuilder.addHook('didStopDrag', this.hideSearchControls.bind(this) );
+        },
+
+        /* -------------------------------------------------
+         * SATORI Studio — Session-only panel tab persistence
+         * -------------------------------------------------*/
+        restoreLastPanelTab: function() {
+            var storedHandle = this.getStoredPanelTab();
+            if ( ! storedHandle ) {
+                return;
+            }
+
+            if ( FLBuilderConfig.userTemplateIsLeafModule || FLBuilderConfig.simpleUi ) {
+                return;
+            }
+
+            var storedTab = this.tabs[ storedHandle ];
+            if ( ! _.isObject( storedTab ) ) {
+                return;
+            }
+
+            _.each( this.tabs, function( tab ) {
+                tab.isShowing = false;
+            });
+
+            storedTab.isShowing = true;
+            this.activeTab = storedTab;
+        },
+
+        storePanelTab: function( handle ) {
+            if ( ! handle ) {
+                return;
+            }
+
+            var storage = this.getPanelStorage();
+            var storageKey = this.getPanelStorageKey( storage );
+            if ( ! storage || ! storageKey ) {
+                return;
+            }
+
+            try {
+                storage.setItem( storageKey, handle );
+            } catch ( error ) {
+                return;
+            }
+
+            if ( storage === window.localStorage ) {
+                this.bindStorageCleanup( storageKey );
+            }
+        },
+
+        getStoredPanelTab: function() {
+            var storage = this.getPanelStorage();
+            var storageKey = this.getPanelStorageKey( storage );
+            if ( ! storage || ! storageKey ) {
+                return null;
+            }
+
+            try {
+                return storage.getItem( storageKey );
+            } catch ( error ) {
+                return null;
+            }
+        },
+
+        getPanelStorage: function() {
+            try {
+                if ( window.sessionStorage ) {
+                    return window.sessionStorage;
+                }
+            } catch ( error ) {
+                // Ignore storage access errors.
+            }
+
+            try {
+                if ( window.localStorage ) {
+                    return window.localStorage;
+                }
+            } catch ( error ) {
+                // Ignore storage access errors.
+            }
+
+            return null;
+        },
+
+        getPanelStorageKey: function( storage ) {
+            if ( storage === window.sessionStorage ) {
+                return this.lastPanelStorageKey;
+            }
+
+            if ( storage === window.localStorage ) {
+                var sessionKey = this.getPanelSessionKey();
+                if ( ! sessionKey ) {
+                    return null;
+                }
+
+                return this.lastPanelStorageKey + ':' + sessionKey;
+            }
+
+            return null;
+        },
+
+        getPanelSessionKey: function() {
+            var prefix = 'satori-builder-session:';
+            var name = window.name || '';
+
+            if ( name.indexOf( prefix ) === 0 ) {
+                return name.slice( prefix.length );
+            }
+
+            if ( name ) {
+                return name;
+            }
+
+            var key = Math.random().toString( 36 ).slice( 2 );
+            var sessionName = prefix + key;
+
+            try {
+                window.name = sessionName;
+                return key;
+            } catch ( error ) {
+                return null;
+            }
+        },
+
+        bindStorageCleanup: function( storageKey ) {
+            if ( this._panelStorageCleanupBound ) {
+                return;
+            }
+
+            this._panelStorageCleanupBound = true;
+            var keyToRemove = storageKey;
+
+            window.addEventListener( 'unload', function() {
+                try {
+                    window.localStorage.removeItem( keyToRemove );
+                } catch ( error ) {
+                    return;
+                }
+            });
         },
 
         /**
@@ -984,6 +1130,7 @@
             this.$tabs.filter('[data-tab="' + tab.handle + '"]').addClass('is-showing');
             this.activeTab = tab;
             $(this).trigger('onShowTab');
+            this.storePanelTab( tab.handle );
         },
 
         goToSearch: function() {
