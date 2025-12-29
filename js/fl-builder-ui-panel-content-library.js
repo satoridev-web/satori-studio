@@ -830,6 +830,9 @@
             this.$tabs = this.$el.find('.fl-builder--tabs [data-tab]');
             this.$tabs.on('mouseup', this.onTabItemMouseUp.bind( this ));
             this.$tabs.on('click', this.onTabItemClick.bind( this ));
+            this.activateStoredPanelTab();
+            this.bindPanelTabObserver();
+            this.syncStoredPanelTabFromDom();
             this.$search = this.$el.find('.fl-builder-panel-search');
             this.$searchBtn = this.$search.find('.fl-builder-toggle-panel-search');
             this.$searchInput = this.$search.find('input[name="search-term"]');
@@ -890,6 +893,70 @@
 
             storedTab.isShowing = true;
             this.activeTab = storedTab;
+        },
+
+        activateStoredPanelTab: function() {
+            var storedHandle = this.getStoredPanelTab();
+            if ( ! storedHandle ) {
+                return;
+            }
+
+            if ( ! this.$tabs || ! this.$tabs.length ) {
+                return;
+            }
+
+            var storedTab = this.tabs[ storedHandle ];
+            if ( ! _.isObject( storedTab ) ) {
+                return;
+            }
+
+            var $tabButton = this.$tabs.filter('[data-tab="' + storedHandle + '"]');
+            if ( ! $tabButton.length ) {
+                return;
+            }
+
+            if ( $tabButton.hasClass('is-showing') ) {
+                return;
+            }
+
+            this.showTab( storedHandle );
+        },
+
+        bindPanelTabObserver: function() {
+            if ( this._panelTabObserver || ! window.MutationObserver ) {
+                return;
+            }
+
+            var tabsContainer = this.$el.find('.fl-builder--tabs');
+            if ( ! tabsContainer.length ) {
+                return;
+            }
+
+            this._panelTabObserver = new MutationObserver( this.syncStoredPanelTabFromDom.bind( this ) );
+            this._panelTabObserver.observe( tabsContainer[0], {
+                attributes: true,
+                attributeFilter: [ 'class' ],
+                subtree: true,
+                childList: true
+            });
+        },
+
+        syncStoredPanelTabFromDom: function() {
+            if ( ! this.$el ) {
+                return;
+            }
+
+            var activeTab = this.$el.find('.fl-builder--tabs [data-tab].is-showing').first();
+            if ( ! activeTab.length ) {
+                return;
+            }
+
+            var handle = activeTab.data('tab');
+            if ( ! handle ) {
+                return;
+            }
+
+            this.storePanelTab( handle );
         },
 
         storePanelTab: function( handle ) {
