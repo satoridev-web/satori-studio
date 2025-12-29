@@ -830,7 +830,6 @@
             this.$tabs = this.$el.find('.fl-builder--tabs [data-tab]');
             this.$tabs.on('mouseup', this.onTabItemMouseUp.bind( this ));
             this.$tabs.on('click', this.onTabItemClick.bind( this ));
-            this.activateStoredPanelTab();
             this.bindPanelTabObserver();
             this.syncStoredPanelTabFromDom();
             this.$search = this.$el.find('.fl-builder-panel-search');
@@ -840,6 +839,7 @@
             this.$search.find('.fl-builder-dismiss-panel-search').on('click', this.onDismissButtonClicked.bind(this) );
             this.$searchInput.on('keyup', this.onSearchTermChanged.bind(this) );
             this.$searchPanel = this.$el.find('.fl-builder--search-results-panel');
+            this.activateStoredPanelTab();
 
             this.$el.on('mousedown', () => {
                 if ( $('.fl-builder-workspace-panel').length && FLBuilder.PinnedUI.getPinnedSide() === 'right' ) {
