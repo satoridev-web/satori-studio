@@ -34,14 +34,16 @@ This document is **read‑only planning**. It introduces **no changes**.
 
 ### 3.1 Plugin Icon
 
+### 3.1 Plugin Icon
+
 | Item | Value |
 |-----|------|
-| Current file path | _To be confirmed_ |
-| Referenced by | WordPress plugin header |
+| Current file path | Not currently present |
+| Referenced by | WordPress.org fallback |
 | Asset type | Plugin icon |
 | Required size | 256×256 |
 | Format | SVG / PNG |
-| Notes | Used in plugin list & details |
+| Notes | No explicit plugin icon exists in the repository |
 
 ---
 
