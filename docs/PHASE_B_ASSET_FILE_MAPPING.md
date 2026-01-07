@@ -34,8 +34,6 @@ This document is **read‑only planning**. It introduces **no changes**.
 
 ### 3.1 Plugin Icon
 
-### 3.1 Plugin Icon
-
 | Item | Value |
 |-----|------|
 | Current file path | Not currently present |
