@@ -49,12 +49,12 @@ This document is **read‑only planning**. It introduces **no changes**.
 
 | Item | Value |
 |-----|------|
-| Current file path | _To be confirmed_ |
-| Referenced by | `add_menu_page()` or equivalent |
+| Current file path | assets/branding/satori-menu-icon.svg |
+| Referenced by | add_menu_page() in src/Core/Admin.php |
 | Asset type | Admin menu icon |
 | Required size | ~16px rendered |
 | Format | SVG |
-| Notes | Must respect `currentColor` |
+| Notes | Explicit SVG admin menu icon already defined; path-stable |
 
 ---
 
