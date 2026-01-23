@@ -129,6 +129,8 @@ All module icons must:
 |-----|----------|------|
 | Screenshots | `/docs/assets/` | Branding must be updated |
 | Diagrams | `/docs/assets/` | Phase B only |
+| Canonical Studio SVG spec | `/docs/SATORI_STUDIO_CANONICAL_SVG_SPEC_PHASE_B.md` | Reference-only |
+| Canonical Studio SVG assets (SL/SP) | `/docs/assets/studio-icons/` | Reference-only |
 
 ---
 
