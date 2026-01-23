@@ -1,11 +1,9 @@
-# SATORI Studio branding placeholders
+# SATORI Studio branding assets
 
-This directory reserves stable paths for Phase A branding assets.
+This directory contains the runtime branding assets derived from the Phase B canonical SVG specification.
 
-Expected placeholder filenames (artwork supplied separately):
+Included files:
 - satori-logo.svg
 - satori-icon.svg
 - satori-menu-icon.svg
 - satori-plugin-icon.png
-
-No artwork is bundled here; design will drop final files into these paths.

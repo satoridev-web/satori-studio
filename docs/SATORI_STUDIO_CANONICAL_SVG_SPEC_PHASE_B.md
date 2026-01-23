@@ -83,6 +83,7 @@ Fill: `#7A7A7A`
 ## 5. Canonical Letter Geometry
 
 The SL/SP letterforms are defined as **path-only shapes** derived from the Inter Semibold (600) letter proportions. Canonical construction uses rectangular segments (bars) so the resulting SVGs are deterministic and self-contained.
+Letterforms are custom geometric paths and are not derived from any system or web font. While SATORI UI typography uses Roboto, Studio iconography is intentionally font-independent.
 
 ### 5.1 Base Letter Metrics (S)
 
