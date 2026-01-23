@@ -188,6 +188,12 @@ The canonical assets generated from this specification live in:
 /docs/assets/studio-icons/satori-studio-sp.canonical.svg
 ```
 
+Additional reference context for the canonical assets is documented at:
+
+```
+/docs/SATORI_STUDIO_CANONICAL_SVG_ASSET_REFERENCE_PHASE_B.md
+```
+
 The specification itself is stored at:
 
 ```
