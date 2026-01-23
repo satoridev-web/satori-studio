@@ -164,6 +164,8 @@ Use cases:
 | Naming | kebab-case |
 | Location | `/docs/assets/` (or equivalent) |
 
+Canonical SVG reference assets and their specification live in `/docs/assets/studio-icons/` and `/docs/SATORI_STUDIO_CANONICAL_SVG_SPEC_PHASE_B.md`.
+
 ---
 
 ## 7. Colour Usage Rules (Phase B Only)
@@ -220,6 +222,7 @@ Phase B-1 is complete when:
 - Phase B Branding Touchpoint Audit
 - Phase B Asset → File Path Mapping (next)
 - Phase B Asset Swap PRs
+- SATORI Studio Canonical SVG Specification (Phase B)
 
 ---
 
