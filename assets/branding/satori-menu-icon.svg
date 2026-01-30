@@ -2,10 +2,10 @@
   <mask id="satori-menu-icon-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
     <rect width="20" height="20" fill="#ffffff"/>
     <g fill="#000000">
-      <g transform="translate(2.8828125 4.53125) scale(0.078125)">
+      <g transform="translate(3.02515625 4.640625) scale(0.0765625)">
         <path d="M 0 0 H 92 V 18 H 0 Z M 0 61 H 92 V 79 H 0 Z M 0 122 H 92 V 140 H 0 Z M 0 0 H 18 V 70 H 0 Z M 74 70 H 92 V 140 H 74 Z"/>
       </g>
-      <g transform="translate(11.0078125 6.171875) scale(0.078125)">
+      <g transform="translate(10.98765625 6.2484375) scale(0.0765625)">
         <path d="M 0 0 H 15.3 V 119 H 0 Z M 0 103.7 H 78.2 V 119 H 0 Z"/>
       </g>
     </g>
