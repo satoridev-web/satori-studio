@@ -38,6 +38,32 @@ Codex MUST NOT:
 - Modify FLBuilder internals without explicit approval.
 - Produce multi-concern or mega-PRs.
 
+### Pre-PR Binary Safety Check (Mandatory)
+
+Before creating any CODEX-generated Pull Request, the working tree
+must be verified to contain only text-based files.
+
+The following command must be run and confirmed:
+
+git status
+
+A CODEX PR is valid only if the modified files include:
+- .svg
+- .md
+- .txt
+
+CODEX PRs must never include:
+- .png
+- .jpg
+- .webp
+- .ico
+- any other binary format
+
+If binary files are present, the CODEX run must be aborted and corrected
+before a Pull Request is created.
+
+This rule applies to all CODEX tasks without exception.
+
 ---
 
 # 3. PR Requirements for Codex
