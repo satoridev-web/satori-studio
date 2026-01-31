@@ -129,3 +129,66 @@ This SOP will grow to include:
 ---
 
 **END OF DOCUMENT — Version 1.0**
+
+# APPENDIX — CODEX PLAN SUBMISSION FORMAT (MANDATORY)
+
+All CODEX plans must be supplied as a single, self-contained Markdown document.
+
+Each plan must:
+- Begin with a clear PR title
+- Contain all instructions required for execution
+- Use plain Markdown only
+- Be copy-pasteable into CODEX in one operation
+- Contain no conversational text inside the plan
+- Include a clear terminator (e.g. `END OF PLAN`)
+
+CODEX plans must not:
+- Be split across multiple messages
+- Rely on conversational context
+- Require manual editing before execution
+
+Any plan not supplied in this format is considered invalid and must be corrected before execution.
+
+# CODEX RUN HEADER TEMPLATE (OPERATIONAL)
+
+PR <ID> — <TITLE>
+
+GOAL
+
+<SINGLE-PARAGRAPH GOAL STATEMENT>
+
+SCOPE
+
+IN SCOPE
+- <IN SCOPE ITEM 1>
+- <IN SCOPE ITEM 2>
+
+OUT OF SCOPE
+- <OUT OF SCOPE ITEM 1>
+- <OUT OF SCOPE ITEM 2>
+
+IMPLEMENTATION
+
+1. <STEP 1>
+2. <STEP 2>
+3. <STEP 3>
+
+CONSTRAINTS (NON-NEGOTIABLE)
+
+- <CONSTRAINT 1>
+- <CONSTRAINT 2>
+- <CONSTRAINT 3>
+
+VALIDATION
+
+- <VALIDATION CHECK 1>
+- <VALIDATION CHECK 2>
+- <VALIDATION CHECK 3>
+
+EXIT CRITERIA
+
+- <EXIT CRITERION 1>
+- <EXIT CRITERION 2>
+- <EXIT CRITERION 3>
+
+END OF PLAN
