@@ -38,42 +38,39 @@ Codex MUST NOT:
 - Modify FLBuilder internals without explicit approval.
 - Produce multi-concern or mega-PRs.
 
-### Pre-PR Binary Safety Checklist (Mandatory)
+### Pre-PR Binary Safety Check (Mandatory)
 
-A CODEX-generated PR is valid **only if it does NOT include binary files**.
+Before opening a CODEX-generated Pull Request, the following must be verified:
 
-#### Allowed file types
-CODEX MAY modify any text-based source files, including but not limited to:
-- .md
-- .txt
-- .svg
-- .php
-- .js
-- .ts
-- .json
-- .css
-- .scss
-- .yml
-- .yaml
+- No binary files are included in the PR.
+- The PR must not modify or introduce files with the following extensions:
+  - `.png`
+  - `.jpg`
+  - `.jpeg`
+  - `.webp`
+  - `.ico`
+  - `.gif`
+  - `.pdf`
+  - `.zip`
+  - `.woff`
+  - `.woff2`
+  - `.ttf`
+  - `.otf`
+- All modified files must be text-based and reviewable in GitHub diff view.
 
-#### Disallowed file types
-CODEX MUST NOT modify or introduce binary files, including:
-- .png
-- .jpg
-- .jpeg
-- .webp
-- .gif
-- .ico
-- .pdf
-- .zip
-- .woff
-- .woff2
-- .ttf
+Allowed file types explicitly include (but are not limited to):
+- `.md`
+- `.txt`
+- `.svg`
+- `.json`
+- `.yml` / `.yaml`
+- `.php`
+- `.js`
+- `.css`
+- `.scss`
+- `.html`
 
-If a binary artifact is required, it must be:
-- Generated outside CODEX
-- Referenced indirectly (e.g. via base64 `.txt`)
-- Or added manually after PR merge
+If any binary file formats are required, the PR must be halted and handled via a non-CODEX workflow in accordance with SATORI SOPs.
 
 ---
 
