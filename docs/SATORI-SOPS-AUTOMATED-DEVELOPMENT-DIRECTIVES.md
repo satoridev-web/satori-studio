@@ -38,6 +38,43 @@ Codex MUST NOT:
 - Modify FLBuilder internals without explicit approval.
 - Produce multi-concern or mega-PRs.
 
+### Pre-PR Binary Safety Checklist (Mandatory)
+
+A CODEX-generated PR is valid **only if it does NOT include binary files**.
+
+#### Allowed file types
+CODEX MAY modify any text-based source files, including but not limited to:
+- .md
+- .txt
+- .svg
+- .php
+- .js
+- .ts
+- .json
+- .css
+- .scss
+- .yml
+- .yaml
+
+#### Disallowed file types
+CODEX MUST NOT modify or introduce binary files, including:
+- .png
+- .jpg
+- .jpeg
+- .webp
+- .gif
+- .ico
+- .pdf
+- .zip
+- .woff
+- .woff2
+- .ttf
+
+If a binary artifact is required, it must be:
+- Generated outside CODEX
+- Referenced indirectly (e.g. via base64 `.txt`)
+- Or added manually after PR merge
+
 ---
 
 # 3. PR Requirements for Codex
