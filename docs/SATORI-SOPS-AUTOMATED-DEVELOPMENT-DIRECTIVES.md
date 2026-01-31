@@ -38,6 +38,25 @@ Codex MUST NOT:
 - Modify FLBuilder internals without explicit approval.
 - Produce multi-concern or mega-PRs.
 
+### CODEX Plan Submission Format (Mandatory)
+
+All CODEX plans must be supplied as a single, self-contained Markdown document.
+
+Each plan must:
+- Begin with a clear PR title
+- Contain all instructions required for execution
+- Use plain Markdown only
+- Be copy-pasteable into CODEX in one operation
+- Contain no conversational text inside the plan
+- Include a clear terminator (e.g. `END OF PLAN`)
+
+CODEX plans must not:
+- Be split across multiple messages
+- Rely on conversational context
+- Require manual editing before execution
+
+Any plan not supplied in this format is considered invalid and must be corrected before execution.
+
 ### Pre-PR Binary Safety Check (Mandatory)
 
 Before opening a CODEX-generated Pull Request, the following must be verified:
