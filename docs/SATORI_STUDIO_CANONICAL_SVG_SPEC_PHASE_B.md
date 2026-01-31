@@ -185,7 +185,7 @@ Placement rules:
 The canonical assets generated from this specification live in:
 
 ```
-/docs/assets/studio-icons/satori-studio-sl.canonical.svg
+/docs/assets/studio-icons/satori-studio-lite.canonical.svg
 /docs/assets/studio-icons/satori-studio-sp.canonical.svg
 ```
 

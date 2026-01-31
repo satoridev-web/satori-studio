@@ -16,7 +16,7 @@ This document enumerates the **canonical Studio SVG reference assets** for Phase
 
 | Asset | Path | Description |
 |---|---|---|
-| SL canonical mark | `/docs/assets/studio-icons/satori-studio-sl.canonical.svg` | S + L lettermark with canonical geometry |
+| SL canonical mark | `/docs/assets/studio-icons/satori-studio-lite.canonical.svg` | S + L lettermark with canonical geometry |
 | SP canonical mark | `/docs/assets/studio-icons/satori-studio-sp.canonical.svg` | S + P lettermark with canonical geometry |
 
 ---

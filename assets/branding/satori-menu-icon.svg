@@ -1,14 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" role="img" aria-label="SATORI Studio menu icon">
-  <mask id="satori-menu-icon-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-    <rect width="20" height="20" fill="#ffffff"/>
-    <g fill="#000000">
-      <g transform="translate(3.02515625 4.640625) scale(0.0765625)">
-        <path d="M 0 0 H 92 V 18 H 0 Z M 0 61 H 92 V 79 H 0 Z M 0 122 H 92 V 140 H 0 Z M 0 0 H 18 V 70 H 0 Z M 74 70 H 92 V 140 H 74 Z"/>
-      </g>
-      <g transform="translate(10.98765625 6.2484375) scale(0.0765625)">
-        <path d="M 0 0 H 15.3 V 119 H 0 Z M 0 103.7 H 78.2 V 119 H 0 Z"/>
-      </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="SATORI Studio SL canonical mark">
+  <path fill="#000000" d="M 0 56.32 A 56.32 56.32 0 0 1 56.32 0 H 256 V 199.68 A 56.32 56.32 0 0 1 199.68 256 H 0 V 56.32 Z"/>
+  <path fill="#7A7A7A" d="M 10.24 56.32 A 46.08 46.08 0 0 1 56.32 10.24 H 245.76 V 199.68 A 46.08 46.08 0 0 1 199.68 245.76 H 10.24 V 56.32 Z"/>
+  <g fill="#FFFFFF">
+    <g transform="translate(36.9 58)">
+      <path d="M 0 0 H 92 V 18 H 0 Z M 0 61 H 92 V 79 H 0 Z M 0 122 H 92 V 140 H 0 Z M 0 0 H 18 V 70 H 0 Z M 74 70 H 92 V 140 H 74 Z"/>
     </g>
-  </mask>
-  <path fill="currentColor" d="M 0 4.4 A 4.4 4.4 0 0 1 4.4 0 H 20 V 15.6 A 4.4 4.4 0 0 1 15.6 20 H 0 V 4.4 Z" mask="url(#satori-menu-icon-mask)"/>
+    <g transform="translate(140.9 79)">
+      <path d="M 0 0 H 15.3 V 119 H 0 Z M 0 103.7 H 78.2 V 119 H 0 Z"/>
+    </g>
+  </g>
 </svg>
