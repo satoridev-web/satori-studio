@@ -204,6 +204,7 @@ All branding assets must:
 - Avoid dimension changes that affect layout
 - Remain visually legible across themes
 - Be reversible without side effects
+- Treat canonical SVGs in `/docs/assets/studio-icons/` as immutable sources; admin menu fixes must use optical-size variants in `assets/branding/` instead of modifying canonical geometry.
 
 ---
 

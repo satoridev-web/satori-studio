@@ -183,6 +183,7 @@ All Suite colours are muted and must not be altered.
 - No additional Studio tier marks may be introduced
 - Geometry, colours, and typography must not be varied per product
 - All icons must be visually interchangeable at equal sizes
+- Admin menu icons may use optical-size SVG variants for ~20–24px rasterisation, but canonical SVGs remain the immutable source of truth and must not be altered for menu fixes.
 
 ---
 
@@ -195,4 +196,3 @@ Any changes require explicit review and must occur in a later phase.
 ---
 
 **End of Document**
-
