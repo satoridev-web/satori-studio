@@ -54,7 +54,7 @@ This document is **read‑only planning**. It introduces **no changes**.
 | Asset type | Admin menu icon |
 | Required size | ~16px rendered |
 | Format | SVG |
-| Notes | Explicit SVG admin menu icon already defined; path-stable |
+| Notes | Path-stable SVG admin menu icon; optical variants live at `assets/branding/satori-studio-menu.svg` (SP) and `assets/branding/satori-studio-lite-menu.svg` (SL). Canonical SVG sources remain in `/docs/assets/studio-icons/`. |
 
 ---
 
