@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="SATORI Studio Lite canonical mark">
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="SATORI Studio Pro canonical mark">
   <path
     d="M0.210938,256.078125c0-68.695312,0-137.390625,0-206.085938c0.058008-0.146777,0.151172-0.290918,0.170508-0.442969c0.302344-2.436328,0.470215-4.897266,0.911426-7.307227
        c2.225391-12.16582,7.896094-22.333887,17.755664-29.97334c8.267871-6.407227,17.773242-9.839355,28.02041-11.421387c1.395703-0.215332,2.793164-0.423633,4.189746-0.635449
@@ -18,7 +18,7 @@
       <path d="M 0 0 H 92 V 18 H 0 Z M 0 61 H 92 V 79 H 0 Z M 0 122 H 92 V 140 H 0 Z M 0 0 H 18 V 70 H 0 Z M 74 70 H 92 V 140 H 74 Z"/>
     </g>
     <g transform="translate(140.9 79)">
-      <path d="M 0 0 H 15.3 V 119 H 0 Z M 0 103.7 H 78.2 V 119 H 0 Z"/>
+      <path d="M 0 0 H 15.3 V 119 H 0 Z M 0 0 H 78.2 V 15.3 H 0 Z M 0 51.85 H 78.2 V 67.15 H 0 Z M 62.9 0 H 78.2 V 59.5 H 62.9 Z"/>
     </g>
   </g>
 </svg>
