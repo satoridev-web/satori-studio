@@ -409,7 +409,10 @@ class Branding {
          * @return string
          */
         private function get_placeholder_brand_mark() {
-                return $this->environment->get_plugin_url() . 'assets/branding/satori-logo.svg';
+                $is_lite = defined( 'FL_BUILDER_LITE' ) && true === FL_BUILDER_LITE;
+                $file    = $is_lite ? 'satori-logo.svg' : 'satori-logo-pro.svg';
+
+                return $this->environment->get_plugin_url() . 'assets/branding/' . $file;
         }
 
         /**
