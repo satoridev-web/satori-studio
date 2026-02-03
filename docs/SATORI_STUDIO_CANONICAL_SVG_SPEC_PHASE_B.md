@@ -9,7 +9,7 @@
 
 ## 1. Purpose
 
-This specification defines the **canonical SVG construction rules** for the SATORI Studio icon marks used in Phase B documentation and reference assets. It encodes the locked geometry, colours, and typography parameters required for deterministic asset generation.
+This specification defines the **canonical SVG construction rules** for the SATORI Studio icon marks used in Phase B documentation and reference assets. It documents how the canonical assets are derived from the approved master SVG and the locked glyph geometry used for SL/SP variants.
 
 ---
 
@@ -19,73 +19,28 @@ This specification defines the **canonical SVG construction rules** for the SATO
 |---|---|
 | Canvas | 256 × 256 |
 | ViewBox | `0 0 256 256` |
-| Corner model | Asymmetric (top-left, bottom-right rounded) |
-| Corner radius | 22% of edge length (56.32 px) |
-| Border width | 4% of edge length (10.24 px) |
-| Font | Inter, Semibold (600), paths-only |
-| Letter scale | S = 100%, L/P = 85% |
-| Background | `#7A7A7A` |
-| Border | `#000000` |
-| Text | `#FFFFFF` |
+| Master source | `/docs/assets/studio-icons/satori-studio.master.svg` |
+| Frame fill | `#77787B` |
+| Panel fill | `#BEBEBE` |
+| Glyph fill | `#FFFFFF` |
+| Glyph construction | Paths-only, deterministic geometry (SL vs SP) |
 
 ---
 
-## 3. Derived Geometry Values
+## 3. Master-Derived Frame + Panel
 
-| Value | Formula | Result |
-|---|---|---|
-| Edge length | — | 256 |
-| Corner radius | 256 × 0.22 | 56.32 |
-| Border width | 256 × 0.04 | 10.24 |
-| Inner edge length | 256 − (2 × 10.24) | 235.52 |
-| Inner radius | 56.32 − 10.24 | 46.08 |
+The frame and panel geometry are copied from the approved master SVG and scaled to the 256 × 256 canvas with the scale baked into the path data. No additional transforms, stroke effects, or re-drawn geometry are introduced in the canonical assets.
 
 ---
 
-## 4. Canonical Shape Construction
-
-### 4.1 Outer Border Path
-
-The border uses the asymmetric corner model (top-left and bottom-right rounded). The outer border path is:
-
-```
-M 0 56.32
-A 56.32 56.32 0 0 1 56.32 0
-H 256
-V 199.68
-A 56.32 56.32 0 0 1 199.68 256
-H 0
-V 56.32
-Z
-```
-
-Fill: `#000000`
-
-### 4.2 Inner Fill Path
-
-Inset the border width on all sides and reduce the corner radius accordingly. The inner fill path is:
-
-```
-M 10.24 56.32
-A 46.08 46.08 0 0 1 56.32 10.24
-H 245.76
-V 199.68
-A 46.08 46.08 0 0 1 199.68 245.76
-H 10.24
-V 56.32
-Z
-```
-
-Fill: `#7A7A7A`
+## 4. Glyph Geometry (SL / SP)
 
 ---
-
-## 5. Canonical Letter Geometry
 
 The SL/SP letterforms are defined as **path-only shapes** derived from the Inter Semibold (600) letter proportions. Canonical construction uses rectangular segments (bars) so the resulting SVGs are deterministic and self-contained.
 Letterforms are custom geometric paths and are not derived from any system or web font. While SATORI UI typography uses Roboto, Studio iconography is intentionally font-independent.
 
-### 5.1 Base Letter Metrics (S)
+### 4.1 Base Letter Metrics (S)
 
 | Metric | Value |
 |---|---|
@@ -93,7 +48,7 @@ Letterforms are custom geometric paths and are not derived from any system or we
 | Width | 92 |
 | Stroke thickness | 18 |
 
-### 5.2 Scaled Letter Metrics (L/P)
+### 4.2 Scaled Letter Metrics (L/P)
 
 | Metric | Formula | Value |
 |---|---|---|
@@ -101,7 +56,7 @@ Letterforms are custom geometric paths and are not derived from any system or we
 | Width | 92 × 0.85 | 78.2 |
 | Stroke thickness | 18 × 0.85 | 15.3 |
 
-### 5.3 Letter Segment Definitions (Local Coordinates)
+### 4.3 Letter Segment Definitions (Local Coordinates)
 
 All coordinates below are relative to the letter’s local origin (top-left of its bounding box).
 
@@ -159,7 +114,7 @@ M 62.9 0 H 78.2 V 59.5 H 62.9 Z
 
 ---
 
-## 6. Letter Placement
+## 5. Letter Placement
 
 Letters are horizontally centred within the inner fill (235.52 × 235.52) and aligned to a shared baseline.
 
@@ -180,13 +135,13 @@ Placement rules:
 
 ---
 
-## 7. Canonical Asset Paths
+## 6. Canonical Asset Paths
 
 The canonical assets generated from this specification live in:
 
 ```
 /docs/assets/studio-icons/satori-studio-lite.canonical.svg
-/docs/assets/studio-icons/satori-studio-sp.canonical.svg
+/docs/assets/studio-icons/satori-studio-pro.canonical.svg
 ```
 
 Additional reference context for the canonical assets is documented at:
@@ -203,14 +158,14 @@ The specification itself is stored at:
 
 ---
 
-## 8. Validation Checklist
+## 7. Validation Checklist
 
 - Canvas is 256 × 256 with `viewBox="0 0 256 256"`.
-- Asymmetric corners are applied (top-left and bottom-right only).
-- Border width is 10.24 px and uses `#000000`.
-- Inner fill uses `#7A7A7A`.
+- Frame and panel paths are copied directly from the master SVG.
+- Frame uses `#77787B` and panel uses `#BEBEBE`.
+- Frame and panel paths do not use transforms (scale is baked into the path data).
 - Letter shapes are path-only and filled with `#FFFFFF`.
-- SL and SP assets use the canonical paths and coordinates defined above.
+- SL and SP assets use the canonical glyph paths and coordinates defined above.
 
 ---
 

@@ -17,7 +17,7 @@ This document enumerates the **canonical Studio SVG reference assets** for Phase
 | Asset | Path | Description |
 |---|---|---|
 | SL canonical mark | `/docs/assets/studio-icons/satori-studio-lite.canonical.svg` | S + L lettermark with canonical geometry |
-| SP canonical mark | `/docs/assets/studio-icons/satori-studio-sp.canonical.svg` | S + P lettermark with canonical geometry |
+| SP canonical mark | `/docs/assets/studio-icons/satori-studio-pro.canonical.svg` | S + P lettermark with canonical geometry |
 
 ---
 
@@ -43,7 +43,7 @@ The construction rules, geometry, and placement values for these assets are defi
 
 - Files live only under `docs/assets/studio-icons/`.
 - SVG dimensions are 256 × 256 with `viewBox="0 0 256 256"`.
-- Colours match the canonical palette: background `#7A7A7A`, border `#000000`, text `#FFFFFF`.
+- Colours match the canonical palette: frame `#77787B`, panel `#BEBEBE`, glyphs `#FFFFFF`.
 - Letter geometry matches the canonical spec (SL/SP).
 
 ---
