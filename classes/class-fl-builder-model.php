@@ -7337,7 +7337,10 @@ final class FLBuilderModel {
 			return FLBuilderWhiteLabel::get_branding_icon();
 		}
 
-		return FLBuilder::plugin_url() . 'assets/branding/satori-icon.svg';
+		$is_lite = defined( 'FL_BUILDER_LITE' ) && true === FL_BUILDER_LITE;
+		$file    = $is_lite ? 'satori-icon.svg' : 'satori-icon-pro.svg';
+
+		return FLBuilder::plugin_url() . 'assets/branding/' . $file;
 	}
 
 	/**
