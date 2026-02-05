@@ -208,7 +208,51 @@ All branding assets must:
 
 ---
 
-## 10. Definition of Done (Phase B-1)
+
+## 10. Canonical SVG Contract (Lock-In)
+
+The following SVG files are considered **canonical, hygiene-locked assets**:
+
+- satori-studio.master.svg
+- satori-studio-lite.canonical.svg
+- satori-studio-pro.canonical.svg
+
+These files have undergone a one-time hygiene audit to:
+- Remove Illustrator-export metadata
+- Normalize XML declarations
+- Ensure strict SVG/XML validity
+- Improve maintainability via inline annotations
+
+### Rules
+
+The following changes are **NOT permitted** on canonical SVGs:
+- Path geometry edits
+- Glyph replacement or reshaping
+- Scaling, viewBox, or coordinate changes
+- Colour, fill, stroke, or opacity changes
+- Transform additions
+- Re-exporting from Illustrator or other tools
+
+The following changes **ARE permitted**:
+- Comment-only annotations
+- Whitespace or formatting normalization
+- XML declaration fixes (non-rendering)
+- Metadata removal that does not affect rendering
+
+Any visual or geometric change requires:
+1. Updating the Illustrator source
+2. Re-exporting ALL related variants
+3. A new hygiene + verification pass
+4. Explicit approval as a breaking visual change
+
+### Close-Out Status
+
+The canonical SVG hygiene work for Phase B is **complete** and this contract is authoritative.
+No further SVG changes are required for Phase B unless treated as an explicit breaking visual change under the rules above.
+
+---
+
+## 11. Definition of Done (Phase B-1)
 
 Phase B-1 is complete when:
 - Asset categories are fully enumerated
@@ -218,7 +262,7 @@ Phase B-1 is complete when:
 
 ---
 
-## 11. Related Phase B Documents
+## 12. Related Phase B Documents
 
 - Phase B Branding Touchpoint Audit
 - Phase B Asset → File Path Mapping (next)

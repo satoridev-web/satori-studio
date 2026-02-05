@@ -116,6 +116,8 @@ Examples of overrides:
 Without such explicit instructions:
 **Codex MUST adhere strictly to SATORI SOPs.**
 
+Canonical SVGs are hygiene-locked and must be treated as immutable artefacts.
+
 ---
 
 # 5. Future Expansion
