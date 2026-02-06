@@ -49,7 +49,7 @@ This document is **read‑only planning**. It introduces **no changes**.
 
 | Item | Value |
 |-----|------|
-| Current file path | assets/branding/satori-menu-icon.svg |
+| Current file path | assets/branding/satori-icon.svg (alias of docs/assets/studio-icons/satori-studio-lite.canonical.svg) |
 | Referenced by | add_menu_page() in src/Core/Admin.php |
 | Asset type | Admin menu icon |
 | Required size | ~16px rendered |
