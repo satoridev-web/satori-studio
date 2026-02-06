@@ -8,7 +8,7 @@
 
 ## 1. Purpose
 
-This document enumerates the **canonical Studio SVG reference assets** for Phase B. These files define what “correct” looks like for downstream work and **must not be used as runtime assets**. They are stored under `docs/` for reference only.
+This document enumerates the **canonical Studio SVG source assets** for Phase B. These files define what “correct” looks like for downstream work and are the source for runtime Studio icon copies.
 
 ---
 
@@ -33,15 +33,18 @@ The construction rules, geometry, and placement values for these assets are defi
 
 ## 4. Reference-Only Rules
 
-- Do **not** copy these assets into runtime paths.
-- Do **not** replace plugin or admin icons with these assets.
-- Use these files exclusively for visual verification and future asset generation.
+- Canonical files are stored in `docs/assets/studio-icons/` and are the locked source of truth.
+- Runtime files `assets/branding/satori-icon.svg` (Lite) and `assets/branding/satori-icon-pro.svg` (Pro) must be verbatim copies of the matching canonical SVGs.
+- Do **not** edit runtime icon files directly; make changes in canonical sources first, then copy forward.
+- Geometry edits are only allowed through canonical source updates.
 
 ---
 
 ## 5. Quick Verification Checklist
 
-- Files live only under `docs/assets/studio-icons/`.
+- Canonical files live under `docs/assets/studio-icons/`.
+- Runtime icon files match canonical sources byte-for-byte.
+- Canonical and runtime icon files do not include Illustrator/tool metadata comments.
 - SVG dimensions are 256 × 256 with `viewBox="0 0 256 256"`.
 - Colours match the canonical palette: frame `#77787B`, panel `#BEBEBE`, glyphs `#FFFFFF`.
 - Letter geometry matches the canonical spec (SL/SP).
