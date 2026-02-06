@@ -20,5 +20,6 @@ Runtime source-of-truth notes:
 Menu icon notes:
 - Studio Lite and Pro branding are SVG-only for runtime usage.
 - `satori-logo.svg` and `satori-logo-pro.svg` mirror the canonical Lite/Pro marks for admin branding placeholders.
-- `satori-menu-icon.svg` is the WordPress admin menu optical SVG derived from the master geometry and baked for menu sizing.
+- WordPress admin menu icon uses `assets/branding/satori-icon.svg`, which must remain a byte-identical alias of `docs/assets/studio-icons/satori-studio-lite.canonical.svg`.
+- `satori-menu-icon.svg` is legacy and not used by active admin menu registration.
 - PNG assets are intentionally not used for Studio Lite runtime branding.
