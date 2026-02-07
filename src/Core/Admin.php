@@ -187,27 +187,27 @@ class Admin {
                 $this->global_settings->set_capability( $capability );
                 $this->branding->set_capability( $capability );
 
-               global $admin_page_hooks;
+                global $admin_page_hooks;
 
                 if ( ! isset( $admin_page_hooks[ $settings_slug ] ) ) {
-                       add_menu_page(
-                               __( 'SATORI Studio Settings', 'satori-studio' ),
-                               __( 'SATORI Studio', 'satori-studio' ),
-                               $capability,
-                               $settings_slug,
-                               array( '\\FLBuilderAdminSettings', 'render' ),
-                               $this->environment->get_plugin_url() . 'assets/branding/satori-icon.svg'
-                       );
+                        add_menu_page(
+                                __( 'SATORI Studio Settings', 'satori-studio' ),
+                                __( 'SATORI Studio', 'satori-studio' ),
+                                $capability,
+                                $settings_slug,
+                                array( '\\FLBuilderAdminSettings', 'render' ),
+                                $this->environment->get_plugin_url() . 'assets/branding/admin/satori-admin-menu-icon.svg'
+                        );
                 }
 
-               add_submenu_page(
-                       $settings_slug,
-                       __( 'SATORI Studio Settings', 'satori-studio' ),
-                       __( 'SATORI Studio', 'satori-studio' ),
-                       $capability,
-                       $settings_slug,
-                       array( '\\FLBuilderAdminSettings', 'render' )
-               );
+                add_submenu_page(
+                        $settings_slug,
+                        __( 'SATORI Studio Settings', 'satori-studio' ),
+                        __( 'SATORI Studio', 'satori-studio' ),
+                        $capability,
+                        $settings_slug,
+                        array( '\\FLBuilderAdminSettings', 'render' )
+                );
         }
 
         /**
