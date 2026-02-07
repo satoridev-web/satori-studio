@@ -49,12 +49,12 @@ This document is **read‑only planning**. It introduces **no changes**.
 
 | Item | Value |
 |-----|------|
-| Current file path | assets/branding/satori-icon.svg (alias of docs/assets/studio-icons/satori-studio-lite.canonical.svg) |
+| Current file path | assets/branding/admin/satori-admin-menu-icon.svg (thin admin wrapper referencing assets/branding/satori-icon.svg canonical alias) |
 | Referenced by | add_menu_page() in src/Core/Admin.php |
 | Asset type | Admin menu icon |
 | Required size | ~16px rendered |
 | Format | SVG |
-| Notes | Path-stable SVG admin menu icon derived from the master geometry. Canonical SVG sources remain in `/docs/assets/studio-icons/`. |
+| Notes | Admin menu icon is a dedicated WordPress wrapper that preserves canonical geometry while using admin-specific framing for ~20px rendering. Canonical SVG sources remain in `/docs/assets/studio-icons/`. |
 
 ---
 

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" role="img" aria-label="SATORI Studio admin menu icon">
+  <!--
+    Admin wrapper for WordPress menu rendering.
+    Canonical geometry remains in ../satori-icon.svg.
+    This wrapper only frames the canonical icon at 18x18 within the 20x20 admin slot.
+  -->
+  <image x="1" y="1" width="18" height="18" xlink:href="../satori-icon.svg" href="../satori-icon.svg" preserveAspectRatio="xMidYMid meet"/>
+</svg>

@@ -7,7 +7,7 @@ Included files:
 - satori-logo-pro.svg
 - satori-icon.svg
 - satori-icon-pro.svg
-- satori-menu-icon.svg
+- admin/satori-admin-menu-icon.svg
 
 Runtime source-of-truth notes:
 - Canonical source files live in `docs/assets/studio-icons/`.
@@ -20,6 +20,6 @@ Runtime source-of-truth notes:
 Menu icon notes:
 - Studio Lite and Pro branding are SVG-only for runtime usage.
 - `satori-logo.svg` and `satori-logo-pro.svg` mirror the canonical Lite/Pro marks for admin branding placeholders.
-- WordPress admin menu icon uses `assets/branding/satori-icon.svg`, which must remain a byte-identical alias of `docs/assets/studio-icons/satori-studio-lite.canonical.svg`.
-- `satori-menu-icon.svg` is legacy and not used by active admin menu registration.
-- PNG assets are intentionally not used for Studio Lite runtime branding.
+- WordPress admin menu icon uses `assets/branding/admin/satori-admin-menu-icon.svg`.
+- The admin icon is a thin framing wrapper that references canonical geometry from `assets/branding/satori-icon.svg`; only viewport framing changes for WordPress admin menu optics.
+- No CSS scaling or runtime icon mutation is used for admin menu sizing.
