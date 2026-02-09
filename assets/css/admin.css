@@ -480,7 +480,9 @@ body.satori-studio-admin.fl-builder_page_fl-builder-settings .wrap .icon32 {
   background-size: 24px 24px;
 }
 
+/* SATORI Studio — settings header icon spacing */
 body.satori-studio-admin.toplevel_page_fl-builder-settings .fl-settings-heading > img,
 body.satori-studio-admin.fl-builder_page_fl-builder-settings .fl-settings-heading > img {
-  margin-right: 6px;
+  margin-right: 12px;
 }
+
