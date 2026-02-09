@@ -196,7 +196,7 @@ class Admin {
                                 $capability,
                                 $settings_slug,
                                 array( '\\FLBuilderAdminSettings', 'render' ),
-                                $this->environment->get_plugin_url() . 'assets/branding/admin/satori-admin-menu-icon.svg'
+                                'none'
                         );
                 }
 

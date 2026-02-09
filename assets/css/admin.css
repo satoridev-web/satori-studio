@@ -453,3 +453,29 @@ body.satori-studio-admin .satori-admin-branding__hint {
   margin-top: var(--satori-spacing-xs, 4px);
   color: var(--satori-color-neutral-600, #4b5563);
 }
+
+
+/* -------------------------------------------------
+ * SATORI Studio — wp-admin icon wiring
+ * -------------------------------------------------*/
+body.satori-studio-admin #adminmenu #toplevel_page_fl-builder-settings .wp-menu-image {
+  background-image: url("../branding/satori-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+}
+
+body.satori-studio-admin #adminmenu #toplevel_page_fl-builder-settings .wp-menu-image::before {
+  content: "";
+}
+
+body.satori-studio-admin.toplevel_page_fl-builder-settings .wrap .icon32,
+body.satori-studio-admin.fl-builder_page_fl-builder-settings .wrap .icon32 {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px 0 0;
+  background-image: url("../branding/satori-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+}
