@@ -109,17 +109,11 @@ class Admin {
         }
 
         /**
-         * Enqueue admin token stylesheet on SATORI Studio screens.
+         * Enqueue admin stylesheet for wp-admin contexts.
          *
          * @return void
          */
         public function enqueue_admin_tokens() {
-                $screen = $this->get_current_screen();
-
-                if ( ! $this->is_satori_screen( $screen ) ) {
-                        return;
-                }
-
                 wp_enqueue_style(
                         'satori-studio-admin',
                         $this->environment->get_plugin_url() . 'assets/css/admin.css',
@@ -196,7 +190,7 @@ class Admin {
                                 $capability,
                                 $settings_slug,
                                 array( '\\FLBuilderAdminSettings', 'render' ),
-                                'none'
+                                $this->get_admin_menu_icon_data_uri()
                         );
                 }
 
@@ -208,6 +202,28 @@ class Admin {
                         $settings_slug,
                         array( '\\FLBuilderAdminSettings', 'render' )
                 );
+        }
+
+
+        /**
+         * Build a deterministic inline SVG data URI for the wp-admin menu icon.
+         *
+         * @return string
+         */
+        private function get_admin_menu_icon_data_uri() {
+                $icon_path = $this->environment->get_plugin_dir() . 'assets/branding/satori-icon.svg';
+
+                if ( ! file_exists( $icon_path ) || ! is_readable( $icon_path ) ) {
+                        return 'dashicons-admin-generic';
+                }
+
+                $svg = file_get_contents( $icon_path );
+
+                if ( false === $svg || '' === $svg ) {
+                        return 'dashicons-admin-generic';
+                }
+
+                return 'data:image/svg+xml;base64,' . base64_encode( $svg );
         }
 
         /**
