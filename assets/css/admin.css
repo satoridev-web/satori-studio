@@ -456,10 +456,11 @@ body.satori-studio-admin .satori-admin-branding__hint {
 
 
 /* -------------------------------------------------
- * SATORI Studio — wp-admin icon wiring
+ * SATORI Studio — wp-admin icon override
  * -------------------------------------------------*/
 #adminmenu #toplevel_page_fl-builder-settings .wp-menu-image {
-  background-image: url("../branding/satori-menu-icon.svg");
+  background-image: none !important;
+  background-image: url("../branding/satori-menu-icon.svg") !important;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 18px 18px;
