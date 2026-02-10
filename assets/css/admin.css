@@ -455,9 +455,9 @@ body.satori-studio-admin .satori-admin-branding__hint {
 }
 
 
-/* -------------------------------------------------
- * SATORI Studio — wp-admin icon override
- * -------------------------------------------------*/
+/* SATORI Studio — admin sidebar menu icon override
+   Neutralise WordPress inline SVG background-image
+   and inject the canonical SVG with explicit sizing */
 #adminmenu #toplevel_page_fl-builder-settings .wp-menu-image {
   background-image: none !important;
   background-image: url("../branding/satori-menu-icon.svg") !important;
@@ -468,10 +468,6 @@ body.satori-studio-admin .satori-admin-branding__hint {
 
 #adminmenu #toplevel_page_fl-builder-settings .wp-menu-image img {
   display: none;
-}
-
-#adminmenu #toplevel_page_fl-builder-settings .wp-menu-image::before {
-  content: "";
 }
 
 body.satori-studio-admin.toplevel_page_fl-builder-settings .wrap .icon32,
