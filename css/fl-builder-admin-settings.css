@@ -191,117 +191,57 @@ body .ms-options-wrap > .ms-options > ul input[type="checkbox"] {
 /* Welcome Page
 ----------------------------------------------------------- */
 
-#fl-welcome-form {
+body.satori-studio-admin #fl-welcome-form,
+body.settings_page_fl-builder-settings #fl-welcome-form {
 	max-width: none;
 }
-.fl-welcome-page-content {
+body.satori-studio-admin .fl-welcome-page-content,
+body.settings_page_fl-builder-settings .fl-welcome-page-content {
 	max-width: 880px;
 }
-.fl-welcome-page-content p.welcome-intro {
+body.satori-studio-admin .fl-welcome-page-content p.welcome-intro,
+body.settings_page_fl-builder-settings .fl-welcome-page-content p.welcome-intro {
 	margin-bottom: 0;
 }
-.fl-upgrade-page-content ul,
-.fl-welcome-page-content ul {
-	list-style-type: disc;
-	margin: 15px 0 20px 35px;
-}
-.fl-welcome-page-content hr {
+body.satori-studio-admin .fl-welcome-page-content hr,
+body.settings_page_fl-builder-settings .fl-welcome-page-content hr {
 	clear: both;
 	margin: 20px 0 5px;
 }
-.fl-welcome-page-content .fl-welcome-col-wrap {
-	clear:both;
-	border: 1px solid #E9E9E9;
-  	margin-top: 50px;
-  	padding: 50px 40px 30px 40px;
-  	position: relative;
-  	box-shadow: 0 2px 4px 0 rgba(10,29,66,0.07);
+body.satori-studio-admin .settings-welcome-section,
+body.settings_page_fl-builder-settings .settings-welcome-section {
+	clear: both;
+	border: 1px solid #e9e9e9;
+	margin-top: 32px;
+	padding: 30px;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(10, 29, 66, 0.07);
+	background: #fff;
 }
-.fl-welcome-col-wrap.divider::after {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  content: "";
-  background: #E9E9E9;
-  width: 1px;
-  height: 75%;
+body.satori-studio-admin .settings-welcome-section h2,
+body.settings_page_fl-builder-settings .settings-welcome-section h2 {
+	position: static;
+	background: none;
+	width: auto;
+	margin: 0 0 12px;
+	padding: 0;
+	color: #1d2327;
+	font-size: 20px;
+	font-weight: 600;
+	text-transform: none;
 }
-.fl-welcome-page-content .fl-welcome-col {
-	box-sizing: border-box;
-	display: inline-block;
-	width: 49.7%;
-	vertical-align: text-top;
+body.satori-studio-admin .settings-welcome-section p,
+body.settings_page_fl-builder-settings .settings-welcome-section p {
+	margin: 0 0 12px;
 }
-.fl-welcome-page-content .fl-welcome-col:first-child {
-	padding-right: 30px;
+body.satori-studio-admin .settings-welcome-section p:last-child,
+body.settings_page_fl-builder-settings .settings-welcome-section p:last-child {
+	margin-bottom: 0;
 }
-.fl-welcome-page-content .fl-welcome-col:last-child {
-	padding-left: 30px;
-}
-.fl-welcome-page-content .divider .fl-welcome-col:nth-child(2) {
-  padding-right: 30px;
-}
-.fl-welcome-col-wrap h2 {
-  background: url(../img/svg/col-wrap-h2.svg) center center no-repeat;
-  width: 260px;
-  position: absolute;
-  top: -30px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 7px 0;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
-  text-align: center;
-  text-transform: uppercase;
-}
-.fl-welcome-col-wrap h3 {
-	line-height: 1.3;
-	margin: 0 0 1em 0;
-}
-.fl-welcome-col-wrap h3.centered {
-	text-align: center;
-}
-.fl-welcome-page-content .fl-welcome-big-link {
+body.satori-studio-admin .fl-welcome-page-content .fl-welcome-big-link,
+body.settings_page_fl-builder-settings .fl-welcome-page-content .fl-welcome-big-link {
 	font-weight: 600;
 	font-size: 14px;
-}
-.fl-welcome-col ul {
-    margin: 0 0 0 26px;
-}
-.fl-welcome-col ul li.dashicons-before {
-  list-style: none;
-
-}
-.fl-welcome-col ul li.dashicons-before::before {
-  color: #73DF99;
-  font-size: 17px;
-  margin: 0 5px 0 -26px;
-}
-.fl-welcome-page-content .fl-welcome-img {
-	max-width: 100%;
-	display: inline-block;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
-}
-.fl-welcome-page-content a.fl-button {
-  background: #ee521f;
-  color: #fff;
-  border-radius: 4px;
-  display: block;
-  margin: 30px 0 10px 0;
-  padding: 10px 20px;
-  font-weight: bold;
-  text-align: center;
-  width: 160px;
-  transition: 0.2s ease-in-out;
-}
-.fl-welcome-page-content a.fl-button.centered {
-  margin: 30px auto 10px auto;
-}
-.fl-welcome-page-content a.fl-button:hover {
-  background: #197596;
 }
 
 @media(min-width:1540px) {
