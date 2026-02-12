@@ -7,8 +7,6 @@
 
 	<div class="fl-settings-form-content fl-welcome-page-content">
 
-		<p class="welcome-intro"><?php esc_html_e( 'Thank you for choosing SATORI Studio and welcome to the colony! Find helpful information below. To the left are the SATORI Studio settings options.', 'satori-studio' ); ?></p>
-
 		<div class="fl-welcome-col-wrap settings-welcome-section">
 			<h2><?php esc_html_e( 'Getting Started', 'satori-studio' ); ?></h2>
 
@@ -20,15 +18,13 @@
 		<div class="fl-welcome-col-wrap settings-welcome-section">
 			<h2><?php esc_html_e( 'Support & Documentation', 'satori-studio' ); ?></h2>
 
-			<p><?php esc_html_e( 'SATORI Studio – Lite is a curated fork of Beaver Builder Lite. Core builder documentation is available via the official Beaver Builder website (GPL upstream references).', 'satori-studio' ); ?></p>
+			<p><?php esc_html_e( 'SATORI Studio – Lite is a curated fork of Beaver Builder Lite. Core builder documentation is available via the official', 'satori-studio' ); ?> <a href="https://docs.wpbeaverbuilder.com/beaver-builder/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Beaver Builder documentation', 'satori-studio' ); ?></a>.</p>
 
 			<p><?php esc_html_e( 'For SATORI Studio-specific guidance, commercial extensions, and workflow documentation, please visit:', 'satori-studio' ); ?></p>
 
 			<p><a href="https://satori.com.au" target="_blank" rel="noopener noreferrer">https://satori.com.au</a></p>
 
 			<p><?php esc_html_e( 'For direct assistance, email:', 'satori-studio' ); ?> <a href="mailto:contact@satori.com.au">contact@satori.com.au</a></p>
-
-			<p><?php esc_html_e( 'Official Beaver Builder documentation:', 'satori-studio' ); ?> <a href="https://www.wpbeaverbuilder.com/docs/" target="_blank" rel="noopener noreferrer">https://www.wpbeaverbuilder.com/docs/</a></p>
 		</div>
 
 		<hr />
