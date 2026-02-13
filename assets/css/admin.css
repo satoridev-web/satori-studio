@@ -37,7 +37,7 @@ body.satori-studio-admin {
 /* -------------------------------------------------
  * Welcome Screen Header Spacing Adjustment
  * -------------------------------------------------*/
-body.satori-studio-admin .fl-settings-form-header {
+body.satori-studio-admin #fl-welcome-form .fl-settings-form-header {
   margin: 35px 25px 20px 25px;
   padding: 0;
 }
