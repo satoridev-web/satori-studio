@@ -12,7 +12,11 @@
 
 			<p><?php esc_html_e( 'To begin building with SATORI Studio, create a new page and click the "Launch SATORI Studio" button.', 'satori-studio' ); ?></p>
 
-			<p><?php esc_html_e( 'Pages → Add New', 'satori-studio' ); ?></p>
+			<p>
+				<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=page' ) ); ?>">
+					<?php echo esc_html__( 'Pages → Add New', 'satori-studio' ); ?>
+				</a>
+			</p>
 		</div>
 
 		<div class="fl-welcome-col-wrap settings-welcome-section">
