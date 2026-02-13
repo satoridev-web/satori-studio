@@ -227,11 +227,6 @@ body.satori-studio-admin .settings-welcome-section p {
 body.satori-studio-admin .settings-welcome-section p:last-child {
 	margin-bottom: 0;
 }
-body.satori-studio-admin .fl-welcome-page-content .fl-welcome-big-link {
-	font-weight: 600;
-	font-size: 14px;
-}
-
 .curl-alert {
 	padding: 16px 25px 16px 20px;
 	background-color: #fde8e8;
