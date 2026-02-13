@@ -34,6 +34,14 @@ body.satori-studio-admin {
 /* -------------------------------------------------
  * SATORI Studio — Global Settings form tweaks
  * -------------------------------------------------*/
+/* -------------------------------------------------
+ * Welcome Screen Header Spacing Adjustment
+ * -------------------------------------------------*/
+body.satori-studio-admin .fl-settings-form-header {
+  margin: 35px 25px 20px 25px;
+  padding: 0;
+}
+
 body.satori-studio-admin .satori-global-settings.fl-settings-form {
   max-width: 760px;
   width: 100%;
