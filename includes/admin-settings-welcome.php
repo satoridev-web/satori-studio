@@ -27,8 +27,6 @@
 			<p><?php esc_html_e( 'For direct assistance, email:', 'satori-studio' ); ?> <a href="mailto:contact@satori.com.au">contact@satori.com.au</a></p>
 		</div>
 
-		<hr />
-
 		<div class="fl-welcome-col-wrap settings-welcome-section settings-welcome-about">
 			<h2><?php esc_html_e( 'About SATORI Studio', 'satori-studio' ); ?></h2>
 
