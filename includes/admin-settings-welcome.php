@@ -14,7 +14,7 @@
 
 			<p>
 				<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=page' ) ); ?>">
-					Pages → Add New
+					<?php echo esc_html__( 'Pages → Add New', 'satori-studio' ); ?>
 				</a>
 			</p>
 		</div>
