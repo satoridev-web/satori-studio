@@ -1,6 +1,27 @@
 
 # SATORI STUDIO — MASTER DEVELOPMENT ROADMAP (v1.0)
 
+
+## Product Layering Strategy
+
+### Layer 1 — Open Core
+- WordPress
+- Beaver Builder Lite (forked as SATORI Studio – Lite)
+
+### Layer 2 — Curated Platform
+- SATORI governance
+- Stabilisation
+- Branding
+- Admin UX refinement
+
+### Layer 3 — Commercial Extensions (SSP)
+- Advanced modules
+- Licensing layer
+- Update server
+- Advanced forms
+- CRM integrations
+- Enterprise workflow tools
+
 ## Phase 1C — Module/Feature Pruning Audit (Outcome)
 - `docs/SATORI-MODULE-AUDIT-PHASE-1C.md` created with module and admin feature inventory plus recommendations.
 - Legacy Beaver Builder upsell surfaces (upgrade/license screens, Themer/Assistant promos, builder upgrade CTAs) are soft-hidden behind new SATORI feature flags.
