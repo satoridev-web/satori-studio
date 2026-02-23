@@ -23,6 +23,37 @@ require_once __DIR__ . '/src/autoload.php';
 
 \Satori_Studio\Core\Plugin::init( __FILE__ );
 
+register_activation_hook(
+	__FILE__,
+	function() {
+		if ( ! is_network_admin() ) {
+			add_option( 'satori_studio_do_activation_redirect', true );
+		}
+	}
+);
+
+add_action(
+	'admin_init',
+	function() {
+		if ( ! get_option( 'satori_studio_do_activation_redirect' ) ) {
+			return;
+		}
+
+		delete_option( 'satori_studio_do_activation_redirect' );
+
+		if ( isset( $_GET['activate-multi'] ) ) {
+			return;
+		}
+
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			return;
+		}
+
+		wp_safe_redirect( admin_url( 'admin.php?page=fl-builder-settings' ) );
+		exit;
+	}
+);
+
 /* -------------------------------------------------
  * Core helper API — bootstrap + service accessors
  * -------------------------------------------------*/
