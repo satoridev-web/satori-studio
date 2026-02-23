@@ -40,6 +40,7 @@ add_action(
 		}
 
 		if ( isset( $_GET['activate-multi'] ) ) {
+			delete_option( 'satori_studio_do_activation_redirect' );
 			return;
 		}
 
