@@ -39,8 +39,6 @@ add_action(
 			return;
 		}
 
-		delete_option( 'satori_studio_do_activation_redirect' );
-
 		if ( isset( $_GET['activate-multi'] ) ) {
 			return;
 		}
@@ -48,6 +46,16 @@ add_action(
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			return;
 		}
+
+		if ( wp_doing_ajax() ) {
+			return;
+		}
+
+		if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+			return;
+		}
+
+		delete_option( 'satori_studio_do_activation_redirect' );
 
 		wp_safe_redirect( admin_url( 'admin.php?page=fl-builder-settings' ) );
 		exit;
