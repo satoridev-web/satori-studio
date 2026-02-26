@@ -2,6 +2,19 @@
 
 SATORI Studio – Lite is a GPL-licensed fork of Beaver Builder Lite.
 
+## Project Status
+
+**Version:** 1.0.0-MVP<br>
+**Phase:** Phase A – Stabilised Lite Core
+
+SATORI Studio – Lite is a curated GPL fork of Beaver Builder Lite.
+
+This version represents a stabilised, production-ready foundation
+with deterministic admin behaviour, refined branding, and clarified
+governance boundaries.
+
+Future development will occur in the SATORI Studio – Pro layer.
+
 ## Project Foundation
 
 - The core builder engine originates from Beaver Builder Lite.
