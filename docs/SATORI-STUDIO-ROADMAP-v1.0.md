@@ -80,3 +80,16 @@
 
 ---
 Generated for internal planning and colleague distribution.
+
+## Phase A Status: Complete
+
+Phase A focused on:
+
+- Fork stabilisation
+- Branding normalisation
+- Admin UX refinement
+- Activation flow hardening
+- Documentation alignment
+
+Status: CLOSED<br>
+Baseline: v1.0.0-MVP
